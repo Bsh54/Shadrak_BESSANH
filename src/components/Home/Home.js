@@ -57,16 +57,6 @@ function Home() {
                 <Type />
               </div>
 
-              <p style={{
-                fontSize: "1.1rem",
-                color: "#3F3F46",
-                lineHeight: "1.8",
-                maxWidth: "600px",
-                marginBottom: "40px"
-              }}>
-                Développeur passionné par l'IA et le Machine Learning, je transforme des idées en solutions intelligentes et évolutives.
-              </p>
-
               <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
                 <a
                   href="#about"
