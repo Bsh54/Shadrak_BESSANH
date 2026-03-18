@@ -1,5 +1,16 @@
+* {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600;
+}
+
 .App {
   text-align: center;
+  background-color: #FAFAFA;
+  color: #09090B;
 }
 
 .App-logo {
@@ -14,18 +25,18 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #FAFAFA;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #09090B;
 }
 
 .App-link {
-  color: #61dafb;
+  color: #2563EB;
 }
 
 @keyframes App-logo-spin {
