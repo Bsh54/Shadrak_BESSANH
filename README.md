@@ -1,9 +1,10 @@
 <h2 align="center">
-  Portfolio Website - v2.0<br/>
-  <a href="https://soumyajit.vercel.app/" target="_blank">soumyajit.tech</a>
+  Portfolio BESSANH Shadrak<br/>
+  Développeur IA & Full-Stack
 </h2>
+
 <div align="center">
-  <img alt="Demo" src="./Images/readme-img1.png" />
+  <img alt="Portfolio Preview" src="./Images/readme-img1.png" />
 </div>
 
 <br/>
@@ -12,65 +13,92 @@
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) &nbsp;
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com) &nbsp;
-[![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com) &nbsp;
-![GitHub Repo stars](https://img.shields.io/github/stars/soumyajit4419/Portfolio?color=red&logo=github&style=for-the-badge) &nbsp;
-![GitHub forks](https://img.shields.io/github/forks/soumyajit4419/Portfolio?color=red&logo=github&style=for-the-badge)
+[![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
 
 </center>
 
-<h3 align="center">
-    🔹
-    <a href="https://github.com/soumyajit4419/Portfolio/issues">Report Bug</a> &nbsp; &nbsp;
-    🔹
-    <a href="https://github.com/soumyajit4419/Portfolio/issues">Request Feature</a>
-</h3>
+## 👨‍💻 À propos
 
-## TL;DR
+Portfolio personnel de BESSANH Shadrak, Développeur Logiciel et Développeur IA passionné par la transformation d'idées en solutions intelligentes et évolutives.
 
-You can fork this repo to modify and make changes of your own. Please give me proper credit by linking back to [Soumyajit4419](https://github.com/soumyajit4419/Portfolio). Thanks!
+## 🚀 Technologies utilisées
 
-## Built With
+Ce portfolio a été développé avec les technologies suivantes :
 
-My personal portfolio <a href="https://soumyajit.vercel.app/" target="_blank">soumyajit.tech</a> which features some of my github projects as well as my resume and technical skills.<br/>
+- **React.js** - Framework JavaScript pour l'interface utilisateur
+- **Node.js** - Environnement d'exécution JavaScript
+- **React Bootstrap** - Framework CSS pour le design responsive
+- **React Icons** - Bibliothèque d'icônes
+- **React Particles** - Effets de particules animées
+- **Typewriter Effect** - Animation de texte dynamique
+- **GitHub Calendar** - Visualisation des contributions GitHub
 
-This project was built using these technologies.
+## ✨ Fonctionnalités
 
-- React.js
-- Node.js
-- Express.js
-- CSS3
-- VsCode
-- Vercel
+- **🎨 Design lumineux et moderne** - Interface claire avec palette de couleurs bleues (#2563EB)
+- **📱 Entièrement responsive** - Adapté à tous les écrans (mobile, tablette, desktop)
+- **⚡ Animations fluides** - Transitions et effets subtils pour une expérience agréable
+- **🔗 Section contact interactive** - Liens directs vers GitHub, LinkedIn, Email et WhatsApp
+- **💼 Projets en vedette** - Présentation de 6 projets IA/ML avec démos et code source
+- **🛠️ Stack technique** - Affichage des compétences et outils maîtrisés
+- **📊 Activité GitHub** - Calendrier de contributions en temps réel
 
-## Features
+## 📦 Installation et configuration
 
-**📖 Multi-Page Layout**
+### Prérequis
 
-**🎨 Styled with React-Bootstrap and Css with easy to customize colors**
+- Node.js (v14 ou supérieur)
+- npm ou yarn
+- Git
 
-**📱 Fully Responsive**
+### Installation
 
-## Getting Started
+1. Cloner le repository :
+```bash
+git clone https://github.com/Bsh54/Shadrak_BESSANH.git
+cd Shadrak_BESSANH
+```
 
-Clone down this repository. You will need `node.js` and `git` installed globally on your machine.
+2. Installer les dépendances :
+```bash
+npm install
+```
 
-## 🛠 Installation and Setup Instructions
+3. Lancer le serveur de développement :
+```bash
+npm start
+```
 
-1. Installation: `npm install`
+Le site sera accessible sur [http://localhost:3000](http://localhost:3000)
 
-2. In the project directory, you can run: `npm start`
+## 📝 Personnalisation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-The page will reload if you make edits.
+Pour personnaliser ce portfolio :
 
-## Usage Instructions
+1. **Informations personnelles** : Modifier `/src/components/Home/`
+2. **Projets** : Éditer `/src/components/Projects/Projects.js`
+3. **Compétences** : Mettre à jour `/src/components/About/Techstack.js` et `Toolstack.js`
+4. **Couleurs** : Ajuster les variables CSS dans `/src/style.css`
+5. **Images** : Remplacer les fichiers dans `/src/Assets/`
 
-Open the project folder and Navigate to `/src/components/`. <br/>
-You will find all the components used and you can edit your information accordingly.
+## 📫 Contact
 
-### Show your support
+- **GitHub** : [@Bsh54](https://github.com/Bsh54/)
+- **LinkedIn** : [BESSANH Shadrak](https://www.linkedin.com/in/bessanh-shadrak-744049287/)
+- **Email** : shadrakbsh@gmail.com
+- **WhatsApp** : +229 01 97 42 65 400
 
-Give a ⭐ if you like this website!
+## 🙏 Crédits
 
-<a href="https://www.buymeacoffee.com/soumyajit4419" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="Buy Me A Coffee" height= "60px" width= "217px" ></a>
+Template original par [Soumyajit Behera](https://github.com/soumyajit4419/Portfolio)
+Personnalisé et adapté par BESSANH Shadrak
+
+## ⭐ Support
+
+Si vous aimez ce portfolio, n'hésitez pas à mettre une étoile ⭐ sur le repository !
+
+---
+
+<p align="center">
+  Développé avec ❤️ par BESSANH Shadrak
+</p>
