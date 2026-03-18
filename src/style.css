@@ -43,10 +43,13 @@ button:focus {
   background-image: url(./Assets/pre.svg);
   background-repeat: no-repeat;
   background-position: center;
+  pointer-events: none;
 }
 
 #preloader-none {
   opacity: 0;
+  pointer-events: none;
+  display: none;
 }
 
 /* #preloader-none {
@@ -379,6 +382,8 @@ button:focus {
   background: rgba(255, 255, 255, 0.1) !important;
   border-radius: 50% !important;
   transition: 0.3s !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
 }
 
 .home-social-icons::before {
@@ -393,6 +398,7 @@ button:focus {
   transition: 0.3s;
   transform: scale(0.9);
   z-index: -1;
+  pointer-events: none !important;
 }
 
 .home-social-icons:hover::before {

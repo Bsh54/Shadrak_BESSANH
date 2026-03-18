@@ -5,6 +5,7 @@ function Particle() {
   return (
     <Particles
       id="tsparticles"
+      style={{ pointerEvents: "none" }}
       params={{
         particles: {
           number: {
@@ -36,7 +37,7 @@ function Particle() {
         interactivity: {
           events: {
             onclick: {
-              enable: true,
+              enable: false,
               mode: "push",
             },
           },
