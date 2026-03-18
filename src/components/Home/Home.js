@@ -79,78 +79,86 @@ function Home() {
               <p style={{ fontSize: "1.3em", paddingBottom: "40px" }}>
                 N'hésitez pas à me contacter pour toute collaboration ou opportunité
               </p>
-              <ul className="home-about-social-links">
-                <li className="social-icons">
+              <ul className="home-about-social-links" style={{ display: "flex", gap: "30px", justifyContent: "center", flexWrap: "wrap" }}>
+                <li className="social-icons" style={{ listStyle: "none" }}>
                   <a
                     href="https://github.com/Bsh54/"
                     target="_blank"
                     rel="noreferrer"
                     className="icon-colour home-social-icons"
                     style={{
-                      fontSize: "2.5em",
-                      padding: "20px",
+                      fontSize: "3em",
                       width: "80px",
                       height: "80px",
                       display: "flex",
                       alignItems: "center",
-                      justifyContent: "center"
+                      justifyContent: "center",
+                      borderRadius: "50%",
+                      border: "2px solid #c770f0",
+                      transition: "all 0.3s"
                     }}
                   >
                     <AiFillGithub />
                   </a>
                 </li>
-                <li className="social-icons">
+                <li className="social-icons" style={{ listStyle: "none" }}>
                   <a
                     href="mailto:shadrakbsh@gmail.com"
                     target="_blank"
                     rel="noreferrer"
                     className="icon-colour home-social-icons"
                     style={{
-                      fontSize: "2.5em",
-                      padding: "20px",
+                      fontSize: "3em",
                       width: "80px",
                       height: "80px",
                       display: "flex",
                       alignItems: "center",
-                      justifyContent: "center"
+                      justifyContent: "center",
+                      borderRadius: "50%",
+                      border: "2px solid #c770f0",
+                      transition: "all 0.3s"
                     }}
                   >
                     <AiOutlineMail />
                   </a>
                 </li>
-                <li className="social-icons">
+                <li className="social-icons" style={{ listStyle: "none" }}>
                   <a
                     href="https://www.linkedin.com/in/bessanh-shadrak-744049287/"
                     target="_blank"
                     rel="noreferrer"
                     className="icon-colour home-social-icons"
                     style={{
-                      fontSize: "2.5em",
-                      padding: "20px",
+                      fontSize: "3em",
                       width: "80px",
                       height: "80px",
                       display: "flex",
                       alignItems: "center",
-                      justifyContent: "center"
+                      justifyContent: "center",
+                      borderRadius: "50%",
+                      border: "2px solid #c770f0",
+                      transition: "all 0.3s"
                     }}
                   >
                     <FaLinkedinIn />
                   </a>
                 </li>
-                <li className="social-icons">
+                <li className="social-icons" style={{ listStyle: "none" }}>
                   <a
                     href="https://wa.me/22901974265400"
                     target="_blank"
                     rel="noreferrer"
                     className="icon-colour home-social-icons"
                     style={{
-                      fontSize: "2.5em",
-                      padding: "20px",
+                      fontSize: "3em",
                       width: "80px",
                       height: "80px",
                       display: "flex",
                       alignItems: "center",
-                      justifyContent: "center"
+                      justifyContent: "center",
+                      borderRadius: "50%",
+                      border: "2px solid #c770f0",
+                      transition: "all 0.3s"
                     }}
                   >
                     <FaWhatsapp />
