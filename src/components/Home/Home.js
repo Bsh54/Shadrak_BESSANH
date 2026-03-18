@@ -79,7 +79,7 @@ function Home() {
               <p style={{ fontSize: "1.3em", paddingBottom: "40px" }}>
                 N'hésitez pas à me contacter pour toute collaboration ou opportunité
               </p>
-              <ul className="home-about-social-links" style={{ display: "flex", gap: "40px", justifyContent: "center", flexWrap: "wrap" }}>
+              <ul className="home-about-social-links" style={{ display: "flex", gap: "50px", justifyContent: "center", flexWrap: "wrap" }}>
                 <li className="social-icons" style={{ listStyle: "none" }}>
                   <a
                     href="https://github.com/Bsh54/"
@@ -87,14 +87,14 @@ function Home() {
                     rel="noreferrer"
                     className="icon-colour home-social-icons"
                     style={{
-                      fontSize: "3.5em",
-                      width: "100px",
-                      height: "100px",
+                      fontSize: "4.5em",
+                      width: "130px",
+                      height: "130px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       borderRadius: "50%",
-                      border: "2px solid #c770f0",
+                      border: "3px solid #c770f0",
                       transition: "all 0.3s"
                     }}
                   >
@@ -108,14 +108,14 @@ function Home() {
                     rel="noreferrer"
                     className="icon-colour home-social-icons"
                     style={{
-                      fontSize: "3.5em",
-                      width: "100px",
-                      height: "100px",
+                      fontSize: "4.5em",
+                      width: "130px",
+                      height: "130px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       borderRadius: "50%",
-                      border: "2px solid #c770f0",
+                      border: "3px solid #c770f0",
                       transition: "all 0.3s"
                     }}
                   >
@@ -129,14 +129,14 @@ function Home() {
                     rel="noreferrer"
                     className="icon-colour home-social-icons"
                     style={{
-                      fontSize: "3.5em",
-                      width: "100px",
-                      height: "100px",
+                      fontSize: "4.5em",
+                      width: "130px",
+                      height: "130px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       borderRadius: "50%",
-                      border: "2px solid #c770f0",
+                      border: "3px solid #c770f0",
                       transition: "all 0.3s"
                     }}
                   >
@@ -150,14 +150,14 @@ function Home() {
                     rel="noreferrer"
                     className="icon-colour home-social-icons"
                     style={{
-                      fontSize: "3.5em",
-                      width: "100px",
-                      height: "100px",
+                      fontSize: "4.5em",
+                      width: "130px",
+                      height: "130px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       borderRadius: "50%",
-                      border: "2px solid #c770f0",
+                      border: "3px solid #c770f0",
                       transition: "all 0.3s"
                     }}
                   >
