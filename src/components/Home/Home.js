@@ -16,25 +16,108 @@ import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 function Home() {
   return (
     <section>
-      <Container fluid className="home-section" id="home">
+      {/* Hero Section - Refait complètement */}
+      <Container fluid className="home-section" id="home" style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        background: "linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%)",
+        paddingTop: "100px",
+        paddingBottom: "50px"
+      }}>
         <Particle />
-        <Container className="home-content">
-          <Row>
+        <Container>
+          <Row className="align-items-center">
             <Col md={7} className="home-header">
-              <h1 style={{ paddingBottom: 15 }} className="heading">
-                Bonjour !{" "}
-                <span className="wave" role="img" aria-labelledby="wave">
-                  👋🏻
-                </span>
+              <h1 style={{
+                fontSize: "clamp(1.5rem, 4vw, 2.5rem)",
+                color: "#18181B",
+                fontWeight: "400",
+                marginBottom: "20px"
+              }}>
+                Bonjour ! <span className="wave" role="img" aria-labelledby="wave">👋🏻</span>
               </h1>
 
-              <h1 className="heading-name">
-                JE SUIS
-                <strong className="main-name"> BESSANH Shadrak</strong>
+              <h1 style={{
+                fontSize: "clamp(2rem, 5vw, 3.5rem)",
+                color: "#18181B",
+                fontWeight: "700",
+                marginBottom: "30px",
+                lineHeight: "1.2"
+              }}>
+                Je suis <span style={{ color: "#2563EB" }}>BESSANH Shadrak</span>
               </h1>
 
-              <div style={{ padding: 50, textAlign: "left" }}>
+              <div style={{
+                fontSize: "clamp(1.5rem, 3vw, 2.2rem)",
+                color: "#2563EB",
+                fontWeight: "600",
+                marginBottom: "40px"
+              }}>
                 <Type />
+              </div>
+
+              <p style={{
+                fontSize: "1.1rem",
+                color: "#3F3F46",
+                lineHeight: "1.8",
+                maxWidth: "600px",
+                marginBottom: "40px"
+              }}>
+                Développeur passionné par l'IA et le Machine Learning, je transforme des idées en solutions intelligentes et évolutives.
+              </p>
+
+              <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+                <a
+                  href="#about"
+                  style={{
+                    padding: "14px 32px",
+                    backgroundColor: "#2563EB",
+                    color: "#FFFFFF",
+                    borderRadius: "8px",
+                    textDecoration: "none",
+                    fontWeight: "600",
+                    fontSize: "1rem",
+                    transition: "all 0.3s ease",
+                    border: "none",
+                    cursor: "pointer"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.backgroundColor = "#1D4ED8";
+                    e.target.style.transform = "translateY(-2px)";
+                    e.target.style.boxShadow = "0 8px 16px rgba(37, 99, 235, 0.3)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = "#2563EB";
+                    e.target.style.transform = "translateY(0)";
+                    e.target.style.boxShadow = "none";
+                  }}
+                >
+                  Découvrir mes projets
+                </a>
+                <a
+                  href="/resume"
+                  style={{
+                    padding: "14px 32px",
+                    backgroundColor: "transparent",
+                    color: "#2563EB",
+                    borderRadius: "8px",
+                    textDecoration: "none",
+                    fontWeight: "600",
+                    fontSize: "1rem",
+                    transition: "all 0.3s ease",
+                    border: "2px solid #2563EB",
+                    cursor: "pointer"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.backgroundColor = "#EFF6FF";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = "transparent";
+                  }}
+                >
+                  Voir mon CV
+                </a>
               </div>
             </Col>
 
@@ -49,6 +132,7 @@ function Home() {
           </Row>
         </Container>
       </Container>
+
       <Home2 />
 
       {/* Section Compétences Professionnelles */}
