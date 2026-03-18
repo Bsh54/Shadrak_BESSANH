@@ -103,94 +103,150 @@ function Home() {
               <p style={{ fontSize: "1.3em", paddingBottom: "40px", color: "#3F3F46" }}>
                 N'hésitez pas à me contacter pour toute collaboration ou opportunité
               </p>
-              <ul className="home-about-social-links" style={{ display: "flex", gap: "50px", justifyContent: "center", flexWrap: "wrap" }}>
-                <li className="social-icons" style={{ listStyle: "none" }}>
+              <ul style={{
+                display: "flex",
+                gap: "60px",
+                justifyContent: "center",
+                flexWrap: "wrap",
+                listStyle: "none",
+                padding: 0,
+                margin: 0
+              }}>
+                <li>
                   <a
                     href="https://github.com/Bsh54/"
                     target="_blank"
                     rel="noreferrer"
-                    className="icon-colour home-social-icons"
                     style={{
-                      fontSize: "3.5em",
-                      width: "130px",
-                      height: "130px",
+                      width: "150px",
+                      height: "150px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       borderRadius: "50%",
                       border: "3px solid #2563EB",
-                      transition: "all 0.3s",
+                      transition: "all 0.3s ease",
                       color: "#2563EB",
-                      backgroundColor: "#FFFFFF"
+                      backgroundColor: "#FFFFFF",
+                      fontSize: "4em",
+                      textDecoration: "none"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "#2563EB";
+                      e.currentTarget.style.color = "#FFFFFF";
+                      e.currentTarget.style.transform = "scale(1.1)";
+                      e.currentTarget.style.boxShadow = "0 12px 24px rgba(37, 99, 235, 0.3)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "#FFFFFF";
+                      e.currentTarget.style.color = "#2563EB";
+                      e.currentTarget.style.transform = "scale(1)";
+                      e.currentTarget.style.boxShadow = "none";
                     }}
                   >
                     <AiFillGithub />
                   </a>
                 </li>
-                <li className="social-icons" style={{ listStyle: "none" }}>
+                <li>
                   <a
                     href="mailto:shadrakbsh@gmail.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="icon-colour home-social-icons"
                     style={{
-                      fontSize: "3.5em",
-                      width: "130px",
-                      height: "130px",
+                      width: "150px",
+                      height: "150px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       borderRadius: "50%",
                       border: "3px solid #2563EB",
-                      transition: "all 0.3s",
+                      transition: "all 0.3s ease",
                       color: "#2563EB",
-                      backgroundColor: "#FFFFFF"
+                      backgroundColor: "#FFFFFF",
+                      fontSize: "4em",
+                      textDecoration: "none"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "#2563EB";
+                      e.currentTarget.style.color = "#FFFFFF";
+                      e.currentTarget.style.transform = "scale(1.1)";
+                      e.currentTarget.style.boxShadow = "0 12px 24px rgba(37, 99, 235, 0.3)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "#FFFFFF";
+                      e.currentTarget.style.color = "#2563EB";
+                      e.currentTarget.style.transform = "scale(1)";
+                      e.currentTarget.style.boxShadow = "none";
                     }}
                   >
                     <AiOutlineMail />
                   </a>
                 </li>
-                <li className="social-icons" style={{ listStyle: "none" }}>
+                <li>
                   <a
                     href="https://www.linkedin.com/in/bessanh-shadrak-744049287/"
                     target="_blank"
                     rel="noreferrer"
-                    className="icon-colour home-social-icons"
                     style={{
-                      fontSize: "3.5em",
-                      width: "130px",
-                      height: "130px",
+                      width: "150px",
+                      height: "150px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       borderRadius: "50%",
                       border: "3px solid #2563EB",
-                      transition: "all 0.3s",
+                      transition: "all 0.3s ease",
                       color: "#2563EB",
-                      backgroundColor: "#FFFFFF"
+                      backgroundColor: "#FFFFFF",
+                      fontSize: "4em",
+                      textDecoration: "none"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "#2563EB";
+                      e.currentTarget.style.color = "#FFFFFF";
+                      e.currentTarget.style.transform = "scale(1.1)";
+                      e.currentTarget.style.boxShadow = "0 12px 24px rgba(37, 99, 235, 0.3)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "#FFFFFF";
+                      e.currentTarget.style.color = "#2563EB";
+                      e.currentTarget.style.transform = "scale(1)";
+                      e.currentTarget.style.boxShadow = "none";
                     }}
                   >
                     <FaLinkedinIn />
                   </a>
                 </li>
-                <li className="social-icons" style={{ listStyle: "none" }}>
+                <li>
                   <a
                     href="https://wa.me/22901974265400"
                     target="_blank"
                     rel="noreferrer"
-                    className="icon-colour home-social-icons"
                     style={{
-                      fontSize: "3.5em",
-                      width: "130px",
-                      height: "130px",
+                      width: "150px",
+                      height: "150px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       borderRadius: "50%",
                       border: "3px solid #2563EB",
-                      transition: "all 0.3s",
+                      transition: "all 0.3s ease",
                       color: "#2563EB",
-                      backgroundColor: "#FFFFFF"
+                      backgroundColor: "#FFFFFF",
+                      fontSize: "4em",
+                      textDecoration: "none"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "#2563EB";
+                      e.currentTarget.style.color = "#FFFFFF";
+                      e.currentTarget.style.transform = "scale(1.1)";
+                      e.currentTarget.style.boxShadow = "0 12px 24px rgba(37, 99, 235, 0.3)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "#FFFFFF";
+                      e.currentTarget.style.color = "#2563EB";
+                      e.currentTarget.style.transform = "scale(1)";
+                      e.currentTarget.style.boxShadow = "none";
                     }}
                   >
                     <FaWhatsapp />
