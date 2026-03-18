@@ -105,7 +105,7 @@ function Home() {
               </p>
               <ul style={{
                 display: "flex",
-                gap: "40px",
+                gap: "30px",
                 justifyContent: "center",
                 flexWrap: "wrap",
                 listStyle: "none",
@@ -118,8 +118,8 @@ function Home() {
                     target="_blank"
                     rel="noreferrer"
                     style={{
-                      width: "110px",
-                      height: "110px",
+                      width: "90px",
+                      height: "90px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -128,14 +128,14 @@ function Home() {
                       transition: "all 0.3s ease",
                       color: "#2563EB",
                       backgroundColor: "#FFFFFF",
-                      fontSize: "3em",
+                      fontSize: "2.5em",
                       textDecoration: "none"
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.backgroundColor = "#2563EB";
                       e.currentTarget.style.color = "#FFFFFF";
                       e.currentTarget.style.transform = "scale(1.1)";
-                      e.currentTarget.style.boxShadow = "0 12px 24px rgba(37, 99, 235, 0.3)";
+                      e.currentTarget.style.boxShadow = "0 8px 16px rgba(37, 99, 235, 0.3)";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.backgroundColor = "#FFFFFF";
@@ -153,8 +153,8 @@ function Home() {
                     target="_blank"
                     rel="noreferrer"
                     style={{
-                      width: "110px",
-                      height: "110px",
+                      width: "90px",
+                      height: "90px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -163,14 +163,14 @@ function Home() {
                       transition: "all 0.3s ease",
                       color: "#2563EB",
                       backgroundColor: "#FFFFFF",
-                      fontSize: "3em",
+                      fontSize: "2.5em",
                       textDecoration: "none"
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.backgroundColor = "#2563EB";
                       e.currentTarget.style.color = "#FFFFFF";
                       e.currentTarget.style.transform = "scale(1.1)";
-                      e.currentTarget.style.boxShadow = "0 12px 24px rgba(37, 99, 235, 0.3)";
+                      e.currentTarget.style.boxShadow = "0 8px 16px rgba(37, 99, 235, 0.3)";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.backgroundColor = "#FFFFFF";
@@ -188,8 +188,8 @@ function Home() {
                     target="_blank"
                     rel="noreferrer"
                     style={{
-                      width: "110px",
-                      height: "110px",
+                      width: "90px",
+                      height: "90px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -198,14 +198,14 @@ function Home() {
                       transition: "all 0.3s ease",
                       color: "#2563EB",
                       backgroundColor: "#FFFFFF",
-                      fontSize: "3em",
+                      fontSize: "2.5em",
                       textDecoration: "none"
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.backgroundColor = "#2563EB";
                       e.currentTarget.style.color = "#FFFFFF";
                       e.currentTarget.style.transform = "scale(1.1)";
-                      e.currentTarget.style.boxShadow = "0 12px 24px rgba(37, 99, 235, 0.3)";
+                      e.currentTarget.style.boxShadow = "0 8px 16px rgba(37, 99, 235, 0.3)";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.backgroundColor = "#FFFFFF";
@@ -223,8 +223,8 @@ function Home() {
                     target="_blank"
                     rel="noreferrer"
                     style={{
-                      width: "110px",
-                      height: "110px",
+                      width: "90px",
+                      height: "90px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -233,14 +233,14 @@ function Home() {
                       transition: "all 0.3s ease",
                       color: "#2563EB",
                       backgroundColor: "#FFFFFF",
-                      fontSize: "3em",
+                      fontSize: "2.5em",
                       textDecoration: "none"
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.backgroundColor = "#2563EB";
                       e.currentTarget.style.color = "#FFFFFF";
                       e.currentTarget.style.transform = "scale(1.1)";
-                      e.currentTarget.style.boxShadow = "0 12px 24px rgba(37, 99, 235, 0.3)";
+                      e.currentTarget.style.boxShadow = "0 8px 16px rgba(37, 99, 235, 0.3)";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.backgroundColor = "#FFFFFF";
