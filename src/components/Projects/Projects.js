@@ -5,6 +5,7 @@ import Particle from "../Particle";
 import cvai from "../../Assets/Projects/cvai.png";
 import evolutics from "../../Assets/Projects/evolutics.png";
 import aiphonecall from "../../Assets/Projects/aiphonecall.png";
+import fondataset from "../../Assets/Projects/fondataset.png";
 
 function Projects() {
   return (
@@ -48,6 +49,17 @@ function Projects() {
               description="Interface web de conversation vocale avec l'IA en temps réel. Utilise la Web Speech API pour la reconnaissance vocale et une API TTS personnalisée pour la synthèse vocale. Configuration complète de la voix (choix parmi plusieurs voix, vitesse, volume), conversation fluide avec pause/reprise, et interface intuitive. Support multilingue (français/anglais). Déployé sur GitHub Pages avec backend Cloudflare Workers. Technologies : JavaScript Vanilla, Web Speech API, Bootstrap 4."
               ghLink="https://github.com/Bsh54/AI_Phone_Call"
               demoLink="https://bsh54.github.io/AI_Phone_Call/"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={fondataset}
+              isBlog={false}
+              title="Fon-Dataset-Generator"
+              description="Générateur automatisé de datasets bilingues français-fongbe pour l'entraînement de modèles de langue (LLM). Génération de phrases naturelles sur 12 thématiques (santé, commerce, émotions, proverbes), traduction automatisée via APIs IA, export JSONL prêt pour fine-tuning. Dual mode : Python asynchrone pour experts ou interface Google Sheets pour contribution communautaire. Validation des données avec gestion des doublons. Objectif : préserver la langue Fon et développer l'IA pour la culture béninoise. Technologies : Python 3.8+, Google Apps Script, APIs IA."
+              ghLink="https://github.com/Bsh54/Fon-Dataset-Generator"
+              demoLink="https://docs.google.com/spreadsheets/d/1YGiLHh13jsMZkP04Gi101uc8dgdf-9AOK-u_ymuF8IU/edit?usp=sharing"
             />
           </Col>
         </Row>
