@@ -69,23 +69,32 @@ function Home() {
       </Container>
 
       {/* Section Contact */}
-      <Container fluid style={{ backgroundColor: "#0d1117", paddingTop: "50px", paddingBottom: "50px" }}>
+      <Container fluid style={{ backgroundColor: "#0d1117", paddingTop: "80px", paddingBottom: "80px" }}>
         <Container>
           <Row>
             <Col md={12} className="home-about-social">
-              <h1 style={{ fontSize: "2.6em", paddingBottom: "20px" }}>
-                <strong className="purple">Retrouvez-moi</strong> sur
+              <h1 style={{ fontSize: "2.8em", paddingBottom: "30px", fontWeight: "bold" }}>
+                <strong className="purple">Contactez-moi</strong>
               </h1>
-              <p style={{ fontSize: "1.2em", paddingBottom: "30px" }}>
-                N'hésitez pas à me <span className="purple">contacter</span>
+              <p style={{ fontSize: "1.3em", paddingBottom: "40px" }}>
+                N'hésitez pas à me contacter pour toute collaboration ou opportunité
               </p>
-              <ul className="home-about-social-links" style={{ fontSize: "1.5em" }}>
+              <ul className="home-about-social-links">
                 <li className="social-icons">
                   <a
                     href="https://github.com/Bsh54/"
                     target="_blank"
                     rel="noreferrer"
-                    className="icon-colour  home-social-icons"
+                    className="icon-colour home-social-icons"
+                    style={{
+                      fontSize: "2.5em",
+                      padding: "20px",
+                      width: "80px",
+                      height: "80px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center"
+                    }}
                   >
                     <AiFillGithub />
                   </a>
@@ -95,7 +104,16 @@ function Home() {
                     href="mailto:shadrakbsh@gmail.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="icon-colour  home-social-icons"
+                    className="icon-colour home-social-icons"
+                    style={{
+                      fontSize: "2.5em",
+                      padding: "20px",
+                      width: "80px",
+                      height: "80px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center"
+                    }}
                   >
                     <AiOutlineMail />
                   </a>
@@ -105,7 +123,16 @@ function Home() {
                     href="https://www.linkedin.com/in/bessanh-shadrak-744049287/"
                     target="_blank"
                     rel="noreferrer"
-                    className="icon-colour  home-social-icons"
+                    className="icon-colour home-social-icons"
+                    style={{
+                      fontSize: "2.5em",
+                      padding: "20px",
+                      width: "80px",
+                      height: "80px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center"
+                    }}
                   >
                     <FaLinkedinIn />
                   </a>
@@ -116,6 +143,15 @@ function Home() {
                     target="_blank"
                     rel="noreferrer"
                     className="icon-colour home-social-icons"
+                    style={{
+                      fontSize: "2.5em",
+                      padding: "20px",
+                      width: "80px",
+                      height: "80px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center"
+                    }}
                   >
                     <FaWhatsapp />
                   </a>
