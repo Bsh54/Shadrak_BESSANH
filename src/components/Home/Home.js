@@ -52,7 +52,10 @@ function Home() {
                 fontSize: "clamp(1.5rem, 3vw, 2.2rem)",
                 color: "#2563EB",
                 fontWeight: "600",
-                marginBottom: "40px"
+                marginBottom: "40px",
+                minHeight: "80px",
+                display: "flex",
+                alignItems: "center"
               }}>
                 <Type />
               </div>
