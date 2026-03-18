@@ -269,7 +269,7 @@ button:focus {
 .home-section {
   position: relative;
   z-index: -1;
-  background-color: #FAFAFA;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F3F4F6 100%);
   background-position: top center;
   background-repeat: no-repeat;
   padding-bottom: 30px !important;
@@ -278,22 +278,24 @@ button:focus {
 
 .home-content {
   padding: 9rem 0 2rem !important;
-  color: #18181B;
+  color: #18181B !important;
   text-align: left;
 }
 
 .heading {
   font-size: 2.4em !important;
   padding-left: 50px !important;
+  color: #18181B !important;
 }
 
 .heading-name {
   font-size: 2.5em !important;
   padding-left: 45px !important;
+  color: #18181B !important;
 }
 
 .main-name {
-  color: #2563EB;
+  color: #2563EB !important;
 }
 
 .Typewriter__wrapper {
