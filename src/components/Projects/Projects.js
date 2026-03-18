@@ -81,7 +81,7 @@ function Projects() {
               imgPath={voxiai}
               isBlog={false}
               title="VoxiAI"
-              description="Application de génération automatique de sous-titres dynamiques pour vidéos courtes (TikTok, Reels, Shorts). Pipeline hybride combinant Faster-Whisper pour transcription ultra-rapide et Google Gemini 2.5 Flash pour correction contextuelle intelligente (ponctuation, termes techniques). Rendu karaoke avec surlignage mot par mot. Interface FastAPI moderne avec suivi de progression en temps réel via WebSockets. Dashboard analytique protégé pour statistiques d'usage. Traitement parallèle audio/vidéo réduisant le temps d'attente de 50%. Technologies : FastAPI, Faster-Whisper, Gemini API, FFmpeg, SQLite, WebSockets."
+              description="Application de génération automatique de sous-titres dynamiques pour vidéos courtes (TikTok, Reels, Shorts). Pipeline hybride combinant Faster-Whisper pour transcription ultra-rapide et Google Gemini 2.5 Flash pour correction contextuelle (ponctuation, termes techniques). Rendu karaoke avec surlignage mot par mot. Interface FastAPI moderne avec suivi de progression en temps réel via WebSockets. Dashboard analytique protégé pour statistiques d'usage. Traitement parallèle audio/vidéo réduisant le temps d'attente de 50%. Technologies : FastAPI, Faster-Whisper, Gemini API, FFmpeg, SQLite, WebSockets."
               ghLink="https://github.com/Bsh54/VoxiAI"
               demoLink="https://shads229-voxiai.hf.space/"
             />

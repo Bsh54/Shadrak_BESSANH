@@ -5,7 +5,12 @@
       "Bash(git commit:*)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:zenith-ai-indol.vercel.app)",
-      "WebFetch(domain:shads229-voxiai.hf.space)"
+      "WebFetch(domain:shads229-voxiai.hf.space)",
+      "Bash(mv CV-AI.png Projects/cvai.png)",
+      "Bash(mv EVOLUTICS.png Projects/evolutics.png)",
+      "Bash(mv aiphonecall.png Projects/aiphonecall.png)",
+      "Bash(mv fon.png Projects/fondataset.png)",
+      "Bash(mv zenithai.png Projects/zenithai.png)"
     ]
   }
 }
