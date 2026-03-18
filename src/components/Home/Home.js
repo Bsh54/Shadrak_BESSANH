@@ -69,14 +69,14 @@ function Home() {
       </Container>
 
       {/* Section Contact */}
-      <Container fluid style={{ backgroundColor: "#0d1117", paddingTop: "80px", paddingBottom: "80px" }}>
+      <Container fluid style={{ backgroundColor: "#FFFFFF", paddingTop: "80px", paddingBottom: "80px", borderTop: "1px solid #E5E7EB" }}>
         <Container>
           <Row>
             <Col md={12} className="home-about-social">
-              <h1 style={{ fontSize: "2.8em", paddingBottom: "30px", fontWeight: "bold" }}>
-                <strong className="purple">Contactez-moi</strong>
+              <h1 style={{ fontSize: "2.8em", paddingBottom: "30px", fontWeight: "bold", color: "#18181B" }}>
+                <strong style={{ color: "#2563EB" }}>Contactez-moi</strong>
               </h1>
-              <p style={{ fontSize: "1.3em", paddingBottom: "40px" }}>
+              <p style={{ fontSize: "1.3em", paddingBottom: "40px", color: "#3F3F46" }}>
                 N'hésitez pas à me contacter pour toute collaboration ou opportunité
               </p>
               <ul className="home-about-social-links" style={{ display: "flex", gap: "50px", justifyContent: "center", flexWrap: "wrap" }}>
@@ -87,15 +87,17 @@ function Home() {
                     rel="noreferrer"
                     className="icon-colour home-social-icons"
                     style={{
-                      fontSize: "4.5em",
+                      fontSize: "3.5em",
                       width: "130px",
                       height: "130px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       borderRadius: "50%",
-                      border: "3px solid #c770f0",
-                      transition: "all 0.3s"
+                      border: "3px solid #2563EB",
+                      transition: "all 0.3s",
+                      color: "#2563EB",
+                      backgroundColor: "#FFFFFF"
                     }}
                   >
                     <AiFillGithub />
@@ -108,15 +110,17 @@ function Home() {
                     rel="noreferrer"
                     className="icon-colour home-social-icons"
                     style={{
-                      fontSize: "4.5em",
+                      fontSize: "3.5em",
                       width: "130px",
                       height: "130px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       borderRadius: "50%",
-                      border: "3px solid #c770f0",
-                      transition: "all 0.3s"
+                      border: "3px solid #2563EB",
+                      transition: "all 0.3s",
+                      color: "#2563EB",
+                      backgroundColor: "#FFFFFF"
                     }}
                   >
                     <AiOutlineMail />
@@ -129,15 +133,17 @@ function Home() {
                     rel="noreferrer"
                     className="icon-colour home-social-icons"
                     style={{
-                      fontSize: "4.5em",
+                      fontSize: "3.5em",
                       width: "130px",
                       height: "130px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       borderRadius: "50%",
-                      border: "3px solid #c770f0",
-                      transition: "all 0.3s"
+                      border: "3px solid #2563EB",
+                      transition: "all 0.3s",
+                      color: "#2563EB",
+                      backgroundColor: "#FFFFFF"
                     }}
                   >
                     <FaLinkedinIn />
@@ -150,15 +156,17 @@ function Home() {
                     rel="noreferrer"
                     className="icon-colour home-social-icons"
                     style={{
-                      fontSize: "4.5em",
+                      fontSize: "3.5em",
                       width: "130px",
                       height: "130px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       borderRadius: "50%",
-                      border: "3px solid #c770f0",
-                      transition: "all 0.3s"
+                      border: "3px solid #2563EB",
+                      transition: "all 0.3s",
+                      color: "#2563EB",
+                      backgroundColor: "#FFFFFF"
                     }}
                   >
                     <FaWhatsapp />
