@@ -3,16 +3,10 @@ import { AiFillGithub, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 
 function ContactSection() {
-  const handleClick = (url) => {
-    window.open(url, '_blank');
-  };
-
-  const handleEmail = () => {
-    window.location.href = 'mailto:shadrakbsh@gmail.com';
-  };
-
   return (
     <div style={{
+      position: "relative",
+      zIndex: 100,
       backgroundColor: "#FFFFFF",
       paddingTop: "80px",
       paddingBottom: "80px",
@@ -47,12 +41,19 @@ function ContactSection() {
           display: "flex",
           gap: "30px",
           justifyContent: "center",
-          flexWrap: "wrap"
+          flexWrap: "wrap",
+          position: "relative",
+          zIndex: 101
         }}>
           {/* GitHub */}
           <button
-            onClick={() => handleClick('https://github.com/Bsh54/')}
+            onClick={() => {
+              console.log("GitHub clicked!");
+              window.open('https://github.com/Bsh54/', '_blank');
+            }}
             style={{
+              position: "relative",
+              zIndex: 102,
               width: "90px",
               height: "90px",
               display: "flex",
@@ -83,8 +84,13 @@ function ContactSection() {
 
           {/* Email */}
           <button
-            onClick={handleEmail}
+            onClick={() => {
+              console.log("Email clicked!");
+              window.location.href = 'mailto:shadrakbsh@gmail.com';
+            }}
             style={{
+              position: "relative",
+              zIndex: 102,
               width: "90px",
               height: "90px",
               display: "flex",
@@ -115,8 +121,13 @@ function ContactSection() {
 
           {/* LinkedIn */}
           <button
-            onClick={() => handleClick('https://www.linkedin.com/in/bessanh-shadrak-744049287/')}
+            onClick={() => {
+              console.log("LinkedIn clicked!");
+              window.open('https://www.linkedin.com/in/bessanh-shadrak-744049287/', '_blank');
+            }}
             style={{
+              position: "relative",
+              zIndex: 102,
               width: "90px",
               height: "90px",
               display: "flex",
@@ -147,8 +158,13 @@ function ContactSection() {
 
           {/* WhatsApp */}
           <button
-            onClick={() => handleClick('https://wa.me/22901974265400')}
+            onClick={() => {
+              console.log("WhatsApp clicked!");
+              window.open('https://wa.me/22901974265400', '_blank');
+            }}
             style={{
+              position: "relative",
+              zIndex: 102,
               width: "90px",
               height: "90px",
               display: "flex",
