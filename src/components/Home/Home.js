@@ -8,10 +8,14 @@ import Techstack from "../About/Techstack";
 import Toolstack from "../About/Toolstack";
 import Github from "../About/Github";
 import ContactSection from "./ContactSection";
+import ContactSectionTest from "./ContactSectionTest";
 
 function Home() {
   return (
     <section>
+      {/* TEST DE CLIC - DIAGNOSTIC */}
+      <ContactSectionTest />
+
       {/* Hero Section - Refait complètement */}
       <Container fluid className="home-section" id="home" style={{
         minHeight: "100vh",

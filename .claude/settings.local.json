@@ -10,7 +10,8 @@
       "Bash(mv EVOLUTICS.png Projects/evolutics.png)",
       "Bash(mv aiphonecall.png Projects/aiphonecall.png)",
       "Bash(mv fon.png Projects/fondataset.png)",
-      "Bash(mv zenithai.png Projects/zenithai.png)"
+      "Bash(mv zenithai.png Projects/zenithai.png)",
+      "Bash(xargs grep:*)"
     ]
   }
 }
