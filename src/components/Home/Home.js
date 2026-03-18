@@ -56,59 +56,6 @@ function Home() {
               }}>
                 <Type />
               </div>
-
-              <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
-                <a
-                  href="#about"
-                  style={{
-                    padding: "14px 32px",
-                    backgroundColor: "#2563EB",
-                    color: "#FFFFFF",
-                    borderRadius: "8px",
-                    textDecoration: "none",
-                    fontWeight: "600",
-                    fontSize: "1rem",
-                    transition: "all 0.3s ease",
-                    border: "none",
-                    cursor: "pointer"
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = "#1D4ED8";
-                    e.target.style.transform = "translateY(-2px)";
-                    e.target.style.boxShadow = "0 8px 16px rgba(37, 99, 235, 0.3)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = "#2563EB";
-                    e.target.style.transform = "translateY(0)";
-                    e.target.style.boxShadow = "none";
-                  }}
-                >
-                  Découvrir mes projets
-                </a>
-                <a
-                  href="/resume"
-                  style={{
-                    padding: "14px 32px",
-                    backgroundColor: "transparent",
-                    color: "#2563EB",
-                    borderRadius: "8px",
-                    textDecoration: "none",
-                    fontWeight: "600",
-                    fontSize: "1rem",
-                    transition: "all 0.3s ease",
-                    border: "2px solid #2563EB",
-                    cursor: "pointer"
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = "#EFF6FF";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = "transparent";
-                  }}
-                >
-                  Voir mon CV
-                </a>
-              </div>
             </Col>
 
             <Col md={5} style={{ paddingBottom: 20 }}>
