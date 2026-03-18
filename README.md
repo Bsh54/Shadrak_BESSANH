@@ -5,11 +5,11 @@
 
 <br/>
 
-## 👨‍💻 À propos
+## À propos
 
 Portfolio personnel de BESSANH Shadrak, Développeur Logiciel et Développeur IA passionné par la transformation d'idées en solutions intelligentes et évolutives.
 
-## 🚀 Technologies utilisées
+## Technologies utilisées
 
 Ce portfolio a été développé avec les technologies suivantes :
 
@@ -21,17 +21,17 @@ Ce portfolio a été développé avec les technologies suivantes :
 - **Typewriter Effect** - Animation de texte dynamique
 - **GitHub Calendar** - Visualisation des contributions GitHub
 
-## ✨ Fonctionnalités
+## Fonctionnalités
 
-- **🎨 Design lumineux et moderne** - Interface claire avec palette de couleurs bleues (#2563EB)
-- **📱 Entièrement responsive** - Adapté à tous les écrans (mobile, tablette, desktop)
-- **⚡ Animations fluides** - Transitions et effets subtils pour une expérience agréable
-- **🔗 Section contact interactive** - Liens directs vers GitHub, LinkedIn, Email et WhatsApp
-- **💼 Projets en vedette** - Présentation de 6 projets IA/ML avec démos et code source
-- **🛠️ Stack technique** - Affichage des compétences et outils maîtrisés
-- **📊 Activité GitHub** - Calendrier de contributions en temps réel
+- **Design lumineux et moderne** - Interface claire avec palette de couleurs bleues (#2563EB)
+- **Entièrement responsive** - Adapté à tous les écrans (mobile, tablette, desktop)
+- **Animations fluides** - Transitions et effets subtils pour une expérience agréable
+- **Section contact interactive** - Liens directs vers GitHub, LinkedIn, Email et WhatsApp
+- **Projets en vedette** - Présentation de 6 projets IA/ML avec démos et code source
+- **Stack technique** - Affichage des compétences et outils maîtrisés
+- **Activité GitHub** - Calendrier de contributions en temps réel
 
-## 📦 Installation et configuration
+## Installation et configuration
 
 ### Prérequis
 
@@ -59,7 +59,7 @@ npm start
 
 Le site sera accessible sur [http://localhost:3000](http://localhost:3000)
 
-## 📝 Personnalisation
+## Personnalisation
 
 Pour personnaliser ce portfolio :
 
@@ -69,9 +69,9 @@ Pour personnaliser ce portfolio :
 4. **Couleurs** : Ajuster les variables CSS dans `/src/style.css`
 5. **Images** : Remplacer les fichiers dans `/src/Assets/`
 
-## ⭐ Support
+## Support
 
-Si vous aimez ce portfolio, n'hésitez pas à mettre une étoile ⭐ sur le repository !
+Si vous aimez ce portfolio, n'hésitez pas à mettre une étoile sur le repository !
 
 ---
 
