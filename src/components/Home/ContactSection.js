@@ -160,7 +160,7 @@ function ContactSection() {
           <button
             onClick={() => {
               console.log("WhatsApp clicked!");
-              window.open('https://wa.me/22901974265400', '_blank');
+              window.open('https://wa.me/2290197426540', '_blank');
             }}
             style={{
               position: "relative",
