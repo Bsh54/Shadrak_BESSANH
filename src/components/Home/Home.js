@@ -96,171 +96,161 @@ function Home() {
       <Container fluid style={{ backgroundColor: "#FFFFFF", paddingTop: "80px", paddingBottom: "80px", borderTop: "1px solid #E5E7EB" }}>
         <Container>
           <Row>
-            <Col md={12} className="home-about-social">
+            <Col md={12} style={{ textAlign: "center" }}>
               <h1 style={{ fontSize: "2.8em", paddingBottom: "30px", fontWeight: "bold", color: "#18181B" }}>
                 <strong style={{ color: "#2563EB" }}>Contactez-moi</strong>
               </h1>
               <p style={{ fontSize: "1.3em", paddingBottom: "40px", color: "#3F3F46" }}>
                 N'hésitez pas à me contacter pour toute collaboration ou opportunité
               </p>
-              <ul style={{
+              <div style={{
                 display: "flex",
                 gap: "30px",
                 justifyContent: "center",
                 flexWrap: "wrap",
-                listStyle: "none",
                 padding: 0,
                 margin: 0
               }}>
-                <li>
-                  <a
-                    href="https://github.com/Bsh54/"
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{
-                      width: "90px",
-                      height: "90px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderRadius: "50%",
-                      border: "3px solid #2563EB",
-                      transition: "all 0.3s ease",
-                      color: "#2563EB",
-                      backgroundColor: "#FFFFFF",
-                      fontSize: "2.5em",
-                      textDecoration: "none",
-                      cursor: "pointer",
-                      pointerEvents: "auto"
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#2563EB";
-                      e.currentTarget.style.color = "#FFFFFF";
-                      e.currentTarget.style.transform = "scale(1.1)";
-                      e.currentTarget.style.boxShadow = "0 8px 16px rgba(37, 99, 235, 0.3)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "#FFFFFF";
-                      e.currentTarget.style.color = "#2563EB";
-                      e.currentTarget.style.transform = "scale(1)";
-                      e.currentTarget.style.boxShadow = "none";
-                    }}
-                  >
-                    <AiFillGithub />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="mailto:shadrakbsh@gmail.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{
-                      width: "90px",
-                      height: "90px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderRadius: "50%",
-                      border: "3px solid #2563EB",
-                      transition: "all 0.3s ease",
-                      color: "#2563EB",
-                      backgroundColor: "#FFFFFF",
-                      fontSize: "2.5em",
-                      textDecoration: "none",
-                      cursor: "pointer",
-                      pointerEvents: "auto"
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#2563EB";
-                      e.currentTarget.style.color = "#FFFFFF";
-                      e.currentTarget.style.transform = "scale(1.1)";
-                      e.currentTarget.style.boxShadow = "0 8px 16px rgba(37, 99, 235, 0.3)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "#FFFFFF";
-                      e.currentTarget.style.color = "#2563EB";
-                      e.currentTarget.style.transform = "scale(1)";
-                      e.currentTarget.style.boxShadow = "none";
-                    }}
-                  >
-                    <AiOutlineMail />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.linkedin.com/in/bessanh-shadrak-744049287/"
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{
-                      width: "90px",
-                      height: "90px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderRadius: "50%",
-                      border: "3px solid #2563EB",
-                      transition: "all 0.3s ease",
-                      color: "#2563EB",
-                      backgroundColor: "#FFFFFF",
-                      fontSize: "2.5em",
-                      textDecoration: "none",
-                      cursor: "pointer",
-                      pointerEvents: "auto"
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#2563EB";
-                      e.currentTarget.style.color = "#FFFFFF";
-                      e.currentTarget.style.transform = "scale(1.1)";
-                      e.currentTarget.style.boxShadow = "0 8px 16px rgba(37, 99, 235, 0.3)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "#FFFFFF";
-                      e.currentTarget.style.color = "#2563EB";
-                      e.currentTarget.style.transform = "scale(1)";
-                      e.currentTarget.style.boxShadow = "none";
-                    }}
-                  >
-                    <FaLinkedinIn />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://wa.me/22901974265400"
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{
-                      width: "90px",
-                      height: "90px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderRadius: "50%",
-                      border: "3px solid #2563EB",
-                      transition: "all 0.3s ease",
-                      color: "#2563EB",
-                      backgroundColor: "#FFFFFF",
-                      fontSize: "2.5em",
-                      textDecoration: "none",
-                      cursor: "pointer",
-                      pointerEvents: "auto"
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#2563EB";
-                      e.currentTarget.style.color = "#FFFFFF";
-                      e.currentTarget.style.transform = "scale(1.1)";
-                      e.currentTarget.style.boxShadow = "0 8px 16px rgba(37, 99, 235, 0.3)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "#FFFFFF";
-                      e.currentTarget.style.color = "#2563EB";
-                      e.currentTarget.style.transform = "scale(1)";
-                      e.currentTarget.style.boxShadow = "none";
-                    }}
-                  >
-                    <FaWhatsapp />
-                  </a>
-                </li>
-              </ul>
+                <a
+                  href="https://github.com/Bsh54/"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    width: "90px",
+                    height: "90px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: "50%",
+                    border: "3px solid #2563EB",
+                    transition: "all 0.3s ease",
+                    color: "#2563EB",
+                    backgroundColor: "#FFFFFF",
+                    fontSize: "2.5em",
+                    textDecoration: "none",
+                    cursor: "pointer"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = "#2563EB";
+                    e.currentTarget.style.color = "#FFFFFF";
+                    e.currentTarget.style.transform = "scale(1.1)";
+                    e.currentTarget.style.boxShadow = "0 8px 16px rgba(37, 99, 235, 0.3)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "#FFFFFF";
+                    e.currentTarget.style.color = "#2563EB";
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
+                >
+                  <AiFillGithub />
+                </a>
+
+                <a
+                  href="mailto:shadrakbsh@gmail.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    width: "90px",
+                    height: "90px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: "50%",
+                    border: "3px solid #2563EB",
+                    transition: "all 0.3s ease",
+                    color: "#2563EB",
+                    backgroundColor: "#FFFFFF",
+                    fontSize: "2.5em",
+                    textDecoration: "none",
+                    cursor: "pointer"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = "#2563EB";
+                    e.currentTarget.style.color = "#FFFFFF";
+                    e.currentTarget.style.transform = "scale(1.1)";
+                    e.currentTarget.style.boxShadow = "0 8px 16px rgba(37, 99, 235, 0.3)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "#FFFFFF";
+                    e.currentTarget.style.color = "#2563EB";
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
+                >
+                  <AiOutlineMail />
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/bessanh-shadrak-744049287/"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    width: "90px",
+                    height: "90px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: "50%",
+                    border: "3px solid #2563EB",
+                    transition: "all 0.3s ease",
+                    color: "#2563EB",
+                    backgroundColor: "#FFFFFF",
+                    fontSize: "2.5em",
+                    textDecoration: "none",
+                    cursor: "pointer"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = "#2563EB";
+                    e.currentTarget.style.color = "#FFFFFF";
+                    e.currentTarget.style.transform = "scale(1.1)";
+                    e.currentTarget.style.boxShadow = "0 8px 16px rgba(37, 99, 235, 0.3)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "#FFFFFF";
+                    e.currentTarget.style.color = "#2563EB";
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
+                >
+                  <FaLinkedinIn />
+                </a>
+
+                <a
+                  href="https://wa.me/22901974265400"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    width: "90px",
+                    height: "90px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: "50%",
+                    border: "3px solid #2563EB",
+                    transition: "all 0.3s ease",
+                    color: "#2563EB",
+                    backgroundColor: "#FFFFFF",
+                    fontSize: "2.5em",
+                    textDecoration: "none",
+                    cursor: "pointer"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = "#2563EB";
+                    e.currentTarget.style.color = "#FFFFFF";
+                    e.currentTarget.style.transform = "scale(1.1)";
+                    e.currentTarget.style.boxShadow = "0 8px 16px rgba(37, 99, 235, 0.3)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "#FFFFFF";
+                    e.currentTarget.style.color = "#2563EB";
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
+                >
+                  <FaWhatsapp />
+                </a>
+              </div>
             </Col>
           </Row>
         </Container>
