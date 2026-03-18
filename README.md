@@ -3,19 +3,7 @@
   Développeur IA & Full-Stack
 </h2>
 
-<div align="center">
-  <img alt="Portfolio Preview" src="./Images/readme-img1.png" />
-</div>
-
 <br/>
-
-<center>
-
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) &nbsp;
-[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com) &nbsp;
-[![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
-
-</center>
 
 ## 👨‍💻 À propos
 
@@ -80,18 +68,6 @@ Pour personnaliser ce portfolio :
 3. **Compétences** : Mettre à jour `/src/components/About/Techstack.js` et `Toolstack.js`
 4. **Couleurs** : Ajuster les variables CSS dans `/src/style.css`
 5. **Images** : Remplacer les fichiers dans `/src/Assets/`
-
-## 📫 Contact
-
-- **GitHub** : [@Bsh54](https://github.com/Bsh54/)
-- **LinkedIn** : [BESSANH Shadrak](https://www.linkedin.com/in/bessanh-shadrak-744049287/)
-- **Email** : shadrakbsh@gmail.com
-- **WhatsApp** : +229 01 97 42 65 400
-
-## 🙏 Crédits
-
-Template original par [Soumyajit Behera](https://github.com/soumyajit4419/Portfolio)
-Personnalisé et adapté par BESSANH Shadrak
 
 ## ⭐ Support
 
