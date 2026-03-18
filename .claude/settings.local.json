@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:zenith-ai-indol.vercel.app)",
+      "WebFetch(domain:shads229-voxiai.hf.space)"
+    ]
+  }
+}
