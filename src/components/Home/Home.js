@@ -105,7 +105,7 @@ function Home() {
               </p>
               <ul style={{
                 display: "flex",
-                gap: "60px",
+                gap: "40px",
                 justifyContent: "center",
                 flexWrap: "wrap",
                 listStyle: "none",
@@ -118,8 +118,8 @@ function Home() {
                     target="_blank"
                     rel="noreferrer"
                     style={{
-                      width: "150px",
-                      height: "150px",
+                      width: "110px",
+                      height: "110px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -128,7 +128,7 @@ function Home() {
                       transition: "all 0.3s ease",
                       color: "#2563EB",
                       backgroundColor: "#FFFFFF",
-                      fontSize: "4em",
+                      fontSize: "3em",
                       textDecoration: "none"
                     }}
                     onMouseEnter={(e) => {
@@ -153,8 +153,8 @@ function Home() {
                     target="_blank"
                     rel="noreferrer"
                     style={{
-                      width: "150px",
-                      height: "150px",
+                      width: "110px",
+                      height: "110px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -163,7 +163,7 @@ function Home() {
                       transition: "all 0.3s ease",
                       color: "#2563EB",
                       backgroundColor: "#FFFFFF",
-                      fontSize: "4em",
+                      fontSize: "3em",
                       textDecoration: "none"
                     }}
                     onMouseEnter={(e) => {
@@ -188,8 +188,8 @@ function Home() {
                     target="_blank"
                     rel="noreferrer"
                     style={{
-                      width: "150px",
-                      height: "150px",
+                      width: "110px",
+                      height: "110px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -198,7 +198,7 @@ function Home() {
                       transition: "all 0.3s ease",
                       color: "#2563EB",
                       backgroundColor: "#FFFFFF",
-                      fontSize: "4em",
+                      fontSize: "3em",
                       textDecoration: "none"
                     }}
                     onMouseEnter={(e) => {
@@ -223,8 +223,8 @@ function Home() {
                     target="_blank"
                     rel="noreferrer"
                     style={{
-                      width: "150px",
-                      height: "150px",
+                      width: "110px",
+                      height: "110px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -233,7 +233,7 @@ function Home() {
                       transition: "all 0.3s ease",
                       color: "#2563EB",
                       backgroundColor: "#FFFFFF",
-                      fontSize: "4em",
+                      fontSize: "3em",
                       textDecoration: "none"
                     }}
                     onMouseEnter={(e) => {
