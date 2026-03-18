@@ -129,7 +129,9 @@ function Home() {
                       color: "#2563EB",
                       backgroundColor: "#FFFFFF",
                       fontSize: "2.5em",
-                      textDecoration: "none"
+                      textDecoration: "none",
+                      cursor: "pointer",
+                      pointerEvents: "auto"
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.backgroundColor = "#2563EB";
@@ -164,7 +166,9 @@ function Home() {
                       color: "#2563EB",
                       backgroundColor: "#FFFFFF",
                       fontSize: "2.5em",
-                      textDecoration: "none"
+                      textDecoration: "none",
+                      cursor: "pointer",
+                      pointerEvents: "auto"
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.backgroundColor = "#2563EB";
@@ -199,7 +203,9 @@ function Home() {
                       color: "#2563EB",
                       backgroundColor: "#FFFFFF",
                       fontSize: "2.5em",
-                      textDecoration: "none"
+                      textDecoration: "none",
+                      cursor: "pointer",
+                      pointerEvents: "auto"
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.backgroundColor = "#2563EB";
@@ -234,7 +240,9 @@ function Home() {
                       color: "#2563EB",
                       backgroundColor: "#FFFFFF",
                       fontSize: "2.5em",
-                      textDecoration: "none"
+                      textDecoration: "none",
+                      cursor: "pointer",
+                      pointerEvents: "auto"
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.backgroundColor = "#2563EB";
