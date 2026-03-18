@@ -79,7 +79,7 @@ function Home() {
               <p style={{ fontSize: "1.3em", paddingBottom: "40px" }}>
                 N'hésitez pas à me contacter pour toute collaboration ou opportunité
               </p>
-              <ul className="home-about-social-links" style={{ display: "flex", gap: "30px", justifyContent: "center", flexWrap: "wrap" }}>
+              <ul className="home-about-social-links" style={{ display: "flex", gap: "40px", justifyContent: "center", flexWrap: "wrap" }}>
                 <li className="social-icons" style={{ listStyle: "none" }}>
                   <a
                     href="https://github.com/Bsh54/"
@@ -87,9 +87,9 @@ function Home() {
                     rel="noreferrer"
                     className="icon-colour home-social-icons"
                     style={{
-                      fontSize: "3em",
-                      width: "80px",
-                      height: "80px",
+                      fontSize: "3.5em",
+                      width: "100px",
+                      height: "100px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -108,9 +108,9 @@ function Home() {
                     rel="noreferrer"
                     className="icon-colour home-social-icons"
                     style={{
-                      fontSize: "3em",
-                      width: "80px",
-                      height: "80px",
+                      fontSize: "3.5em",
+                      width: "100px",
+                      height: "100px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -129,9 +129,9 @@ function Home() {
                     rel="noreferrer"
                     className="icon-colour home-social-icons"
                     style={{
-                      fontSize: "3em",
-                      width: "80px",
-                      height: "80px",
+                      fontSize: "3.5em",
+                      width: "100px",
+                      height: "100px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -150,9 +150,9 @@ function Home() {
                     rel="noreferrer"
                     className="icon-colour home-social-icons"
                     style={{
-                      fontSize: "3em",
-                      width: "80px",
-                      height: "80px",
+                      fontSize: "3.5em",
+                      width: "100px",
+                      height: "100px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
