@@ -2,14 +2,20 @@ import React, { useState, useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Particle from "../Particle";
-import pdf from "../../Assets/CV Shadrak.pdf";
+import pdfEN from "../../Assets/CV Shadrak EN.pdf";
+import pdfFR from "../../Assets/CV Shadrak FR.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+import { useTranslation } from "react-i18next";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 function ResumeNew() {
   const [width, setWidth] = useState(1200);
+  const { t, i18n } = useTranslation();
+
+  // Sélectionner le bon PDF selon la langue
+  const pdf = i18n.language === 'fr' ? pdfFR : pdfEN;
 
   useEffect(() => {
     setWidth(window.innerWidth);
@@ -27,7 +33,7 @@ function ResumeNew() {
             style={{ maxWidth: "250px" }}
           >
             <AiOutlineDownload />
-            &nbsp;Télécharger CV
+            &nbsp;{t('resume.download')}
           </Button>
         </Row>
 
@@ -45,7 +51,7 @@ function ResumeNew() {
             style={{ maxWidth: "250px" }}
           >
             <AiOutlineDownload />
-            &nbsp;Télécharger CV
+            &nbsp;{t('resume.download')}
           </Button>
         </Row>
       </Container>

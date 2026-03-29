@@ -2,20 +2,19 @@ import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import { CgGitFork } from "react-icons/cg";
 import {
-  AiFillStar,
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
 } from "react-icons/ai";
-
 import { CgFileDocument } from "react-icons/cg";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
+  const { t } = useTranslation();
 
   function scrollHandler() {
     if (window.scrollY >= 20) {
@@ -49,7 +48,7 @@ function NavBar() {
           <Nav className="mx-auto" defaultActiveKey="#home">
             <Nav.Item>
               <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
-                <AiOutlineHome style={{ marginBottom: "2px" }} /> Accueil
+                <AiOutlineHome style={{ marginBottom: "2px" }} /> {t('nav.home')}
               </Nav.Link>
             </Nav.Item>
 
@@ -62,7 +61,7 @@ function NavBar() {
                 <AiOutlineFundProjectionScreen
                   style={{ marginBottom: "2px" }}
                 />{" "}
-                Projets
+                {t('nav.projects')}
               </Nav.Link>
             </Nav.Item>
 
@@ -72,19 +71,12 @@ function NavBar() {
                 to="/resume"
                 onClick={() => updateExpanded(false)}
               >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> CV
+                <CgFileDocument style={{ marginBottom: "2px" }} /> {t('nav.resume')}
               </Nav.Link>
             </Nav.Item>
 
-            <Nav.Item className="fork-btn">
-              <Button
-                href="https://github.com/Bsh54/"
-                target="_blank"
-                className="fork-btn-inner"
-              >
-                <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
-                <AiFillStar style={{ fontSize: "1.1em" }} />
-              </Button>
+            <Nav.Item style={{ marginLeft: "15px" }}>
+              <LanguageSwitcher />
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>

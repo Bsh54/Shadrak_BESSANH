@@ -1,8 +1,10 @@
 import React from "react";
 import { AiFillGithub, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 function ContactSection() {
+  const { t } = useTranslation();
   return (
     <div style={{
       position: "relative",
@@ -25,7 +27,7 @@ function ContactSection() {
           color: "#18181B",
           textAlign: "center"
         }}>
-          <span style={{ color: "#2563EB" }}>Contactez-moi</span>
+          <span style={{ color: "#2563EB" }}>{t('contact.title')}</span>
         </h1>
 
         <p style={{
@@ -34,7 +36,7 @@ function ContactSection() {
           color: "#3F3F46",
           textAlign: "center"
         }}>
-          N'hésitez pas à me contacter pour toute collaboration ou opportunité
+          {t('contact.subtitle')}
         </p>
 
         <div style={{

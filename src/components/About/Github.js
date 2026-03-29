@@ -1,8 +1,11 @@
 import React from "react";
 import GitHubCalendar from "react-github-calendar";
 import { Row } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 function Github() {
+  const { t } = useTranslation();
+
   return (
     <Row
       style={{
@@ -11,7 +14,7 @@ function Github() {
       }}
     >
       <h1 className="project-heading pb-4" style={{ paddingBottom: "20px", color: "#18181B" }}>
-        Jours où je <strong style={{ color: "#2563EB" }}>Code</strong>
+        {t("skills.github.title")} <strong style={{ color: "#2563EB" }}>{t("skills.github.title.highlight")}</strong>
       </h1>
       <GitHubCalendar
         username="Bsh54"

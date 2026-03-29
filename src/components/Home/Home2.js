@@ -2,48 +2,47 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/avatar.png";
 import Tilt from "react-parallax-tilt";
+import { useTranslation } from "react-i18next";
 
 function Home2() {
+  const { t } = useTranslation();
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
         <Row>
           <Col md={8} className="home-about-description">
             <h1 style={{ fontSize: "2.6em" }}>
-              PERMETTEZ-MOI DE ME <span className="purple"> PRÉSENTER</span>
+              {t("home.about.title")} <span className="purple">{t("home.about.title.highlight")}</span>
             </h1>
             <p className="home-about-body">
-              Je suis un Développeur Logiciel et Développeur IA passionné par la transformation d’idées en
-              solutions intelligentes et évolutives. Au fil du temps, j’ai exploré plusieurs
-              technologies et trouvé ma passion dans la création de systèmes
-              d’intelligence artificielle et d’expériences utilisateur innovantes.
+              {t("home.about.intro")}
               <br />
               <br />
-              Je maîtrise
+              {t("home.about.skills")}
               <i>
                 <b className="purple">
                   {" "}
-                  JavaScript, Python, Machine Learning, Deep Learning et Node.js{" "}
+                  {t("home.about.skills.list")}{" "}
                 </b>
               </i>
-              — et j’aime travailler sur des projets d’IA et de développement full-stack.
+              {t("home.about.skills.end")}
               <br />
               <br />
-              Mes principaux domaines d’intérêt incluent le développement
+              {t("home.about.interests")}
               <i>
                 <b className="purple">
                   {" "}
-                  d’Applications IA, de Modèles de Machine Learning,{" "}
+                  {t("home.about.interests.list")}{" "}
                 </b>
               </i>
-              et l’exploration de nouvelles façons d’intégrer l’intelligence artificielle dans des solutions pratiques.
+              {t("home.about.interests.end")}
               <br />
               <br />
-              Dès que possible, j’adore créer des projets avec
-              <b className="purple"> Python </b> et des frameworks modernes comme{" "}
+              {t("home.about.tools")}
+              <b className="purple"> {t("home.about.tools.python")} </b> {t("home.about.tools.frameworks")}{" "}
               <i>
-                <b className="purple">TensorFlow, PyTorch</b> et{" "}
-                <b className="purple">React.js</b>.
+                <b className="purple">{t("home.about.tools.list")}</b> {t("home.about.tools.and")}{" "}
+                <b className="purple">{t("home.about.tools.react")}</b>.
               </i>
             </p>
           </Col>

@@ -8,8 +8,10 @@ import Techstack from "../About/Techstack";
 import Toolstack from "../About/Toolstack";
 import Github from "../About/Github";
 import ContactSection from "./ContactSection";
+import { useTranslation } from "react-i18next";
 
 function Home() {
+  const { t } = useTranslation();
   return (
     <section>
       {/* Hero Section - Refait complètement */}
@@ -31,7 +33,7 @@ function Home() {
                 fontWeight: "400",
                 marginBottom: "20px"
               }}>
-                Bonjour ! <span className="wave" role="img" aria-labelledby="wave">👋🏻</span>
+                {t('home.greeting')} <span className="wave" role="img" aria-labelledby="wave">👋🏻</span>
               </h1>
 
               <h1 style={{
@@ -41,7 +43,7 @@ function Home() {
                 marginBottom: "30px",
                 lineHeight: "1.2"
               }}>
-                Je suis <span style={{ color: "#2563EB" }}>BESSANH Shadrak</span>
+                {t('home.intro')} <span style={{ color: "#2563EB" }}>{t('home.name')}</span>
               </h1>
 
               <div style={{
@@ -75,12 +77,12 @@ function Home() {
       <Container fluid className="about-section">
         <Container>
           <h1 className="project-heading" style={{ paddingTop: "50px" }}>
-            Compétences <strong className="purple">Professionnelles</strong>
+            {t('skills.title')} <strong className="purple">{t('skills.title.highlight')}</strong>
           </h1>
           <Techstack />
 
           <h1 className="project-heading">
-            <strong className="purple">Outils</strong> que j'utilise
+            <strong className="purple">{t('skills.tools')}</strong> {t('skills.tools.end')}
           </h1>
           <Toolstack />
 

@@ -11,7 +11,14 @@
       "Bash(mv aiphonecall.png Projects/aiphonecall.png)",
       "Bash(mv fon.png Projects/fondataset.png)",
       "Bash(mv zenithai.png Projects/zenithai.png)",
-      "Bash(xargs grep:*)"
+      "Bash(xargs grep:*)",
+      "Bash(netstat -ano)",
+      "Bash(xargs taskkill:*)",
+      "Bash(taskkill:*)",
+      "Bash(npm start:*)",
+      "Bash(curl:*)",
+      "Bash(ls:*)",
+      "Bash(git config:*)"
     ]
   }
 }
