@@ -26,6 +26,7 @@ function AdminDashboard() {
   const [error, setError] = useState(null);
   const [blockedIPs, setBlockedIPs] = useState([]);
   const [newIPToBlock, setNewIPToBlock] = useState("");
+  const [expandedVisit, setExpandedVisit] = useState(null);
 
   useEffect(() => {
     try {
@@ -408,15 +409,16 @@ function AdminDashboard() {
           </Col>
         </Row>
 
-        {/* Tableau détaillé */}
+        {/* Tableau détaillé avec workflow */}
         <Row>
           <Col lg={12}>
             <Card style={{ padding: "20px", borderRadius: "8px", boxShadow: "0 2px 8px rgba(0,0,0,0.1)" }}>
-              <h4 style={{ color: "#18181B", marginBottom: "20px" }}>📋 Toutes les Visites</h4>
+              <h4 style={{ color: "#18181B", marginBottom: "20px" }}>📋 Workflow des Visiteurs</h4>
               <div style={{ overflowX: "auto" }}>
                 <table style={{ width: "100%", borderCollapse: "collapse" }}>
                   <thead>
                     <tr style={{ backgroundColor: "#f5f5f5", borderBottom: "2px solid #ddd" }}>
+                      <th style={{ padding: "12px", textAlign: "left", color: "#18181B", width: "30px" }}></th>
                       <th style={{ padding: "12px", textAlign: "left", color: "#18181B" }}>Date</th>
                       <th style={{ padding: "12px", textAlign: "left", color: "#18181B" }}>Navigateur</th>
                       <th style={{ padding: "12px", textAlign: "left", color: "#18181B" }}>OS</th>
@@ -424,23 +426,77 @@ function AdminDashboard() {
                       <th style={{ padding: "12px", textAlign: "left", color: "#18181B" }}>Pays</th>
                       <th style={{ padding: "12px", textAlign: "left", color: "#18181B" }}>Ville</th>
                       <th style={{ padding: "12px", textAlign: "left", color: "#18181B" }}>IP</th>
+                      <th style={{ padding: "12px", textAlign: "left", color: "#18181B" }}>Durée</th>
                     </tr>
                   </thead>
                   <tbody>
                     {visits.map((visit, index) => (
-                      <tr key={index} style={{ borderBottom: "1px solid #eee" }}>
-                        <td style={{ padding: "12px", color: "#666", fontSize: "0.9em" }}>
-                          {new Date(visit.timestamp).toLocaleString()}
-                        </td>
-                        <td style={{ padding: "12px", color: "#666" }}>{visit.browser}</td>
-                        <td style={{ padding: "12px", color: "#666" }}>{visit.os}</td>
-                        <td style={{ padding: "12px", color: "#666" }}>
-                          {visit.device === "mobile" ? "📱" : visit.device === "tablet" ? "📱" : "💻"}
-                        </td>
-                        <td style={{ padding: "12px", color: "#666" }}>{visit.country}</td>
-                        <td style={{ padding: "12px", color: "#666" }}>{visit.city}</td>
-                        <td style={{ padding: "12px", color: "#666", fontSize: "0.85em" }}>{visit.ip}</td>
-                      </tr>
+                      <React.Fragment key={index}>
+                        <tr style={{ borderBottom: "1px solid #eee", cursor: "pointer", backgroundColor: expandedVisit === index ? "#f0f0f0" : "white" }}>
+                          <td style={{ padding: "12px", textAlign: "center" }}>
+                            <Button
+                              variant="link"
+                              size="sm"
+                              onClick={() => setExpandedVisit(expandedVisit === index ? null : index)}
+                              style={{ padding: 0, color: "#2563EB" }}
+                            >
+                              {expandedVisit === index ? "▼" : "▶"}
+                            </Button>
+                          </td>
+                          <td style={{ padding: "12px", color: "#666", fontSize: "0.9em" }}>
+                            {new Date(visit.timestamp).toLocaleString()}
+                          </td>
+                          <td style={{ padding: "12px", color: "#666" }}>{visit.browser}</td>
+                          <td style={{ padding: "12px", color: "#666" }}>{visit.os}</td>
+                          <td style={{ padding: "12px", color: "#666" }}>
+                            {visit.device === "mobile" ? "📱" : visit.device === "tablet" ? "📱" : "💻"}
+                          </td>
+                          <td style={{ padding: "12px", color: "#666" }}>{visit.country}</td>
+                          <td style={{ padding: "12px", color: "#666" }}>{visit.city}</td>
+                          <td style={{ padding: "12px", color: "#666", fontSize: "0.85em" }}>{visit.ip}</td>
+                          <td style={{ padding: "12px", color: "#666" }}>{visit.sessionDuration || 0}s</td>
+                        </tr>
+                        {expandedVisit === index && (
+                          <tr style={{ backgroundColor: "#fafafa", borderBottom: "1px solid #eee" }}>
+                            <td colSpan="9" style={{ padding: "20px" }}>
+                              <div style={{ marginBottom: "20px" }}>
+                                <h5 style={{ color: "#18181B", marginBottom: "10px" }}>📄 Pages Visitées</h5>
+                                {visit.pages && Object.keys(visit.pages).length > 0 ? (
+                                  <div style={{ backgroundColor: "white", padding: "10px", borderRadius: "4px", border: "1px solid #ddd" }}>
+                                    {Object.entries(visit.pages).map(([pageKey, pageData]) => (
+                                      <div key={pageKey} style={{ padding: "8px", borderBottom: "1px solid #eee", fontSize: "0.9em" }}>
+                                        <span style={{ color: "#2563EB", fontWeight: "bold" }}>📍 {pageData.page}</span>
+                                        <span style={{ color: "#999", marginLeft: "10px" }}>
+                                          {new Date(pageData.timestamp).toLocaleTimeString()} ({pageData.duration}s)
+                                        </span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                ) : (
+                                  <p style={{ color: "#999" }}>Aucune page visitée</p>
+                                )}
+                              </div>
+                              <div>
+                                <h5 style={{ color: "#18181B", marginBottom: "10px" }}>🖱️ Clics</h5>
+                                {visit.clicks && Object.keys(visit.clicks).length > 0 ? (
+                                  <div style={{ backgroundColor: "white", padding: "10px", borderRadius: "4px", border: "1px solid #ddd" }}>
+                                    {Object.entries(visit.clicks).map(([clickKey, clickData]) => (
+                                      <div key={clickKey} style={{ padding: "8px", borderBottom: "1px solid #eee", fontSize: "0.9em" }}>
+                                        <span style={{ color: "#EC4899", fontWeight: "bold" }}>🔗 {clickData.button}</span>
+                                        <span style={{ color: "#999", marginLeft: "10px" }}>
+                                          ({clickData.type}) - {new Date(clickData.timestamp).toLocaleTimeString()}
+                                        </span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                ) : (
+                                  <p style={{ color: "#999" }}>Aucun clic enregistré</p>
+                                )}
+                              </div>
+                            </td>
+                          </tr>
+                        )}
+                      </React.Fragment>
                     ))}
                   </tbody>
                 </table>
