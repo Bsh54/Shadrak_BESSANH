@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { database } from "../../services/firebaseConfig";
-import { ref, onValue } from "firebase/database";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { ref, onValue, get } from "firebase/database";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { blockIP, unblockIP, resetAllAnalytics } from "../../services/analyticsService";
 import {
   LineChart,
   Line,
@@ -23,6 +24,8 @@ function AdminDashboard() {
   const [visits, setVisits] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [blockedIPs, setBlockedIPs] = useState([]);
+  const [newIPToBlock, setNewIPToBlock] = useState("");
 
   useEffect(() => {
     try {
@@ -64,6 +67,43 @@ function AdminDashboard() {
       setLoading(false);
     }
   }, []);
+
+  // Charger les IPs bloquées
+  useEffect(() => {
+    const loadBlockedIPs = async () => {
+      try {
+        const blockedIPsRef = ref(database, "analytics/blockedIPs");
+        const snapshot = await get(blockedIPsRef);
+        if (snapshot.exists()) {
+          const ips = Object.keys(snapshot.val());
+          setBlockedIPs(ips);
+        }
+      } catch (err) {
+        console.error("Error loading blocked IPs:", err);
+      }
+    };
+    loadBlockedIPs();
+  }, []);
+
+  const handleBlockIP = async () => {
+    if (!newIPToBlock.trim()) return;
+    await blockIP(newIPToBlock);
+    setBlockedIPs([...blockedIPs, newIPToBlock]);
+    setNewIPToBlock("");
+  };
+
+  const handleUnblockIP = async (ip) => {
+    await unblockIP(ip);
+    setBlockedIPs(blockedIPs.filter(blockedIP => blockedIP !== ip));
+  };
+
+  const handleResetAnalytics = async () => {
+    if (window.confirm("⚠️ Êtes-vous sûr ? Cela supprimera TOUTES les données analytics !")) {
+      await resetAllAnalytics();
+      setVisits([]);
+      alert("✅ Toutes les données ont été réinitialisées !");
+    }
+  };
 
   // Calculs des statistiques
   const totalVisits = visits.length;
@@ -159,6 +199,82 @@ function AdminDashboard() {
         <h1 style={{ color: "#18181B", marginBottom: "40px", textAlign: "center", fontSize: "2.5em" }}>
           📊 Tableau de Bord Analytics
         </h1>
+
+        {/* Section Gestion */}
+        <Row style={{ marginBottom: "40px" }}>
+          <Col lg={6} style={{ marginBottom: "20px" }}>
+            <Card style={{ padding: "20px", borderRadius: "8px", boxShadow: "0 2px 8px rgba(0,0,0,0.1)" }}>
+              <h4 style={{ color: "#18181B", marginBottom: "20px" }}>🚫 IPs Bloquées</h4>
+              <div style={{ marginBottom: "15px" }}>
+                <input
+                  type="text"
+                  placeholder="Ajouter une IP (ex: 137.255.46.158)"
+                  value={newIPToBlock}
+                  onChange={(e) => setNewIPToBlock(e.target.value)}
+                  style={{
+                    width: "100%",
+                    padding: "10px",
+                    borderRadius: "4px",
+                    border: "1px solid #ddd",
+                    marginBottom: "10px",
+                  }}
+                />
+                <Button
+                  variant="primary"
+                  onClick={handleBlockIP}
+                  style={{ width: "100%" }}
+                >
+                  ➕ Bloquer cette IP
+                </Button>
+              </div>
+              <div style={{ maxHeight: "200px", overflowY: "auto" }}>
+                {blockedIPs.length === 0 ? (
+                  <p style={{ color: "#999" }}>Aucune IP bloquée</p>
+                ) : (
+                  blockedIPs.map((ip) => (
+                    <div
+                      key={ip}
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        padding: "10px",
+                        backgroundColor: "#f9f9f9",
+                        borderRadius: "4px",
+                        marginBottom: "8px",
+                      }}
+                    >
+                      <span style={{ color: "#666", fontFamily: "monospace" }}>{ip}</span>
+                      <Button
+                        variant="danger"
+                        size="sm"
+                        onClick={() => handleUnblockIP(ip)}
+                      >
+                        ✕
+                      </Button>
+                    </div>
+                  ))
+                )}
+              </div>
+            </Card>
+          </Col>
+
+          <Col lg={6} style={{ marginBottom: "20px" }}>
+            <Card style={{ padding: "20px", borderRadius: "8px", boxShadow: "0 2px 8px rgba(0,0,0,0.1)", backgroundColor: "#fff3cd" }}>
+              <h4 style={{ color: "#856404", marginBottom: "20px" }}>⚠️ Actions Dangereuses</h4>
+              <Button
+                variant="danger"
+                onClick={handleResetAnalytics}
+                style={{ width: "100%" }}
+              >
+                🗑️ Réinitialiser toutes les données
+              </Button>
+              <p style={{ color: "#856404", marginTop: "15px", fontSize: "0.9em" }}>
+                ⚠️ Cette action supprimera TOUTES les données analytics et ne peut pas être annulée !
+              </p>
+            </Card>
+          </Col>
+        </Row>
 
         {/* KPIs */}
         <Row style={{ marginBottom: "40px" }}>

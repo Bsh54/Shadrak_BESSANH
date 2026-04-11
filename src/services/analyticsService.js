@@ -1,8 +1,13 @@
 import { database } from "./firebaseConfig";
-import { ref, push, update } from "firebase/database";
+import { ref, push, update, get, remove } from "firebase/database";
 import { UAParser } from "ua-parser-js";
 
 const parser = new UAParser();
+
+// Vérifier si on est en développement
+const isDevelopment = process.env.NODE_ENV === "development" || window.location.hostname === "localhost";
+
+console.log(`📊 Analytics Mode: ${isDevelopment ? "🔴 DÉVELOPPEMENT (désactivé)" : "🟢 PRODUCTION (activé)"}`);
 
 // Fonction pour obtenir la géolocalisation via API gratuite
 const getGeolocation = async () => {
@@ -51,13 +56,74 @@ const initSession = () => {
   sessionStartTime = Date.now();
 };
 
+// Vérifier si une IP est bloquée
+export const isIPBlocked = async (ip) => {
+  try {
+    const blockedIPsRef = ref(database, "analytics/blockedIPs");
+    const snapshot = await get(blockedIPsRef);
+    if (snapshot.exists()) {
+      const blockedIPs = snapshot.val();
+      return blockedIPs[ip] === true;
+    }
+    return false;
+  } catch (error) {
+    console.error("Error checking blocked IPs:", error);
+    return false;
+  }
+};
+
+// Ajouter une IP à la liste noire
+export const blockIP = async (ip) => {
+  try {
+    const ipRef = ref(database, `analytics/blockedIPs/${ip}`);
+    await update(ipRef, { blocked: true });
+    console.log("✅ IP bloquée:", ip);
+  } catch (error) {
+    console.error("❌ Error blocking IP:", error);
+  }
+};
+
+// Retirer une IP de la liste noire
+export const unblockIP = async (ip) => {
+  try {
+    const ipRef = ref(database, `analytics/blockedIPs/${ip}`);
+    await remove(ipRef);
+    console.log("✅ IP débloquée:", ip);
+  } catch (error) {
+    console.error("❌ Error unblocking IP:", error);
+  }
+};
+
+// Réinitialiser toutes les données
+export const resetAllAnalytics = async () => {
+  try {
+    const visitsRef = ref(database, "analytics/visits");
+    await remove(visitsRef);
+    console.log("✅ Toutes les données ont été réinitialisées");
+  } catch (error) {
+    console.error("❌ Error resetting analytics:", error);
+  }
+};
+
 // Tracker une visite
 export const trackVisit = async () => {
+  if (isDevelopment) {
+    console.log("⏭️ Tracking désactivé en développement");
+    return;
+  }
+
   try {
     initSession();
 
     const userAgentData = parseUserAgent();
     const geoData = await getGeolocation();
+
+    // Vérifier si l'IP est bloquée
+    const blocked = await isIPBlocked(geoData.ip);
+    if (blocked) {
+      console.log("🚫 IP bloquée, visite non enregistrée:", geoData.ip);
+      return;
+    }
 
     const visitData = {
       timestamp: new Date().toISOString(),
@@ -83,6 +149,8 @@ export const trackVisit = async () => {
 
 // Tracker une page visitée
 export const trackPageView = (pageName, duration = 0) => {
+  if (isDevelopment) return;
+
   try {
     if (!currentVisitRef) return;
 
@@ -103,6 +171,8 @@ export const trackPageView = (pageName, duration = 0) => {
 
 // Tracker un clic
 export const trackClick = (buttonName, buttonType = "link") => {
+  if (isDevelopment) return;
+
   try {
     if (!currentVisitRef) return;
 
@@ -123,6 +193,8 @@ export const trackClick = (buttonName, buttonType = "link") => {
 
 // Mettre à jour la durée de session
 export const updateSessionDuration = () => {
+  if (isDevelopment) return;
+
   try {
     if (!currentVisitRef || !sessionStartTime) return;
 
