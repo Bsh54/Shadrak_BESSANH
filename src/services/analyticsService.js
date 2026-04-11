@@ -160,7 +160,7 @@ export const trackPageView = (pageName, duration = 0) => {
       duration: duration,
     };
 
-    const pagesRef = ref(database, `${currentVisitRef.path}/pages`);
+    const pagesRef = ref(database, `analytics/visits/${currentVisitRef.key}/pages`);
     push(pagesRef, pageData);
 
     console.log("✅ Page view tracked:", pageName);
@@ -182,7 +182,7 @@ export const trackClick = (buttonName, buttonType = "link") => {
       timestamp: new Date().toISOString(),
     };
 
-    const clicksRef = ref(database, `${currentVisitRef.path}/clicks`);
+    const clicksRef = ref(database, `analytics/visits/${currentVisitRef.key}/clicks`);
     push(clicksRef, clickData);
 
     console.log("✅ Click tracked:", buttonName);
@@ -200,7 +200,7 @@ export const updateSessionDuration = () => {
 
     const duration = Math.round((Date.now() - sessionStartTime) / 1000);
     const updates = {};
-    updates[`${currentVisitRef.path}/sessionDuration`] = duration;
+    updates[`analytics/visits/${currentVisitRef.key}/sessionDuration`] = duration;
 
     update(ref(database), updates);
     console.log("✅ Session duration updated:", duration);
