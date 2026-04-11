@@ -1,5 +1,5 @@
 import React from "react";
-import { useSearchParams, Navigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 const ADMIN_TOKEN = process.env.REACT_APP_ADMIN_TOKEN;
 
