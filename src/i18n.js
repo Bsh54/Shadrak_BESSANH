@@ -72,7 +72,33 @@ const resources = {
 
       // Footer
       "footer.developed": "Developed with ❤️ by",
-      "footer.name": "BESSANH Shadrak"
+      "footer.name": "BESSANH Shadrak",
+
+      // Admin Dashboard
+      "admin.title": "📊 Analytics Dashboard",
+      "admin.total_visits": "Total Visits",
+      "admin.avg_duration": "Average Duration",
+      "admin.unique_countries": "Unique Countries",
+      "admin.browsers": "Browsers",
+      "admin.visits_by_day": "📈 Visits by Day",
+      "admin.browsers_chart": "🌐 Browsers",
+      "admin.os_chart": "💻 Operating Systems",
+      "admin.devices_chart": "📱 Device Types",
+      "admin.countries_chart": "🌍 Top 10 Countries",
+      "admin.pages_chart": "📄 Pages Visited",
+      "admin.clicks_chart": "🔗 Most Popular Clicks",
+      "admin.all_visits": "📋 All Visits",
+      "admin.date": "Date",
+      "admin.browser": "Browser",
+      "admin.os": "OS",
+      "admin.device": "Device",
+      "admin.country": "Country",
+      "admin.duration": "Duration (s)",
+      "admin.pages": "Pages",
+      "admin.clicks": "Clicks",
+      "admin.access_denied": "Access Denied",
+      "admin.invalid_token": "Invalid or missing token",
+      "admin.loading": "Loading data..."
     }
   },
   fr: {
@@ -143,7 +169,33 @@ const resources = {
 
       // Footer
       "footer.developed": "Développé avec ❤️ par",
-      "footer.name": "BESSANH Shadrak"
+      "footer.name": "BESSANH Shadrak",
+
+      // Admin Dashboard
+      "admin.title": "📊 Tableau de Bord Analytics",
+      "admin.total_visits": "Visites Totales",
+      "admin.avg_duration": "Durée Moyenne",
+      "admin.unique_countries": "Pays Uniques",
+      "admin.browsers": "Navigateurs",
+      "admin.visits_by_day": "📈 Visites par Jour",
+      "admin.browsers_chart": "🌐 Navigateurs",
+      "admin.os_chart": "💻 Systèmes d'Exploitation",
+      "admin.devices_chart": "📱 Types d'Appareils",
+      "admin.countries_chart": "🌍 Top 10 Pays",
+      "admin.pages_chart": "📄 Pages Visitées",
+      "admin.clicks_chart": "🔗 Clics les Plus Populaires",
+      "admin.all_visits": "📋 Toutes les Visites",
+      "admin.date": "Date",
+      "admin.browser": "Navigateur",
+      "admin.os": "OS",
+      "admin.device": "Appareil",
+      "admin.country": "Pays",
+      "admin.duration": "Durée (s)",
+      "admin.pages": "Pages",
+      "admin.clicks": "Clics",
+      "admin.access_denied": "Accès Refusé",
+      "admin.invalid_token": "Token invalide ou manquant",
+      "admin.loading": "Chargement des données..."
     }
   }
 };

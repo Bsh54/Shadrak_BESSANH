@@ -1,0 +1,110 @@
+.admin-dashboard {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.admin-kpi {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-kpi:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.admin-kpi h3 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #2563EB;
+}
+
+.admin-kpi p {
+  color: #666;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+.admin-chart-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.admin-chart-card h4 {
+  color: #18181B;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.admin-table thead {
+  background-color: #f5f5f5;
+  border-bottom: 2px solid #ddd;
+}
+
+.admin-table th {
+  padding: 12px;
+  text-align: left;
+  color: #18181B;
+  font-weight: 600;
+}
+
+.admin-table td {
+  padding: 12px;
+  color: #666;
+  border-bottom: 1px solid #eee;
+}
+
+.admin-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.admin-title {
+  color: #18181B;
+  margin-bottom: 40px;
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: 700;
+}
+
+.admin-stat-badge {
+  background-color: #2563EB;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  display: inline-block;
+}
+
+.admin-loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+.admin-error {
+  background-color: #fee;
+  border: 1px solid #fcc;
+  color: #c33;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}

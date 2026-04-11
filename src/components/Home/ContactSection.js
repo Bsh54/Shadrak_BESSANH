@@ -2,9 +2,15 @@ import React from "react";
 import { AiFillGithub, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import { trackClick } from "../../services/analyticsService";
 
 function ContactSection() {
   const { t } = useTranslation();
+
+  const handleClick = (buttonName) => {
+    trackClick(buttonName, "contact");
+  };
+
   return (
     <div style={{
       position: "relative",
@@ -50,7 +56,7 @@ function ContactSection() {
           {/* GitHub */}
           <button
             onClick={() => {
-              console.log("GitHub clicked!");
+              handleClick("GitHub-Contact");
               window.open('https://github.com/Bsh54/', '_blank');
             }}
             style={{
@@ -87,7 +93,7 @@ function ContactSection() {
           {/* Email */}
           <button
             onClick={() => {
-              console.log("Email clicked!");
+              handleClick("Email-Contact");
               window.location.href = 'mailto:shadrakbsh@gmail.com';
             }}
             style={{
@@ -124,7 +130,7 @@ function ContactSection() {
           {/* LinkedIn */}
           <button
             onClick={() => {
-              console.log("LinkedIn clicked!");
+              handleClick("LinkedIn-Contact");
               window.open('https://www.linkedin.com/in/bessanh-shadrak-744049287/', '_blank');
             }}
             style={{
@@ -161,7 +167,7 @@ function ContactSection() {
           {/* WhatsApp */}
           <button
             onClick={() => {
-              console.log("WhatsApp clicked!");
+              handleClick("WhatsApp-Contact");
               window.open('https://wa.me/2290197426540', '_blank');
             }}
             style={{
@@ -201,3 +207,4 @@ function ContactSection() {
 }
 
 export default ContactSection;
+

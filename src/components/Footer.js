@@ -5,8 +5,13 @@ import {
   AiOutlineMail,
 } from "react-icons/ai";
 import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+import { trackClick } from "../services/analyticsService";
 
 function Footer() {
+  const handleClick = (buttonName) => {
+    trackClick(buttonName, "social");
+  };
+
   return (
     <Container fluid className="footer">
       <Row>
@@ -18,6 +23,7 @@ function Footer() {
                 style={{ color: "white" }}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => handleClick("GitHub")}
               >
                 <AiFillGithub />
               </a>
@@ -28,6 +34,7 @@ function Footer() {
                 style={{ color: "white" }}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => handleClick("Email")}
               >
                 <AiOutlineMail />
               </a>
@@ -38,6 +45,7 @@ function Footer() {
                 style={{ color: "white" }}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => handleClick("LinkedIn")}
               >
                 <FaLinkedinIn />
               </a>
@@ -48,6 +56,7 @@ function Footer() {
                 style={{ color: "white" }}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => handleClick("WhatsApp")}
               >
                 <FaWhatsapp />
               </a>

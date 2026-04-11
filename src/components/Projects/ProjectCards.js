@@ -4,9 +4,19 @@ import Button from "react-bootstrap/Button";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
 import { useTranslation } from "react-i18next";
+import { trackClick } from "../../services/analyticsService";
 
 function ProjectCards(props) {
   const { t } = useTranslation();
+
+  const handleGithubClick = () => {
+    trackClick(`GitHub-${props.title}`, "project");
+  };
+
+  const handleDemoClick = () => {
+    trackClick(`Demo-${props.title}`, "project");
+  };
+
   return (
     <Card className="project-card-view">
       <Card.Img variant="top" src={props.imgPath} alt="card-img" />
@@ -15,7 +25,7 @@ function ProjectCards(props) {
         <Card.Text style={{ textAlign: "justify" }}>
           {props.description}
         </Card.Text>
-        <Button variant="primary" href={props.ghLink} target="_blank">
+        <Button variant="primary" href={props.ghLink} target="_blank" onClick={handleGithubClick}>
           <BsGithub /> &nbsp;
           {props.isBlog ? "Blog" : t('projects.github')}
         </Button>
@@ -30,6 +40,7 @@ function ProjectCards(props) {
             href={props.demoLink}
             target="_blank"
             style={{ marginLeft: "10px" }}
+            onClick={handleDemoClick}
           >
             <CgWebsite /> &nbsp;
             {t('projects.demo')}
@@ -40,3 +51,4 @@ function ProjectCards(props) {
   );
 }
 export default ProjectCards;
+

@@ -18,7 +18,8 @@
       "Bash(npm start:*)",
       "Bash(curl:*)",
       "Bash(ls:*)",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "Bash(dir /b)"
     ]
   }
 }
