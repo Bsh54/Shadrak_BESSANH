@@ -8,6 +8,7 @@ import aiphonecall from "../../Assets/Projects/aiphonecall.png";
 import fondataset from "../../Assets/Projects/fondataset.png";
 import zenithai from "../../Assets/Projects/zenithai.png";
 import voxiai from "../../Assets/Projects/voxiai.png";
+import minerva from "../../Assets/Projects/minerva.png";
 import { useTranslation } from "react-i18next";
 
 function Projects() {
@@ -86,6 +87,17 @@ function Projects() {
               description={t('projects.voxiai.description')}
               ghLink="https://github.com/Bsh54/VoxiAI"
               demoLink="https://shads229-voxiai.hf.space/"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={minerva}
+              isBlog={false}
+              title="MINERVA"
+              description={t('projects.minerva.description')}
+              ghLink="https://github.com/Bsh54/MINERVA"
+              demoLink="https://minerva-snowy.vercel.app/"
             />
           </Col>
         </Row>
