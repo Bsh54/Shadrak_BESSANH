@@ -89,22 +89,6 @@ function AchievementDetail() {
               </div>
             </div>
 
-            {/* Key Metrics */}
-            {achievement.metrics && (
-              <div className="achievement-metrics">
-                <h3>{t('achievements.keyMetrics')}</h3>
-                <Row>
-                  {Object.entries(achievement.metrics).map(([key, value]) => (
-                    <Col md={6} key={key} className="metric-item">
-                      <div className="metric-card">
-                        <p className="metric-label">{key.replace(/([A-Z])/g, " $1").trim()}</p>
-                        <p className="metric-value">{value}</p>
-                      </div>
-                    </Col>
-                  ))}
-                </Row>
-              </div>
-            )}
 
             {/* Technologies */}
             {achievement.technologies && (
@@ -128,17 +112,6 @@ function AchievementDetail() {
               </div>
             )}
 
-            {/* Key Contacts */}
-            {achievement.keyContacts && (
-              <div className="achievement-contacts">
-                <h3>{t('achievements.keyContacts')}</h3>
-                <ul>
-                  {achievement.keyContacts.map((contact, idx) => (
-                    <li key={idx}>{contact}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
           </Col>
         </Row>
 
