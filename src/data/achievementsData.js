@@ -104,12 +104,13 @@ Présentée le 14 mai 2026 (14h30-18h30) au Parc des Expositions d'Abidjan devan
     },
 
     galleryImages: [
-      "https://via.placeholder.com/800x600?text=Team+Presentation",
-      "https://via.placeholder.com/800x600?text=Demo+Session",
-      "https://via.placeholder.com/800x600?text=Jury+Interaction",
-      "https://via.placeholder.com/800x600?text=Event+Venue",
-      "https://via.placeholder.com/800x600?text=Team+Photo",
-      "https://via.placeholder.com/800x600?text=Award+Ceremony"
+      "/Assets/Achievements/ID4AFRICA2026__465.jpg",
+      "/Assets/Achievements/ID4AFRICA2026__466.jpg",
+      "/Assets/Achievements/ID4AFRICA2026__467.jpg",
+      "/Assets/Achievements/ID4AFRICA2026__468.jpg",
+      "/Assets/Achievements/ID4AFRICA2026__469.jpg",
+      "/Assets/Achievements/ID4AFRICA2026__471.jpg",
+      "/Assets/Achievements/ID4AFRICA2026__541.jpg"
     ],
 
     socialLinks: {
