@@ -3,7 +3,6 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import { achievementsData } from "../../data/achievementsData";
 import { useTranslation } from "react-i18next";
-import { BsLinkedin, BsTwitter, BsGithub, BsMedium } from "react-icons/bs";
 import ScrollToTop from "../ScrollToTop";
 import "./AchievementDetail.css";
 
@@ -31,21 +30,6 @@ function AchievementDetail() {
       return field[i18n.language] || field['en'];
     }
     return field;
-  };
-
-  const getSocialIcon = (platform) => {
-    switch (platform) {
-      case "linkedin":
-        return <BsLinkedin />;
-      case "twitter":
-        return <BsTwitter />;
-      case "github":
-        return <BsGithub />;
-      case "medium":
-        return <BsMedium />;
-      default:
-        return null;
-    }
   };
 
   return (
