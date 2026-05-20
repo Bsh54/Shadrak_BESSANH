@@ -79,7 +79,7 @@ function AchievementDetail() {
       <Container className="achievement-detail-container">
         {/* Description Section */}
         <Row className="achievement-description-section">
-          <Col md={8}>
+          <Col md={12}>
             <div className="achievement-description">
               <h2>{t('achievements.about')}</h2>
               <div className="description-text">
@@ -140,25 +140,33 @@ function AchievementDetail() {
               </div>
             )}
           </Col>
+        </Row>
 
-          {/* Sidebar */}
-          <Col md={4}>
-            <div className="achievement-sidebar">
-              <div className="sidebar-card">
-                <h4>{t('achievements.eventDetails')}</h4>
-                <div className="detail-item">
-                  <strong>{t('achievements.date')}:</strong>
-                  <p>{achievement.date}</p>
-                </div>
-                <div className="detail-item">
-                  <strong>{t('achievements.location')}:</strong>
-                  <p>{achievement.location}</p>
-                </div>
-                <div className="detail-item">
-                  <strong>{t('achievements.organization')}:</strong>
-                  <p>{achievement.organization}</p>
-                </div>
-              </div>
+        {/* Event Details Section - Full Width */}
+        <Row className="achievement-event-details-section">
+          <Col md={12}>
+            <div className="event-details-card">
+              <h2>{t('achievements.eventDetails')}</h2>
+              <Row>
+                <Col md={4} className="detail-column">
+                  <div className="detail-item">
+                    <strong>{t('achievements.date')}:</strong>
+                    <p>{achievement.date}</p>
+                  </div>
+                </Col>
+                <Col md={4} className="detail-column">
+                  <div className="detail-item">
+                    <strong>{t('achievements.location')}:</strong>
+                    <p>{achievement.location}</p>
+                  </div>
+                </Col>
+                <Col md={4} className="detail-column">
+                  <div className="detail-item">
+                    <strong>{t('achievements.organization')}:</strong>
+                    <p>{achievement.organization}</p>
+                  </div>
+                </Col>
+              </Row>
             </div>
           </Col>
         </Row>
