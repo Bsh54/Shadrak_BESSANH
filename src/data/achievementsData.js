@@ -10,8 +10,8 @@ export const achievementsData = [
     location: "Abidjan, Côte d'Ivoire",
     status: "2nd Place",
     organization: "Upanzi Network, MicroSave Consulting, ID4Africa",
-    coverImage: "https://via.placeholder.com/1200x600?text=CottonPay+2nd+Place",
-    cardImage: "https://via.placeholder.com/400x300?text=CottonPay+2nd+Place",
+    coverImage: "/Assets/Achievements/ID4AFRICA2026__552.jpg",
+    cardImage: "/Assets/Achievements/ID4AFRICA2026__555.jpg",
     description: {
       en: `AFRICA DIGITAL ID HACKATHON 2026 - 2ND PLACE WINNER
 
