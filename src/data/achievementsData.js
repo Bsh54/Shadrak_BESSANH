@@ -1,3 +1,13 @@
+import img465 from "../Assets/Achievements/ID4AFRICA2026__465.jpg";
+import img466 from "../Assets/Achievements/ID4AFRICA2026__466.jpg";
+import img467 from "../Assets/Achievements/ID4AFRICA2026__467.jpg";
+import img468 from "../Assets/Achievements/ID4AFRICA2026__468.jpg";
+import img469 from "../Assets/Achievements/ID4AFRICA2026__469.jpg";
+import img471 from "../Assets/Achievements/ID4AFRICA2026__471.jpg";
+import img541 from "../Assets/Achievements/ID4AFRICA2026__541.jpg";
+import img552 from "../Assets/Achievements/ID4AFRICA2026__552.jpg";
+import img555 from "../Assets/Achievements/ID4AFRICA2026__555.jpg";
+
 export const achievementsData = [
   {
     id: "cottonpay-id4africa",
@@ -10,8 +20,8 @@ export const achievementsData = [
     location: "Abidjan, Côte d'Ivoire",
     status: "2nd Place",
     organization: "Upanzi Network, MicroSave Consulting, ID4Africa",
-    coverImage: "/Assets/Achievements/ID4AFRICA2026__552.jpg",
-    cardImage: "/Assets/Achievements/ID4AFRICA2026__555.jpg",
+    coverImage: img552,
+    cardImage: img555,
     description: {
       en: `AFRICA DIGITAL ID HACKATHON 2026 - 2ND PLACE WINNER
 
@@ -104,13 +114,13 @@ Présentée le 14 mai 2026 (14h30-18h30) au Parc des Expositions d'Abidjan devan
     },
 
     galleryImages: [
-      "/Assets/Achievements/ID4AFRICA2026__465.jpg",
-      "/Assets/Achievements/ID4AFRICA2026__466.jpg",
-      "/Assets/Achievements/ID4AFRICA2026__467.jpg",
-      "/Assets/Achievements/ID4AFRICA2026__468.jpg",
-      "/Assets/Achievements/ID4AFRICA2026__469.jpg",
-      "/Assets/Achievements/ID4AFRICA2026__471.jpg",
-      "/Assets/Achievements/ID4AFRICA2026__541.jpg"
+      img465,
+      img466,
+      img467,
+      img468,
+      img469,
+      img471,
+      img541
     ],
 
     socialLinks: {
