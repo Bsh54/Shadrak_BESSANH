@@ -9,9 +9,13 @@ export const achievementsData = [
     organization: "Upanzi Network, MicroSave Consulting, ID4Africa",
     coverImage: "https://via.placeholder.com/1200x600?text=CottonPay+2nd+Place",
     cardImage: "https://via.placeholder.com/400x300?text=CottonPay+2nd+Place",
-    description: `🏆 2ND PLACE WINNER - African Digital Identity Hackathon 2026
+    description: `AFRICA DIGITAL ID HACKATHON 2026 - 2ND PLACE WINNER
 
-CottonPay is a groundbreaking solution that transforms cotton delivery into verifiable digital credentials, enabling 200,000+ Beninese farmers to build certified economic histories and access formal credit. Our team was recognized as the 2nd Place winner among hundreds of competing teams.
+The Africa Digital ID Hackathon 2026, hosted by Carnegie Mellon University Africa's Upanzi Network and MicroSave Consulting (MSC), is a continental competition driving inclusive innovation in digital identity across Africa. The hackathon invites Africa's next thought leaders to identify and develop high-impact use cases for digital ID technology in various sectors including healthcare, education, agriculture, and public service delivery.
+
+OUR SOLUTION: CottonPay
+
+Our team developed CottonPay, a groundbreaking solution that transforms cotton delivery into verifiable digital credentials, enabling 200,000+ Beninese farmers to build certified economic histories and access formal credit.
 
 THE CHALLENGE:
 Over 200,000 cotton producers in Benin lack formal proof of their deliveries and income. The paper-based system is vulnerable to fraud, loss, and errors, making it impossible for farmers to access formal banking credit. Despite Benin being the #1 cotton producer in West Africa (647,000 tonnes in 2025-2026), farmers remain excluded from the formal financial system and trapped in cycles of informal lending with predatory interest rates.
@@ -37,7 +41,7 @@ KEY ACHIEVEMENTS:
 ✓ Replicable model - applicable to other agricultural sectors (cashew, shea, maize)
 ✓ Extensible framework - can be deployed across West Africa
 
-IMPACT & RECOGNITION:
+RECOGNITION:
 Our solution was recognized by an international jury of experts from Uganda, India, Ethiopia, and Côte d'Ivoire as the 2nd best solution among hundreds of competing teams. This recognition validates our approach to combining digital identity, blockchain technology, and financial inclusion.
 
 Potential Impact:
