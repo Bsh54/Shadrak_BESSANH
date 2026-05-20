@@ -10,7 +10,7 @@ import "./AchievementDetail.css";
 function AchievementDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [selectedImage, setSelectedImage] = useState(null);
 
   const achievement = achievementsData.find((a) => a.id === id);
@@ -25,6 +25,13 @@ function AchievementDetail() {
       </Container>
     );
   }
+
+  const getLocalizedText = (field) => {
+    if (typeof field === 'object' && field !== null) {
+      return field[i18n.language] || field['en'];
+    }
+    return field;
+  };
 
   const getSocialIcon = (platform) => {
     switch (platform) {
@@ -61,7 +68,7 @@ function AchievementDetail() {
         <Container fluid className="achievement-hero-content">
           <Row className="h-100 align-items-end">
             <Col md={8}>
-              <h1 className="achievement-hero-title">{achievement.title}</h1>
+              <h1 className="achievement-hero-title">{getLocalizedText(achievement.title)}</h1>
               <p className="achievement-hero-subtitle">
                 {achievement.organization} • {achievement.date}
               </p>
@@ -83,7 +90,7 @@ function AchievementDetail() {
             <div className="achievement-description">
               <h2>{t('achievements.about')}</h2>
               <div className="description-text">
-                {achievement.description.split("\n\n").map((paragraph, idx) => (
+                {getLocalizedText(achievement.description).split("\n\n").map((paragraph, idx) => (
                   <p key={idx}>{paragraph}</p>
                 ))}
               </div>
