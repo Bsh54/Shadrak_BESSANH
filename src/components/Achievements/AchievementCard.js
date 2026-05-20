@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import "./AchievementCard.css";
 
 function AchievementCard(props) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -20,12 +20,19 @@ function AchievementCard(props) {
     }
   };
 
+  const getLocalizedText = (field) => {
+    if (typeof field === 'object' && field !== null) {
+      return field[i18n.language] || field['en'];
+    }
+    return field;
+  };
+
   return (
     <Card className="achievement-card-view">
       <Card.Img variant="top" src={props.cardImage} alt="achievement-img" />
       <Card.Body>
         <div className="achievement-header">
-          <Card.Title>{props.title}</Card.Title>
+          <Card.Title>{getLocalizedText(props.title)}</Card.Title>
           <Badge bg={getStatusColor(props.status)} className="status-badge">
             {props.status}
           </Badge>
