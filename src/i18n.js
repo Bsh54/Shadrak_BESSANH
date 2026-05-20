@@ -8,6 +8,7 @@ const resources = {
       // Navbar
       "nav.home": "Home",
       "nav.projects": "Projects",
+      "nav.achievements": "Achievements",
       "nav.resume": "Resume",
 
       // Home - Hero Section
@@ -59,6 +60,25 @@ const resources = {
       "projects.github": "GitHub",
       "projects.demo": "Demo",
 
+      // Achievements & Recognition
+      "achievements.title": "Achievements &",
+      "achievements.title.highlight": "Recognition",
+      "achievements.subtitle": "Hackathons, competitions, programs, and events where I've contributed and made an impact.",
+      "achievements.clickToLearnMore": "Click to learn more",
+      "achievements.about": "About This Achievement",
+      "achievements.keyMetrics": "Key Metrics",
+      "achievements.technologies": "Technologies & Stack",
+      "achievements.team": "Team",
+      "achievements.keyContacts": "Key Contacts",
+      "achievements.eventDetails": "Event Details",
+      "achievements.date": "Date",
+      "achievements.location": "Location",
+      "achievements.organization": "Organization",
+      "achievements.gallery": "Event Gallery",
+      "achievements.viewFullSize": "View Full Size",
+      "achievements.shareAndFollow": "Share & Follow",
+      "achievements.backToAchievements": "Back to Achievements",
+
       // Project Descriptions
       "projects.cvai.description": "AI-powered CV optimization web application. Analyzes job postings to automatically adapt your CV to recruiter and ATS expectations. A4 PDF export and privacy by design (data only in browser). Technologies: React 19, TypeScript, Tailwind CSS 4, Express, Puppeteer.",
       "projects.evolutics.description": "Centralized professional opportunities platform developed for HACKBYIFRI 2026. Hub aggregating internships, jobs and training from multiple sources. Integrated AI assistant for ATS-optimized CV writing, professional jargon decryption and personalized advice. CV Builder with modern templates, cover letter generation and student-profile filtering. Technologies: React 18, TypeScript, Supabase, Google Gemini AI, Tailwind CSS.",
@@ -107,6 +127,7 @@ const resources = {
       // Navbar
       "nav.home": "Accueil",
       "nav.projects": "Projets",
+      "nav.achievements": "Réalisations",
       "nav.resume": "CV",
 
       // Home - Hero Section
@@ -156,6 +177,25 @@ const resources = {
       "projects.subtitle": "Voici quelques projets sur lesquels j'ai travaillé récemment.",
       "projects.github": "GitHub",
       "projects.demo": "Demo",
+
+      // Achievements & Recognition
+      "achievements.title": "Réalisations &",
+      "achievements.title.highlight": "Reconnaissance",
+      "achievements.subtitle": "Hackathons, compétitions, programmes et événements où j'ai contribué et créé de l'impact.",
+      "achievements.clickToLearnMore": "Cliquez pour en savoir plus",
+      "achievements.about": "À Propos de Cette Réalisation",
+      "achievements.keyMetrics": "Métriques Clés",
+      "achievements.technologies": "Technologies & Stack",
+      "achievements.team": "Équipe",
+      "achievements.keyContacts": "Contacts Clés",
+      "achievements.eventDetails": "Détails de l'Événement",
+      "achievements.date": "Date",
+      "achievements.location": "Lieu",
+      "achievements.organization": "Organisation",
+      "achievements.gallery": "Galerie de l'Événement",
+      "achievements.viewFullSize": "Voir en Taille Réelle",
+      "achievements.shareAndFollow": "Partager & Suivre",
+      "achievements.backToAchievements": "Retour aux Réalisations",
 
       // Project Descriptions
       "projects.cvai.description": "Application web d'optimisation de CV utilisant l'IA. Analyse des offres d'emploi pour adapter automatiquement votre CV aux attentes des recruteurs et des ATS. Export PDF format A4 et privacy by design (données uniquement dans le navigateur). Technologies : React 19, TypeScript, Tailwind CSS 4, Express, Puppeteer.",

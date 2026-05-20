@@ -3,6 +3,8 @@ import Preloader from "../src/components/Pre";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home/Home";
 import Projects from "./components/Projects/Projects";
+import Achievements from "./components/Achievements/Achievements";
+import AchievementDetail from "./components/Achievements/AchievementDetail";
 import Footer from "./components/Footer";
 import Resume from "./components/Resume/ResumeNew";
 import AdminDashboard from "./components/Admin/AdminDashboard";
@@ -62,6 +64,8 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/project" element={<Projects />} />
+          <Route path="/achievements" element={<Achievements />} />
+          <Route path="/achievement/:id" element={<AchievementDetail />} />
           <Route path="/resume" element={<Resume />} />
           <Route
             path="/admin"

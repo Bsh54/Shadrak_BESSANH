@@ -1,0 +1,120 @@
+/* Achievement Card Specific Styles */
+.achievement-card-view {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-out;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+.achievement-card-view:hover {
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.25);
+  transform: translateY(-8px);
+}
+
+.achievement-card-view .card-img-top {
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.4s ease-out;
+}
+
+.achievement-card-view:hover .card-img-top {
+  transform: scale(1.08);
+}
+
+.achievement-card-view .card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  background: white;
+}
+
+.achievement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.achievement-card-view .card-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #18181B;
+  margin: 0;
+  line-height: 1.3;
+  flex-grow: 1;
+}
+
+.status-badge {
+  font-size: 0.7rem;
+  padding: 6px 12px;
+  white-space: nowrap;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 6px;
+}
+
+.achievement-organization {
+  font-size: 0.9rem;
+  color: #6B7280;
+  margin-bottom: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.achievement-meta {
+  flex-grow: 1;
+  margin-bottom: 15px;
+}
+
+.achievement-date,
+.achievement-location {
+  font-size: 0.85rem;
+  color: #6B7280;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.achievement-date i,
+.achievement-location i {
+  color: #2563EB;
+  width: 16px;
+  text-align: center;
+}
+
+.achievement-footer {
+  text-align: center;
+  padding-top: 15px;
+  border-top: 1px solid #E5E7EB;
+  margin-top: auto;
+}
+
+.achievement-footer small {
+  color: #9CA3AF;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .achievement-card-view .card-title {
+    font-size: 1.1rem;
+  }
+
+  .achievement-card-view .card-img-top {
+    height: 200px;
+  }
+
+  .achievement-card-view .card-body {
+    padding: 20px;
+  }
+}

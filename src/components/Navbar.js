@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import {
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
+  AiOutlineTrophy,
 } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
 import { useTranslation } from "react-i18next";
@@ -62,6 +63,16 @@ function NavBar() {
                   style={{ marginBottom: "2px" }}
                 />{" "}
                 {t('nav.projects')}
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/achievements"
+                onClick={() => updateExpanded(false)}
+              >
+                <AiOutlineTrophy style={{ marginBottom: "2px" }} /> {t('nav.achievements')}
               </Nav.Link>
             </Nav.Item>
 
