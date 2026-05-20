@@ -167,29 +167,6 @@ function AchievementDetail() {
           </Col>
         </Row>
 
-        {/* Social Links Section */}
-        <Row className="achievement-social-section">
-          <Col md={12}>
-            <h2>{t('achievements.shareAndFollow')}</h2>
-            <div className="social-links">
-              {Object.entries(achievement.socialLinks).map(([platform, url]) => (
-                url && (
-                  <a
-                    key={platform}
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="social-link"
-                    title={platform}
-                  >
-                    {getSocialIcon(platform)}
-                    <span>{platform.charAt(0).toUpperCase() + platform.slice(1)}</span>
-                  </a>
-                )
-              ))}
-            </div>
-          </Col>
-        </Row>
 
         {/* Back Button */}
         <Row className="achievement-back-section">
