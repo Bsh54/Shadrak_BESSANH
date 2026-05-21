@@ -29,7 +29,13 @@ function AchievementCard(props) {
 
   return (
     <Card className="achievement-card-view">
-      <Card.Img variant="top" src={props.cardImage} alt="achievement-img" />
+      <Card.Img
+        variant="top"
+        src={props.cardImage}
+        alt="achievement-img"
+        loading="lazy"
+        decoding="async"
+      />
       <Card.Body>
         <div className="achievement-header">
           <Card.Title>{getLocalizedText(props.title)}</Card.Title>

@@ -45,7 +45,8 @@ function AchievementDetail() {
           backgroundPosition: "center",
           height: "500px",
           position: "relative",
-          marginTop: "60px"
+          marginTop: "60px",
+          backgroundAttachment: "fixed"
         }}
       >
         <div className="achievement-hero-overlay"></div>
@@ -147,7 +148,12 @@ function AchievementDetail() {
                     onClick={() => setSelectedImage(image)}
                     style={{ cursor: "pointer" }}
                   >
-                    <img src={image} alt={`Gallery ${idx + 1}`} />
+                    <img
+                      src={image}
+                      alt={`Gallery ${idx + 1}`}
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <div className="gallery-overlay">
                       <span>{t('achievements.viewFullSize')}</span>
                     </div>
