@@ -14,6 +14,16 @@ function AchievementDetail() {
 
   const achievement = achievementsData.find((a) => a.id === id);
 
+  // Précharger les images de la galerie
+  React.useEffect(() => {
+    if (achievement && achievement.galleryImages) {
+      achievement.galleryImages.forEach((image) => {
+        const img = new Image();
+        img.src = image;
+      });
+    }
+  }, [achievement]);
+
   if (!achievement) {
     return (
       <Container style={{ paddingTop: "100px", textAlign: "center" }}>
