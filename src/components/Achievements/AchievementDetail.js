@@ -139,9 +139,9 @@ function AchievementDetail() {
         <Row className="achievement-gallery-section">
           <Col md={12}>
             <h2>{t('achievements.gallery')}</h2>
-            <Row className="gallery-grid">
+            <div className="gallery-grid">
               {achievement.galleryImages.map((image, idx) => (
-                <Col md={4} key={idx} className="gallery-item">
+                <div key={idx} className="gallery-item">
                   <div
                     className="gallery-image"
                     onClick={() => setSelectedImage(image)}
@@ -152,9 +152,9 @@ function AchievementDetail() {
                       <span>{t('achievements.viewFullSize')}</span>
                     </div>
                   </div>
-                </Col>
+                </div>
               ))}
-            </Row>
+            </div>
           </Col>
         </Row>
 

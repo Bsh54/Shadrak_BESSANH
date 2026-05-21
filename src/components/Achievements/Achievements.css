@@ -399,11 +399,14 @@
 }
 
 .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+  width: 100%;
 }
 
 .gallery-item {
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .gallery-image {
