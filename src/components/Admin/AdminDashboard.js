@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { database } from "../../services/firebaseConfig";
-import { ref, onValue, remove } from "firebase/database";
+import { ref, onValue } from "firebase/database";
 import { Container, Row, Col, Card, Button, Form } from "react-bootstrap";
 import { resetAllAnalytics } from "../../services/analyticsService";
 import {
@@ -15,10 +15,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
-  ScatterChart,
-  Scatter,
 } from "recharts";
 import Particle from "../Particle";
 import "./AdminDashboard.css";

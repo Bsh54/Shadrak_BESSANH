@@ -1,5 +1,5 @@
 import { database } from "./firebaseConfig";
-import { ref, push, update, get, query, orderByChild, limitToLast, remove } from "firebase/database";
+import { ref, push, update, get, remove } from "firebase/database";
 import { UAParser } from "ua-parser-js";
 
 const parser = new UAParser();
