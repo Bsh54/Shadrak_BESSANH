@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Achievements Main Page -->
+  <url>
+    <loc>https://shadrakbessanh.me/achievements</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- CottonPay - African Digital Identity Hackathon 2026 -->
+  <url>
+    <loc>https://shadrakbessanh.me/achievement/cottonpay-id4africa</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://shadrakbessanh.me/Assets/Achievements/ID4AFRICA2026__552.jpg</image:loc>
+      <image:title>CottonPay - 2nd Place Winner African Digital Identity Hackathon 2026</image:title>
+    </image:image>
+  </url>
+
+</urlset>

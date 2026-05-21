@@ -4,17 +4,19 @@ import Button from "react-bootstrap/Button";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
 import { useTranslation } from "react-i18next";
-import { trackClick } from "../../services/analyticsService";
+import { trackClick, trackConversion } from "../../services/analyticsService";
 
 function ProjectCards(props) {
   const { t } = useTranslation();
 
   const handleGithubClick = () => {
     trackClick(`GitHub-${props.title}`, "project");
+    trackConversion("project_github_click", props.title);
   };
 
   const handleDemoClick = () => {
     trackClick(`Demo-${props.title}`, "project");
+    trackConversion("project_demo_click", props.title);
   };
 
   return (
