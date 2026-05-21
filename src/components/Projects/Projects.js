@@ -10,11 +10,20 @@ import zenithai from "../../Assets/Projects/zenithai.png";
 import voxiai from "../../Assets/Projects/voxiai.png";
 import minerva from "../../Assets/Projects/minerva.png";
 import { useTranslation } from "react-i18next";
+import { SEOHead } from "../SEO/SEOHead";
 
 function Projects() {
   const { t } = useTranslation();
   return (
-    <Container fluid className="project-section">
+    <>
+      <SEOHead
+        title="Projects - BESSANH Shadrak | Full-Stack Developer & AI Specialist"
+        description="Explore BESSANH Shadrak's portfolio projects including CottonPay, MINERVA, VoxiAI, and more. Full-stack development, AI, machine learning, and digital identity solutions."
+        keywords="projects, BESSANH Shadrak, CottonPay, MINERVA, VoxiAI, full-stack development, AI projects, machine learning, React, Node.js"
+        image="https://shadrakbessanh.me/og-image.jpg"
+        url="https://shadrakbessanh.me/project"
+      />
+      <Container fluid className="project-section">
       <Particle />
       <Container>
         <h1 className="project-heading">
@@ -103,6 +112,7 @@ function Projects() {
         </Row>
       </Container>
     </Container>
+    </>
   );
 }
 

@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { achievementsData } from "../../data/achievementsData";
 import { useTranslation } from "react-i18next";
 import ScrollToTop from "../ScrollToTop";
+import { AchievementSEO } from "../SEO/SpecificSEO";
 import "./AchievementDetail.css";
 
 function AchievementDetail() {
@@ -45,6 +46,16 @@ function AchievementDetail() {
   return (
     <>
       <ScrollToTop />
+      <AchievementSEO
+        title={`${getLocalizedText(achievement.title)} - BESSANH Shadrak`}
+        description={getLocalizedText(achievement.description).split("\n\n")[0]}
+        image={achievement.coverImage}
+        url={`https://shadrakbessanh.me/achievement/${achievement.id}`}
+        eventName={achievement.organization}
+        eventDate={achievement.date}
+        award={achievement.status}
+        organization={achievement.organization}
+      />
 
       {/* Hero Section with Cover Image */}
       <div

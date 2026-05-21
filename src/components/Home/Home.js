@@ -9,11 +9,19 @@ import Toolstack from "../About/Toolstack";
 import Github from "../About/Github";
 import ContactSection from "./ContactSection";
 import { useTranslation } from "react-i18next";
+import { SEOHead } from "../SEO/SEOHead";
 
 function Home() {
   const { t } = useTranslation();
   return (
     <section>
+      <SEOHead
+        title="BESSANH Shadrak - Full-Stack Developer & AI Specialist | Hackathon Winner 2026"
+        description="BESSANH Shadrak - 2nd Place Winner at African Digital Identity Hackathon 2026. Full-stack developer specializing in MERN Stack, Digital Identity, AI, and Fintech solutions."
+        keywords="BESSANH Shadrak, software developer, AI developer, MERN stack, digital identity, hackathon winner, fintech developer, Africa, ID4Africa 2026"
+        image="https://shadrakbessanh.me/og-image.jpg"
+        url="https://shadrakbessanh.me/"
+      />
       {/* Hero Section - Refait complètement */}
       <Container fluid className="home-section" id="home" style={{
         minHeight: "100vh",

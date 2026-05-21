@@ -1,3 +1,20 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /admin
+Disallow: /private
+
+# Crawl delay
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://shadrakbessanh.me/sitemap.xml
+Sitemap: https://shadrakbessanh.me/sitemap-projects.xml
+Sitemap: https://shadrakbessanh.me/sitemap-achievements.xml
+
+# Google Search Console
+User-agent: Googlebot
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
