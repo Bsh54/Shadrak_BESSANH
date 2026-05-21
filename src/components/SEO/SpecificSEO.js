@@ -117,4 +117,6 @@ export const AchievementSEO = ({
   );
 };
 
-export default { ProjectSEO, AchievementSEO };
+const SpecificSEOExports = { ProjectSEO, AchievementSEO };
+
+export default SpecificSEOExports;
