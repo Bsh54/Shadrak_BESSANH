@@ -120,7 +120,9 @@ Présentée le 14 mai 2026 (14h30-18h30) au Parc des Expositions d'Abidjan devan
       img468,
       img469,
       img471,
-      img541
+      img541,
+      img552,
+      img555
     ],
 
     socialLinks: {
