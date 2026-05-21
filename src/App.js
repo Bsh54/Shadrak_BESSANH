@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Resume from "./components/Resume/ResumeNew";
 import AdminDashboard from "./components/Admin/AdminDashboard";
 import AdminRoute from "./components/Admin/AdminRoute";
+import { useClickTracking } from "./hooks/useClickTracking";
 import {
   BrowserRouter as Router,
   Route,
@@ -25,6 +26,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function AppContent() {
   const [load, upadateLoad] = useState(true);
   const location = useLocation();
+
+  // Activer le tracking global des clics
+  useClickTracking();
 
   useEffect(() => {
     const timer = setTimeout(() => {

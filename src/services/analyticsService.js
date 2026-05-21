@@ -166,7 +166,7 @@ const updatePageDuration = (pageName, duration) => {
 };
 
 // Tracker un clic avec contexte détaillé
-export const trackClick = (elementName, elementType = "button", elementClass = "", elementId = "") => {
+export const trackClick = (elementName, elementType = "button", elementClass = "", elementId = "", metadata = {}) => {
   if (isDevelopment) return;
 
   try {
@@ -180,6 +180,9 @@ export const trackClick = (elementName, elementType = "button", elementClass = "
       page: currentPage,
       timestamp: new Date().toISOString(),
       timestampMs: Date.now(),
+      metadata: metadata,
+      xPosition: 0,
+      yPosition: 0,
     };
 
     const clicksRef = ref(database, `analytics/visits/${currentVisitRef.key}/clicks`);
