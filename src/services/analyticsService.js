@@ -1,5 +1,5 @@
 import { database } from "./firebaseConfig";
-import { ref, push, update, get, query, orderByChild, limitToLast } from "firebase/database";
+import { ref, push, update, get, query, orderByChild, limitToLast, remove } from "firebase/database";
 import { UAParser } from "ua-parser-js";
 
 const parser = new UAParser();
@@ -296,6 +296,17 @@ export const getAnalyticsStats = async () => {
   } catch (error) {
     console.error("❌ Error getting analytics stats:", error);
     return null;
+  }
+};
+
+// Réinitialiser toutes les données
+export const resetAllAnalytics = async () => {
+  try {
+    const visitsRef = ref(database, "analytics/visits");
+    await remove(visitsRef);
+    console.log("✅ Toutes les données ont été réinitialisées");
+  } catch (error) {
+    console.error("❌ Error resetting analytics:", error);
   }
 };
 
