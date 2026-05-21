@@ -17,6 +17,14 @@ function AchievementDetail() {
 
   const achievement = useMemo(() => achievementsData.find((a) => a.id === id), [id]);
 
+  const handleImageError = useCallback((src) => {
+    setImageErrors((prev) => new Set([...prev, src]));
+  }, []);
+
+  const handleImageLoad = useCallback((src) => {
+    setLoadedImages((prev) => new Set([...prev, src]));
+  }, []);
+
   // Lazy load images on scroll with intersection observer
   React.useEffect(() => {
     if (!achievement?.galleryImages) return;
@@ -61,14 +69,6 @@ function AchievementDetail() {
     }
     return field;
   };
-
-  const handleImageError = useCallback((src) => {
-    setImageErrors((prev) => new Set([...prev, src]));
-  }, []);
-
-  const handleImageLoad = useCallback((src) => {
-    setLoadedImages((prev) => new Set([...prev, src]));
-  }, []);
 
   return (
     <>
