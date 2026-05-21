@@ -10,6 +10,7 @@ import Github from "../About/Github";
 import ContactSection from "./ContactSection";
 import { useTranslation } from "react-i18next";
 import { SEOHead } from "../SEO/SEOHead";
+import FAQSchema from "../SEO/FAQSchema";
 
 function Home() {
   const { t } = useTranslation();
@@ -22,6 +23,7 @@ function Home() {
         image="https://shadrakbessanh.me/og-image.jpg"
         url="https://shadrakbessanh.me/"
       />
+      <FAQSchema />
       {/* Hero Section - Refait complètement */}
       <Container fluid className="home-section" id="home" style={{
         minHeight: "100vh",

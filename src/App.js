@@ -10,6 +10,7 @@ import Resume from "./components/Resume/ResumeNew";
 import AdminDashboard from "./components/Admin/AdminDashboard";
 import AdminRoute from "./components/Admin/AdminRoute";
 import { useClickTracking } from "./hooks/useClickTracking";
+import BreadcrumbSchema from "./components/SEO/BreadcrumbSchema";
 import {
   BrowserRouter as Router,
   Route,
@@ -62,6 +63,7 @@ function AppContent() {
   return (
     <>
       <Preloader load={load} />
+      <BreadcrumbSchema />
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         {location.pathname !== "/admin" && <Navbar />}
         <ScrollToTop />
