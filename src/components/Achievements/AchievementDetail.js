@@ -164,7 +164,6 @@ function AchievementDetail() {
                       alt={`Gallery ${idx + 1}`}
                       loading="lazy"
                       decoding="async"
-                      onError={() => handleImageError(image)}
                       style={{
                         width: "100%",
                         height: "250px",
