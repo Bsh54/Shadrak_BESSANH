@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from "react";
+import React, { useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import { achievementsData } from "../../data/achievementsData";
@@ -12,45 +12,8 @@ function AchievementDetail() {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const [selectedImage, setSelectedImage] = useState(null);
-  const [loadedImages, setLoadedImages] = useState(new Set());
-  const [imageErrors, setImageErrors] = useState(new Set());
 
-  const achievement = useMemo(() => achievementsData.find((a) => a.id === id), [id]);
-
-  const handleImageError = useCallback((src) => {
-    setImageErrors((prev) => new Set([...prev, src]));
-  }, []);
-
-  const handleImageLoad = useCallback((src) => {
-    setLoadedImages((prev) => new Set([...prev, src]));
-  }, []);
-
-  // Lazy load images on scroll with intersection observer
-  React.useEffect(() => {
-    if (!achievement?.galleryImages) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            const src = img.dataset.src;
-            if (src && !loadedImages.has(src)) {
-              img.src = src;
-              img.removeAttribute("data-src");
-              setLoadedImages((prev) => new Set([...prev, src]));
-            }
-          }
-        });
-      },
-      { rootMargin: "50px" }
-    );
-
-    const images = document.querySelectorAll("img[data-src]");
-    images.forEach((img) => observer.observe(img));
-
-    return () => observer.disconnect();
-  }, [achievement, loadedImages]);
+  const achievement = achievementsData.find((a) => a.id === id);
 
   if (!achievement) {
     return (
@@ -193,62 +156,24 @@ function AchievementDetail() {
                 <div key={idx} className="gallery-item">
                   <div
                     className="gallery-image"
-                    onClick={() => !imageErrors.has(image) && setSelectedImage(image)}
-                    style={{ cursor: imageErrors.has(image) ? "not-allowed" : "pointer" }}
+                    onClick={() => setSelectedImage(image)}
+                    style={{ cursor: "pointer" }}
                   >
-                    {imageErrors.has(image) ? (
-                      <div style={{
+                    <img
+                      src={image}
+                      alt={`Gallery ${idx + 1}`}
+                      loading="lazy"
+                      decoding="async"
+                      onError={() => handleImageError(image)}
+                      style={{
                         width: "100%",
                         height: "250px",
-                        backgroundColor: "#f0f0f0",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        color: "#999",
-                        fontSize: "12px"
-                      }}>
-                        Image unavailable
-                      </div>
-                    ) : (
-                      <>
-                        <img
-                          data-src={image}
-                          alt={`Gallery ${idx + 1}`}
-                          loading="lazy"
-                          decoding="async"
-                          onLoad={() => handleImageLoad(image)}
-                          onError={() => handleImageError(image)}
-                          style={{
-                            width: "100%",
-                            height: "250px",
-                            objectFit: "cover",
-                            display: loadedImages.has(image) ? "block" : "none"
-                          }}
-                        />
-                        {!loadedImages.has(image) && (
-                          <div style={{
-                            width: "100%",
-                            height: "250px",
-                            backgroundColor: "#f0f0f0",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center"
-                          }}>
-                            <div style={{
-                              width: "30px",
-                              height: "30px",
-                              border: "3px solid #2563EB",
-                              borderTop: "3px solid transparent",
-                              borderRadius: "50%",
-                              animation: "spin 1s linear infinite"
-                            }}></div>
-                          </div>
-                        )}
-                        <div className="gallery-overlay">
-                          <span>{t('achievements.viewFullSize')}</span>
-                        </div>
-                      </>
-                    )}
+                        objectFit: "cover"
+                      }}
+                    />
+                    <div className="gallery-overlay">
+                      <span>{t('achievements.viewFullSize')}</span>
+                    </div>
                   </div>
                 </div>
               ))}
