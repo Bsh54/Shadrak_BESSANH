@@ -5,7 +5,7 @@ import { Container, Row, Col, Card, Button, Form, Badge, Table } from "react-boo
 import { resetAllAnalytics } from "../../services/analyticsService";
 import {
   LineChart, Line, BarChart, Bar, PieChart, Pie, Cell,
-  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
+  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from "recharts";
 import "./AdminDashboard.css";
 
