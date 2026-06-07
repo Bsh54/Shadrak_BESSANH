@@ -4,12 +4,22 @@ import { UAParser } from "ua-parser-js";
 
 const parser = new UAParser();
 
-// Vérifier si on est en développement
 const isDevelopment = process.env.NODE_ENV === "development" || window.location.hostname === "localhost";
 
-console.log(`📊 Analytics Mode: ${isDevelopment ? "🔴 DÉVELOPPEMENT (désactivé)" : "🟢 PRODUCTION (activé)"}`);
+// Bot detection — block before any Firebase write
+const BOT_PATTERNS = [
+  "headlesschrome", "headless", "phantomjs", "selenium",
+  "webdriver", "puppeteer", "scrapy", "python-requests",
+  "curl/", "wget/", "go-http-client", "okhttp", "axios/",
+  "bot", "crawler", "spider", "slurp", "baiduspider",
+  "googlebot", "bingbot", "yandexbot", "facebookexternalhit",
+];
 
-// Fonction pour obtenir la géolocalisation via API gratuite
+const isBot = () => {
+  const ua = (navigator.userAgent || "").toLowerCase();
+  return BOT_PATTERNS.some((p) => ua.includes(p));
+};
+
 const getGeolocation = async () => {
   try {
     const response = await fetch("https://ipapi.co/json/");
@@ -23,8 +33,7 @@ const getGeolocation = async () => {
       timezone: data.timezone || "Unknown",
       isp: data.org || "Unknown",
     };
-  } catch (error) {
-    console.error("Geolocation error:", error);
+  } catch {
     return {
       country: "Unknown",
       city: "Unknown",
@@ -37,7 +46,6 @@ const getGeolocation = async () => {
   }
 };
 
-// Parser le User-Agent
 const parseUserAgent = () => {
   const result = parser.getResult();
   return {
@@ -50,22 +58,23 @@ const parseUserAgent = () => {
   };
 };
 
-// Créer une session unique
 let sessionId = null;
 let sessionStartTime = null;
 let currentVisitRef = null;
 let pageStartTime = null;
 let currentPage = null;
+// Queue the first page view — it fires before trackVisit async finishes
+let pendingPageView = null;
 
 const initSession = () => {
   sessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
   sessionStartTime = Date.now();
 };
 
-// Tracker une visite
 export const trackVisit = async () => {
-  if (isDevelopment) {
-    console.log("⏭️ Tracking désactivé en développement");
+  if (isDevelopment) return;
+  if (isBot()) {
+    console.log("🤖 Bot détecté — tracking ignoré");
     return;
   }
 
@@ -78,7 +87,7 @@ export const trackVisit = async () => {
     const visitData = {
       timestamp: new Date().toISOString(),
       timestampMs: Date.now(),
-      sessionId: sessionId,
+      sessionId,
       ...userAgentData,
       ...geoData,
       pages: [],
@@ -98,29 +107,34 @@ export const trackVisit = async () => {
     const newVisitRef = await push(visitsRef, visitData);
     currentVisitRef = newVisitRef;
 
-    // Tracker le scroll depth
-    trackScrollDepth();
+    // Flush queued page view that fired before this async completed
+    if (pendingPageView) {
+      const queued = pendingPageView;
+      pendingPageView = null;
+      trackPageView(queued);
+    }
 
-    console.log("✅ Visit tracked:", sessionId);
+    trackScrollDepth();
   } catch (error) {
     console.error("❌ Error tracking visit:", error);
   }
 };
 
-// Tracker une page visitée avec durée précise
 export const trackPageView = (pageName) => {
   if (isDevelopment) return;
 
-  try {
-    if (!currentVisitRef) return;
+  // Visit not ready yet — queue the page and wait for trackVisit to flush it
+  if (!currentVisitRef) {
+    pendingPageView = pageName;
+    return;
+  }
 
-    // Si on quitte une page, enregistrer sa durée
+  try {
     if (currentPage && pageStartTime) {
       const pageDuration = Math.round((Date.now() - pageStartTime) / 1000);
       updatePageDuration(currentPage, pageDuration);
     }
 
-    // Commencer à tracker la nouvelle page
     currentPage = pageName;
     pageStartTime = Date.now();
 
@@ -135,14 +149,11 @@ export const trackPageView = (pageName) => {
 
     const pagesRef = ref(database, `analytics/visits/${currentVisitRef.key}/pages`);
     push(pagesRef, pageData);
-
-    console.log("✅ Page view tracked:", pageName);
   } catch (error) {
     console.error("❌ Error tracking page view:", error);
   }
 };
 
-// Mettre à jour la durée d'une page
 const updatePageDuration = (pageName, duration) => {
   if (isDevelopment || !currentVisitRef) return;
 
@@ -154,7 +165,7 @@ const updatePageDuration = (pageName, duration) => {
         Object.keys(pages).forEach((key) => {
           if (pages[key].page === pageName) {
             update(ref(database, `analytics/visits/${currentVisitRef.key}/pages/${key}`), {
-              duration: duration,
+              duration,
             });
           }
         });
@@ -165,13 +176,10 @@ const updatePageDuration = (pageName, duration) => {
   }
 };
 
-// Tracker un clic avec contexte détaillé
 export const trackClick = (elementName, elementType = "button", elementClass = "", elementId = "", metadata = {}) => {
-  if (isDevelopment) return;
+  if (isDevelopment || !currentVisitRef) return;
 
   try {
-    if (!currentVisitRef) return;
-
     const clickData = {
       element: elementName,
       type: elementType,
@@ -180,34 +188,32 @@ export const trackClick = (elementName, elementType = "button", elementClass = "
       page: currentPage,
       timestamp: new Date().toISOString(),
       timestampMs: Date.now(),
-      metadata: metadata,
-      xPosition: 0,
-      yPosition: 0,
+      metadata,
     };
 
     const clicksRef = ref(database, `analytics/visits/${currentVisitRef.key}/clicks`);
     push(clicksRef, clickData);
-
-    console.log("✅ Click tracked:", elementName);
   } catch (error) {
     console.error("❌ Error tracking click:", error);
   }
 };
 
-// Tracker le scroll depth
 const trackScrollDepth = () => {
   if (isDevelopment) return;
 
   let maxScroll = 0;
 
   window.addEventListener("scroll", () => {
-    const scrollPercentage = Math.round(
-      (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (scrollHeight <= 0) return;
+
+    const scrollPercentage = Math.min(
+      100,
+      Math.round((window.scrollY / scrollHeight) * 100)
     );
 
     if (scrollPercentage > maxScroll) {
       maxScroll = scrollPercentage;
-
       if (currentVisitRef) {
         update(ref(database, `analytics/visits/${currentVisitRef.key}`), {
           scrollDepth: maxScroll,
@@ -217,13 +223,10 @@ const trackScrollDepth = () => {
   });
 };
 
-// Tracker une conversion (téléchargement CV, contact, etc.)
 export const trackConversion = (conversionType, conversionValue = null) => {
-  if (isDevelopment) return;
+  if (isDevelopment || !currentVisitRef) return;
 
   try {
-    if (!currentVisitRef) return;
-
     const conversionData = {
       type: conversionType,
       value: conversionValue,
@@ -234,84 +237,61 @@ export const trackConversion = (conversionType, conversionValue = null) => {
 
     const conversionsRef = ref(database, `analytics/visits/${currentVisitRef.key}/conversions`);
     push(conversionsRef, conversionData);
-
-    console.log("✅ Conversion tracked:", conversionType);
   } catch (error) {
     console.error("❌ Error tracking conversion:", error);
   }
 };
 
-// Mettre à jour la durée de session
 export const updateSessionDuration = () => {
-  if (isDevelopment) return;
+  if (isDevelopment || !currentVisitRef || !sessionStartTime) return;
 
   try {
-    if (!currentVisitRef || !sessionStartTime) return;
-
     const duration = Math.round((Date.now() - sessionStartTime) / 1000);
 
-    // Enregistrer la durée de la dernière page
     if (currentPage && pageStartTime) {
       const pageDuration = Math.round((Date.now() - pageStartTime) / 1000);
       updatePageDuration(currentPage, pageDuration);
     }
 
-    const updates = {};
-    updates[`analytics/visits/${currentVisitRef.key}/sessionDuration`] = duration;
-
-    update(ref(database), updates);
-    console.log("✅ Session duration updated:", duration);
+    update(ref(database), {
+      [`analytics/visits/${currentVisitRef.key}/sessionDuration`]: duration,
+    });
   } catch (error) {
     console.error("❌ Error updating session duration:", error);
   }
 };
 
-// Obtenir les statistiques globales
 export const getAnalyticsStats = async () => {
   try {
     const visitsRef = ref(database, "analytics/visits");
     const snapshot = await get(visitsRef);
-
-    if (!snapshot.exists()) {
-      return null;
-    }
+    if (!snapshot.exists()) return null;
 
     const visits = snapshot.val();
     const visitsArray = Object.values(visits);
 
-    const stats = {
+    return {
       totalVisits: visitsArray.length,
-      totalPageViews: visitsArray.reduce((sum, v) => sum + (v.pages ? Object.keys(v.pages).length : 0), 0),
-      totalClicks: visitsArray.reduce((sum, v) => sum + (v.clicks ? Object.keys(v.clicks).length : 0), 0),
-      totalConversions: visitsArray.reduce((sum, v) => sum + (v.conversions ? Object.keys(v.conversions).length : 0), 0),
+      totalPageViews: visitsArray.reduce((s, v) => s + (v.pages ? Object.keys(v.pages).length : 0), 0),
+      totalClicks: visitsArray.reduce((s, v) => s + (v.clicks ? Object.keys(v.clicks).length : 0), 0),
+      totalConversions: visitsArray.reduce((s, v) => s + (v.conversions ? Object.keys(v.conversions).length : 0), 0),
       avgSessionDuration: Math.round(
-        visitsArray.reduce((sum, v) => sum + (v.sessionDuration || 0), 0) / visitsArray.length
-      ),
-      avgScrollDepth: Math.round(
-        visitsArray.reduce((sum, v) => sum + (v.scrollDepth || 0), 0) / visitsArray.length
+        visitsArray.reduce((s, v) => s + (v.sessionDuration || 0), 0) / visitsArray.length
       ),
       uniqueCountries: [...new Set(visitsArray.map((v) => v.country))].length,
-      uniqueBrowsers: [...new Set(visitsArray.map((v) => v.browser))].length,
-      uniqueDevices: [...new Set(visitsArray.map((v) => v.device))].length,
     };
-
-    return stats;
   } catch (error) {
     console.error("❌ Error getting analytics stats:", error);
     return null;
   }
 };
 
-// Réinitialiser toutes les données
 export const resetAllAnalytics = async () => {
   try {
-    const visitsRef = ref(database, "analytics/visits");
-    await remove(visitsRef);
-    console.log("✅ Toutes les données ont été réinitialisées");
+    await remove(ref(database, "analytics/visits"));
   } catch (error) {
     console.error("❌ Error resetting analytics:", error);
   }
 };
 
 export { sessionId };
-

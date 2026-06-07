@@ -39,26 +39,28 @@ function AppContent() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Tracker la visite au chargement
-  useEffect(() => {
-    trackVisit();
-  }, []);
+  const isAdmin = location.pathname === "/admin";
 
-  // Tracker les changements de page
+  // Tracker la visite au chargement (jamais sur /admin)
   useEffect(() => {
+    if (!isAdmin) trackVisit();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Tracker les changements de page (jamais sur /admin)
+  useEffect(() => {
+    if (isAdmin) return;
     const pageName = location.pathname === "/" ? "Home" : location.pathname.replace("/", "");
     trackPageView(pageName);
-  }, [location.pathname]);
+  }, [location.pathname]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Mettre à jour la durée de session avant de quitter
   useEffect(() => {
     const handleBeforeUnload = () => {
-      updateSessionDuration();
+      if (!isAdmin) updateSessionDuration();
     };
-
     window.addEventListener("beforeunload", handleBeforeUnload);
     return () => window.removeEventListener("beforeunload", handleBeforeUnload);
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>

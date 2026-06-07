@@ -1,509 +1,456 @@
 import React, { useState, useEffect } from "react";
 import { database } from "../../services/firebaseConfig";
 import { ref, onValue } from "firebase/database";
-import { Container, Row, Col, Card, Button, Form } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, Form, Badge, Table } from "react-bootstrap";
 import { resetAllAnalytics } from "../../services/analyticsService";
 import {
-  LineChart,
-  Line,
-  BarChart,
-  Bar,
-  PieChart,
-  Pie,
-  Cell,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
+  LineChart, Line, BarChart, Bar, PieChart, Pie, Cell,
+  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
 } from "recharts";
-import Particle from "../Particle";
 import "./AdminDashboard.css";
+
+const COLORS = ["#2563EB", "#7C3AED", "#EC4899", "#F59E0B", "#10B981", "#06B6D4", "#EF4444", "#8B5CF6"];
+
+const BOT_BROWSERS = ["Chrome Headless", "HeadlessChrome", "PhantomJS"];
+
+// Heuristic: 0 duration + 0 pages + 0 clicks + not Benin = likely bot
+const isLikelyBot = (visit) => {
+  if (!visit.browser || visit.browser === "Unknown") return true;
+  if (BOT_BROWSERS.includes(visit.browser)) return true;
+  const pages = visit.pages ? Object.keys(visit.pages).length : 0;
+  const clicks = visit.clicks ? Object.keys(visit.clicks).length : 0;
+  const duration = visit.sessionDuration || 0;
+  if (duration === 0 && pages === 0 && clicks === 0 && visit.country !== "Benin") return true;
+  return false;
+};
+
+const formatDate = (ts) => {
+  if (!ts) return "—";
+  const d = new Date(ts);
+  if (isNaN(d.getTime())) return "—";
+  return d.toLocaleString("fr-FR", {
+    day: "2-digit", month: "2-digit", year: "numeric",
+    hour: "2-digit", minute: "2-digit",
+  });
+};
+
+const formatDuration = (seconds) => {
+  if (!seconds || seconds === 0) return "0s";
+  if (seconds < 60) return `${seconds}s`;
+  const m = Math.floor(seconds / 60);
+  const s = seconds % 60;
+  return s > 0 ? `${m}m ${s}s` : `${m}m`;
+};
+
+const KpiCard = ({ value, label, color }) => (
+  <Card className="kpi-card">
+    <div className="kpi-value" style={{ color }}>{value}</div>
+    <div className="kpi-label">{label}</div>
+  </Card>
+);
 
 function AdminDashboard() {
   const [visits, setVisits] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [dateFilter, setDateFilter] = useState("all");
-  const [selectedVisit, setSelectedVisit] = useState(null);
+  const [hideBots, setHideBots] = useState(true);
+  const [expandedRow, setExpandedRow] = useState(null);
 
   useEffect(() => {
     try {
-      const visitsRef = ref(database, "analytics/visits");
-
       const unsubscribe = onValue(
-        visitsRef,
+        ref(database, "analytics/visits"),
         (snapshot) => {
           if (snapshot.exists()) {
             const data = snapshot.val();
-            const visitsArray = Object.entries(data).map(([key, value]) => ({
-              id: key,
-              ...value,
-            }));
-            setVisits(visitsArray.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)));
-            setError(null);
+            const arr = Object.entries(data)
+              .map(([key, value]) => ({ id: key, ...value }))
+              .filter((v) => v.timestamp && !isNaN(new Date(v.timestamp).getTime()))
+              .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            setVisits(arr);
           } else {
             setVisits([]);
           }
           setLoading(false);
+          setError(null);
         },
-        (error) => {
-          console.error("❌ Erreur Firebase:", error);
-          setError(error.message);
+        (err) => {
+          setError(err.message);
           setLoading(false);
         }
       );
-
       return () => unsubscribe();
     } catch (err) {
-      console.error("❌ Erreur setup:", err);
       setError(err.message);
       setLoading(false);
     }
   }, []);
 
-  // Filtrer les visites par date
-  const getFilteredVisits = () => {
+  const filtered = visits.filter((v) => {
+    if (hideBots && isLikelyBot(v)) return false;
     const now = new Date();
-    return visits.filter((visit) => {
-      const visitDate = new Date(visit.timestamp);
-      switch (dateFilter) {
-        case "today":
-          return visitDate.toDateString() === now.toDateString();
-        case "week":
-          const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-          return visitDate >= weekAgo;
-        case "month":
-          const monthAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
-          return visitDate >= monthAgo;
-        default:
-          return true;
+    const d = new Date(v.timestamp);
+    if (dateFilter === "today") return d.toDateString() === now.toDateString();
+    if (dateFilter === "week") return d >= new Date(now - 7 * 86400000);
+    if (dateFilter === "month") return d >= new Date(now - 30 * 86400000);
+    return true;
+  });
+
+  const bots = visits.filter(isLikelyBot);
+
+  // ---- Stats ----
+  const stats = (() => {
+    const uniqueCountries = new Set();
+    let totalPageViews = 0, totalClicks = 0, totalConversions = 0;
+    let sumDuration = 0, sumScroll = 0, bounces = 0;
+    const pageStats = {}, clickStats = {}, deviceStats = {}, browserStats = {}, countryStats = {};
+
+    filtered.forEach((v) => {
+      uniqueCountries.add(v.country);
+      sumDuration += v.sessionDuration || 0;
+      sumScroll += Math.min(v.scrollDepth || 0, 100);
+
+      const pageCount = v.pages ? Object.keys(v.pages).length : 0;
+      totalPageViews += pageCount;
+      if (pageCount <= 1) bounces++;
+
+      if (v.pages) {
+        Object.values(v.pages).forEach((p) => {
+          pageStats[p.page] = (pageStats[p.page] || 0) + 1;
+        });
       }
+      if (v.clicks) {
+        Object.values(v.clicks).forEach((c) => {
+          totalClicks++;
+          const key = c.metadata?.text || c.element || "unknown";
+          clickStats[key] = (clickStats[key] || 0) + 1;
+        });
+      }
+      if (v.conversions) {
+        Object.values(v.conversions).forEach(() => totalConversions++);
+      }
+
+      const browser = v.browser || "Unknown";
+      const device = v.device || "desktop";
+      const country = v.country || "Unknown";
+      deviceStats[device] = (deviceStats[device] || 0) + 1;
+      browserStats[browser] = (browserStats[browser] || 0) + 1;
+      countryStats[country] = (countryStats[country] || 0) + 1;
     });
-  };
 
-  const filteredVisits = getFilteredVisits();
-
-  // Calculs détaillés des statistiques
-  const calculateStats = () => {
-    const stats = {
-      totalVisits: filteredVisits.length,
-      totalPageViews: 0,
-      totalClicks: 0,
-      totalConversions: 0,
-      avgSessionDuration: 0,
-      avgScrollDepth: 0,
-      avgPageDuration: 0,
-      bounceRate: 0,
-      uniqueCountries: new Set(),
-      uniqueBrowsers: new Set(),
-      uniqueDevices: new Set(),
-      uniqueIPs: new Set(),
-      pageStats: {},
-      clickStats: {},
-      conversionStats: {},
-      deviceStats: {},
-      browserStats: {},
-      osStats: {},
-      countryStats: {},
-      timeOnPageByPage: {},
+    const n = filtered.length || 1;
+    return {
+      totalVisits: filtered.length,
+      totalPageViews,
+      totalClicks,
+      totalConversions,
+      uniqueCountries: uniqueCountries.size,
+      avgDuration: Math.round(sumDuration / n),
+      avgScroll: Math.round(sumScroll / n),
+      bounceRate: Math.round((bounces / n) * 100),
+      pageStats, clickStats, deviceStats, browserStats, countryStats,
     };
+  })();
 
-    filteredVisits.forEach((visit) => {
-      stats.uniqueCountries.add(visit.country);
-      stats.uniqueBrowsers.add(visit.browser);
-      stats.uniqueDevices.add(visit.device);
-      stats.uniqueIPs.add(visit.ip);
+  // ---- Chart data ----
+  const visitsByDay = {};
+  filtered.forEach((v) => {
+    const d = new Date(v.timestamp).toLocaleDateString("fr-FR");
+    visitsByDay[d] = (visitsByDay[d] || 0) + 1;
+  });
+  const visitsByDayData = Object.entries(visitsByDay)
+    .sort(([a], [b]) => new Date(a.split("/").reverse().join("-")) - new Date(b.split("/").reverse().join("-")))
+    .map(([date, visits]) => ({ date, visits }));
 
-      stats.avgSessionDuration += visit.sessionDuration || 0;
-      stats.avgScrollDepth += visit.scrollDepth || 0;
+  const topPages = Object.entries(stats.pageStats).sort(([, a], [, b]) => b - a).slice(0, 8)
+    .map(([name, value]) => ({ name, value }));
+  const topClicks = Object.entries(stats.clickStats).sort(([, a], [, b]) => b - a).slice(0, 8)
+    .map(([name, value]) => ({ name: name.substring(0, 30), value }));
+  const deviceData = Object.entries(stats.deviceStats).map(([name, value]) => ({ name, value }));
+  const browserData = Object.entries(stats.browserStats).sort(([, a], [, b]) => b - a).slice(0, 6)
+    .map(([name, value]) => ({ name, value }));
+  const countryData = Object.entries(stats.countryStats).sort(([, a], [, b]) => b - a).slice(0, 8)
+    .map(([name, value]) => ({ name, value }));
 
-      // Pages
-      if (visit.pages) {
-        Object.values(visit.pages).forEach((page) => {
-          stats.totalPageViews++;
-          stats.pageStats[page.page] = (stats.pageStats[page.page] || 0) + 1;
-          stats.avgPageDuration += page.duration || 0;
-          stats.timeOnPageByPage[page.page] = (stats.timeOnPageByPage[page.page] || 0) + (page.duration || 0);
-        });
-      }
-
-      // Clics
-      if (visit.clicks) {
-        Object.values(visit.clicks).forEach((click) => {
-          stats.totalClicks++;
-          stats.clickStats[click.element] = (stats.clickStats[click.element] || 0) + 1;
-        });
-      }
-
-      // Conversions
-      if (visit.conversions) {
-        Object.values(visit.conversions).forEach((conversion) => {
-          stats.totalConversions++;
-          stats.conversionStats[conversion.type] = (stats.conversionStats[conversion.type] || 0) + 1;
-        });
-      }
-
-      // Device, Browser, OS, Country
-      stats.deviceStats[visit.device] = (stats.deviceStats[visit.device] || 0) + 1;
-      stats.browserStats[visit.browser] = (stats.browserStats[visit.browser] || 0) + 1;
-      stats.osStats[visit.os] = (stats.osStats[visit.os] || 0) + 1;
-      stats.countryStats[visit.country] = (stats.countryStats[visit.country] || 0) + 1;
-
-      // Bounce rate (sessions avec 1 seule page)
-      if (visit.pages && Object.keys(visit.pages).length === 1) {
-        stats.bounceRate++;
-      }
-    });
-
-    stats.avgSessionDuration = filteredVisits.length > 0 ? Math.round(stats.avgSessionDuration / filteredVisits.length) : 0;
-    stats.avgScrollDepth = filteredVisits.length > 0 ? Math.round(stats.avgScrollDepth / filteredVisits.length) : 0;
-    stats.avgPageDuration = stats.totalPageViews > 0 ? Math.round(stats.avgPageDuration / stats.totalPageViews) : 0;
-    stats.bounceRate = filteredVisits.length > 0 ? Math.round((stats.bounceRate / filteredVisits.length) * 100) : 0;
-    stats.conversionRate = filteredVisits.length > 0 ? Math.round((stats.totalConversions / filteredVisits.length) * 100) : 0;
-
-    return stats;
-  };
-
-  const stats = calculateStats();
-
-  const handleResetAnalytics = async () => {
-    if (window.confirm("⚠️ Êtes-vous sûr ? Cela supprimera TOUTES les données analytics !")) {
+  const handleReset = async () => {
+    if (window.confirm("Supprimer TOUTES les données analytics ? Cette action est irréversible.")) {
       await resetAllAnalytics();
       setVisits([]);
-      alert("✅ Toutes les données ont été réinitialisées !");
     }
   };
 
-  // Préparer les données pour les graphiques
-  const visitsByDay = {};
-  filteredVisits.forEach((visit) => {
-    const date = new Date(visit.timestamp).toLocaleDateString();
-    visitsByDay[date] = (visitsByDay[date] || 0) + 1;
-  });
-
-  const visitsByDayData = Object.entries(visitsByDay)
-    .sort(([dateA], [dateB]) => new Date(dateA) - new Date(dateB))
-    .map(([date, count]) => ({ date, visits: count }));
-
-  const pageData = Object.entries(stats.pageStats)
-    .sort(([, a], [, b]) => b - a)
-    .slice(0, 10)
-    .map(([name, value]) => ({ name, value }));
-
-  const clickData = Object.entries(stats.clickStats)
-    .sort(([, a], [, b]) => b - a)
-    .slice(0, 10)
-    .map(([name, value]) => ({ name, value }));
-
-  const conversionData = Object.entries(stats.conversionStats).map(([name, value]) => ({ name, value }));
-
-  const deviceData = Object.entries(stats.deviceStats).map(([name, value]) => ({ name, value }));
-
-  const browserData = Object.entries(stats.browserStats)
-    .sort(([, a], [, b]) => b - a)
-    .slice(0, 8)
-    .map(([name, value]) => ({ name, value }));
-
-  const countryData = Object.entries(stats.countryStats)
-    .sort(([, a], [, b]) => b - a)
-    .slice(0, 10)
-    .map(([name, value]) => ({ name, value }));
-
-  const COLORS = ["#2563EB", "#7C3AED", "#EC4899", "#F59E0B", "#10B981", "#06B6D4", "#EF4444", "#8B5CF6"];
-
   if (loading) {
     return (
-      <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <p>Chargement des données...</p>
+      <div className="admin-loading">
+        <div className="admin-spinner" />
+        <p>Chargement des données…</p>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <div style={{ color: "red", textAlign: "center" }}>
-          <h2>Erreur Firebase</h2>
-          <p>{error}</p>
-        </div>
+      <div className="admin-loading">
+        <h2 style={{ color: "#EF4444" }}>Erreur Firebase</h2>
+        <p style={{ color: "#6B7280" }}>{error}</p>
       </div>
     );
   }
 
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: "#f5f5f5", paddingTop: "100px", paddingBottom: "50px" }}>
-      <Particle />
-      <Container fluid style={{ maxWidth: "1400px" }}>
-        <Row style={{ marginBottom: "30px", alignItems: "center" }}>
-          <Col md={8}>
-            <h1 style={{ color: "#18181B", fontSize: "2.5em", margin: 0 }}>📊 Analytics Dashboard</h1>
-          </Col>
-          <Col md={4} style={{ textAlign: "right" }}>
+    <div className="admin-wrapper">
+      <Container fluid className="admin-container">
+
+        {/* Header */}
+        <div className="admin-header">
+          <div>
+            <h1 className="admin-title">Analytics Dashboard</h1>
+            <p className="admin-subtitle">
+              {stats.totalVisits} visites affichées
+              {hideBots && bots.length > 0 && (
+                <span className="bot-badge">{bots.length} bots filtrés</span>
+              )}
+            </p>
+          </div>
+          <div className="admin-controls">
             <Form.Select
               value={dateFilter}
               onChange={(e) => setDateFilter(e.target.value)}
-              style={{ maxWidth: "200px", marginLeft: "auto" }}
+              className="admin-select"
             >
               <option value="all">Toutes les données</option>
               <option value="today">Aujourd'hui</option>
-              <option value="week">Cette semaine</option>
-              <option value="month">Ce mois</option>
+              <option value="week">7 derniers jours</option>
+              <option value="month">30 derniers jours</option>
             </Form.Select>
-          </Col>
+            <div className="bot-toggle">
+              <Form.Check
+                type="switch"
+                id="hide-bots"
+                label="Masquer bots"
+                checked={hideBots}
+                onChange={(e) => setHideBots(e.target.checked)}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* KPIs */}
+        <Row className="kpi-row">
+          <Col xs={6} md={3}><KpiCard value={stats.totalVisits} label="Visites" color="#2563EB" /></Col>
+          <Col xs={6} md={3}><KpiCard value={stats.totalPageViews} label="Pages vues" color="#7C3AED" /></Col>
+          <Col xs={6} md={3}><KpiCard value={stats.totalClicks} label="Clics" color="#EC4899" /></Col>
+          <Col xs={6} md={3}><KpiCard value={stats.uniqueCountries} label="Pays" color="#10B981" /></Col>
+        </Row>
+        <Row className="kpi-row kpi-row--secondary">
+          <Col xs={6} md={3}><KpiCard value={formatDuration(stats.avgDuration)} label="Durée moyenne" color="#F59E0B" /></Col>
+          <Col xs={6} md={3}><KpiCard value={`${stats.avgScroll}%`} label="Scroll moyen" color="#06B6D4" /></Col>
+          <Col xs={6} md={3}><KpiCard value={`${stats.bounceRate}%`} label="Taux de rebond" color="#EF4444" /></Col>
+          <Col xs={6} md={3}><KpiCard value={stats.totalConversions} label="Conversions" color="#8B5CF6" /></Col>
         </Row>
 
-        {/* KPIs Principaux */}
-        <Row style={{ marginBottom: "30px" }}>
-          <Col md={3} style={{ marginBottom: "20px" }}>
-            <Card style={{ padding: "20px", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", border: "none" }}>
-              <div style={{ color: "#2563EB", fontSize: "2.5em", fontWeight: "bold" }}>{stats.totalVisits}</div>
-              <div style={{ color: "#666", fontSize: "0.9em", marginTop: "5px" }}>Visites Totales</div>
-            </Card>
-          </Col>
-          <Col md={3} style={{ marginBottom: "20px" }}>
-            <Card style={{ padding: "20px", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", border: "none" }}>
-              <div style={{ color: "#7C3AED", fontSize: "2.5em", fontWeight: "bold" }}>{stats.totalPageViews}</div>
-              <div style={{ color: "#666", fontSize: "0.9em", marginTop: "5px" }}>Pages Vues</div>
-            </Card>
-          </Col>
-          <Col md={3} style={{ marginBottom: "20px" }}>
-            <Card style={{ padding: "20px", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", border: "none" }}>
-              <div style={{ color: "#EC4899", fontSize: "2.5em", fontWeight: "bold" }}>{stats.totalClicks}</div>
-              <div style={{ color: "#666", fontSize: "0.9em", marginTop: "5px" }}>Clics Totaux</div>
-            </Card>
-          </Col>
-          <Col md={3} style={{ marginBottom: "20px" }}>
-            <Card style={{ padding: "20px", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", border: "none" }}>
-              <div style={{ color: "#F59E0B", fontSize: "2.5em", fontWeight: "bold" }}>{stats.totalConversions}</div>
-              <div style={{ color: "#666", fontSize: "0.9em", marginTop: "5px" }}>Conversions</div>
-            </Card>
-          </Col>
-        </Row>
-
-        {/* Métriques Secondaires */}
-        <Row style={{ marginBottom: "30px" }}>
-          <Col md={2} style={{ marginBottom: "20px" }}>
-            <Card style={{ padding: "15px", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", border: "none", textAlign: "center" }}>
-              <div style={{ color: "#10B981", fontSize: "1.8em", fontWeight: "bold" }}>{stats.avgSessionDuration}s</div>
-              <div style={{ color: "#666", fontSize: "0.85em", marginTop: "5px" }}>Durée Moyenne</div>
-            </Card>
-          </Col>
-          <Col md={2} style={{ marginBottom: "20px" }}>
-            <Card style={{ padding: "15px", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", border: "none", textAlign: "center" }}>
-              <div style={{ color: "#06B6D4", fontSize: "1.8em", fontWeight: "bold" }}>{stats.avgPageDuration}s</div>
-              <div style={{ color: "#666", fontSize: "0.85em", marginTop: "5px" }}>Temps/Page</div>
-            </Card>
-          </Col>
-          <Col md={2} style={{ marginBottom: "20px" }}>
-            <Card style={{ padding: "15px", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", border: "none", textAlign: "center" }}>
-              <div style={{ color: "#EF4444", fontSize: "1.8em", fontWeight: "bold" }}>{stats.bounceRate}%</div>
-              <div style={{ color: "#666", fontSize: "0.85em", marginTop: "5px" }}>Taux Rebond</div>
-            </Card>
-          </Col>
-          <Col md={2} style={{ marginBottom: "20px" }}>
-            <Card style={{ padding: "15px", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", border: "none", textAlign: "center" }}>
-              <div style={{ color: "#8B5CF6", fontSize: "1.8em", fontWeight: "bold" }}>{stats.conversionRate}%</div>
-              <div style={{ color: "#666", fontSize: "0.85em", marginTop: "5px" }}>Taux Conv.</div>
-            </Card>
-          </Col>
-          <Col md={2} style={{ marginBottom: "20px" }}>
-            <Card style={{ padding: "15px", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", border: "none", textAlign: "center" }}>
-              <div style={{ color: "#2563EB", fontSize: "1.8em", fontWeight: "bold" }}>{stats.avgScrollDepth}%</div>
-              <div style={{ color: "#666", fontSize: "0.85em", marginTop: "5px" }}>Scroll Depth</div>
-            </Card>
-          </Col>
-          <Col md={2} style={{ marginBottom: "20px" }}>
-            <Card style={{ padding: "15px", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", border: "none", textAlign: "center" }}>
-              <div style={{ color: "#7C3AED", fontSize: "1.8em", fontWeight: "bold" }}>{stats.uniqueCountries.size}</div>
-              <div style={{ color: "#666", fontSize: "0.85em", marginTop: "5px" }}>Pays</div>
-            </Card>
-          </Col>
-        </Row>
-
-        {/* Graphiques Principaux */}
-        <Row style={{ marginBottom: "30px" }}>
-          <Col lg={12} style={{ marginBottom: "30px" }}>
-            <Card style={{ padding: "20px", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", border: "none" }}>
-              <h5 style={{ color: "#18181B", marginBottom: "20px" }}>📈 Visites par Jour</h5>
-              <ResponsiveContainer width="100%" height={300}>
+        {/* Visites par jour */}
+        <Row className="chart-row">
+          <Col lg={12}>
+            <Card className="chart-card">
+              <h5 className="chart-title">Visites par jour</h5>
+              <ResponsiveContainer width="100%" height={250}>
                 <LineChart data={visitsByDayData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-                  <XAxis dataKey="date" />
-                  <YAxis />
-                  <Tooltip />
-                  <Line type="monotone" dataKey="visits" stroke="#2563EB" strokeWidth={2} dot={{ fill: "#2563EB" }} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#F1F5F9" />
+                  <XAxis dataKey="date" tick={{ fontSize: 12, fill: "#6B7280" }} />
+                  <YAxis tick={{ fontSize: 12, fill: "#6B7280" }} allowDecimals={false} />
+                  <Tooltip contentStyle={{ borderRadius: 8, border: "none", boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }} />
+                  <Line type="monotone" dataKey="visits" stroke="#2563EB" strokeWidth={2} dot={{ fill: "#2563EB", r: 4 }} />
                 </LineChart>
               </ResponsiveContainer>
             </Card>
           </Col>
         </Row>
 
-        {/* Pages et Clics */}
-        <Row style={{ marginBottom: "30px" }}>
-          <Col lg={6} style={{ marginBottom: "30px" }}>
-            <Card style={{ padding: "20px", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", border: "none" }}>
-              <h5 style={{ color: "#18181B", marginBottom: "20px" }}>📄 Top Pages</h5>
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={pageData} layout="vertical">
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-                  <XAxis type="number" />
-                  <YAxis dataKey="name" type="category" width={120} />
-                  <Tooltip />
-                  <Bar dataKey="value" fill="#7C3AED" />
-                </BarChart>
-              </ResponsiveContainer>
+        {/* Pages + Clics */}
+        <Row className="chart-row">
+          <Col lg={6}>
+            <Card className="chart-card">
+              <h5 className="chart-title">Top Pages</h5>
+              {topPages.length === 0 ? (
+                <p className="chart-empty">Pas encore de données de navigation</p>
+              ) : (
+                <ResponsiveContainer width="100%" height={250}>
+                  <BarChart data={topPages} layout="vertical">
+                    <CartesianGrid strokeDasharray="3 3" stroke="#F1F5F9" />
+                    <XAxis type="number" tick={{ fontSize: 12 }} allowDecimals={false} />
+                    <YAxis dataKey="name" type="category" width={100} tick={{ fontSize: 12 }} />
+                    <Tooltip />
+                    <Bar dataKey="value" fill="#7C3AED" radius={[0, 4, 4, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+              )}
             </Card>
           </Col>
-
-          <Col lg={6} style={{ marginBottom: "30px" }}>
-            <Card style={{ padding: "20px", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", border: "none" }}>
-              <h5 style={{ color: "#18181B", marginBottom: "20px" }}>🖱️ Top Clics</h5>
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={clickData} layout="vertical">
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-                  <XAxis type="number" />
-                  <YAxis dataKey="name" type="category" width={120} />
-                  <Tooltip />
-                  <Bar dataKey="value" fill="#EC4899" />
-                </BarChart>
-              </ResponsiveContainer>
+          <Col lg={6}>
+            <Card className="chart-card">
+              <h5 className="chart-title">Top Clics</h5>
+              {topClicks.length === 0 ? (
+                <p className="chart-empty">Pas encore de données de clics</p>
+              ) : (
+                <ResponsiveContainer width="100%" height={250}>
+                  <BarChart data={topClicks} layout="vertical">
+                    <CartesianGrid strokeDasharray="3 3" stroke="#F1F5F9" />
+                    <XAxis type="number" tick={{ fontSize: 12 }} allowDecimals={false} />
+                    <YAxis dataKey="name" type="category" width={120} tick={{ fontSize: 11 }} />
+                    <Tooltip />
+                    <Bar dataKey="value" fill="#EC4899" radius={[0, 4, 4, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+              )}
             </Card>
           </Col>
         </Row>
 
-        {/* Appareils et Navigateurs */}
-        <Row style={{ marginBottom: "30px" }}>
-          <Col lg={6} style={{ marginBottom: "30px" }}>
-            <Card style={{ padding: "20px", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", border: "none" }}>
-              <h5 style={{ color: "#18181B", marginBottom: "20px" }}>📱 Appareils</h5>
-              <ResponsiveContainer width="100%" height={300}>
+        {/* Appareils + Navigateurs + Pays */}
+        <Row className="chart-row">
+          <Col lg={4}>
+            <Card className="chart-card">
+              <h5 className="chart-title">Appareils</h5>
+              <ResponsiveContainer width="100%" height={220}>
                 <PieChart>
-                  <Pie data={deviceData} cx="50%" cy="50%" labelLine={false} label={({ name, value }) => `${name}: ${value}`} outerRadius={80} fill="#8884d8" dataKey="value">
-                    {deviceData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                    ))}
+                  <Pie data={deviceData} cx="50%" cy="50%" outerRadius={75}
+                    label={({ name, value }) => `${name}: ${value}`}
+                    labelLine={false} dataKey="value">
+                    {deviceData.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
                   </Pie>
                   <Tooltip />
                 </PieChart>
               </ResponsiveContainer>
             </Card>
           </Col>
-
-          <Col lg={6} style={{ marginBottom: "30px" }}>
-            <Card style={{ padding: "20px", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", border: "none" }}>
-              <h5 style={{ color: "#18181B", marginBottom: "20px" }}>🌐 Navigateurs</h5>
-              <ResponsiveContainer width="100%" height={300}>
+          <Col lg={4}>
+            <Card className="chart-card">
+              <h5 className="chart-title">Navigateurs</h5>
+              <ResponsiveContainer width="100%" height={220}>
                 <BarChart data={browserData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} />
-                  <YAxis />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#F1F5F9" />
+                  <XAxis dataKey="name" tick={{ fontSize: 11 }} angle={-30} textAnchor="end" height={50} />
+                  <YAxis tick={{ fontSize: 12 }} allowDecimals={false} />
                   <Tooltip />
-                  <Bar dataKey="value" fill="#10B981" />
+                  <Bar dataKey="value" fill="#10B981" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </Card>
           </Col>
-        </Row>
-
-        {/* Pays et Conversions */}
-        <Row style={{ marginBottom: "30px" }}>
-          <Col lg={6} style={{ marginBottom: "30px" }}>
-            <Card style={{ padding: "20px", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", border: "none" }}>
-              <h5 style={{ color: "#18181B", marginBottom: "20px" }}>🌍 Top Pays</h5>
-              <ResponsiveContainer width="100%" height={300}>
+          <Col lg={4}>
+            <Card className="chart-card">
+              <h5 className="chart-title">Top Pays</h5>
+              <ResponsiveContainer width="100%" height={220}>
                 <BarChart data={countryData} layout="vertical">
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-                  <XAxis type="number" />
-                  <YAxis dataKey="name" type="category" width={100} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#F1F5F9" />
+                  <XAxis type="number" tick={{ fontSize: 12 }} allowDecimals={false} />
+                  <YAxis dataKey="name" type="category" width={100} tick={{ fontSize: 12 }} />
                   <Tooltip />
-                  <Bar dataKey="value" fill="#F59E0B" />
+                  <Bar dataKey="value" fill="#F59E0B" radius={[0, 4, 4, 0]} />
                 </BarChart>
-              </ResponsiveContainer>
-            </Card>
-          </Col>
-
-          <Col lg={6} style={{ marginBottom: "30px" }}>
-            <Card style={{ padding: "20px", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", border: "none" }}>
-              <h5 style={{ color: "#18181B", marginBottom: "20px" }}>✅ Conversions</h5>
-              <ResponsiveContainer width="100%" height={300}>
-                <PieChart>
-                  <Pie data={conversionData} cx="50%" cy="50%" labelLine={false} label={({ name, value }) => `${name}: ${value}`} outerRadius={80} fill="#8884d8" dataKey="value">
-                    {conversionData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                    ))}
-                  </Pie>
-                  <Tooltip />
-                </PieChart>
               </ResponsiveContainer>
             </Card>
           </Col>
         </Row>
 
-        {/* Tableau détaillé */}
-        <Row style={{ marginBottom: "30px" }}>
+        {/* Tableau des visites */}
+        <Row className="chart-row">
           <Col lg={12}>
-            <Card style={{ padding: "20px", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", border: "none" }}>
-              <h5 style={{ color: "#18181B", marginBottom: "20px" }}>📋 Détail des Visites</h5>
-              <div style={{ overflowX: "auto" }}>
-                <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.9em" }}>
+            <Card className="chart-card">
+              <h5 className="chart-title">
+                Détail des visites
+                <span className="table-count">{filtered.length} entrées</span>
+              </h5>
+              <div className="table-responsive">
+                <Table hover className="visits-table">
                   <thead>
-                    <tr style={{ backgroundColor: "#f5f5f5", borderBottom: "2px solid #ddd" }}>
-                      <th style={{ padding: "12px", textAlign: "left", color: "#18181B" }}>Date</th>
-                      <th style={{ padding: "12px", textAlign: "left", color: "#18181B" }}>Navigateur</th>
-                      <th style={{ padding: "12px", textAlign: "left", color: "#18181B" }}>Appareil</th>
-                      <th style={{ padding: "12px", textAlign: "left", color: "#18181B" }}>Pays</th>
-                      <th style={{ padding: "12px", textAlign: "left", color: "#18181B" }}>Pages</th>
-                      <th style={{ padding: "12px", textAlign: "left", color: "#18181B" }}>Clics</th>
-                      <th style={{ padding: "12px", textAlign: "left", color: "#18181B" }}>Durée</th>
-                      <th style={{ padding: "12px", textAlign: "left", color: "#18181B" }}>Scroll</th>
-                      <th style={{ padding: "12px", textAlign: "left", color: "#18181B" }}>Action</th>
+                    <tr>
+                      <th>Date</th>
+                      <th>Navigateur</th>
+                      <th>Appareil</th>
+                      <th>Pays</th>
+                      <th>Pages</th>
+                      <th>Clics</th>
+                      <th>Durée</th>
+                      <th>Scroll</th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tbody>
-                    {filteredVisits.slice(0, 50).map((visit, index) => (
-                      <tr key={index} style={{ borderBottom: "1px solid #eee", backgroundColor: selectedVisit === index ? "#f0f0f0" : "white" }}>
-                        <td style={{ padding: "12px", color: "#666" }}>{new Date(visit.timestamp).toLocaleString()}</td>
-                        <td style={{ padding: "12px", color: "#666" }}>{visit.browser}</td>
-                        <td style={{ padding: "12px", color: "#666" }}>{visit.device === "mobile" ? "📱" : visit.device === "tablet" ? "📱" : "💻"}</td>
-                        <td style={{ padding: "12px", color: "#666" }}>{visit.country}</td>
-                        <td style={{ padding: "12px", color: "#666" }}>{visit.pages ? Object.keys(visit.pages).length : 0}</td>
-                        <td style={{ padding: "12px", color: "#666" }}>{visit.clicks ? Object.keys(visit.clicks).length : 0}</td>
-                        <td style={{ padding: "12px", color: "#666" }}>{visit.sessionDuration || 0}s</td>
-                        <td style={{ padding: "12px", color: "#666" }}>{visit.scrollDepth || 0}%</td>
-                        <td style={{ padding: "12px" }}>
-                          <Button
-                            variant="link"
-                            size="sm"
-                            onClick={() => setSelectedVisit(selectedVisit === index ? null : index)}
-                            style={{ padding: 0, color: "#2563EB" }}
-                          >
-                            {selectedVisit === index ? "▼ Masquer" : "▶ Détails"}
-                          </Button>
-                        </td>
-                      </tr>
-                    ))}
+                    {filtered.slice(0, 50).map((visit, idx) => {
+                      const pageCount = visit.pages ? Object.keys(visit.pages).length : 0;
+                      const clickCount = visit.clicks ? Object.keys(visit.clicks).length : 0;
+                      const isExpanded = expandedRow === idx;
+                      return (
+                        <React.Fragment key={visit.id}>
+                          <tr className={isExpanded ? "row-expanded" : ""}>
+                            <td>{formatDate(visit.timestamp)}</td>
+                            <td>{visit.browser || "—"}</td>
+                            <td>{visit.device === "mobile" ? "📱" : visit.device === "tablet" ? "🖥️" : "💻"}</td>
+                            <td>{visit.country || "—"}</td>
+                            <td><Badge bg={pageCount > 0 ? "primary" : "secondary"}>{pageCount}</Badge></td>
+                            <td><Badge bg={clickCount > 0 ? "info" : "secondary"}>{clickCount}</Badge></td>
+                            <td>{formatDuration(visit.sessionDuration)}</td>
+                            <td>
+                              <div className="scroll-bar">
+                                <div className="scroll-fill" style={{ width: `${Math.min(visit.scrollDepth || 0, 100)}%` }} />
+                              </div>
+                              <span className="scroll-pct">{Math.min(visit.scrollDepth || 0, 100)}%</span>
+                            </td>
+                            <td>
+                              <Button variant="link" size="sm" className="expand-btn"
+                                onClick={() => setExpandedRow(isExpanded ? null : idx)}>
+                                {isExpanded ? "▲" : "▼"}
+                              </Button>
+                            </td>
+                          </tr>
+                          {isExpanded && (
+                            <tr className="detail-row">
+                              <td colSpan={9}>
+                                <div className="detail-grid">
+                                  <div><strong>OS :</strong> {visit.os || "—"}</div>
+                                  <div><strong>Ville :</strong> {visit.city || "—"}</div>
+                                  <div><strong>Langue :</strong> {visit.language || "—"}</div>
+                                  <div><strong>Résolution :</strong> {visit.screenResolution || "—"}</div>
+                                  <div><strong>Référent :</strong> {visit.referrer || "direct"}</div>
+                                  <div><strong>IP :</strong> {visit.ip || "—"}</div>
+                                </div>
+                                {visit.pages && Object.keys(visit.pages).length > 0 && (
+                                  <div className="detail-pages">
+                                    <strong>Pages visitées :</strong>{" "}
+                                    {Object.values(visit.pages).map((p, i) => (
+                                      <Badge key={i} bg="light" text="dark" className="me-1">{p.page}</Badge>
+                                    ))}
+                                  </div>
+                                )}
+                              </td>
+                            </tr>
+                          )}
+                        </React.Fragment>
+                      );
+                    })}
                   </tbody>
-                </table>
+                </Table>
               </div>
             </Card>
           </Col>
         </Row>
 
-        {/* Actions */}
-        <Row style={{ marginBottom: "30px" }}>
+        {/* Zone dangereuse */}
+        <Row className="chart-row">
           <Col lg={12}>
-            <Card style={{ padding: "20px", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", border: "none", backgroundColor: "#fff3cd" }}>
-              <h5 style={{ color: "#856404", marginBottom: "15px" }}>⚠️ Actions Dangereuses</h5>
-              <Button variant="danger" onClick={handleResetAnalytics}>
-                🗑️ Réinitialiser toutes les données
+            <Card className="danger-card">
+              <h5>Zone dangereuse</h5>
+              <p>Cette action supprime <strong>toutes</strong> les données analytics de Firebase. Irréversible.</p>
+              <Button variant="danger" onClick={handleReset}>
+                Réinitialiser toutes les données
               </Button>
-              <p style={{ color: "#856404", marginTop: "15px", fontSize: "0.9em" }}>
-                ⚠️ Cette action supprimera TOUTES les données analytics et ne peut pas être annulée !
-              </p>
             </Card>
           </Col>
         </Row>
+
       </Container>
     </div>
   );
