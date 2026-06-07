@@ -3,169 +3,391 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-language" content="en, fr" />
 
-  <!-- Primary Meta Tags - SEO Optimized -->
+  <!-- Viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
-  <meta name="theme-color" content="#2563EB" />
-  <meta name="description" content="BESSANH Shadrak - Full-Stack Developer & AI Specialist. 2nd Place Winner African Digital Identity Hackathon 2026. Expert in MERN Stack, Digital Identity Solutions, Fintech, and Machine Learning. Portfolio featuring CottonPay, MINERVA, VoxiAI projects." />
-  <meta name="keywords" content="BESSANH Shadrak, software developer, AI developer, MERN stack developer, digital identity, hackathon winner, fintech developer, machine learning, deep learning, React developer, Node.js developer, Python developer, Africa tech, ID4Africa 2026" />
+
+  <!-- Primary Meta Tags -->
+  <title>BESSANH Shadrak - Full-Stack Developer &amp; AI Specialist | Hackathon Winner 2026</title>
+  <meta name="title" content="BESSANH Shadrak - Full-Stack Developer &amp; AI Specialist | Hackathon Winner 2026" />
+  <meta name="description" content="BESSANH Shadrak - Full-Stack Developer &amp; AI Specialist from Benin. 2nd Place Winner African Digital Identity Hackathon 2026 (ID4Africa). Expert in MERN Stack, React, Python, Digital Identity &amp; Machine Learning. Projects: CottonPay, MINERVA, VoxiAI." />
+  <meta name="keywords" content="BESSANH Shadrak, Shadrak BESSANH, software developer Benin, AI developer Africa, MERN stack developer, digital identity, CottonPay, ID4Africa 2026, hackathon winner, fintech Africa, machine learning, deep learning, React developer, Node.js, Python, full-stack developer, IFRI UAC, Abomey-Calavi" />
   <meta name="author" content="BESSANH Shadrak" />
+  <meta name="copyright" content="BESSANH Shadrak" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="bingbot" content="index, follow" />
-  <meta name="language" content="English" />
+  <meta name="language" content="en" />
   <meta name="revisit-after" content="7 days" />
   <meta name="distribution" content="global" />
   <meta name="rating" content="general" />
-  <meta name="copyright" content="BESSANH Shadrak" />
+  <meta name="coverage" content="Worldwide" />
+  <meta name="target" content="all" />
 
-  <!-- Canonical URL -->
+  <!-- Geo Tags (Benin) -->
+  <meta name="geo.region" content="BJ" />
+  <meta name="geo.country" content="BJ" />
+  <meta name="geo.placename" content="Cotonou, Benin" />
+  <meta name="ICBM" content="6.3654, 2.4183" />
+
+  <!-- Dublin Core Metadata -->
+  <meta name="DC.title" content="BESSANH Shadrak - Full-Stack Developer &amp; AI Specialist" />
+  <meta name="DC.creator" content="BESSANH Shadrak" />
+  <meta name="DC.subject" content="Software Development, Artificial Intelligence, MERN Stack, Digital Identity" />
+  <meta name="DC.description" content="Portfolio of BESSANH Shadrak, Full-Stack Developer and AI Specialist from Benin, 2nd Place Winner African Digital Identity Hackathon 2026." />
+  <meta name="DC.language" content="en" />
+  <meta name="DC.rights" content="Copyright 2026 BESSANH Shadrak" />
+  <meta name="DC.format" content="text/html" />
+  <meta name="DC.type" content="Text" />
+
+  <!-- Canonical & Alternate -->
   <link rel="canonical" href="https://shadrakbessanh.me/" />
+  <link rel="alternate" hreflang="en" href="https://shadrakbessanh.me/" />
+  <link rel="alternate" hreflang="fr" href="https://shadrakbessanh.me/?lang=fr" />
+  <link rel="alternate" hreflang="x-default" href="https://shadrakbessanh.me/" />
 
-  <!-- Alternate Links for Multilingual -->
-  <link rel="alternate" hrefLang="en" href="https://shadrakbessanh.me/" />
-  <link rel="alternate" hrefLang="fr" href="https://shadrakbessanh.me/?lang=fr" />
-  <link rel="alternate" hrefLang="x-default" href="https://shadrakbessanh.me/" />
-
-  <!-- Manifest and Icons -->
+  <!-- Manifest, Favicon, Icons -->
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.png" />
   <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/favicon.png" />
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.png" />
 
-  <!-- Preconnect to External Resources -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-  <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-  <link rel="dns-prefetch" href="https://www.facebook.com" />
-  <link rel="dns-prefetch" href="https://platform.twitter.com" />
+  <!-- Sitemap -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://shadrakbessanh.me/sitemap.xml" />
 
-  <!-- Open Graph Meta Tags - Facebook & LinkedIn -->
-  <meta property="og:type" content="website" />
+  <!-- Theme & PWA -->
+  <meta name="theme-color" content="#2563EB" />
+  <meta name="msapplication-TileColor" content="#2563EB" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="BESSANH Shadrak" />
+  <meta name="format-detection" content="telephone=no, email=no" />
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="profile" />
   <meta property="og:url" content="https://shadrakbessanh.me/" />
-  <meta property="og:title" content="BESSANH Shadrak - Full-Stack Developer & AI Specialist | Hackathon Winner" />
-  <meta property="og:description" content="BESSANH Shadrak - 2nd Place Winner at African Digital Identity Hackathon 2026. Full-stack developer specializing in MERN Stack, Digital Identity, AI, and Fintech solutions." />
+  <meta property="og:title" content="BESSANH Shadrak - Full-Stack Developer &amp; AI Specialist | Hackathon Winner 2026" />
+  <meta property="og:description" content="BESSANH Shadrak - 2nd Place Winner African Digital Identity Hackathon 2026. Full-stack developer from Benin specializing in MERN Stack, Digital Identity, AI &amp; Fintech solutions." />
   <meta property="og:image" content="https://shadrakbessanh.me/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:alt" content="BESSANH Shadrak - Full-Stack Developer &amp; AI Specialist Portfolio" />
   <meta property="og:site_name" content="BESSANH Shadrak Portfolio" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:locale:alternate" content="fr_FR" />
+  <meta property="profile:first_name" content="Shadrak" />
+  <meta property="profile:last_name" content="BESSANH" />
+  <meta property="profile:username" content="Bsh54" />
 
-  <!-- Twitter Card Meta Tags -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://shadrakbessanh.me/" />
-  <meta name="twitter:title" content="BESSANH Shadrak - Full-Stack Developer & AI Specialist" />
-  <meta name="twitter:description" content="2nd Place Winner African Digital Identity Hackathon 2026. MERN Stack, Digital Identity, AI, Fintech Developer." />
+  <meta name="twitter:title" content="BESSANH Shadrak - Full-Stack Developer &amp; AI Specialist" />
+  <meta name="twitter:description" content="2nd Place Winner African Digital Identity Hackathon 2026. MERN Stack, AI, Digital Identity Developer from Benin." />
   <meta name="twitter:image" content="https://shadrakbessanh.me/og-image.jpg" />
+  <meta name="twitter:image:alt" content="BESSANH Shadrak Portfolio" />
   <meta name="twitter:creator" content="@shadrakbessanh" />
   <meta name="twitter:site" content="@shadrakbessanh" />
 
-  <!-- Apple Mobile Web App Meta Tags -->
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="BESSANH Shadrak" />
+  <!-- Preconnect & DNS Prefetch -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://firebaseio.com" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://ipapi.co" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
 
-  <!-- Microsoft Meta Tags -->
-  <meta name="msapplication-TileColor" content="#2563EB" />
-  <meta name="msapplication-config" content="%PUBLIC_URL%/browserconfig.xml" />
+  <!-- ========== STRUCTURED DATA / JSON-LD ========== -->
 
-  <!-- Additional SEO Meta Tags -->
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="format-detection" content="email=no" />
-  <meta name="mobile-web-app-capable" content="yes" />
-
-  <!-- Structured Data - JSON-LD -->
+  <!-- 1. Person -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://shadrakbessanh.me/#person",
     "name": "BESSANH Shadrak",
+    "givenName": "Shadrak",
+    "familyName": "BESSANH",
     "url": "https://shadrakbessanh.me",
-    "image": "https://shadrakbessanh.me/og-image.jpg",
-    "description": "Full-Stack Developer & AI Specialist. 2nd Place Winner at African Digital Identity Hackathon 2026.",
-    "sameAs": [
-      "https://linkedin.com/in/shadrak-bessanh",
-      "https://github.com/Bsh54",
-      "https://twitter.com/shadrakbessanh",
-      "https://medium.com/@shadrakbessanh"
-    ],
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://shadrakbessanh.me/og-image.jpg",
+      "width": 1200,
+      "height": 630
+    },
+    "description": "Full-Stack Developer and AI Specialist from Benin. 2nd Place Winner at the African Digital Identity Hackathon 2026 (ID4Africa). Specializes in MERN Stack, React, Python, Digital Identity and Machine Learning.",
     "jobTitle": "Full-Stack Developer & AI Specialist",
+    "nationality": {
+      "@type": "Country",
+      "name": "Benin"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cotonou",
+      "addressCountry": "BJ"
+    },
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Institut de Formation et de Recherche en Informatique (IFRI)",
+      "url": "https://ifri-uac.bj",
+      "parentOrganization": {
+        "@type": "CollegeOrUniversity",
+        "name": "Université d'Abomey-Calavi",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Abomey-Calavi",
+          "addressCountry": "BJ"
+        }
+      }
+    },
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "name": "2nd Place - African Digital Identity Hackathon 2026",
+      "credentialCategory": "award",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Upanzi Network / Carnegie Mellon University Africa"
+      }
+    },
+    "award": "2nd Place - African Digital Identity Hackathon 2026 (ID4Africa)",
     "worksFor": {
       "@type": "Organization",
       "name": "Freelance"
     },
     "knowsAbout": [
-      "JavaScript",
-      "Python",
-      "React",
-      "Node.js",
-      "Machine Learning",
-      "Deep Learning",
-      "Digital Identity",
-      "MERN Stack",
-      "Fintech",
-      "AI Development",
-      "Web Development",
-      "Full-Stack Development"
+      "JavaScript", "TypeScript", "Python", "React", "Next.js",
+      "Node.js", "MongoDB", "Express", "MERN Stack", "Full-Stack Development",
+      "Machine Learning", "Deep Learning", "Artificial Intelligence",
+      "Digital Identity", "Fintech", "Web Development",
+      "FastAPI", "Firebase", "Supabase", "Docker",
+      "Natural Language Processing", "Computer Vision"
     ],
-    "award": "2nd Place - African Digital Identity Hackathon 2026"
-  }
-  </script>
-
-  <!-- Organization Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "BESSANH Shadrak Portfolio",
-    "url": "https://shadrakbessanh.me",
-    "logo": "https://shadrakbessanh.me/logo.png",
-    "description": "Portfolio of BESSANH Shadrak - Full-Stack Developer & AI Specialist",
+    "knowsLanguage": [
+      { "@type": "Language", "name": "French" },
+      { "@type": "Language", "name": "English" },
+      { "@type": "Language", "name": "Fon" }
+    ],
     "sameAs": [
       "https://linkedin.com/in/shadrak-bessanh",
       "https://github.com/Bsh54",
-      "https://twitter.com/shadrakbessanh"
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "General",
-      "email": "contact@shadrakbessanh.me"
+      "https://twitter.com/shadrakbessanh",
+      "https://medium.com/@shadrakbessanh"
+    ]
+  }
+  </script>
+
+  <!-- 2. ProfilePage (Google's preferred schema for personal websites) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "dateCreated": "2025-01-01T00:00:00+00:00",
+    "dateModified": "2026-06-07T00:00:00+00:00",
+    "url": "https://shadrakbessanh.me",
+    "name": "BESSANH Shadrak - Portfolio",
+    "description": "Official portfolio of BESSANH Shadrak, Full-Stack Developer and AI Specialist from Benin.",
+    "inLanguage": ["en", "fr"],
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://shadrakbessanh.me/#website"
+    },
+    "mainEntity": {
+      "@id": "https://shadrakbessanh.me/#person"
     }
   }
   </script>
 
-  <!-- BreadcrumbList Schema -->
+  <!-- 3. WebSite with SearchAction (Sitelinks Searchbox) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://shadrakbessanh.me/#website",
+    "name": "BESSANH Shadrak Portfolio",
+    "url": "https://shadrakbessanh.me",
+    "description": "Portfolio of BESSANH Shadrak - Full-Stack Developer &amp; AI Specialist from Benin",
+    "inLanguage": ["en", "fr"],
+    "author": {
+      "@id": "https://shadrakbessanh.me/#person"
+    },
+    "publisher": {
+      "@id": "https://shadrakbessanh.me/#person"
+    },
+    "copyrightYear": "2026",
+    "copyrightHolder": {
+      "@id": "https://shadrakbessanh.me/#person"
+    }
+  }
+  </script>
+
+  <!-- 4. BreadcrumbList -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shadrakbessanh.me/" },
+      { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://shadrakbessanh.me/project" },
+      { "@type": "ListItem", "position": 3, "name": "Achievements", "item": "https://shadrakbessanh.me/achievements" },
+      { "@type": "ListItem", "position": 4, "name": "Resume", "item": "https://shadrakbessanh.me/resume" }
+    ]
+  }
+  </script>
+
+  <!-- 5. SoftwareApplication schemas for each project -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Projects by BESSANH Shadrak",
+    "description": "Software projects developed by BESSANH Shadrak",
+    "itemListElement": [
       {
         "@type": "ListItem",
         "position": 1,
-        "name": "Home",
-        "item": "https://shadrakbessanh.me/"
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "CottonPay",
+          "description": "Digital identity solution transforming cotton delivery into verifiable credentials for 200,000+ Beninese farmers. 2nd Place African Digital Identity Hackathon 2026.",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Web",
+          "author": { "@id": "https://shadrakbessanh.me/#person" },
+          "award": "2nd Place - African Digital Identity Hackathon 2026",
+          "keywords": "digital identity, blockchain, verifiable credentials, fintech, Benin, eSignet, MOSIP",
+          "url": "https://shadrakbessanh.me/achievement/cottonpay-id4africa"
+        }
       },
       {
         "@type": "ListItem",
         "position": 2,
-        "name": "Projects",
-        "item": "https://shadrakbessanh.me/project"
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "MINERVA",
+          "description": "AI-powered STEM learning platform with 3D avatar, voice conversations and personalized courses.",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "Web",
+          "author": { "@id": "https://shadrakbessanh.me/#person" },
+          "softwareVersion": "1.0",
+          "keywords": "AI, education, STEM, Next.js, Three.js, DeepSeek, OpenAI, 3D avatar",
+          "downloadUrl": "https://minerva-snowy.vercel.app/",
+          "codeRepository": "https://github.com/Bsh54/MINERVA"
+        }
       },
       {
         "@type": "ListItem",
         "position": 3,
-        "name": "Achievements",
-        "item": "https://shadrakbessanh.me/achievements"
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "VoxiAI",
+          "description": "Automatic dynamic subtitle generator for short videos using Faster-Whisper and Google Gemini 2.5 Flash.",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "Web",
+          "author": { "@id": "https://shadrakbessanh.me/#person" },
+          "keywords": "AI subtitles, Faster-Whisper, Gemini, FastAPI, TikTok, Reels, Shorts",
+          "downloadUrl": "https://shads229-voxiai.hf.space/",
+          "codeRepository": "https://github.com/Bsh54/VoxiAI"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "EVOLUTICS",
+          "description": "Centralized professional opportunities platform with AI assistant for CV optimization. Hackathon HACKBYIFRI 2026.",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "author": { "@id": "https://shadrakbessanh.me/#person" },
+          "keywords": "jobs, internships, AI, CV, Gemini, React, Supabase, Tailwind",
+          "downloadUrl": "https://evolutics.vercel.app/",
+          "codeRepository": "https://github.com/Bsh54/EVOLUTICS_HACKBYIFRI_2026"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "CV-AI",
+          "description": "AI-powered CV optimization web app that analyzes job postings to tailor your resume.",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "author": { "@id": "https://shadrakbessanh.me/#person" },
+          "keywords": "CV, AI, ATS, resume optimization, React, TypeScript, Tailwind",
+          "downloadUrl": "https://cv-ai-neon.vercel.app/",
+          "codeRepository": "https://github.com/Bsh54/CV-AI"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "Fon-Dataset-Generator",
+          "description": "Automated bilingual French-Fongbe dataset generator for LLM training to preserve the Fon language.",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Web, Python",
+          "author": { "@id": "https://shadrakbessanh.me/#person" },
+          "keywords": "NLP, Fon language, Benin, dataset, LLM, fine-tuning, Python",
+          "codeRepository": "https://github.com/Bsh54/Fon-Dataset-Generator"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "Zenith AI",
+          "description": "Video analysis platform transforming content into structured narrative reports using YOLOv8, Whisper and LLM.",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "Web",
+          "author": { "@id": "https://shadrakbessanh.me/#person" },
+          "keywords": "computer vision, YOLOv8, Whisper, AI video analysis, Gradio",
+          "downloadUrl": "https://zenith-ai-indol.vercel.app/",
+          "codeRepository": "https://github.com/Bsh54/Zenith-AI-Front"
+        }
       }
     ]
   }
   </script>
 
-  <title>BESSANH Shadrak - Full-Stack Developer & AI Specialist | Hackathon Winner 2026</title>
+  <!-- 6. Event - CottonPay Hackathon Win -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Africa Digital ID Hackathon 2026",
+    "description": "Continental competition for inclusive digital identity innovation across Africa, hosted by Carnegie Mellon University Africa's Upanzi Network and MicroSave Consulting.",
+    "startDate": "2026-05-11",
+    "endDate": "2026-05-16",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "Parc des Expositions d'Abidjan",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "Upanzi Network - Carnegie Mellon University Africa",
+      "url": "https://upanzi.cmu.edu"
+    },
+    "performer": {
+      "@id": "https://shadrakbessanh.me/#person"
+    },
+    "award": "2nd Place - CottonPay",
+    "url": "https://shadrakbessanh.me/achievement/cottonpay-id4africa"
+  }
+  </script>
+
 </head>
 
 <body>

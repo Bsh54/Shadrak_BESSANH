@@ -2,60 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-  <!-- Fon-Dataset-Generator -->
+  <!-- All projects are on /project — single canonical URL -->
   <url>
     <loc>https://shadrakbessanh.me/project</loc>
-    <lastmod>2026-05-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Zenith AI -->
-  <url>
-    <loc>https://shadrakbessanh.me/project</loc>
-    <lastmod>2026-05-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- CV-AI -->
-  <url>
-    <loc>https://shadrakbessanh.me/project</loc>
-    <lastmod>2026-05-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- EVOLUTICS -->
-  <url>
-    <loc>https://shadrakbessanh.me/project</loc>
-    <lastmod>2026-05-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- AI Phone Call -->
-  <url>
-    <loc>https://shadrakbessanh.me/project</loc>
-    <lastmod>2026-05-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- VoxiAI -->
-  <url>
-    <loc>https://shadrakbessanh.me/project</loc>
-    <lastmod>2026-05-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- MINERVA -->
-  <url>
-    <loc>https://shadrakbessanh.me/project</loc>
-    <lastmod>2026-05-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://shadrakbessanh.me/static/media/evolutics.png</image:loc>
+      <image:title>EVOLUTICS - Professional Opportunities Platform with AI</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://shadrakbessanh.me/static/media/minerva.png</image:loc>
+      <image:title>MINERVA - AI-powered STEM Learning Platform with 3D Avatar</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://shadrakbessanh.me/static/media/voxiai.png</image:loc>
+      <image:title>VoxiAI - Automatic Subtitle Generator for Short Videos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://shadrakbessanh.me/static/media/cvai.png</image:loc>
+      <image:title>CV-AI - AI-powered CV Optimization Web App</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://shadrakbessanh.me/static/media/zenithai.png</image:loc>
+      <image:title>Zenith AI - Video Analysis Platform</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://shadrakbessanh.me/static/media/fondataset.png</image:loc>
+      <image:title>Fon-Dataset-Generator - French-Fongbe Bilingual Dataset</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://shadrakbessanh.me/static/media/aiphonecall.png</image:loc>
+      <image:title>AI Phone Call - Real-time Voice Conversation with AI</image:title>
+    </image:image>
   </url>
 
 </urlset>

@@ -2,63 +2,84 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 export const SEOHead = ({
-  title = "BESSANH Shadrak - Software Developer & AI Developer",
-  description = "BESSANH Shadrak - Full-stack developer, AI specialist, and 2nd place winner at African Digital Identity Hackathon 2026. Expert in MERN stack, digital identity solutions, and fintech.",
-  keywords = "BESSANH Shadrak, software developer, AI developer, MERN stack, digital identity, hackathon winner, fintech developer, Africa",
+  title = "BESSANH Shadrak - Full-Stack Developer & AI Specialist | Hackathon Winner 2026",
+  description = "BESSANH Shadrak - Full-Stack Developer & AI Specialist from Benin. 2nd Place Winner African Digital Identity Hackathon 2026. Expert in MERN Stack, React, Python, Digital Identity & Machine Learning.",
+  keywords = "BESSANH Shadrak, software developer Benin, AI developer Africa, MERN stack, digital identity, CottonPay, ID4Africa 2026, hackathon winner, fintech Africa",
   image = "https://shadrakbessanh.me/og-image.jpg",
   url = "https://shadrakbessanh.me",
   type = "website",
   author = "BESSANH Shadrak",
   twitterHandle = "@shadrakbessanh",
+  pageType = "WebPage",
+  dateModified = "2026-06-07",
 }) => {
-  const structuredData = {
+  const personRef = { "@id": "https://shadrakbessanh.me/#person" };
+  const websiteRef = { "@id": "https://shadrakbessanh.me/#website" };
+
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": pageType,
+    "url": url,
+    "name": title,
+    "description": description,
+    "inLanguage": ["en", "fr"],
+    "dateModified": dateModified,
+    "isPartOf": websiteRef,
+    "author": personRef,
+    "publisher": personRef,
+    "image": {
+      "@type": "ImageObject",
+      "url": image,
+      "width": 1200,
+      "height": 630,
+    },
+  };
+
+  const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "BESSANH Shadrak",
-    url: "https://shadrakbessanh.me",
-    image: image,
-    description: description,
-    sameAs: [
+    "@id": "https://shadrakbessanh.me/#person",
+    "name": "BESSANH Shadrak",
+    "url": "https://shadrakbessanh.me",
+    "image": image,
+    "description": description,
+    "jobTitle": "Full-Stack Developer & AI Specialist",
+    "nationality": { "@type": "Country", "name": "Benin" },
+    "award": "2nd Place - African Digital Identity Hackathon 2026 (ID4Africa)",
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Institut de Formation et de Recherche en Informatique (IFRI)",
+      "parentOrganization": {
+        "@type": "CollegeOrUniversity",
+        "name": "Université d'Abomey-Calavi",
+      },
+    },
+    "sameAs": [
       "https://linkedin.com/in/shadrak-bessanh",
       "https://github.com/Bsh54",
       "https://twitter.com/shadrakbessanh",
+      "https://medium.com/@shadrakbessanh",
     ],
-    jobTitle: "Full-Stack Developer & AI Specialist",
-    worksFor: {
-      "@type": "Organization",
-      name: "Freelance",
-    },
-    knowsAbout: [
-      "JavaScript",
-      "Python",
-      "React",
-      "Node.js",
-      "Machine Learning",
-      "Deep Learning",
-      "Digital Identity",
-      "MERN Stack",
-      "Fintech",
-      "AI Development",
+    "knowsAbout": [
+      "JavaScript", "TypeScript", "Python", "React", "Next.js",
+      "Node.js", "MongoDB", "Express", "MERN Stack",
+      "Machine Learning", "Deep Learning", "Digital Identity",
+      "Fintech", "AI Development", "FastAPI", "Firebase",
     ],
   };
 
   return (
     <Helmet>
-      {/* Primary Meta Tags */}
+      {/* Primary */}
       <title>{title}</title>
       <meta name="title" content={title} />
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content={author} />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-      <meta name="googlebot" content="index, follow" />
-      <meta name="bingbot" content="index, follow" />
-      <meta name="language" content="English" />
-      <meta name="revisit-after" content="7 days" />
-      <meta name="distribution" content="global" />
+      <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
-      {/* Open Graph / Facebook */}
+      {/* Open Graph */}
       <meta property="og:type" content={type} />
       <meta property="og:url" content={url} />
       <meta property="og:title" content={title} />
@@ -66,38 +87,39 @@ export const SEOHead = ({
       <meta property="og:image" content={image} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={`${author} - Portfolio`} />
       <meta property="og:site_name" content="BESSANH Shadrak Portfolio" />
       <meta property="og:locale" content="en_US" />
+      <meta property="og:locale:alternate" content="fr_FR" />
 
       {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={url} />
-      <meta property="twitter:title" content={title} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={image} />
-      <meta property="twitter:creator" content={twitterHandle} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content={url} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image:alt" content={`${author} - Portfolio`} />
+      <meta name="twitter:creator" content={twitterHandle} />
+      <meta name="twitter:site" content={twitterHandle} />
 
-      {/* Additional Meta Tags */}
+      {/* PWA / Mobile */}
       <meta name="theme-color" content="#2563EB" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       <meta name="apple-mobile-web-app-title" content="BESSANH Shadrak" />
 
-      {/* Canonical URL */}
+      {/* Canonical + hreflang */}
       <link rel="canonical" href={url} />
+      <link rel="alternate" hreflang="en" href={url} />
+      <link rel="alternate" hreflang="fr" href={`${url}?lang=fr`} />
+      <link rel="alternate" hreflang="x-default" href={url} />
 
-      {/* Alternate Links */}
-      <link rel="alternate" hrefLang="en" href={url} />
-      <link rel="alternate" hrefLang="fr" href={`${url}?lang=fr`} />
-
-      {/* Structured Data */}
-      <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
-
-      {/* Preconnect to external domains */}
+      {/* Preconnect */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-      <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+      {/* Structured Data */}
+      <script type="application/ld+json">{JSON.stringify(webPageSchema)}</script>
+      <script type="application/ld+json">{JSON.stringify(personSchema)}</script>
     </Helmet>
   );
 };

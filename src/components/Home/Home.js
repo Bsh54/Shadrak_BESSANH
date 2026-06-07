@@ -19,10 +19,11 @@ function Home() {
     <section>
       <SEOHead
         title="BESSANH Shadrak - Full-Stack Developer & AI Specialist | Hackathon Winner 2026"
-        description="BESSANH Shadrak - 2nd Place Winner at African Digital Identity Hackathon 2026. Full-stack developer specializing in MERN Stack, Digital Identity, AI, and Fintech solutions."
-        keywords="BESSANH Shadrak, software developer, AI developer, MERN stack, digital identity, hackathon winner, fintech developer, Africa, ID4Africa 2026"
+        description="BESSANH Shadrak - 20-year-old Full-Stack Developer & AI Specialist from Benin. 2nd Place Winner African Digital Identity Hackathon 2026 (ID4Africa). Expert in MERN Stack, React, Python, Digital Identity & Machine Learning. Projects: CottonPay, MINERVA, VoxiAI."
+        keywords="BESSANH Shadrak, Shadrak BESSANH, software developer Benin, AI developer Africa, MERN stack developer, digital identity, CottonPay, ID4Africa 2026, hackathon winner, fintech Africa, machine learning, React developer, Node.js, Python, IFRI UAC"
         image="https://shadrakbessanh.me/og-image.jpg"
         url="https://shadrakbessanh.me/"
+        pageType="AboutPage"
       />
       <FAQSchema />
       {/* Hero Section - Refait complètement */}

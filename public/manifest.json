@@ -1,15 +1,56 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "BESSANH Shadrak - Full-Stack Developer & AI Specialist",
+  "short_name": "Shadrak BSH",
+  "description": "Portfolio of BESSANH Shadrak - Full-Stack Developer, AI Specialist & 2nd Place Winner African Digital Identity Hackathon 2026",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#2563EB",
+  "background_color": "#FFFFFF",
+  "lang": "en",
+  "categories": ["portfolio", "technology", "developer"],
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "favicon.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "shortcuts": [
+    {
+      "name": "Projects",
+      "short_name": "Projects",
+      "description": "View my portfolio projects",
+      "url": "/project",
+      "icons": [{ "src": "favicon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Achievements",
+      "short_name": "Achievements",
+      "description": "View my hackathon achievements",
+      "url": "/achievements",
+      "icons": [{ "src": "favicon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Resume",
+      "short_name": "Resume",
+      "description": "View my resume / CV",
+      "url": "/resume",
+      "icons": [{ "src": "favicon.png", "sizes": "96x96" }]
+    }
+  ]
 }

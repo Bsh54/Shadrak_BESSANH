@@ -17,11 +17,12 @@ function Projects() {
   return (
     <>
       <SEOHead
-        title="Projects - BESSANH Shadrak | Full-Stack Developer & AI Specialist"
-        description="Explore BESSANH Shadrak's portfolio projects including CottonPay, MINERVA, VoxiAI, and more. Full-stack development, AI, machine learning, and digital identity solutions."
-        keywords="projects, BESSANH Shadrak, CottonPay, MINERVA, VoxiAI, full-stack development, AI projects, machine learning, React, Node.js"
+        title="Projects - BESSANH Shadrak | CottonPay, MINERVA, VoxiAI, EVOLUTICS"
+        description="Explore BESSANH Shadrak's projects: CottonPay (Digital Identity, 2nd place ID4Africa 2026), MINERVA (AI STEM platform), VoxiAI (AI subtitles), EVOLUTICS (AI job platform), CV-AI, Zenith AI, Fon-Dataset-Generator. Full-stack, AI & Machine Learning solutions from Benin."
+        keywords="BESSANH Shadrak projects, CottonPay digital identity, MINERVA AI education, VoxiAI subtitles, EVOLUTICS jobs Africa, CV-AI resume optimizer, Zenith AI video analysis, Fon dataset generator, MERN stack projects, AI projects Africa, Python machine learning, React developer Benin"
         image="https://shadrakbessanh.me/og-image.jpg"
         url="https://shadrakbessanh.me/project"
+        pageType="CollectionPage"
       />
       <Container fluid className="project-section">
       <Particle />
