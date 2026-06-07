@@ -88,6 +88,20 @@ const resources = {
       "projects.voxiai.description": "Automatic dynamic subtitle generation application for short videos (TikTok, Reels, Shorts). Hybrid pipeline combining Faster-Whisper for ultra-fast transcription and Google Gemini 2.5 Flash for contextual correction (punctuation, technical terms). Karaoke rendering with word-by-word highlighting. Modern FastAPI interface with real-time progress tracking via WebSockets. Protected analytics dashboard for usage statistics. Parallel audio/video processing reducing wait time by 50%. Technologies: FastAPI, Faster-Whisper, Gemini API, FFmpeg, SQLite, WebSockets.",
       "projects.minerva.description": "AI-powered STEM learning platform that generates personalized courses from any text content with interactive 3D avatar and voice conversations. Features AI course generation with structured modules and topics, detailed AI-generated explanations, interactive quizzes, real-time voice conversations with 3D VRM avatar, AI chatbot widget, progress tracking, and multilingual support (English/French). Technologies: Next.js 16, TypeScript, Supabase PostgreSQL, DeepSeek API, OpenAI Realtime API, Three.js, Tailwind CSS 4.",
 
+      // Preview Sections (homepage)
+      "preview.projects.title": "Featured",
+      "preview.projects.highlight": "Projects",
+      "preview.projects.subtitle": "A selection of my most recent and impactful work.",
+      "preview.projects.seeAll": "See all projects →",
+      "preview.achievements.title": "Achievements &",
+      "preview.achievements.highlight": "Recognition",
+      "preview.achievements.subtitle": "Hackathons and competitions where I've made an impact.",
+      "preview.achievements.seeAll": "See all achievements →",
+      "preview.resume.title": "My",
+      "preview.resume.highlight": "Resume",
+      "preview.resume.subtitle": "Download or view my CV online.",
+      "preview.resume.viewOnline": "View Online",
+
       // Resume
       "resume.download": "Download Resume",
 
@@ -206,6 +220,20 @@ const resources = {
       "projects.fondataset.description": "Générateur automatisé de datasets bilingues français-fongbe pour l'entraînement de modèles de langue (LLM). Génération de phrases naturelles sur 12 thématiques (santé, commerce, émotions, proverbes), traduction automatisée via APIs IA, export JSONL prêt pour fine-tuning. Dual mode : Python asynchrone pour experts ou interface Google Sheets pour contribution communautaire. Validation des données avec gestion des doublons. Objectif : préserver la langue Fon et développer l'IA pour la culture béninoise. Technologies : Python 3.8+, Google Apps Script, APIs IA.",
       "projects.voxiai.description": "Application de génération automatique de sous-titres dynamiques pour vidéos courtes (TikTok, Reels, Shorts). Pipeline hybride combinant Faster-Whisper pour transcription ultra-rapide et Google Gemini 2.5 Flash pour correction contextuelle (ponctuation, termes techniques). Rendu karaoke avec surlignage mot par mot. Interface FastAPI moderne avec suivi de progression en temps réel via WebSockets. Dashboard analytique protégé pour statistiques d'usage. Traitement parallèle audio/vidéo réduisant le temps d'attente de 50%. Technologies : FastAPI, Faster-Whisper, Gemini API, FFmpeg, SQLite, WebSockets.",
       "projects.minerva.description": "Plateforme d'apprentissage STEM alimentée par l'IA qui génère des cours personnalisés à partir de n'importe quel contenu textuel avec avatar 3D interactif et conversations vocales. Génération de cours IA avec modules et topics structurés, explications détaillées générées par l'IA, quizzes interactifs, conversations vocales en temps réel avec avatar VRM 3D, widget chatbot IA, suivi de progression et support multilingue (anglais/français). Technologies : Next.js 16, TypeScript, Supabase PostgreSQL, DeepSeek API, OpenAI Realtime API, Three.js, Tailwind CSS 4.",
+
+      // Preview Sections (homepage)
+      "preview.projects.title": "Projets",
+      "preview.projects.highlight": "Récents",
+      "preview.projects.subtitle": "Une sélection de mes travaux les plus récents et impactants.",
+      "preview.projects.seeAll": "Voir tous les projets →",
+      "preview.achievements.title": "Réalisations &",
+      "preview.achievements.highlight": "Reconnaissance",
+      "preview.achievements.subtitle": "Hackathons et compétitions où j'ai créé de l'impact.",
+      "preview.achievements.seeAll": "Voir toutes les réalisations →",
+      "preview.resume.title": "Mon",
+      "preview.resume.highlight": "CV",
+      "preview.resume.subtitle": "Téléchargez ou consultez mon CV en ligne.",
+      "preview.resume.viewOnline": "Voir en ligne",
 
       // Resume
       "resume.download": "Télécharger CV",

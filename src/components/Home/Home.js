@@ -8,6 +8,7 @@ import Techstack from "../About/Techstack";
 import Toolstack from "../About/Toolstack";
 import Github from "../About/Github";
 import ContactSection from "./ContactSection";
+import PreviewSections from "./PreviewSections";
 import { useTranslation } from "react-i18next";
 import { SEOHead } from "../SEO/SEOHead";
 import FAQSchema from "../SEO/FAQSchema";
@@ -82,6 +83,9 @@ function Home() {
       </Container>
 
       <Home2 />
+
+      {/* Sections aperçu : Projects, Achievements, Resume */}
+      <PreviewSections />
 
       {/* Section Compétences Professionnelles */}
       <Container fluid className="about-section">
