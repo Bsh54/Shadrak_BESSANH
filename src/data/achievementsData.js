@@ -1,33 +1,4 @@
-import img465 from "../Assets/Achievements/ID4AFRICA2026__465.jpg";
-import img466 from "../Assets/Achievements/ID4AFRICA2026__466.jpg";
-import img467 from "../Assets/Achievements/ID4AFRICA2026__467.jpg";
-import img468 from "../Assets/Achievements/ID4AFRICA2026__468.jpg";
-import img469 from "../Assets/Achievements/ID4AFRICA2026__469.jpg";
-import img471 from "../Assets/Achievements/ID4AFRICA2026__471.jpg";
-import img541 from "../Assets/Achievements/ID4AFRICA2026__541.jpg";
-import img552 from "../Assets/Achievements/ID4AFRICA2026__552.jpg";
-import img555 from "../Assets/Achievements/ID4AFRICA2026__555.jpg";
-import img200 from "../Assets/Achievements/ID4AFRICA2026__200.jpg";
-import img270 from "../Assets/Achievements/ID4AFRICA2026__270.jpg";
-import img291 from "../Assets/Achievements/ID4AFRICA2026__291.jpg";
-import img296 from "../Assets/Achievements/ID4AFRICA2026__296.jpg";
-import img301 from "../Assets/Achievements/ID4AFRICA2026__301.jpg";
-import img312 from "../Assets/Achievements/ID4AFRICA2026__312.jpg";
-import img331 from "../Assets/Achievements/ID4AFRICA2026__331.jpg";
-import img335 from "../Assets/Achievements/ID4AFRICA2026__335.jpg";
-import img336 from "../Assets/Achievements/ID4AFRICA2026__336.jpg";
-import img337 from "../Assets/Achievements/ID4AFRICA2026__337.jpg";
-import img338 from "../Assets/Achievements/ID4AFRICA2026__338.jpg";
-import img340 from "../Assets/Achievements/ID4AFRICA2026__340.jpg";
-import img414 from "../Assets/Achievements/ID4AFRICA2026__414.jpg";
-import img416 from "../Assets/Achievements/ID4AFRICA2026__416.jpg";
-import img427 from "../Assets/Achievements/ID4AFRICA2026__427.jpg";
-import img455 from "../Assets/Achievements/ID4AFRICA2026__455.jpg";
-import img523 from "../Assets/Achievements/ID4AFRICA2026__523.jpg";
-import img585 from "../Assets/Achievements/ID4AFRICA2026__585.jpg";
-import img587 from "../Assets/Achievements/ID4AFRICA2026__587.jpg";
-import img588 from "../Assets/Achievements/ID4AFRICA2026__588.jpg";
-import img591 from "../Assets/Achievements/ID4AFRICA2026__591.jpg";
+const BASE = "/images/achievements";
 
 export const achievementsData = [
   {
@@ -41,8 +12,8 @@ export const achievementsData = [
     location: "Abidjan, Côte d'Ivoire",
     status: "2nd Place",
     organization: "Upanzi Network, MicroSave Consulting, ID4Africa",
-    coverImage: img552,
-    cardImage: img555,
+    coverImage: `${BASE}/ID4AFRICA2026__552.jpg`,
+    cardImage: `${BASE}/ID4AFRICA2026__555.jpg`,
     description: {
       en: `AFRICA DIGITAL ID HACKATHON 2026 - 2ND PLACE WINNER
 
@@ -135,36 +106,36 @@ Présentée le 14 mai 2026 (14h30-18h30) au Parc des Expositions d'Abidjan devan
     },
 
     galleryImages: [
-      img465,
-      img466,
-      img467,
-      img468,
-      img469,
-      img471,
-      img541,
-      img552,
-      img555,
-      img200,
-      img270,
-      img291,
-      img296,
-      img301,
-      img312,
-      img331,
-      img335,
-      img336,
-      img337,
-      img338,
-      img340,
-      img414,
-      img416,
-      img427,
-      img455,
-      img523,
-      img585,
-      img587,
-      img588,
-      img591
+      `${BASE}/ID4AFRICA2026__465.jpg`,
+      `${BASE}/ID4AFRICA2026__466.jpg`,
+      `${BASE}/ID4AFRICA2026__467.jpg`,
+      `${BASE}/ID4AFRICA2026__468.jpg`,
+      `${BASE}/ID4AFRICA2026__469.jpg`,
+      `${BASE}/ID4AFRICA2026__471.jpg`,
+      `${BASE}/ID4AFRICA2026__541.jpg`,
+      `${BASE}/ID4AFRICA2026__552.jpg`,
+      `${BASE}/ID4AFRICA2026__555.jpg`,
+      `${BASE}/ID4AFRICA2026__200.jpg`,
+      `${BASE}/ID4AFRICA2026__270.jpg`,
+      `${BASE}/ID4AFRICA2026__291.jpg`,
+      `${BASE}/ID4AFRICA2026__296.jpg`,
+      `${BASE}/ID4AFRICA2026__301.jpg`,
+      `${BASE}/ID4AFRICA2026__312.jpg`,
+      `${BASE}/ID4AFRICA2026__331.jpg`,
+      `${BASE}/ID4AFRICA2026__335.jpg`,
+      `${BASE}/ID4AFRICA2026__336.jpg`,
+      `${BASE}/ID4AFRICA2026__337.jpg`,
+      `${BASE}/ID4AFRICA2026__338.jpg`,
+      `${BASE}/ID4AFRICA2026__340.jpg`,
+      `${BASE}/ID4AFRICA2026__414.jpg`,
+      `${BASE}/ID4AFRICA2026__416.jpg`,
+      `${BASE}/ID4AFRICA2026__427.jpg`,
+      `${BASE}/ID4AFRICA2026__455.jpg`,
+      `${BASE}/ID4AFRICA2026__523.jpg`,
+      `${BASE}/ID4AFRICA2026__585.jpg`,
+      `${BASE}/ID4AFRICA2026__587.jpg`,
+      `${BASE}/ID4AFRICA2026__588.jpg`,
+      `${BASE}/ID4AFRICA2026__591.jpg`,
     ],
 
     socialLinks: {

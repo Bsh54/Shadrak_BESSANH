@@ -1,13 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import Preloader from "../src/components/Pre";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home/Home";
-import Projects from "./components/Projects/Projects";
-import Achievements from "./components/Achievements/Achievements";
-import AchievementDetail from "./components/Achievements/AchievementDetail";
 import Footer from "./components/Footer";
-import Resume from "./components/Resume/ResumeNew";
-import AdminDashboard from "./components/Admin/AdminDashboard";
 import AdminRoute from "./components/Admin/AdminRoute";
 import { useClickTracking } from "./hooks/useClickTracking";
 import BreadcrumbSchema from "./components/SEO/BreadcrumbSchema";
@@ -24,11 +19,29 @@ import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+const Projects = lazy(() => import("./components/Projects/Projects"));
+const Achievements = lazy(() => import("./components/Achievements/Achievements"));
+const AchievementDetail = lazy(() => import("./components/Achievements/AchievementDetail"));
+const Resume = lazy(() => import("./components/Resume/ResumeNew"));
+const AdminDashboard = lazy(() => import("./components/Admin/AdminDashboard"));
+
+function PageLoader() {
+  return (
+    <div style={{
+      minHeight: "60vh",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    }}>
+      <div style={{ width: 40, height: 40, border: "3px solid #e2e8f0", borderTopColor: "#2563EB", borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />
+    </div>
+  );
+}
+
 function AppContent() {
   const [load, upadateLoad] = useState(true);
   const location = useLocation();
 
-  // Activer le tracking global des clics
   useClickTracking();
 
   useEffect(() => {
@@ -41,19 +54,16 @@ function AppContent() {
 
   const isAdmin = location.pathname === "/admin";
 
-  // Tracker la visite au chargement (jamais sur /admin)
   useEffect(() => {
     if (!isAdmin) trackVisit();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Tracker les changements de page (jamais sur /admin)
   useEffect(() => {
     if (isAdmin) return;
     const pageName = location.pathname === "/" ? "Home" : location.pathname.replace("/", "");
     trackPageView(pageName);
   }, [location.pathname]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Mettre à jour la durée de session avant de quitter
   useEffect(() => {
     const handleBeforeUnload = () => {
       if (!isAdmin) updateSessionDuration();
@@ -69,22 +79,24 @@ function AppContent() {
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         {location.pathname !== "/admin" && <Navbar />}
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/project" element={<Projects />} />
-          <Route path="/achievements" element={<Achievements />} />
-          <Route path="/achievement/:id" element={<AchievementDetail />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route
-            path="/admin"
-            element={
-              <AdminRoute>
-                <AdminDashboard />
-              </AdminRoute>
-            }
-          />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/project" element={<Projects />} />
+            <Route path="/achievements" element={<Achievements />} />
+            <Route path="/achievement/:id" element={<AchievementDetail />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route
+              path="/admin"
+              element={
+                <AdminRoute>
+                  <AdminDashboard />
+                </AdminRoute>
+              }
+            />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </Suspense>
         {location.pathname !== "/admin" && <Footer />}
       </div>
     </>

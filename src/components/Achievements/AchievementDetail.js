@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import { achievementsData } from "../../data/achievementsData";
@@ -12,6 +12,7 @@ function AchievementDetail() {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const [selectedImage, setSelectedImage] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(6);
 
   const achievement = achievementsData.find((a) => a.id === id);
 
@@ -152,7 +153,7 @@ function AchievementDetail() {
           <Col md={12}>
             <h2>{t('achievements.gallery')}</h2>
             <div className="gallery-grid">
-              {achievement.galleryImages.map((image, idx) => (
+              {achievement.galleryImages.slice(0, visibleCount).map((image, idx) => (
                 <div key={idx} className="gallery-item">
                   <div
                     className="gallery-image"
@@ -177,6 +178,16 @@ function AchievementDetail() {
                 </div>
               ))}
             </div>
+            {visibleCount < achievement.galleryImages.length && (
+              <div style={{ textAlign: "center", marginTop: "20px" }}>
+                <Button
+                  variant="outline-primary"
+                  onClick={() => setVisibleCount(achievement.galleryImages.length)}
+                >
+                  {t('achievements.loadMorePhotos') || `Voir toutes les photos (${achievement.galleryImages.length})`}
+                </Button>
+              </div>
+            )}
           </Col>
         </Row>
 
