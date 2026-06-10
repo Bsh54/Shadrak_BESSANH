@@ -58,7 +58,7 @@ function AchievementDetail() {
           height: "500px",
           position: "relative",
           marginTop: "60px",
-          backgroundAttachment: "fixed"
+          backgroundAttachment: "scroll"
         }}
       >
         <div className="achievement-hero-overlay"></div>
@@ -184,7 +184,7 @@ function AchievementDetail() {
                   variant="outline-primary"
                   onClick={() => setVisibleCount(achievement.galleryImages.length)}
                 >
-                  {t('achievements.loadMorePhotos') || `Voir toutes les photos (${achievement.galleryImages.length})`}
+                  {`Voir toutes les photos (${achievement.galleryImages.length})`}
                 </Button>
               </div>
             )}
