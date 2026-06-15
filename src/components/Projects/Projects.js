@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
+import oreus from "../../Assets/Projects/oreus.png";
 import cvai from "../../Assets/Projects/cvai.png";
 import evolutics from "../../Assets/Projects/evolutics.png";
 import aiphonecall from "../../Assets/Projects/aiphonecall.png";
@@ -17,9 +18,9 @@ function Projects() {
   return (
     <>
       <SEOHead
-        title="Projects - BESSANH Shadrak | CottonPay, MINERVA, VoxiAI, EVOLUTICS"
-        description="Explore BESSANH Shadrak's projects: CottonPay (Digital Identity, 2nd place ID4Africa 2026), MINERVA (AI STEM platform), VoxiAI (AI subtitles), EVOLUTICS (AI job platform), CV-AI, Zenith AI, Fon-Dataset-Generator. Full-stack, AI & Machine Learning solutions from Benin."
-        keywords="BESSANH Shadrak projects, CottonPay digital identity, MINERVA AI education, VoxiAI subtitles, EVOLUTICS jobs Africa, CV-AI resume optimizer, Zenith AI video analysis, Fon dataset generator, MERN stack projects, AI projects Africa, Python machine learning, React developer Benin"
+        title="Projects - BESSANH Shadrak | Oreus, CottonPay, MINERVA, VoxiAI, EVOLUTICS"
+        description="Explore BESSANH Shadrak's projects: Oreus (AI video subtitling, 39 African languages), CottonPay (Digital Identity, 2nd place ID4Africa 2026), MINERVA (AI STEM platform), VoxiAI (AI subtitles), EVOLUTICS (AI job platform), CV-AI, Zenith AI, Fon-Dataset-Generator."
+        keywords="Oreus AI subtitles, BESSANH Shadrak projects, CottonPay digital identity, MINERVA AI education, VoxiAI subtitles, EVOLUTICS jobs Africa, CV-AI resume optimizer, Zenith AI video analysis, Fon dataset generator, AI projects Africa, Python Flask developer Benin"
         image="https://shadrakbessanh.me/og-image.jpg"
         url="https://shadrakbessanh.me/project"
         pageType="CollectionPage"
@@ -36,56 +37,23 @@ function Projects() {
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={fondataset}
+              imgPath={oreus}
               isBlog={false}
-              title="Fon-Dataset-Generator"
-              description={t('projects.fondataset.description')}
-              ghLink="https://github.com/Bsh54/Fon-Dataset-Generator"
-              demoLink="https://docs.google.com/spreadsheets/d/1YGiLHh13jsMZkP04Gi101uc8dgdf-9AOK-u_ymuF8IU/edit?usp=sharing"
+              title="Oreus"
+              description={t('projects.oreus.description')}
+              ghLink="https://github.com/Bsh54/Oreus"
+              demoLink="https://oreus.shadrakbessanh.me"
             />
           </Col>
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={zenithai}
+              imgPath={minerva}
               isBlog={false}
-              title="Zenith AI"
-              description={t('projects.zenithai.description')}
-              ghLink="https://github.com/Bsh54/Zenith-AI-Front"
-              demoLink="https://zenith-ai-indol.vercel.app/"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={cvai}
-              isBlog={false}
-              title="CV-AI"
-              description={t('projects.cvai.description')}
-              ghLink="https://github.com/Bsh54/CV-AI"
-              demoLink="https://cv-ai-neon.vercel.app/"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={evolutics}
-              isBlog={false}
-              title="EVOLUTICS"
-              description={t('projects.evolutics.description')}
-              ghLink="https://github.com/Bsh54/EVOLUTICS_HACKBYIFRI_2026"
-              demoLink="https://evolutics.vercel.app/"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={aiphonecall}
-              isBlog={false}
-              title="AI Phone Call"
-              description={t('projects.aiphonecall.description')}
-              ghLink="https://github.com/Bsh54/AI_Phone_Call"
-              demoLink="https://bsh54.github.io/AI_Phone_Call/"
+              title="MINERVA"
+              description={t('projects.minerva.description')}
+              ghLink="https://github.com/Bsh54/MINERVA"
+              demoLink="https://minerva-snowy.vercel.app/"
             />
           </Col>
 
@@ -102,12 +70,56 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={minerva}
+              imgPath={evolutics}
               isBlog={false}
-              title="MINERVA"
-              description={t('projects.minerva.description')}
-              ghLink="https://github.com/Bsh54/MINERVA"
-              demoLink="https://minerva-snowy.vercel.app/"
+              title="EVOLUTICS"
+              description={t('projects.evolutics.description')}
+              ghLink="https://github.com/Bsh54/EVOLUTICS_HACKBYIFRI_2026"
+              demoLink="https://evolutics.vercel.app/"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={cvai}
+              isBlog={false}
+              title="CV-AI"
+              description={t('projects.cvai.description')}
+              ghLink="https://github.com/Bsh54/CV-AI"
+              demoLink="https://cv-ai-neon.vercel.app/"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={zenithai}
+              isBlog={false}
+              title="Zenith AI"
+              description={t('projects.zenithai.description')}
+              ghLink="https://github.com/Bsh54/Zenith-AI-Front"
+              demoLink="https://zenith-ai-indol.vercel.app/"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={aiphonecall}
+              isBlog={false}
+              title="AI Phone Call"
+              description={t('projects.aiphonecall.description')}
+              ghLink="https://github.com/Bsh54/AI_Phone_Call"
+              demoLink="https://bsh54.github.io/AI_Phone_Call/"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={fondataset}
+              isBlog={false}
+              title="Fon-Dataset-Generator"
+              description={t('projects.fondataset.description')}
+              ghLink="https://github.com/Bsh54/Fon-Dataset-Generator"
+              demoLink="https://docs.google.com/spreadsheets/d/1YGiLHh13jsMZkP04Gi101uc8dgdf-9AOK-u_ymuF8IU/edit?usp=sharing"
             />
           </Col>
         </Row>

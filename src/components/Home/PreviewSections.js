@@ -10,7 +10,7 @@ import { AiOutlineDownload } from "react-icons/ai";
 import { trackConversion } from "../../services/analyticsService";
 import pdfEN from "../../Assets/CV Shadrak EN.pdf";
 import pdfFR from "../../Assets/CV Shadrak FR.pdf";
-import evolutics from "../../Assets/Projects/evolutics.png";
+import oreus from "../../Assets/Projects/oreus.png";
 import minerva from "../../Assets/Projects/minerva.png";
 import voxiai from "../../Assets/Projects/voxiai.png";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
@@ -39,11 +39,11 @@ function PreviewSections() {
 
   const featuredProjects = [
     {
-      imgPath: evolutics,
-      title: "EVOLUTICS",
-      description: t("projects.evolutics.description"),
-      ghLink: "https://github.com/Bsh54/EVOLUTICS_HACKBYIFRI_2026",
-      demoLink: "https://evolutics.vercel.app/",
+      imgPath: oreus,
+      title: "Oreus",
+      description: t("projects.oreus.description"),
+      ghLink: "https://github.com/Bsh54/Oreus",
+      demoLink: "https://oreus.shadrakbessanh.me",
     },
     {
       imgPath: minerva,
