@@ -80,14 +80,14 @@ const resources = {
       "achievements.backToAchievements": "Back to Achievements",
 
       // Project Descriptions
-      "projects.cvai.description": "Upload a job offer and your CV — the AI rewrites your CV to match exactly what the recruiter is looking for. Built with React, TypeScript, Express & Puppeteer.",
-      "projects.evolutics.description": "All internships, jobs and training opportunities for students in one place. An AI assistant helps you write your CV and cover letter in minutes. Built with React, TypeScript, Supabase & Gemini AI.",
-      "projects.zenithai.description": "Give it a video link or file, and it gives you back a full written analysis of what's in it — visuals, speech, everything. Built with Python, YOLOv8, Whisper & LLM.",
-      "projects.aiphonecall.description": "Talk to an AI like you're on a phone call, directly from your browser. Speak, it listens, it answers out loud. Built with Vanilla JavaScript & Web Speech API.",
-      "projects.fondataset.description": "A tool that generates French–Fon bilingual data to teach AI to understand and speak Fon, a language spoken by millions in Benin. Built with Python & Google Apps Script.",
-      "projects.voxiai.description": "Upload a short video — it automatically adds animated subtitles, word by word, like karaoke. Perfect for TikTok, Reels and Shorts. Built with Python, FastAPI, Whisper & Gemini AI.",
-      "projects.minerva.description": "Paste any text and get a full interactive course with quizzes and explanations. You can even talk to a 3D AI avatar that teaches you out loud. Built with Next.js, TypeScript, DeepSeek & Three.js.",
-      "projects.oreus.description": "Upload a video, choose a language and a subtitle style — the AI transcribes, translates and burns the subtitles directly into your video. Supports 100+ languages including 39 African languages. Built with Python, Flask, Whisper & FFmpeg.",
+      "projects.cvai.description": "An AI-powered platform that analyzes a job posting and automatically rewrites your CV to match the recruiter's expectations. Exports a clean A4 PDF, with all data processed locally for full privacy. Built with React, TypeScript, Express & Puppeteer.",
+      "projects.evolutics.description": "A centralized platform that brings together internships, jobs and training opportunities for students. An integrated AI assistant helps craft optimized CVs and cover letters tailored to each opportunity. Built with React, TypeScript, Supabase & Gemini AI.",
+      "projects.zenithai.description": "A platform that transforms any video into a comprehensive written analysis report. It combines object detection, speech transcription and language understanding to deliver structured insights from video content. Built with Python, YOLOv8, Whisper & LLM.",
+      "projects.aiphonecall.description": "A web interface that enables real-time voice conversations with an AI, directly from the browser. The user speaks, the AI listens and responds out loud — no installation required. Built with Vanilla JavaScript & Web Speech API.",
+      "projects.fondataset.description": "A tool that automatically generates bilingual French–Fon datasets to train language models on the Fon language, spoken by millions in Benin. A contribution to preserving African languages through AI. Built with Python & Google Apps Script.",
+      "projects.voxiai.description": "A platform that automatically generates animated subtitles for short-form videos. The speech is transcribed, corrected and displayed word by word in sync with the video — ready for TikTok, Reels and Shorts. Built with Python, FastAPI, Whisper & Gemini AI.",
+      "projects.minerva.description": "An AI-powered learning platform that turns any text content into a structured interactive course, complete with quizzes and explanations. Users can also have voice conversations with an interactive 3D AI avatar. Built with Next.js, TypeScript, DeepSeek & Three.js.",
+      "projects.oreus.description": "A platform that automatically subtitles any video using AI. It transcribes the speech, translates it into the chosen language and embeds the subtitles directly into the video. Supports over 100 languages, including 39 African languages. Built with Python, Flask, Whisper & FFmpeg.",
 
       // Preview Sections (homepage)
       "preview.projects.title": "Featured",
@@ -214,14 +214,14 @@ const resources = {
       "achievements.backToAchievements": "Retour aux Réalisations",
 
       // Project Descriptions
-      "projects.cvai.description": "Colle une offre d'emploi et ton CV — l'IA réécrit ton CV pour coller exactement à ce que le recruteur cherche. Codé avec React, TypeScript, Express & Puppeteer.",
-      "projects.evolutics.description": "Tous les stages, emplois et formations pour étudiants au même endroit. Un assistant IA t'aide à rédiger ton CV et ta lettre de motivation en quelques minutes. Codé avec React, TypeScript, Supabase & Gemini AI.",
-      "projects.zenithai.description": "Donne-lui un lien ou un fichier vidéo, il te rend une analyse complète écrite de ce qu'il y a dedans — visuels, paroles, tout. Codé avec Python, YOLOv8, Whisper & LLM.",
-      "projects.aiphonecall.description": "Parle à une IA comme si t'étais au téléphone, directement depuis ton navigateur. Tu parles, elle écoute, elle répond à voix haute. Codé avec JavaScript Vanilla & Web Speech API.",
-      "projects.fondataset.description": "Un outil qui génère des données bilingues français–fon pour apprendre à l'IA à comprendre et parler le Fon, une langue parlée par des millions de personnes au Bénin. Codé avec Python & Google Apps Script.",
-      "projects.voxiai.description": "Uploade une vidéo courte — elle ajoute automatiquement des sous-titres animés, mot par mot, comme un karaoké. Parfait pour TikTok, Reels et Shorts. Codé avec Python, FastAPI, Whisper & Gemini AI.",
-      "projects.minerva.description": "Colle n'importe quel texte et obtiens un cours interactif complet avec quiz et explications. Tu peux même parler à un avatar IA 3D qui t'enseigne à voix haute. Codé avec Next.js, TypeScript, DeepSeek & Three.js.",
-      "projects.oreus.description": "Uploade une vidéo, choisis une langue et un style de sous-titres — l'IA transcrit, traduit et grave les sous-titres directement dans ta vidéo. Plus de 100 langues dont 39 langues africaines. Codé avec Python, Flask, Whisper & FFmpeg.",
+      "projects.cvai.description": "Une plateforme alimentée par l'IA qui analyse une offre d'emploi et réécrit automatiquement le CV pour correspondre aux attentes du recruteur. Export PDF format A4, avec toutes les données traitées localement pour une confidentialité totale. Développé avec React, TypeScript, Express & Puppeteer.",
+      "projects.evolutics.description": "Une plateforme centralisée qui regroupe stages, emplois et formations pour les étudiants. Un assistant IA intégré aide à rédiger des CV optimisés et des lettres de motivation adaptées à chaque opportunité. Développé avec React, TypeScript, Supabase & Gemini AI.",
+      "projects.zenithai.description": "Une plateforme qui transforme n'importe quelle vidéo en rapport d'analyse écrit et structuré. Elle combine détection d'objets, transcription audio et compréhension du langage pour extraire l'essentiel d'un contenu vidéo. Développé avec Python, YOLOv8, Whisper & LLM.",
+      "projects.aiphonecall.description": "Une interface web permettant d'avoir une conversation vocale en temps réel avec une IA, directement depuis le navigateur. L'utilisateur parle, l'IA écoute et répond à voix haute — sans installation requise. Développé avec JavaScript Vanilla & Web Speech API.",
+      "projects.fondataset.description": "Un outil qui génère automatiquement des datasets bilingues français–fon pour entraîner des modèles de langage sur la langue Fon, parlée par des millions de personnes au Bénin. Une contribution à la préservation des langues africaines par l'IA. Développé avec Python & Google Apps Script.",
+      "projects.voxiai.description": "Une plateforme qui génère automatiquement des sous-titres animés pour les vidéos courtes. La parole est transcrite, corrigée et affichée mot par mot en synchronisation avec la vidéo — prêt pour TikTok, Reels et Shorts. Développé avec Python, FastAPI, Whisper & Gemini AI.",
+      "projects.minerva.description": "Une plateforme d'apprentissage alimentée par l'IA qui transforme n'importe quel contenu textuel en cours interactif structuré, avec quiz et explications. L'utilisateur peut également avoir des conversations vocales avec un avatar IA 3D interactif. Développé avec Next.js, TypeScript, DeepSeek & Three.js.",
+      "projects.oreus.description": "Une plateforme qui sous-titre automatiquement n'importe quelle vidéo grâce à l'IA. Elle transcrit la parole, la traduit dans la langue choisie et intègre les sous-titres directement dans la vidéo. Compatible avec plus de 100 langues, dont 39 langues africaines. Développé avec Python, Flask, Whisper & FFmpeg.",
 
       // Preview Sections (homepage)
       "preview.projects.title": "Projets",
