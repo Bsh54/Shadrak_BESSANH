@@ -4,202 +4,42 @@ import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import { trackClick } from "../../services/analyticsService";
 
+const LINKS = [
+  { key: "GitHub", label: "GitHub", icon: AiFillGithub, href: "https://github.com/Bsh54/", external: true },
+  { key: "Email", label: "Email", icon: AiOutlineMail, href: "mailto:shadrakbsh@gmail.com", external: false },
+  { key: "LinkedIn", label: "LinkedIn", icon: FaLinkedinIn, href: "https://www.linkedin.com/in/bessanh-shadrak-744049287/", external: true },
+  { key: "WhatsApp", label: "WhatsApp", icon: FaWhatsapp, href: "https://wa.me/2290197426540", external: true },
+];
+
 function ContactSection() {
   const { t } = useTranslation();
 
-  const handleClick = (buttonName) => {
-    trackClick(buttonName, "contact");
+  const handleClick = (name, href, external) => {
+    trackClick(`${name}-Contact`, "contact");
+    if (external) window.open(href, "_blank", "noopener,noreferrer");
+    else window.location.href = href;
   };
 
   return (
-    <div style={{
-      position: "relative",
-      zIndex: 100,
-      backgroundColor: "#FFFFFF",
-      paddingTop: "80px",
-      paddingBottom: "80px",
-      borderTop: "1px solid #E5E7EB",
-      width: "100%"
-    }}>
-      <div style={{
-        maxWidth: "1200px",
-        margin: "0 auto",
-        padding: "0 20px"
-      }}>
-        <h1 style={{
-          fontSize: "2.8em",
-          paddingBottom: "30px",
-          fontWeight: "bold",
-          color: "#18181B",
-          textAlign: "center"
-        }}>
-          <span style={{ color: "#2563EB" }}>{t('contact.title')}</span>
+    <div className="contact-section" id="contact">
+      <div className="contact-inner">
+        <h1 className="contact-title">
+          <span style={{ color: "#2563EB" }}>{t("contact.title")}</span>
         </h1>
+        <p className="contact-subtitle">{t("contact.subtitle")}</p>
 
-        <p style={{
-          fontSize: "1.3em",
-          paddingBottom: "40px",
-          color: "#3F3F46",
-          textAlign: "center"
-        }}>
-          {t('contact.subtitle')}
-        </p>
-
-        <div style={{
-          display: "flex",
-          gap: "30px",
-          justifyContent: "center",
-          flexWrap: "wrap",
-          position: "relative",
-          zIndex: 101
-        }}>
-          {/* GitHub */}
-          <button
-            onClick={() => {
-              handleClick("GitHub-Contact");
-              window.open('https://github.com/Bsh54/', '_blank');
-            }}
-            style={{
-              position: "relative",
-              zIndex: 102,
-              width: "90px",
-              height: "90px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: "50%",
-              border: "3px solid #2563EB",
-              backgroundColor: "#FFFFFF",
-              color: "#2563EB",
-              fontSize: "2.5em",
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-              outline: "none"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#2563EB";
-              e.currentTarget.style.color = "#FFFFFF";
-              e.currentTarget.style.transform = "scale(1.1)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "#FFFFFF";
-              e.currentTarget.style.color = "#2563EB";
-              e.currentTarget.style.transform = "scale(1)";
-            }}
-          >
-            <AiFillGithub />
-          </button>
-
-          {/* Email */}
-          <button
-            onClick={() => {
-              handleClick("Email-Contact");
-              window.location.href = 'mailto:shadrakbsh@gmail.com';
-            }}
-            style={{
-              position: "relative",
-              zIndex: 102,
-              width: "90px",
-              height: "90px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: "50%",
-              border: "3px solid #2563EB",
-              backgroundColor: "#FFFFFF",
-              color: "#2563EB",
-              fontSize: "2.5em",
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-              outline: "none"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#2563EB";
-              e.currentTarget.style.color = "#FFFFFF";
-              e.currentTarget.style.transform = "scale(1.1)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "#FFFFFF";
-              e.currentTarget.style.color = "#2563EB";
-              e.currentTarget.style.transform = "scale(1)";
-            }}
-          >
-            <AiOutlineMail />
-          </button>
-
-          {/* LinkedIn */}
-          <button
-            onClick={() => {
-              handleClick("LinkedIn-Contact");
-              window.open('https://www.linkedin.com/in/bessanh-shadrak-744049287/', '_blank');
-            }}
-            style={{
-              position: "relative",
-              zIndex: 102,
-              width: "90px",
-              height: "90px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: "50%",
-              border: "3px solid #2563EB",
-              backgroundColor: "#FFFFFF",
-              color: "#2563EB",
-              fontSize: "2.5em",
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-              outline: "none"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#2563EB";
-              e.currentTarget.style.color = "#FFFFFF";
-              e.currentTarget.style.transform = "scale(1.1)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "#FFFFFF";
-              e.currentTarget.style.color = "#2563EB";
-              e.currentTarget.style.transform = "scale(1)";
-            }}
-          >
-            <FaLinkedinIn />
-          </button>
-
-          {/* WhatsApp */}
-          <button
-            onClick={() => {
-              handleClick("WhatsApp-Contact");
-              window.open('https://wa.me/2290197426540', '_blank');
-            }}
-            style={{
-              position: "relative",
-              zIndex: 102,
-              width: "90px",
-              height: "90px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: "50%",
-              border: "3px solid #2563EB",
-              backgroundColor: "#FFFFFF",
-              color: "#2563EB",
-              fontSize: "2.5em",
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-              outline: "none"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#2563EB";
-              e.currentTarget.style.color = "#FFFFFF";
-              e.currentTarget.style.transform = "scale(1.1)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "#FFFFFF";
-              e.currentTarget.style.color = "#2563EB";
-              e.currentTarget.style.transform = "scale(1)";
-            }}
-          >
-            <FaWhatsapp />
-          </button>
+        <div className="contact-links">
+          {LINKS.map(({ key, label, icon: Icon, href, external }) => (
+            <button
+              key={key}
+              type="button"
+              aria-label={`${label} — ${key === "Email" ? "shadrakbsh@gmail.com" : label}`}
+              className="contact-social-btn"
+              onClick={() => handleClick(key, href, external)}
+            >
+              <Icon aria-hidden="true" />
+            </button>
+          ))}
         </div>
       </div>
     </div>
@@ -207,4 +47,3 @@ function ContactSection() {
 }
 
 export default ContactSection;
-

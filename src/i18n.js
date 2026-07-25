@@ -15,6 +15,9 @@ const resources = {
       "home.greeting": "Hi There!",
       "home.intro": "I'M",
       "home.name": "BESSANH Shadrak",
+      "home.tagline": "I build AI-powered products with real-world impact — from digital identity to healthcare and African language tech.",
+      "home.cta.projects": "View my work",
+      "home.cta.contact": "Get in touch",
 
       // Typewriter
       "type.software": "Software Developer",
@@ -172,6 +175,9 @@ const resources = {
       "home.greeting": "Bonjour !",
       "home.intro": "Je suis",
       "home.name": "BESSANH Shadrak",
+      "home.tagline": "Je conçois des produits propulsés par l'IA à impact concret — de l'identité numérique à la santé et aux technologies des langues africaines.",
+      "home.cta.projects": "Voir mes projets",
+      "home.cta.contact": "Me contacter",
 
       // Typewriter
       "type.software": "Développeur Logiciel",

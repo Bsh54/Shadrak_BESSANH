@@ -20,45 +20,48 @@ function Footer() {
             <li className="social-icons">
               <a
                 href="https://github.com/Bsh54/"
+                aria-label="GitHub"
                 style={{ color: "white" }}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => handleClick("GitHub")}
               >
-                <AiFillGithub />
+                <AiFillGithub aria-hidden="true" />
               </a>
             </li>
             <li className="social-icons">
               <a
                 href="mailto:shadrakbsh@gmail.com"
+                aria-label="Email"
                 style={{ color: "white" }}
-                target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => handleClick("Email")}
               >
-                <AiOutlineMail />
+                <AiOutlineMail aria-hidden="true" />
               </a>
             </li>
             <li className="social-icons">
               <a
                 href="https://www.linkedin.com/in/bessanh-shadrak-744049287/"
+                aria-label="LinkedIn"
                 style={{ color: "white" }}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => handleClick("LinkedIn")}
               >
-                <FaLinkedinIn />
+                <FaLinkedinIn aria-hidden="true" />
               </a>
             </li>
             <li className="social-icons">
               <a
-                href="https://wa.me/22901974265400"
+                href="https://wa.me/2290197426540"
+                aria-label="WhatsApp"
                 style={{ color: "white" }}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => handleClick("WhatsApp")}
               >
-                <FaWhatsapp />
+                <FaWhatsapp aria-hidden="true" />
               </a>
             </li>
           </ul>

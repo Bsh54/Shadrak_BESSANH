@@ -35,7 +35,7 @@ const PRODUCTS = [
 
 // Projets de hackathons
 const HACKATHONS_LIST = [
-  { img: cottonpay, title: "CottonPay", key: "cottonpay", badgeKey: "badge.id4africa", tags: ["Digital Identity", "React", "Web3"], gh: "https://github.com/Bsh54/CottonPay2", demo: "https://cottonpay.shadrakbessanh.me" },
+  { img: cottonpay, title: "CottonPay", key: "cottonpay", tags: ["Digital Identity", "React", "Web3"], gh: "https://github.com/Bsh54/CottonPay2", demo: "https://cottonpay.shadrakbessanh.me" },
   { img: neurosynthetix, title: "Neuro-Synthetix", key: "neurosynthetix", badgeKey: "badge.hackhazards", tags: ["Python", "DeepSeek", "Neo4j", "RAG"], gh: "https://github.com/Bsh54/neuro-synthetix", demo: "https://neuro.shadrakbessanh.me/" },
   { img: phytovance, title: "Phytovance", key: "phytovance", badgeKey: "badge.hackathon", tags: ["Python", "Docking", "BioTech"], gh: "https://github.com/Bsh54/phytovance", demo: "https://phytovance.shadrakbessanh.me/" },
   { img: aegisflow, title: "AegisFlow", key: "aegisflow", badgeKey: "badge.flare", tags: ["TypeScript", "Flare", "FXRP"], gh: "https://github.com/Bsh54/aegisflow", demo: "https://aegisflow.shadrakbessanh.me/" },

@@ -39,11 +39,6 @@ function Home2() {
               <br />
               <br />
               {t("home.about.tools")}
-              <b className="purple"> {t("home.about.tools.python")} </b> {t("home.about.tools.frameworks")}{" "}
-              <i>
-                <b className="purple">{t("home.about.tools.list")}</b> {t("home.about.tools.and")}{" "}
-                <b className="purple">{t("home.about.tools.react")}</b>.
-              </i>
             </p>
           </Col>
           <Col md={4} className="myAvtar">

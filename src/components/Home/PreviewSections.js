@@ -41,7 +41,6 @@ function PreviewSections() {
     {
       imgPath: cottonpay,
       title: "CottonPay",
-      badge: t("badge.id4africa"),
       tags: ["Digital Identity", "React", "Web3"],
       description: t("projects.cottonpay.description"),
       ghLink: "https://github.com/Bsh54/CottonPay2",

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
@@ -16,16 +16,15 @@ function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
   const { t } = useTranslation();
+  const location = useLocation();
 
-  function scrollHandler() {
-    if (window.scrollY >= 20) {
-      updateNavbar(true);
-    } else {
-      updateNavbar(false);
-    }
-  }
+  useEffect(() => {
+    const scrollHandler = () => updateNavbar(window.scrollY >= 20);
+    window.addEventListener("scroll", scrollHandler, { passive: true });
+    return () => window.removeEventListener("scroll", scrollHandler);
+  }, []);
 
-  window.addEventListener("scroll", scrollHandler);
+  const isActive = (path) => location.pathname === path;
 
   return (
     <Navbar
@@ -48,7 +47,7 @@ function NavBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mx-auto" defaultActiveKey="#home">
             <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
+              <Nav.Link as={Link} to="/" active={isActive("/")} aria-current={isActive("/") ? "page" : undefined} onClick={() => updateExpanded(false)}>
                 <AiOutlineHome style={{ marginBottom: "2px" }} /> {t('nav.home')}
               </Nav.Link>
             </Nav.Item>
@@ -57,6 +56,8 @@ function NavBar() {
               <Nav.Link
                 as={Link}
                 to="/project"
+                active={isActive("/project")}
+                aria-current={isActive("/project") ? "page" : undefined}
                 onClick={() => updateExpanded(false)}
               >
                 <AiOutlineFundProjectionScreen
@@ -70,6 +71,8 @@ function NavBar() {
               <Nav.Link
                 as={Link}
                 to="/achievements"
+                active={isActive("/achievements")}
+                aria-current={isActive("/achievements") ? "page" : undefined}
                 onClick={() => updateExpanded(false)}
               >
                 <AiOutlineTrophy style={{ marginBottom: "2px" }} /> {t('nav.achievements')}
@@ -80,6 +83,8 @@ function NavBar() {
               <Nav.Link
                 as={Link}
                 to="/resume"
+                active={isActive("/resume")}
+                aria-current={isActive("/resume") ? "page" : undefined}
                 onClick={() => updateExpanded(false)}
               >
                 <CgFileDocument style={{ marginBottom: "2px" }} /> {t('nav.resume')}

@@ -1,5 +1,7 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { AiOutlineFundProjectionScreen, AiOutlineMail } from "react-icons/ai";
 import homeLogo from "../../Assets/home-main.svg";
 import Particle from "../Particle";
 import Home2 from "./Home2";
@@ -62,12 +64,36 @@ function Home() {
                 fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)",
                 color: "#2563EB",
                 fontWeight: "600",
-                marginBottom: "40px",
+                marginBottom: "24px",
                 minHeight: "60px",
                 display: "flex",
                 alignItems: "center"
               }}>
                 <Type />
+              </div>
+
+              <p style={{
+                fontSize: "clamp(1rem, 1.6vw, 1.15rem)",
+                color: "#3F3F46",
+                lineHeight: "1.7",
+                maxWidth: "560px",
+                marginBottom: "34px"
+              }}>
+                {t('home.tagline')}
+              </p>
+
+              <div className="hero-cta">
+                <Button as={Link} to="/project" variant="primary" size="lg" className="hero-cta-btn">
+                  <AiOutlineFundProjectionScreen aria-hidden="true" /> &nbsp;{t('home.cta.projects')}
+                </Button>
+                <Button
+                  href="#contact"
+                  variant="outline-primary"
+                  size="lg"
+                  className="hero-cta-btn"
+                >
+                  <AiOutlineMail aria-hidden="true" /> &nbsp;{t('home.cta.contact')}
+                </Button>
               </div>
             </Col>
 
