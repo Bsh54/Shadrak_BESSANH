@@ -28,8 +28,6 @@ function Footer() {
             </Link>
           ))}
         </nav>
-
-        <p className="footer-built">Built with React</p>
       </Container>
     </footer>
   );
