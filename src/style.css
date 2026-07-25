@@ -2,23 +2,38 @@
 
 html {
   --section-background-color: linear-gradient(
-    to bottom left,
-    rgba(250, 250, 250, 0.95),
-    rgba(255, 255, 255, 0.98)
+    180deg,
+    #0A0A0F 0%,
+    #0D0D14 100%
   );
 
   --image-gradient: linear-gradient(
     to bottom left,
-    rgba(250, 250, 250, 0.9),
-    rgba(255, 255, 255, 0.95)
+    rgba(10, 10, 15, 0.9),
+    rgba(13, 13, 20, 0.95)
   );
 
-  --imp-text-color: #2563EB;
-  --primary-color: #18181B;
-  --secondary-color: #3F3F46;
-  --background-color: #FAFAFA;
-  --text-color: #09090B;
-  --cta-color: #2563EB;
+  /* Dark theme tokens */
+  --imp-text-color: #3B82F6;
+  --accent: #3B82F6;
+  --accent-strong: #2563EB;
+  --primary-color: #E4E4E7;
+  --secondary-color: #A1A1AA;
+
+  --bg-base: #0A0A0F;
+  --bg-elevated: #14141B;
+  --bg-glass: rgba(255, 255, 255, 0.04);
+  --surface-border: rgba(255, 255, 255, 0.08);
+
+  --text-primary: #E4E4E7;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+
+  --background-color: #0A0A0F;
+  --text-color: #E4E4E7;
+  --cta-color: #3B82F6;
+
+  background-color: #0A0A0F;
 }
 
 .purple {
@@ -39,7 +54,7 @@ button:focus {
   width: 100%;
   height: 100%;
   z-index: 999999;
-  background-color: #FAFAFA;
+  background-color: #0A0A0F;
   background-image: url(./Assets/pre.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -72,7 +87,7 @@ button:focus {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #E5E7EB;
+  background: #14141B;
 }
 
 /* Handle */
@@ -91,10 +106,11 @@ button:focus {
 /* Navbar Section  */
 /* --------- */
 .sticky {
-  background-color: rgba(255, 255, 255, 0.95) !important;
+  background-color: rgba(10, 10, 15, 0.75) !important;
   transition: all 0.3s ease-out 0s !important;
-  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.08) !important;
-  backdrop-filter: blur(15px) !important;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
 }
 
 .navbar {
@@ -229,14 +245,15 @@ button:focus {
   .navbar {
     padding: 1rem 2rem !important;
     font-size: 1.4rem !important;
-    background-color: rgba(255, 255, 255, 0.98) !important;
+    background-color: rgba(10, 10, 15, 0.96) !important;
+    backdrop-filter: blur(16px) !important;
   }
   .navbar-nav .nav-item a::after {
     display: none !important;
   }
 }
 .navbar-brand {
-  color: #18181B !important;
+  color: #E4E4E7 !important;
 }
 
 .logo {
@@ -245,9 +262,14 @@ button:focus {
 }
 
 .navbar-nav .nav-link {
-  color: #18181B !important;
+  color: #D4D4D8 !important;
   padding-right: 1rem !important;
   padding-left: 1rem !important;
+}
+
+.navbar-nav .nav-link.active {
+  color: #3B82F6 !important;
+  font-weight: 600 !important;
 }
 
 .nav-link {
@@ -374,8 +396,9 @@ button:focus {
   align-items: center;
   padding: 120px 0 60px;
   background:
-    radial-gradient(1000px 500px at 85% 15%, rgba(37, 99, 235, 0.08), transparent 60%),
-    linear-gradient(135deg, #FFFFFF 0%, #F4F7FE 100%);
+    radial-gradient(900px 480px at 82% 12%, rgba(59, 130, 246, 0.18), transparent 62%),
+    radial-gradient(700px 400px at 10% 90%, rgba(59, 130, 246, 0.08), transparent 60%),
+    linear-gradient(160deg, #0A0A0F 0%, #0D0D18 100%);
 }
 
 .hero-container {
@@ -414,7 +437,7 @@ button:focus {
 
 .hero-greeting {
   font-size: clamp(1.1rem, 3vw, 1.5rem);
-  color: #52525B;
+  color: #A1A1AA;
   font-weight: 400;
   margin-bottom: 10px;
 }
@@ -422,7 +445,7 @@ button:focus {
 .hero-name {
   font-family: 'Archivo', sans-serif;
   font-size: clamp(2.2rem, 5.5vw, 4rem);
-  color: #18181B;
+  color: #F4F4F5;
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -430,9 +453,10 @@ button:focus {
 }
 
 .hero-name-accent {
-  color: #2563EB;
+  color: #3B82F6;
   position: relative;
   white-space: nowrap;
+  text-shadow: 0 0 24px rgba(59, 130, 246, 0.35);
 }
 
 .hero-typewriter {
@@ -447,7 +471,7 @@ button:focus {
 
 .hero-tagline {
   font-size: clamp(1rem, 1.6vw, 1.15rem);
-  color: #3F3F46;
+  color: #A1A1AA;
   line-height: 1.7;
   max-width: 560px;
   margin-bottom: 34px;
@@ -470,14 +494,24 @@ button:focus {
   font-family: 'Archivo', sans-serif;
   font-size: 1.9rem;
   font-weight: 700;
-  color: #18181B;
+  color: #F4F4F5;
   line-height: 1;
+}
+
+.hero-stat-icon {
+  color: #3B82F6;
+  display: inline-flex;
 }
 
 .hero-stat-label {
   font-size: 0.82rem;
-  color: #71717A;
+  color: #A1A1AA;
   font-weight: 500;
+}
+
+.hero-stats {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 28px;
 }
 
 .hero-visual {
@@ -596,11 +630,11 @@ button:focus {
   position: relative;
   padding-bottom: 70px !important;
   padding-top: 70px !important;
-  background-color: #FFFFFF !important;
+  background-color: #0A0A0F !important;
 }
 
 .home-about-description {
-  color: #18181B !important;
+  color: #E4E4E7 !important;
   padding-top: 100px !important;
   padding-bottom: 20px !important;
   text-align: center;
@@ -610,6 +644,8 @@ button:focus {
   padding-top: 50px;
   font-size: 1.2em !important;
   text-align: left;
+  color: #A1A1AA !important;
+  line-height: 1.8 !important;
 }
 
 .home-about-social {
@@ -681,8 +717,8 @@ button:focus {
 /* Footer */
 /* --------- */
 .footer {
-  background-color: #FFFFFF;
-  border-top: 1px solid #E5E7EB;
+  background-color: #0A0A0F;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   bottom: 0 !important;
   padding-top: 10px !important;
   padding-bottom: 8px !important ;
@@ -708,7 +744,7 @@ button:focus {
 
 .footer h3 {
   font-size: 1em;
-  color: #18181B !important;
+  color: #E4E4E7 !important;
   margin-top: 0.5em !important;
   margin-bottom: 0.5em !important;
 }
@@ -740,20 +776,20 @@ button:focus {
 }
 
 .project-card-view {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
-  color: #18181B !important;
-  background-color: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+  color: #E4E4E7 !important;
+  background-color: #14141B !important;
   opacity: 1 !important;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   height: 100% !important;
-  border: 1px solid #E5E7EB !important;
-  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
 }
 .project-card-view:hover {
   transform: translateY(-8px) scale(1.02) !important;
-  overflow: hidden !important;
-  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.15) !important;
-  border-color: #2563EB !important;
+  box-shadow: 0 18px 40px rgba(59, 130, 246, 0.22) !important;
+  border-color: rgba(59, 130, 246, 0.5) !important;
 }
 
 .blog-card {
@@ -821,7 +857,7 @@ button:focus {
   box-shadow: none !important;
 }
 .project-heading {
-  color: #18181B !important;
+  color: #F4F4F5 !important;
   font-size: 2.3em !important;
   font-weight: 600 !important;
   padding-top: 10px !important;
@@ -877,7 +913,7 @@ button:focus {
 .project-card-title {
   font-weight: 700 !important;
   font-size: 1.25rem !important;
-  color: #18181B !important;
+  color: #F4F4F5 !important;
   margin-bottom: 10px !important;
 }
 
@@ -891,9 +927,9 @@ button:focus {
 .project-tag {
   font-size: 0.7rem;
   font-weight: 600;
-  color: #2563EB;
-  background: #EFF4FF;
-  border: 1px solid #DBE5FF;
+  color: #93B4FF;
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.28);
   padding: 3px 9px;
   border-radius: 6px;
   line-height: 1.4;
@@ -901,7 +937,7 @@ button:focus {
 
 .project-card-text {
   text-align: left !important;
-  color: #52525B !important;
+  color: #A1A1AA !important;
   font-size: 0.92rem !important;
   line-height: 1.6 !important;
   flex-grow: 1;
@@ -982,9 +1018,11 @@ button:focus {
 .contact-section {
   position: relative;
   z-index: 100;
-  background-color: #FFFFFF;
-  padding: 80px 0;
-  border-top: 1px solid #E5E7EB;
+  background:
+    radial-gradient(700px 320px at 50% 0%, rgba(59, 130, 246, 0.1), transparent 60%),
+    #0A0A0F;
+  padding: 90px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   width: 100%;
 }
 
@@ -998,14 +1036,14 @@ button:focus {
   font-size: 2.8em;
   padding-bottom: 24px;
   font-weight: 700;
-  color: #18181B;
+  color: #F4F4F5;
   text-align: center;
 }
 
 .contact-subtitle {
   font-size: 1.2em;
   padding-bottom: 40px;
-  color: #3F3F46;
+  color: #A1A1AA;
   text-align: center;
   max-width: 620px;
   margin: 0 auto;
@@ -1026,19 +1064,19 @@ button:focus {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  border: 3px solid #2563EB;
-  background-color: #FFFFFF;
-  color: #2563EB;
+  border: 2px solid rgba(59, 130, 246, 0.5);
+  background-color: rgba(255, 255, 255, 0.03);
+  color: #3B82F6;
   font-size: 2.4em;
   cursor: pointer;
   transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .contact-social-btn:hover {
-  background-color: #2563EB;
+  background-color: #3B82F6;
   color: #FFFFFF;
   transform: scale(1.08);
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.28);
+  box-shadow: 0 8px 26px rgba(59, 130, 246, 0.45);
 }
 
 .contact-social-btn:focus-visible {
@@ -1063,8 +1101,8 @@ button:focus {
   position: relative !important;
   padding-top: 150px !important;
   padding-bottom: 30px !important;
-  background-color: #FAFAFA !important;
-  color: #18181B !important;
+  background-color: #0A0A0F !important;
+  color: #E4E4E7 !important;
 }
 
 .tech-icons {
@@ -1075,24 +1113,24 @@ button:focus {
   margin: 15px !important;
   padding: 10px 20px !important;
   opacity: 1 !important;
-  outline: 2px solid #E5E7EB !important;
+  outline: 1px solid rgba(255, 255, 255, 0.1) !important;
   vertical-align: middle !important;
   text-align: center !important;
   border-radius: 24px !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
   overflow: hidden !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   width: fit-content !important;
   cursor: pointer !important;
-  color: #18181B;
-  background-color: #FFFFFF;
+  color: #E4E4E7;
+  background-color: #14141B;
 }
 
 .tech-icons-text {
   display: flex;
   align-items: center;
   margin-left: 10px;
-  color: #18181B;
+  color: #E4E4E7;
 }
 
 @media (max-width: 767px) {
@@ -1104,8 +1142,9 @@ button:focus {
 .tech-icons:hover {
   transform: translateY(-4px) scale(1.05) !important;
   overflow: hidden !important;
-  outline: 2px solid #2563EB !important;
-  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.15) !important;
+  outline: 1px solid rgba(59, 130, 246, 0.6) !important;
+  box-shadow: 0 8px 22px rgba(59, 130, 246, 0.25) !important;
+  background-color: #191922 !important;
 }
 .tech-icon-images {
   height: 1.6rem;
@@ -1114,7 +1153,7 @@ button:focus {
 
 .quote-card-view {
   border: none !important;
-  color: #18181B !important;
+  color: #E4E4E7 !important;
   background-color: transparent !important;
 }
 
@@ -1284,17 +1323,17 @@ button:focus {
 }
 
 .preview-section--gray {
-  background-color: #F8FAFC !important;
+  background-color: #0C0C13 !important;
 }
 
 .preview-section--white {
-  background-color: #FFFFFF !important;
-  border-top: 1px solid #F1F5F9;
-  border-bottom: 1px solid #F1F5F9;
+  background-color: #0A0A0F !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .preview-subtitle {
-  color: #6B7280;
+  color: #A1A1AA;
   text-align: center;
   font-size: 1.1em;
   margin-bottom: 30px;
@@ -1357,57 +1396,53 @@ button:focus {
 /* Language Switcher */
 /* --------- */
 #language-dropdown {
-  background-color: #FFFFFF !important;
-  border: 2px solid #2563EB !important;
-  color: #2563EB !important;
-  font-weight: 500 !important;
-  padding: 0.5rem 1rem !important;
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.18) !important;
+  color: #E4E4E7 !important;
+  font-weight: 600 !important;
+  padding: 0.4rem 0.9rem !important;
   border-radius: 8px !important;
   transition: all 0.3s ease !important;
 }
 
 #language-dropdown:hover {
-  background-color: #2563EB !important;
+  background-color: rgba(59, 130, 246, 0.15) !important;
   color: #FFFFFF !important;
+  border-color: rgba(59, 130, 246, 0.6) !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3) !important;
 }
 
-#language-dropdown:focus {
-  box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25) !important;
-  background-color: #FFFFFF !important;
-  color: #2563EB !important;
-  border-color: #2563EB !important;
-}
-
+#language-dropdown:focus,
 #language-dropdown:active {
-  background-color: #2563EB !important;
+  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.3) !important;
+  background-color: rgba(59, 130, 246, 0.15) !important;
   color: #FFFFFF !important;
-  border-color: #2563EB !important;
+  border-color: rgba(59, 130, 246, 0.6) !important;
 }
 
 .dropdown-menu {
-  background-color: #FFFFFF !important;
-  border: 1px solid #E5E7EB !important;
-  border-radius: 8px !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-  min-width: 150px !important;
+  background-color: #16161F !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45) !important;
+  min-width: 160px !important;
 }
 
 .dropdown-item {
-  padding: 0.75rem 1rem !important;
+  padding: 0.7rem 1rem !important;
   transition: all 0.2s ease !important;
-  color: #18181B !important;
+  color: #D4D4D8 !important;
 }
 
 .dropdown-item:hover {
-  background-color: #F3F4F6 !important;
-  color: #2563EB !important;
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  color: #3B82F6 !important;
 }
 
 .dropdown-item.active {
-  background-color: #EFF6FF !important;
-  color: #2563EB !important;
+  background-color: rgba(59, 130, 246, 0.12) !important;
+  color: #3B82F6 !important;
   font-weight: 600 !important;
 }
 

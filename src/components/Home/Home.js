@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { AiOutlineFundProjectionScreen, AiOutlineMail } from "react-icons/ai";
+import { AiOutlineFundProjectionScreen, AiOutlineMail, AiOutlineTrophy } from "react-icons/ai";
 import homeLogo from "../../Assets/home-main.svg";
 import Particle from "../Particle";
 import Home2 from "./Home2";
@@ -41,13 +41,8 @@ function Home() {
         <Container className="hero-container">
           <Row className="align-items-center">
             <Col md={7} className="home-header">
-              <span className="hero-status">
-                <span className="hero-status-dot" aria-hidden="true" />
-                {t('home.available')}
-              </span>
-
               <p className="hero-greeting">
-                {t('home.greeting')} <span className="wave" role="img" aria-label="wave">👋🏻</span>
+                {t('home.greeting')}
               </p>
 
               <h1 className="hero-name">
@@ -81,7 +76,7 @@ function Home() {
                   <span className="hero-stat-label">{t('home.stats.hackathons')}</span>
                 </div>
                 <div className="hero-stat">
-                  <span className="hero-stat-num">🏆</span>
+                  <span className="hero-stat-num hero-stat-icon"><AiOutlineTrophy aria-hidden="true" /></span>
                   <span className="hero-stat-label">{t('home.stats.award')}</span>
                 </div>
               </div>

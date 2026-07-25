@@ -110,7 +110,7 @@ const resources = {
       "projects.hackathons.title": "Hackathon",
       "projects.hackathons.highlight": "Projects",
       "projects.hackathons.subtitle": "Built under pressure — projects shipped across Web3, AI and social-impact hackathons.",
-      "badge.id4africa": "🏆 2nd · ID4Africa 2026",
+      "badge.id4africa": "2nd · ID4Africa 2026",
       "badge.hackhazards": "HackHazards 26",
       "badge.hackathon": "Hackathon",
       "badge.flare": "Flare Hackathon",
@@ -137,7 +137,7 @@ const resources = {
       "resume.download": "Download Resume",
 
       // Footer
-      "footer.developed": "Developed with ❤️ by",
+      "footer.developed": "Developed by",
       "footer.name": "BESSANH Shadrak",
 
       // Admin Dashboard
@@ -274,7 +274,7 @@ const resources = {
       "projects.hackathons.title": "Projets de",
       "projects.hackathons.highlight": "Hackathons",
       "projects.hackathons.subtitle": "Conçus sous pression — des projets livrés lors de hackathons Web3, IA et à impact social.",
-      "badge.id4africa": "🏆 2e · ID4Africa 2026",
+      "badge.id4africa": "2e · ID4Africa 2026",
       "badge.hackhazards": "HackHazards 26",
       "badge.hackathon": "Hackathon",
       "badge.flare": "Flare Hackathon",
@@ -301,7 +301,7 @@ const resources = {
       "resume.download": "Télécharger CV",
 
       // Footer
-      "footer.developed": "Développé avec ❤️ par",
+      "footer.developed": "Développé par",
       "footer.name": "BESSANH Shadrak",
 
       // Admin Dashboard

@@ -10,8 +10,8 @@ function LanguageSwitcher() {
   };
 
   const languages = {
-    en: { name: "English", flag: "🇬🇧" },
-    fr: { name: "Français", flag: "🇫🇷" }
+    en: { name: "English", code: "EN" },
+    fr: { name: "Français", code: "FR" }
   };
 
   const currentLang = languages[i18n.language] || languages.en;
@@ -22,28 +22,28 @@ function LanguageSwitcher() {
         variant="outline-primary"
         id="language-dropdown"
         style={{
-          backgroundColor: "#FFFFFF",
-          border: "2px solid #2563EB",
-          color: "#2563EB",
-          fontWeight: "500",
-          padding: "0.5rem 1rem",
+          backgroundColor: "transparent",
+          border: "1.5px solid rgba(255,255,255,0.18)",
+          color: "#E4E4E7",
+          fontWeight: "600",
+          padding: "0.4rem 0.9rem",
           borderRadius: "8px",
           transition: "all 0.3s ease"
         }}
       >
-        <span style={{ fontSize: "1.2em", marginRight: "8px" }}>
-          {currentLang.flag}
+        <span style={{ color: "#3B82F6", marginRight: "6px", fontWeight: 700 }}>
+          {currentLang.code}
         </span>
         {currentLang.name}
       </Dropdown.Toggle>
 
       <Dropdown.Menu
         style={{
-          backgroundColor: "#FFFFFF",
-          border: "1px solid #E5E7EB",
-          borderRadius: "8px",
-          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-          minWidth: "150px"
+          backgroundColor: "#16161F",
+          border: "1px solid rgba(255,255,255,0.1)",
+          borderRadius: "10px",
+          boxShadow: "0 12px 28px rgba(0, 0, 0, 0.45)",
+          minWidth: "160px"
         }}
       >
         {Object.entries(languages).map(([code, lang]) => (
@@ -52,15 +52,15 @@ function LanguageSwitcher() {
             onClick={() => changeLanguage(code)}
             active={i18n.language === code}
             style={{
-              padding: "0.75rem 1rem",
-              color: "#18181B",
-              backgroundColor: i18n.language === code ? "#EFF6FF" : "transparent",
+              padding: "0.7rem 1rem",
+              color: i18n.language === code ? "#3B82F6" : "#D4D4D8",
+              backgroundColor: i18n.language === code ? "rgba(59,130,246,0.12)" : "transparent",
               fontWeight: i18n.language === code ? "600" : "400",
               transition: "all 0.2s ease"
             }}
           >
-            <span style={{ fontSize: "1.2em", marginRight: "8px" }}>
-              {lang.flag}
+            <span style={{ marginRight: "8px", fontWeight: 700, opacity: 0.8 }}>
+              {lang.code}
             </span>
             {lang.name}
           </Dropdown.Item>
