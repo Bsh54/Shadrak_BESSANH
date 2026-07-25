@@ -110,7 +110,7 @@ function PreviewSections({ only }) {
           <p className="preview-subtitle">{t("preview.achievements.subtitle")}</p>
 
           <Row style={{ justifyContent: "center" }}>
-            {achievementsData.slice(0, 1).map((achievement) => (
+            {achievementsData.slice(0, 2).map((achievement) => (
               <Col md={4} className="achievement-card-wrapper" key={achievement.id}>
                 <Link to={`/achievement/${achievement.id}`} style={{ textDecoration: "none" }}>
                   <AchievementCard

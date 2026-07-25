@@ -116,6 +116,22 @@ function AchievementDetail() {
               </div>
             )}
 
+            {/* Sources & Proof */}
+            {achievement.sourceLinks && achievement.sourceLinks.length > 0 && (
+              <div className="achievement-sources">
+                <h3>{t('achievements.sources')}</h3>
+                <ul className="source-links">
+                  {achievement.sourceLinks.map((s, idx) => (
+                    <li key={idx}>
+                      <a href={s.url} target="_blank" rel="noopener noreferrer">
+                        {s.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
           </Col>
         </Row>
 

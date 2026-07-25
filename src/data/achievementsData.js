@@ -177,8 +177,8 @@ Présentée le 14 mai 2026 (14h30-18h30) au Parc des Expositions d'Abidjan devan
     location: "Virtual · Global",
     status: "Social Impact Award",
     organization: "USAII® — United States Artificial Intelligence Institute",
-    coverImage: `${BASE}/nawiri-usaii.png`,
-    cardImage: `${BASE}/nawiri-usaii.png`,
+    coverImage: `${BASE}/usaii-winners.png`,
+    cardImage: `${BASE}/usaii-winners.png`,
     description: {
       en: `USAII® GLOBAL AI HACKATHON 2026 - SOCIAL IMPACT AWARD
 
@@ -217,6 +217,9 @@ Remporter le Prix de l'Impact Social parmi 808 équipes qualifiées de plus de 9
     },
 
     galleryImages: [
+      `${BASE}/usaii-winners.png`,
+      `${BASE}/usaii-ceremony.jpg`,
+      `${BASE}/usaii-hackathon-logo.png`,
       `${BASE}/nawiri-usaii.png`,
     ],
 
@@ -224,6 +227,12 @@ Remporter le Prix de l'Impact Social parmi 808 équipes qualifiées de plus de 9
       linkedin: "https://www.linkedin.com/in/bessanh-shadrak-744049287/",
       github: "https://github.com/Bsh54/NAWIRI"
     },
+
+    sourceLinks: [
+      { label: "USAII® — Official Winners Announcement", url: "https://www.usaii.org/ai-insights/usaii-crowns-global-ai-hackathon-2026-winners-celebrating-the-nextgen-ai-innovators" },
+      { label: "Closing Ceremony & Global Awards (YouTube)", url: "https://www.youtube.com/watch?v=K79bWiNyoyc" },
+      { label: "USAII® Global AI Hackathon 2026 — Official Page", url: "https://aihackathon.usaii.org/" }
+    ],
 
     team: "Shadrak BESSANH & Frankel Gnonlonfin",
 

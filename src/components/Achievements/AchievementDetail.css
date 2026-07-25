@@ -204,6 +204,61 @@
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
+/* Sources & Proof */
+.achievement-sources {
+  background: #14141B;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 30px;
+}
+
+.achievement-sources h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #F4F4F5;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #3B82F6;
+}
+
+.source-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.source-links li {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.source-links li:last-child {
+  border-bottom: none;
+}
+
+.source-links a {
+  color: #93B4FF;
+  text-decoration: none;
+  font-size: 0.98rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.source-links a::before {
+  content: "↗";
+  color: #3B82F6;
+  font-weight: 700;
+}
+
+.source-links a:hover {
+  color: #3B82F6;
+  text-decoration: underline;
+}
+
 /* Team & Contacts Section */
 .achievement-team,
 .achievement-contacts {
