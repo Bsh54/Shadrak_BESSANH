@@ -1176,8 +1176,8 @@ button:focus {
   position: relative !important;
   padding-top: 110px !important;
   padding-bottom: 30px !important;
-  background-color: #FAFAFA !important;
-  color: #18181B !important;
+  background: linear-gradient(180deg, #0A0A0F 0%, #0D0D14 100%) !important;
+  color: #E4E4E7 !important;
 }
 
 .resume {

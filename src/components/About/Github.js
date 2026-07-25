@@ -13,8 +13,8 @@ function Github() {
         paddingBottom: "10px",
       }}
     >
-      <h1 className="project-heading pb-4" style={{ paddingBottom: "20px", color: "#18181B" }}>
-        {t("skills.github.title")} <strong style={{ color: "#2563EB" }}>{t("skills.github.title.highlight")}</strong>
+      <h1 className="project-heading pb-4" style={{ paddingBottom: "20px", color: "#F4F4F5" }}>
+        {t("skills.github.title")} <strong style={{ color: "#3B82F6" }}>{t("skills.github.title.highlight")}</strong>
       </h1>
       <GitHubCalendar
         username="Bsh54"
