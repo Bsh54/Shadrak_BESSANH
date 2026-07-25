@@ -665,6 +665,110 @@ button:focus {
 }
 
 /* --------- */
+/* Project cards (refonte) */
+/* --------- */
+
+.project-img-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+}
+
+.project-img-wrap .card-img-top,
+.project-img-wrap img {
+  padding: 0 !important;
+  border-radius: 12px 12px 0 0 !important;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top center;
+  width: 100%;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card-view:hover .project-img-wrap img {
+  transform: scale(1.05);
+}
+
+.project-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(37, 99, 235, 0.95);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 5px 10px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.project-card-body {
+  display: flex;
+  flex-direction: column;
+  text-align: left !important;
+  padding: 20px !important;
+}
+
+.project-card-title {
+  font-weight: 700 !important;
+  font-size: 1.25rem !important;
+  color: #18181B !important;
+  margin-bottom: 10px !important;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.project-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #2563EB;
+  background: #EFF4FF;
+  border: 1px solid #DBE5FF;
+  padding: 3px 9px;
+  border-radius: 6px;
+  line-height: 1.4;
+}
+
+.project-card-text {
+  text-align: left !important;
+  color: #52525B !important;
+  font-size: 0.92rem !important;
+  line-height: 1.6 !important;
+  flex-grow: 1;
+  margin-bottom: 16px !important;
+}
+
+.project-card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.project-card-actions .btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-img-wrap img,
+  .project-card-view {
+    transition: none !important;
+  }
+  .project-card-view:hover .project-img-wrap img {
+    transform: none !important;
+  }
+}
+
+/* --------- */
 /* About */
 /* --------- */
 

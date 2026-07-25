@@ -10,9 +10,9 @@ import { AiOutlineDownload } from "react-icons/ai";
 import { trackConversion } from "../../services/analyticsService";
 import pdfEN from "../../Assets/CV Shadrak EN.pdf";
 import pdfFR from "../../Assets/CV Shadrak FR.pdf";
-import oreus from "../../Assets/Projects/oreus.png";
-import minerva from "../../Assets/Projects/minerva.png";
-import voxiai from "../../Assets/Projects/voxiai.png";
+import cottonpay from "../../Assets/Projects/cottonpay.png";
+import nawiri from "../../Assets/Projects/nawiri.png";
+import neurobridge from "../../Assets/Projects/neurobridge.png";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
@@ -39,25 +39,29 @@ function PreviewSections() {
 
   const featuredProjects = [
     {
-      imgPath: oreus,
-      title: "Oreus",
-      description: t("projects.oreus.description"),
-      ghLink: "https://github.com/Bsh54/Oreus",
-      demoLink: "https://oreus.shadrakbessanh.me",
+      imgPath: cottonpay,
+      title: "CottonPay",
+      badge: t("badge.id4africa"),
+      tags: ["Digital Identity", "React", "Web3"],
+      description: t("projects.cottonpay.description"),
+      ghLink: "https://github.com/Bsh54/CottonPay2",
+      demoLink: "https://cottonpay.shadrakbessanh.me",
     },
     {
-      imgPath: minerva,
-      title: "MINERVA",
-      description: t("projects.minerva.description"),
-      ghLink: "https://github.com/Bsh54/MINERVA",
-      demoLink: "https://minerva-snowy.vercel.app/",
+      imgPath: nawiri,
+      title: "NAWIRI",
+      tags: ["Next.js", "Gemini", "Leaflet"],
+      description: t("projects.nawiri.description"),
+      ghLink: "https://github.com/Bsh54/NAWIRI",
+      demoLink: "https://nawiri-zeta.vercel.app",
     },
     {
-      imgPath: voxiai,
-      title: "VoxiAI",
-      description: t("projects.voxiai.description"),
-      ghLink: "https://github.com/Bsh54/VoxiAI",
-      demoLink: "https://shads229-voxiai.hf.space/",
+      imgPath: neurobridge,
+      title: "NeuroBridge",
+      tags: ["Next.js", "React 19", "Web Speech"],
+      description: t("projects.neurobridge.description"),
+      ghLink: "https://github.com/Bsh54/NeuroBridge",
+      demoLink: "https://neuro-bridge-alpha.vercel.app",
     },
   ];
 
@@ -79,6 +83,8 @@ function PreviewSections() {
                   imgPath={project.imgPath}
                   isBlog={false}
                   title={project.title}
+                  badge={project.badge}
+                  tags={project.tags}
                   description={project.description}
                   ghLink={project.ghLink}
                   demoLink={project.demoLink}
