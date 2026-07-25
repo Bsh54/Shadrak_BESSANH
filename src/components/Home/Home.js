@@ -17,6 +17,13 @@ import FAQSchema from "../SEO/FAQSchema";
 
 function Home() {
   const { t } = useTranslation();
+
+  const scrollToContact = (e) => {
+    e.preventDefault();
+    const el = document.getElementById("contact");
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <section>
       <SEOHead
@@ -28,57 +35,30 @@ function Home() {
         pageType="AboutPage"
       />
       <FAQSchema />
-      {/* Hero Section - Refait complètement */}
-      <Container fluid className="home-section" id="home" style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        background: "linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%)",
-        paddingTop: "100px",
-        paddingBottom: "50px"
-      }}>
+      {/* Hero Section */}
+      <Container fluid className="hero" id="home">
         <Particle />
-        <Container>
+        <Container className="hero-container">
           <Row className="align-items-center">
             <Col md={7} className="home-header">
-              <h1 style={{
-                fontSize: "clamp(1.5rem, 4vw, 2.5rem)",
-                color: "#18181B",
-                fontWeight: "400",
-                marginBottom: "20px"
-              }}>
-                {t('home.greeting')} <span className="wave" role="img" aria-labelledby="wave">👋🏻</span>
+              <span className="hero-status">
+                <span className="hero-status-dot" aria-hidden="true" />
+                {t('home.available')}
+              </span>
+
+              <p className="hero-greeting">
+                {t('home.greeting')} <span className="wave" role="img" aria-label="wave">👋🏻</span>
+              </p>
+
+              <h1 className="hero-name">
+                {t('home.intro')} <span className="hero-name-accent">{t('home.name')}</span>
               </h1>
 
-              <h1 style={{
-                fontSize: "clamp(2rem, 5vw, 3.5rem)",
-                color: "#18181B",
-                fontWeight: "700",
-                marginBottom: "30px",
-                lineHeight: "1.2"
-              }}>
-                {t('home.intro')} <span style={{ color: "#2563EB" }}>{t('home.name')}</span>
-              </h1>
-
-              <div style={{
-                fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)",
-                color: "#2563EB",
-                fontWeight: "600",
-                marginBottom: "24px",
-                minHeight: "60px",
-                display: "flex",
-                alignItems: "center"
-              }}>
+              <div className="hero-typewriter">
                 <Type />
               </div>
 
-              <p style={{
-                fontSize: "clamp(1rem, 1.6vw, 1.15rem)",
-                color: "#3F3F46",
-                lineHeight: "1.7",
-                maxWidth: "560px",
-                marginBottom: "34px"
-              }}>
+              <p className="hero-tagline">
                 {t('home.tagline')}
               </p>
 
@@ -86,23 +66,33 @@ function Home() {
                 <Button as={Link} to="/project" variant="primary" size="lg" className="hero-cta-btn">
                   <AiOutlineFundProjectionScreen aria-hidden="true" /> &nbsp;{t('home.cta.projects')}
                 </Button>
-                <Button
-                  href="#contact"
-                  variant="outline-primary"
-                  size="lg"
-                  className="hero-cta-btn"
-                >
+                <Button as={Link} to="/#contact" variant="outline-primary" size="lg" className="hero-cta-btn" onClick={scrollToContact}>
                   <AiOutlineMail aria-hidden="true" /> &nbsp;{t('home.cta.contact')}
                 </Button>
               </div>
+
+              <div className="hero-stats">
+                <div className="hero-stat">
+                  <span className="hero-stat-num">15+</span>
+                  <span className="hero-stat-label">{t('home.stats.projects')}</span>
+                </div>
+                <div className="hero-stat">
+                  <span className="hero-stat-num">8</span>
+                  <span className="hero-stat-label">{t('home.stats.hackathons')}</span>
+                </div>
+                <div className="hero-stat">
+                  <span className="hero-stat-num">🏆</span>
+                  <span className="hero-stat-label">{t('home.stats.award')}</span>
+                </div>
+              </div>
             </Col>
 
-            <Col md={5} style={{ paddingBottom: 20 }}>
+            <Col md={5} className="hero-visual">
+              <div className="hero-visual-glow" aria-hidden="true" />
               <img
                 src={homeLogo}
-                alt="home pic"
-                className="img-fluid"
-                style={{ maxHeight: "450px" }}
+                alt="Illustration"
+                className="img-fluid hero-illustration"
               />
             </Col>
           </Row>

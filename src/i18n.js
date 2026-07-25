@@ -18,6 +18,10 @@ const resources = {
       "home.tagline": "I build AI-powered products with real-world impact — from digital identity to healthcare and African language tech.",
       "home.cta.projects": "View my work",
       "home.cta.contact": "Get in touch",
+      "home.available": "Available for opportunities",
+      "home.stats.projects": "Projects shipped",
+      "home.stats.hackathons": "Hackathons",
+      "home.stats.award": "2nd · ID4Africa 2026",
 
       // Typewriter
       "type.software": "Software Developer",
@@ -178,6 +182,10 @@ const resources = {
       "home.tagline": "Je conçois des produits propulsés par l'IA à impact concret — de l'identité numérique à la santé et aux technologies des langues africaines.",
       "home.cta.projects": "Voir mes projets",
       "home.cta.contact": "Me contacter",
+      "home.available": "Disponible pour des opportunités",
+      "home.stats.projects": "Projets livrés",
+      "home.stats.hackathons": "Hackathons",
+      "home.stats.award": "2e · ID4Africa 2026",
 
       // Typewriter
       "type.software": "Développeur Logiciel",
