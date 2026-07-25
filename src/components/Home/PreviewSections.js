@@ -33,9 +33,10 @@ const SeeMoreButton = ({ to, label }) => (
   </Row>
 );
 
-function PreviewSections() {
+function PreviewSections({ only }) {
   const { t, i18n } = useTranslation();
   const pdf = i18n.language === "fr" ? pdfFR : pdfEN;
+  const show = (name) => !only || only === name;
 
   const featuredProjects = [
     {
@@ -67,6 +68,7 @@ function PreviewSections() {
   return (
     <>
       {/* ---- Projects Preview ---- */}
+      {show("projects") && (
       <Container fluid className="preview-section preview-section--gray">
         <Container>
           <h1 className="project-heading" style={{ paddingTop: "60px" }}>
@@ -95,8 +97,10 @@ function PreviewSections() {
           <SeeMoreButton to="/project" label={t("preview.projects.seeAll")} />
         </Container>
       </Container>
+      )}
 
       {/* ---- Achievements Preview ---- */}
+      {show("achievements") && (
       <Container fluid className="preview-section preview-section--white">
         <Container>
           <h1 className="project-heading" style={{ paddingTop: "60px" }}>
@@ -126,8 +130,10 @@ function PreviewSections() {
           <SeeMoreButton to="/achievements" label={t("preview.achievements.seeAll")} />
         </Container>
       </Container>
+      )}
 
       {/* ---- Resume Preview ---- */}
+      {show("resume") && (
       <Container fluid className="preview-section preview-section--gray">
         <Container>
           <h1 className="project-heading" style={{ paddingTop: "60px" }}>
@@ -171,6 +177,7 @@ function PreviewSections() {
           </Row>
         </Container>
       </Container>
+      )}
     </>
   );
 }

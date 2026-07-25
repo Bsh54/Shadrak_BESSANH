@@ -94,12 +94,13 @@ function Home() {
         </Container>
       </Container>
 
+      {/* 1. Projets en vedette (le meilleur travail juste après le hero) */}
+      <PreviewSections only="projects" />
+
+      {/* 2. À propos */}
       <Home2 />
 
-      {/* Sections aperçu : Projects, Achievements, Resume */}
-      <PreviewSections />
-
-      {/* Section Compétences Professionnelles */}
+      {/* 3. Compétences professionnelles */}
       <Container fluid className="about-section">
         <Container>
           <h1 className="project-heading" style={{ paddingTop: "50px" }}>
@@ -116,7 +117,13 @@ function Home() {
         </Container>
       </Container>
 
-      {/* Section Contact */}
+      {/* 4. Réalisations */}
+      <PreviewSections only="achievements" />
+
+      {/* 5. CV */}
+      <PreviewSections only="resume" />
+
+      {/* 6. Contact */}
       <ContactSection />
     </section>
   );

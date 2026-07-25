@@ -1,73 +1,37 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import {
-  AiFillGithub,
-  AiOutlineMail,
-} from "react-icons/ai";
-import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
-import { trackClick } from "../services/analyticsService";
+import { Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function Footer() {
-  const handleClick = (buttonName) => {
-    trackClick(buttonName, "social");
-  };
+  const { t } = useTranslation();
+  const year = new Date().getFullYear();
+
+  const links = [
+    { to: "/", label: t("nav.home") },
+    { to: "/project", label: t("nav.projects") },
+    { to: "/achievements", label: t("nav.achievements") },
+    { to: "/resume", label: t("nav.resume") },
+  ];
 
   return (
-    <Container fluid className="footer">
-      <Row>
-        <Col md="12" className="footer-body">
-          <ul className="footer-icons">
-            <li className="social-icons">
-              <a
-                href="https://github.com/Bsh54/"
-                aria-label="GitHub"
-                style={{ color: "white" }}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => handleClick("GitHub")}
-              >
-                <AiFillGithub aria-hidden="true" />
-              </a>
-            </li>
-            <li className="social-icons">
-              <a
-                href="mailto:shadrakbsh@gmail.com"
-                aria-label="Email"
-                style={{ color: "white" }}
-                rel="noopener noreferrer"
-                onClick={() => handleClick("Email")}
-              >
-                <AiOutlineMail aria-hidden="true" />
-              </a>
-            </li>
-            <li className="social-icons">
-              <a
-                href="https://www.linkedin.com/in/bessanh-shadrak-744049287/"
-                aria-label="LinkedIn"
-                style={{ color: "white" }}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => handleClick("LinkedIn")}
-              >
-                <FaLinkedinIn aria-hidden="true" />
-              </a>
-            </li>
-            <li className="social-icons">
-              <a
-                href="https://wa.me/2290197426540"
-                aria-label="WhatsApp"
-                style={{ color: "white" }}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => handleClick("WhatsApp")}
-              >
-                <FaWhatsapp aria-hidden="true" />
-              </a>
-            </li>
-          </ul>
-        </Col>
-      </Row>
-    </Container>
+    <footer className="footer">
+      <Container className="footer-inner">
+        <p className="footer-copyright">
+          © {year} <strong>BESSANH Shadrak</strong>
+        </p>
+
+        <nav className="footer-nav" aria-label="Footer">
+          {links.map((l) => (
+            <Link key={l.to} to={l.to} className="footer-nav-link">
+              {l.label}
+            </Link>
+          ))}
+        </nav>
+
+        <p className="footer-built">Built with React</p>
+      </Container>
+    </footer>
   );
 }
 
