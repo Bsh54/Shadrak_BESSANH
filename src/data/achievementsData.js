@@ -164,5 +164,78 @@ Présentée le 14 mai 2026 (14h30-18h30) au Parc des Expositions d'Abidjan devan
       finalists: "8",
       presentationDuration: "20 minutes"
     }
+  },
+
+  {
+    id: "nawiri-usaii-global-ai-hackathon",
+    title: {
+      en: "USAII® Global AI Hackathon 2026 - Social Impact Award",
+      fr: "USAII® Global AI Hackathon 2026 - Prix de l'Impact Social"
+    },
+    shortTitle: "NAWIRI - USAII Global AI",
+    date: "June 2026",
+    location: "Virtual · Global",
+    status: "Social Impact Award",
+    organization: "USAII® — United States Artificial Intelligence Institute",
+    coverImage: `${BASE}/nawiri-usaii.png`,
+    cardImage: `${BASE}/nawiri-usaii.png`,
+    description: {
+      en: `USAII® GLOBAL AI HACKATHON 2026 - SOCIAL IMPACT AWARD
+
+The USAII® Global AI Hackathon 2026, organized by the United States Artificial Intelligence Institute, is one of the largest global student AI competitions. It attracted more than 6,000 pre-registered participants from over 90 countries. After a rigorous global qualifier, 808 teams (2,284 students) advanced and 622 AI-powered projects were evaluated by an international panel of AI leaders, researchers, and industry experts across the High School, Undergraduate, and Graduate tracks.
+
+Out of all these teams, only 15 were crowned winners. Our project NAWIRI won the Social Impact Award in the Undergraduate track.
+
+OUR SOLUTION: NAWIRI
+
+NAWIRI is a conversational AI assistant that helps West African families access the public aid they are legally entitled to. Across Benin, Senegal and Ghana, families miss assistance every day — not because it doesn't exist, but because the system is too hard to navigate.
+
+The user describes their situation in plain words — in 5 languages including Fɔngbe, Wolof and Twi — and NAWIRI asks one question at a time to identify the programs they qualify for, the exact documents to bring, and the official contact to reach. It covers 25 public programs across health insurance, cash transfers, microcredit, free maternal care and more.
+
+WHY IT MATTERS:
+NAWIRI turns a bureaucratic, intimidating process into a simple, human conversation, in the user's own language. It personalizes orientation without ever automating decisions — every answer ends with a reminder to verify with the official body.
+
+RECOGNITION:
+Winning the Social Impact Award among 808 qualified teams from 90+ countries validated NAWIRI's mission: using AI to make public services accessible to the people who need them most. All 15 winning teams received cash prizes and 100% scholarships toward USAII's globally recognized AI certification programs.`,
+      fr: `USAII® GLOBAL AI HACKATHON 2026 - PRIX DE L'IMPACT SOCIAL
+
+Le USAII® Global AI Hackathon 2026, organisé par le United States Artificial Intelligence Institute, est l'une des plus grandes compétitions mondiales d'IA pour étudiants. Il a attiré plus de 6 000 participants pré-inscrits de plus de 90 pays. Après un qualifier mondial rigoureux, 808 équipes (2 284 étudiants) se sont qualifiées et 622 projets d'IA ont été évalués par un jury international de leaders, chercheurs et experts de l'industrie de l'IA, à travers les catégories Lycée, Licence et Master.
+
+Parmi toutes ces équipes, seules 15 ont été sacrées gagnantes. Notre projet NAWIRI a remporté le Prix de l'Impact Social dans la catégorie Licence.
+
+NOTRE SOLUTION : NAWIRI
+
+NAWIRI est un assistant IA conversationnel qui aide les familles d'Afrique de l'Ouest à accéder aux aides publiques auxquelles elles ont droit. Au Bénin, au Sénégal et au Ghana, des familles passent à côté de ces aides chaque jour — non pas parce qu'elles n'existent pas, mais parce que le système est trop difficile à naviguer.
+
+L'utilisateur décrit sa situation en langage naturel — dans 5 langues dont le Fɔngbe, le Wolof et le Twi — et NAWIRI pose une question à la fois pour identifier les programmes éligibles, les documents exacts à fournir et le contact officiel à joindre. Il couvre 25 programmes publics : assurance santé, transferts monétaires, microcrédit, soins maternels gratuits et plus encore.
+
+POURQUOI C'EST IMPORTANT :
+NAWIRI transforme un processus bureaucratique et intimidant en une conversation simple et humaine, dans la langue de l'utilisateur. Il personnalise l'orientation sans jamais automatiser les décisions — chaque réponse rappelle de vérifier auprès de l'organisme officiel.
+
+RECONNAISSANCE :
+Remporter le Prix de l'Impact Social parmi 808 équipes qualifiées de plus de 90 pays a validé la mission de NAWIRI : utiliser l'IA pour rendre les services publics accessibles à ceux qui en ont le plus besoin. Les 15 équipes gagnantes ont reçu des prix en cash et des bourses à 100% vers les certifications IA reconnues mondialement de l'USAII.`
+    },
+
+    galleryImages: [
+      `${BASE}/nawiri-usaii.png`,
+    ],
+
+    socialLinks: {
+      linkedin: "https://www.linkedin.com/in/bessanh-shadrak-744049287/",
+      github: "https://github.com/Bsh54/NAWIRI"
+    },
+
+    team: "Shadrak BESSANH & Frankel Gnonlonfin",
+
+    technologies: ["Next.js", "Google Gemini", "RAG", "Leaflet", "Multilingual AI", "Social Impact"],
+
+    metrics: {
+      award: "Social Impact Award",
+      participants: "6,000+",
+      countries: "90+",
+      qualifiedTeams: "808",
+      projectsEvaluated: "622",
+      winners: "15"
+    }
   }
 ];
