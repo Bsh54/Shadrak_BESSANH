@@ -2,16 +2,16 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 export const SEOHead = ({
-  title = "BESSANH Shadrak - Full-Stack Developer & AI Specialist | Hackathon Winner 2026",
-  description = "BESSANH Shadrak - Full-Stack Developer & AI Specialist from Benin. 2nd Place Winner African Digital Identity Hackathon 2026. Expert in MERN Stack, React, Python, Digital Identity & Machine Learning.",
-  keywords = "BESSANH Shadrak, software developer Benin, AI developer Africa, MERN stack, digital identity, CottonPay, ID4Africa 2026, hackathon winner, fintech Africa",
+  title = "BESSANH Shadrak - Full-Stack & AI Developer | USAII & ID4Africa Hackathon Winner 2026",
+  description = "BESSANH Shadrak - Full-Stack & AI Developer from Benin. Winner of the USAII Global AI Hackathon 2026 (Social Impact Award) and 2nd place at ID4Africa 2026. Building AI for real-world impact: digital identity, healthcare, fintech, Web3 & African languages.",
+  keywords = "BESSANH Shadrak, Shadrak BESSANH, software developer Benin, AI developer Africa, AI engineer, machine learning engineer, full-stack developer, React, Next.js, Python, TypeScript, digital identity, CottonPay, ID4Africa 2026, USAII Global AI Hackathon 2026, Social Impact Award, NAWIRI, NeuroBridge, hackathon winner, AI for good, healthcare AI, fintech Africa, Web3, blockchain, RAG, LLM, NLP, Fon language, African languages AI, IFRI UAC",
   image = "https://shadrakbessanh.me/og-image.jpg",
   url = "https://shadrakbessanh.me",
   type = "website",
   author = "BESSANH Shadrak",
   twitterHandle = "@shadrakbessanh",
   pageType = "WebPage",
-  dateModified = "2026-06-07",
+  dateModified = "2026-07-30",
 }) => {
   const personRef = { "@id": "https://shadrakbessanh.me/#person" };
   const websiteRef = { "@id": "https://shadrakbessanh.me/#website" };
@@ -43,9 +43,12 @@ export const SEOHead = ({
     "url": "https://shadrakbessanh.me",
     "image": image,
     "description": description,
-    "jobTitle": "Full-Stack Developer & AI Specialist",
+    "jobTitle": "Full-Stack & AI Developer",
     "nationality": { "@type": "Country", "name": "Benin" },
-    "award": "2nd Place - African Digital Identity Hackathon 2026 (ID4Africa)",
+    "award": [
+      "Social Impact Award - USAII Global AI Hackathon 2026 (project NAWIRI)",
+      "2nd Place - African Digital Identity Hackathon 2026 (ID4Africa, project CottonPay)",
+    ],
     "alumniOf": {
       "@type": "EducationalOrganization",
       "name": "Institut de Formation et de Recherche en Informatique (IFRI)",
@@ -55,16 +58,17 @@ export const SEOHead = ({
       },
     },
     "sameAs": [
-      "https://linkedin.com/in/shadrak-bessanh",
+      "https://www.linkedin.com/in/bessanh-shadrak-744049287/",
       "https://github.com/Bsh54",
       "https://twitter.com/shadrakbessanh",
       "https://medium.com/@shadrakbessanh",
     ],
     "knowsAbout": [
       "JavaScript", "TypeScript", "Python", "React", "Next.js",
-      "Node.js", "MongoDB", "Express", "MERN Stack",
-      "Machine Learning", "Deep Learning", "Digital Identity",
-      "Fintech", "AI Development", "FastAPI", "Firebase",
+      "Node.js", "MERN Stack", "Machine Learning", "Deep Learning",
+      "Generative AI", "Large Language Models", "RAG", "NLP", "Computer Vision",
+      "Digital Identity", "Fintech", "Web3", "Blockchain", "Healthcare AI",
+      "AI for Social Impact", "African Language Technology", "FastAPI", "Firebase",
     ],
   };
 
