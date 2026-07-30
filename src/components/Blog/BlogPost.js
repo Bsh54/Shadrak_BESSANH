@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import { getPost, blogPosts } from "../../data/blogData";
 import Markdown from "./Markdown";
 import ScrollToTop from "../ScrollToTop";
+import avatar from "../../Assets/avatar.png";
 import "./Blog.css";
 
 const SITE = "https://shadrakbessanh.me";
@@ -104,10 +105,11 @@ function BlogPost() {
             </div>
             <h1 className="blogpost-title">{post.title}</h1>
             <div className="blogpost-meta">
-              <span>By BESSANH Shadrak</span>
-              <span>·</span>
+              <img src={avatar} alt="BESSANH Shadrak" className="blog-byline-avatar" />
+              <span>BESSANH Shadrak</span>
+              <span className="dot">·</span>
               <time dateTime={post.date}>{fmtDate(post.date)}</time>
-              <span>·</span>
+              <span className="dot">·</span>
               <span>{post.readingTime} read</span>
             </div>
           </header>

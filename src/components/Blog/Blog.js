@@ -1,15 +1,18 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Particle from "../Particle";
 import { blogPosts } from "../../data/blogData";
 import { SEOHead } from "../SEO/SEOHead";
+import avatar from "../../Assets/avatar.png";
 import "./Blog.css";
 
 const fmtDate = (d) =>
   new Date(d).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 
 function Blog() {
+  const [featured, ...rest] = blogPosts;
+
   return (
     <>
       <SEOHead
@@ -20,46 +23,68 @@ function Blog() {
         image="https://shadrakbessanh.me/og-image.jpg"
         pageType="Blog"
       />
-      <Container fluid className="blog-section">
+      <div className="blog-section">
         <Particle />
         <Container className="blog-container">
-          <h1 className="project-heading">
-            The <strong className="purple">Blog</strong>
-          </h1>
-          <p className="blog-intro">
-            Notes on building AI for real-world impact — projects, awards and lessons from Benin.
-          </p>
 
-          <Row className="blog-list">
-            {blogPosts.map((post) => (
-              <Col md={6} lg={4} className="blog-col" key={post.slug}>
-                <Link to={`/blog/${post.slug}`} className="blog-card-link">
-                  <article className="blog-card">
-                    <div className="blog-card-img">
-                      <img src={post.cover} alt={post.title} loading="lazy" />
-                    </div>
-                    <div className="blog-card-body">
-                      <div className="blog-card-meta">
-                        <span>{fmtDate(post.date)}</span>
-                        <span>·</span>
-                        <span>{post.readingTime}</span>
-                      </div>
-                      <h2 className="blog-card-title">{post.title}</h2>
-                      <p className="blog-card-excerpt">{post.excerpt}</p>
-                      <div className="blog-card-tags">
-                        {post.tags.slice(0, 3).map((t) => (
-                          <span className="blog-tag" key={t}>{t}</span>
-                        ))}
-                      </div>
-                      <span className="blog-card-more">Read article →</span>
-                    </div>
-                  </article>
-                </Link>
-              </Col>
+          {/* Masthead */}
+          <header className="blog-masthead">
+            <span className="blog-kicker">The Blog</span>
+            <h1 className="blog-headline">Building AI for real-world impact</h1>
+            <p className="blog-sub">Projects, awards and lessons from Benin — where technology meets real problems.</p>
+          </header>
+
+          {/* Featured */}
+          <Link to={`/blog/${featured.slug}`} className="blog-featured">
+            <div className="blog-featured-img">
+              <img src={featured.cover} alt={featured.title} />
+              <span className="blog-featured-badge">Featured</span>
+            </div>
+            <div className="blog-featured-body">
+              <div className="blog-card-tags">
+                {featured.tags.slice(0, 3).map((t) => <span className="blog-tag" key={t}>{t}</span>)}
+              </div>
+              <h2 className="blog-featured-title">{featured.title}</h2>
+              <p className="blog-featured-excerpt">{featured.excerpt}</p>
+              <div className="blog-byline">
+                <img src={avatar} alt="BESSANH Shadrak" className="blog-byline-avatar" />
+                <span>BESSANH Shadrak</span>
+                <span className="dot">·</span>
+                <span>{fmtDate(featured.date)}</span>
+                <span className="dot">·</span>
+                <span>{featured.readingTime}</span>
+              </div>
+            </div>
+          </Link>
+
+          {/* Divider */}
+          <div className="blog-divider"><span>More articles</span></div>
+
+          {/* List */}
+          <div className="blog-rows">
+            {rest.map((post) => (
+              <Link to={`/blog/${post.slug}`} className="blog-row" key={post.slug}>
+                <div className="blog-row-img">
+                  <img src={post.cover} alt={post.title} loading="lazy" />
+                </div>
+                <div className="blog-row-body">
+                  <div className="blog-card-tags">
+                    {post.tags.slice(0, 2).map((t) => <span className="blog-tag" key={t}>{t}</span>)}
+                  </div>
+                  <h3 className="blog-row-title">{post.title}</h3>
+                  <p className="blog-row-excerpt">{post.excerpt}</p>
+                  <div className="blog-card-meta">
+                    <span>{fmtDate(post.date)}</span>
+                    <span className="dot">·</span>
+                    <span>{post.readingTime}</span>
+                  </div>
+                </div>
+              </Link>
             ))}
-          </Row>
+          </div>
+
         </Container>
-      </Container>
+      </div>
     </>
   );
 }
