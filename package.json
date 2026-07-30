@@ -41,8 +41,18 @@
   "reactSnap": {
     "inlineCss": false,
     "skipThirdPartyRequests": true,
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
-    "include": ["/", "/project", "/achievements", "/resume", "/achievement/cottonpay-id4africa", "/achievement/nawiri-usaii-global-ai-hackathon"]
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ],
+    "include": [
+      "/",
+      "/project",
+      "/achievements",
+      "/resume",
+      "/achievement/cottonpay-id4africa",
+      "/achievement/nawiri-usaii-global-ai-hackathon"
+    ]
   },
   "eslintConfig": {
     "extends": [
