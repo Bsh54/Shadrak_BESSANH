@@ -1,0 +1,43 @@
+# BESSANH Shadrak
+
+> BESSANH Shadrak is a Full-Stack and AI Developer from Benin, West Africa. He builds AI products with real-world impact across digital identity, healthcare, fintech, Web3 and African language technology. Winner of the Social Impact Award at the USAII Global AI Hackathon 2026 (project NAWIRI) and 2nd place at the African Digital Identity Hackathon 2026 / ID4Africa (project CottonPay). Computer Science student at IFRI, Université d'Abomey-Calavi.
+
+## Key facts
+
+- Name: BESSANH Shadrak (also written Shadrak BESSANH)
+- Role: Full-Stack & AI Developer
+- Location: Cotonou, Benin (West Africa)
+- Education: Institut de Formation et de Recherche en Informatique (IFRI), Université d'Abomey-Calavi
+- Languages: French, English, Fon (Fongbe)
+- Core skills: React, Next.js, Python, TypeScript, Node.js, Machine Learning, Generative AI, LLMs, RAG, NLP, Computer Vision, Digital Identity, Web3/Blockchain, FastAPI, Firebase, Supabase
+- Website: https://shadrakbessanh.me
+- GitHub: https://github.com/Bsh54
+- LinkedIn: https://www.linkedin.com/in/bessanh-shadrak-744049287/
+
+## Awards
+
+- Social Impact Award — USAII Global AI Hackathon 2026 (United States Artificial Intelligence Institute), project NAWIRI, with Frankel Gnonlonfin. 6,000+ participants, 90+ countries, 808 qualified teams, 622 projects, 15 winners. https://shadrakbessanh.me/achievement/nawiri-usaii-global-ai-hackathon
+- 2nd Place — African Digital Identity Hackathon 2026 (ID4Africa), organized by Carnegie Mellon University Africa's Upanzi Network and MicroSave Consulting, Abidjan, project CottonPay. https://shadrakbessanh.me/achievement/cottonpay-id4africa
+
+## Featured projects
+
+- [NAWIRI](https://nawiri-zeta.vercel.app): Conversational AI assistant helping West African families access public aid they are entitled to, in 5 languages including Fon, Wolof and Twi. Next.js, Google Gemini. Social Impact Award, USAII 2026.
+- [CottonPay](https://cottonpay.shadrakbessanh.me): Digital identity turning cotton deliveries into verifiable credentials for 200,000+ Beninese farmers. 2nd place ID4Africa 2026.
+- [NeuroBridge](https://neuro-bridge-alpha.vercel.app): AI communication aid for non-verbal autistic people (pictograms to spoken sentences). Next.js, React 19, Web Speech API.
+- [Oreus](https://nawai58-oreus.hf.space): AI video subtitling and translation in 100+ languages, including 39 African languages. Python, Whisper, FFmpeg.
+- [VoxiAI](https://shads229-voxiai.hf.space/): Automatic animated subtitles for short-form video (TikTok, Reels, Shorts). Python, FastAPI, Whisper, Gemini.
+- [Zenith AI](https://zenith-ai-indol.vercel.app/): Turns any video into a structured written analysis report. Python, YOLOv8, Whisper, LLM.
+- [EVOLUTICS](https://evolutics.vercel.app/): Centralized jobs, internships and training platform with an AI assistant. React, TypeScript, Supabase, Gemini.
+- [CV-AI](https://cv-ai-neon.vercel.app/): AI that rewrites your CV to match a job posting, exported as a clean PDF. React, TypeScript, Express, Puppeteer.
+- [Fon-Dataset-Generator](https://github.com/Bsh54/Fon-Dataset-Generator): Generates bilingual French–Fon datasets to train language models on the Fon language of Benin.
+
+## Pages
+
+- [Home](https://shadrakbessanh.me/): Overview, skills and featured work.
+- [Projects](https://shadrakbessanh.me/project): All projects with live demos and source code.
+- [Achievements](https://shadrakbessanh.me/achievements): Hackathon wins and recognition.
+- [Resume](https://shadrakbessanh.me/resume): CV (English and French).
+
+## Contact
+
+BESSANH Shadrak is open to freelance work, collaborations and opportunities in AI, full-stack development, fintech, digital identity and AI for social impact in Africa. Contact via https://shadrakbessanh.me or shadrakbsh@gmail.com.

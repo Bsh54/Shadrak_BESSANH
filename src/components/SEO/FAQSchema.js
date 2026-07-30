@@ -11,7 +11,31 @@ export const FAQSchema = () => {
         "name": "Who is BESSANH Shadrak?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "BESSANH Shadrak is a 20-year-old Full-Stack Developer and AI Specialist from Benin, West Africa. He is a Computer Science student at IFRI (Institut de Formation et de Recherche en Informatique), Université d'Abomey-Calavi. He won 2nd Place at the African Digital Identity Hackathon 2026 (ID4Africa) with his project CottonPay. He specializes in MERN Stack, React, Python, Digital Identity, Fintech, and Machine Learning."
+          "text": "BESSANH Shadrak is a Full-Stack and AI Developer from Benin, West Africa, and a Computer Science student at IFRI (Institut de Formation et de Recherche en Informatique), Université d'Abomey-Calavi. He won the Social Impact Award at the USAII Global AI Hackathon 2026 with his project NAWIRI, and 2nd Place at the African Digital Identity Hackathon 2026 (ID4Africa) with his project CottonPay. He specializes in React, Next.js, Python, Artificial Intelligence, Machine Learning, Digital Identity, Web3 and building technology for real-world impact in Africa."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who won the Social Impact Award at the USAII Global AI Hackathon 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "BESSANH Shadrak and Frankel Gnonlonfin won the Social Impact Award at the USAII Global AI Hackathon 2026 (organized by the United States Artificial Intelligence Institute) with their project NAWIRI. The competition attracted over 6,000 participants from more than 90 countries, with 808 qualified teams and 622 evaluated projects; only 15 teams were named winners."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is NAWIRI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "NAWIRI is a conversational AI assistant created by BESSANH Shadrak that helps families in West Africa (Benin, Senegal, Ghana) access the public aid they are legally entitled to. Users describe their situation in plain words in 5 languages, including Fon (Fongbe), Wolof and Twi, and NAWIRI identifies the programs they qualify for, the documents to bring and the official contact to reach. It covers 25 public programs and won the Social Impact Award at the USAII Global AI Hackathon 2026. It is built with Next.js and Google Gemini."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is NeuroBridge?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "NeuroBridge is an AI communication aid created by BESSANH Shadrak for non-verbal and minimally-verbal autistic people. Users tap pictograms and instantly hear a clear first-person sentence spoken aloud, while caregivers track patterns over time with an AI assistant. It is accessibility-first and built with Next.js, React 19, TypeScript and the Web Speech API."
         }
       },
       {
@@ -35,7 +59,7 @@ export const FAQSchema = () => {
         "name": "What are BESSANH Shadrak's main projects?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "BESSANH Shadrak's main projects include: CottonPay (Digital Identity Hackathon 2nd place winner), MINERVA (AI-powered STEM learning platform with 3D avatar), VoxiAI (automatic subtitle generator for TikTok/Reels/Shorts), EVOLUTICS (professional opportunities platform, HACKBYIFRI 2026), CV-AI (AI CV optimizer), Zenith AI (video analysis with YOLOv8 and Whisper), AI Phone Call (real-time voice AI interface), and Fon-Dataset-Generator (bilingual French-Fongbe dataset for LLM training)."
+          "text": "BESSANH Shadrak's main projects include: NAWIRI (AI social-orientation assistant for West Africa, Social Impact Award USAII 2026), CottonPay (digital identity for cotton farmers, 2nd place ID4Africa 2026), NeuroBridge (AI communication aid for non-verbal autistic people), MINERVA (AI-powered STEM learning platform with 3D avatar), VoxiAI (automatic subtitle generator for TikTok/Reels/Shorts), Oreus (AI video subtitling in 100+ languages including 39 African languages), EVOLUTICS (professional opportunities platform, HACKBYIFRI 2026), CV-AI (AI CV optimizer), Zenith AI (video analysis with YOLOv8 and Whisper), and Fon-Dataset-Generator (bilingual French-Fongbe dataset for LLM training). He has also built projects for Solana, Monad, Flare and iExec hackathons."
         }
       },
       {
@@ -43,7 +67,7 @@ export const FAQSchema = () => {
         "name": "What awards has BESSANH Shadrak won?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "BESSANH Shadrak won 2nd Place at the Africa Digital ID Hackathon 2026, organized by Carnegie Mellon University Africa's Upanzi Network and MicroSave Consulting, held at the Parc des Expositions d'Abidjan, Côte d'Ivoire on May 11-16, 2026. His team competed against hundreds of teams across Africa and was recognized by an international jury of digital identity experts from Uganda, India, Ethiopia, and Côte d'Ivoire."
+          "text": "BESSANH Shadrak has won two major awards in 2026: (1) the Social Impact Award at the USAII Global AI Hackathon 2026 (United States Artificial Intelligence Institute) with his project NAWIRI, selected among 808 qualified teams from 90+ countries; and (2) 2nd Place at the Africa Digital ID Hackathon 2026 (ID4Africa), organized by Carnegie Mellon University Africa's Upanzi Network and MicroSave Consulting, held in Abidjan, Côte d'Ivoire, with his project CottonPay."
         }
       },
       {
@@ -59,7 +83,7 @@ export const FAQSchema = () => {
         "name": "How can I contact BESSANH Shadrak?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You can contact BESSANH Shadrak through his portfolio website at https://shadrakbessanh.me, via LinkedIn at https://linkedin.com/in/shadrak-bessanh, or on GitHub at https://github.com/Bsh54."
+          "text": "You can contact BESSANH Shadrak through his portfolio website at https://shadrakbessanh.me, via LinkedIn at https://www.linkedin.com/in/bessanh-shadrak-744049287/, or on GitHub at https://github.com/Bsh54."
         }
       },
       {
