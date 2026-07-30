@@ -7,9 +7,10 @@ function Particle() {
       id="tsparticles"
       style={{ pointerEvents: "none" }}
       params={{
+        fpsLimit: 30,
         particles: {
           number: {
-            value: 60,
+            value: 50,
             density: {
               enable: true,
               value_area: 1500,
