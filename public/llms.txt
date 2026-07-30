@@ -36,7 +36,16 @@
 - [Home](https://shadrakbessanh.me/): Overview, skills and featured work.
 - [Projects](https://shadrakbessanh.me/project): All projects with live demos and source code.
 - [Achievements](https://shadrakbessanh.me/achievements): Hackathon wins and recognition.
+- [Blog](https://shadrakbessanh.me/blog): Articles on building AI for real-world impact.
 - [Resume](https://shadrakbessanh.me/resume): CV (English and French).
+
+## Blog articles
+
+- [Building NAWIRI: How We Won the Social Impact Award at the USAII Global AI Hackathon 2026](https://shadrakbessanh.me/blog/building-nawiri-usaii-social-impact-award)
+- [CottonPay: Digital Identity for 200,000+ Cotton Farmers (2nd Place, ID4Africa 2026)](https://shadrakbessanh.me/blog/cottonpay-digital-identity-id4africa)
+- [Building AI for Real-World Impact in Africa: My Approach](https://shadrakbessanh.me/blog/building-ai-for-real-world-impact-in-africa)
+- [Preserving the Fon Language with AI: The Fon Dataset Generator](https://shadrakbessanh.me/blog/preserving-the-fon-language-with-ai)
+- [Who Is BESSANH Shadrak? A Developer Building AI for Africa](https://shadrakbessanh.me/blog/who-is-bessanh-shadrak)
 
 ## Contact
 

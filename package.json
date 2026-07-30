@@ -50,8 +50,14 @@
       "/project",
       "/achievements",
       "/resume",
+      "/blog",
       "/achievement/cottonpay-id4africa",
-      "/achievement/nawiri-usaii-global-ai-hackathon"
+      "/achievement/nawiri-usaii-global-ai-hackathon",
+      "/blog/building-nawiri-usaii-social-impact-award",
+      "/blog/cottonpay-digital-identity-id4africa",
+      "/blog/building-ai-for-real-world-impact-in-africa",
+      "/blog/preserving-the-fon-language-with-ai",
+      "/blog/who-is-bessanh-shadrak"
     ]
   },
   "eslintConfig": {

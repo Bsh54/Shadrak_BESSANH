@@ -9,6 +9,7 @@ const resources = {
       "nav.home": "Home",
       "nav.projects": "Projects",
       "nav.achievements": "Achievements",
+      "nav.blog": "Blog",
       "nav.resume": "Resume",
 
       // Home - Hero Section
@@ -174,6 +175,7 @@ const resources = {
       "nav.home": "Accueil",
       "nav.projects": "Projets",
       "nav.achievements": "Réalisations",
+      "nav.blog": "Blog",
       "nav.resume": "CV",
 
       // Home - Hero Section

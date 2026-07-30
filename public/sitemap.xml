@@ -73,4 +73,42 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://shadrakbessanh.me/resume?lang=fr" />
   </url>
 
+  <!-- Blog -->
+  <url>
+    <loc>https://shadrakbessanh.me/blog</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://shadrakbessanh.me/blog/building-nawiri-usaii-social-impact-award</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://shadrakbessanh.me/blog/cottonpay-digital-identity-id4africa</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://shadrakbessanh.me/blog/building-ai-for-real-world-impact-in-africa</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shadrakbessanh.me/blog/preserving-the-fon-language-with-ai</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shadrakbessanh.me/blog/who-is-bessanh-shadrak</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
