@@ -11,6 +11,7 @@ function Footer() {
     { to: "/", label: t("nav.home") },
     { to: "/project", label: t("nav.projects") },
     { to: "/achievements", label: t("nav.achievements") },
+    { to: "/blog", label: t("nav.blog") },
     { to: "/resume", label: t("nav.resume") },
   ];
 

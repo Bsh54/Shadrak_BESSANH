@@ -9,6 +9,7 @@ const resources = {
       "nav.home": "Home",
       "nav.projects": "Projects",
       "nav.achievements": "Achievements",
+      "nav.blog": "Blog",
       "nav.resume": "Resume",
 
       // Home - Hero Section
@@ -133,6 +134,10 @@ const resources = {
       "preview.resume.highlight": "Resume",
       "preview.resume.subtitle": "Download or view my CV online.",
       "preview.resume.viewOnline": "View Online",
+      "preview.blog.title": "Latest",
+      "preview.blog.highlight": "Articles",
+      "preview.blog.subtitle": "Notes on building AI for real-world impact.",
+      "preview.blog.seeAll": "Read the blog →",
 
       // Resume
       "resume.download": "Download Resume",
@@ -174,6 +179,7 @@ const resources = {
       "nav.home": "Accueil",
       "nav.projects": "Projets",
       "nav.achievements": "Réalisations",
+      "nav.blog": "Blog",
       "nav.resume": "CV",
 
       // Home - Hero Section
@@ -298,6 +304,10 @@ const resources = {
       "preview.resume.highlight": "CV",
       "preview.resume.subtitle": "Téléchargez ou consultez mon CV en ligne.",
       "preview.resume.viewOnline": "Voir en ligne",
+      "preview.blog.title": "Derniers",
+      "preview.blog.highlight": "Articles",
+      "preview.blog.subtitle": "Mes notes sur la création d'IA à impact concret.",
+      "preview.blog.seeAll": "Lire le blog →",
 
       // Resume
       "resume.download": "Télécharger CV",

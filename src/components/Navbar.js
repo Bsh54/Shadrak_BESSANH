@@ -9,6 +9,7 @@ import {
   AiOutlineTrophy,
 } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
+import { FaRegNewspaper } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 
@@ -76,6 +77,18 @@ function NavBar() {
                 onClick={() => updateExpanded(false)}
               >
                 <AiOutlineTrophy style={{ marginBottom: "2px" }} /> {t('nav.achievements')}
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/blog"
+                active={isActive("/blog")}
+                aria-current={isActive("/blog") ? "page" : undefined}
+                onClick={() => updateExpanded(false)}
+              >
+                <FaRegNewspaper style={{ marginBottom: "2px" }} /> {t('nav.blog')}
               </Nav.Link>
             </Nav.Item>
 

@@ -5,9 +5,25 @@
   <!-- All projects are on /project — single canonical URL -->
   <url>
     <loc>https://shadrakbessanh.me/project</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://shadrakbessanh.me/static/media/nawiri.png</image:loc>
+      <image:title>NAWIRI - AI social orientation for West Africa (Social Impact Award USAII 2026)</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://shadrakbessanh.me/static/media/neurobridge.png</image:loc>
+      <image:title>NeuroBridge - AI communication aid for non-verbal autistic people</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://shadrakbessanh.me/static/media/cottonpay.png</image:loc>
+      <image:title>CottonPay - Digital identity for cotton farmers (2nd place ID4Africa 2026)</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://shadrakbessanh.me/static/media/oreus.png</image:loc>
+      <image:title>Oreus - AI video subtitling in 100+ languages including 39 African languages</image:title>
+    </image:image>
     <image:image>
       <image:loc>https://shadrakbessanh.me/static/media/evolutics.png</image:loc>
       <image:title>EVOLUTICS - Professional Opportunities Platform with AI</image:title>

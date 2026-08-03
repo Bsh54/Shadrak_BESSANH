@@ -1,20 +1,63 @@
+# robots.txt — https://shadrakbessanh.me
+
 User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /private
 
-# Crawl delay
-Crawl-delay: 1
+# Search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# ---- AI / Answer engines (allowed to read and cite this site) ----
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
 
 # Sitemaps
 Sitemap: https://shadrakbessanh.me/sitemap.xml
 Sitemap: https://shadrakbessanh.me/sitemap-projects.xml
 Sitemap: https://shadrakbessanh.me/sitemap-achievements.xml
 
-# Google Search Console
-User-agent: Googlebot
-Allow: /
-
-# Bing
-User-agent: Bingbot
-Allow: /
+# LLM-friendly summary: https://shadrakbessanh.me/llms.txt

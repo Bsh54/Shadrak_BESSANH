@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import ProjectCard from "../Projects/ProjectCards";
 import AchievementCard from "../Achievements/AchievementCard";
 import { achievementsData } from "../../data/achievementsData";
+import { blogPosts } from "../../data/blogData";
 import { Document, Page, pdfjs } from "react-pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 import { trackConversion } from "../../services/analyticsService";
@@ -128,6 +129,42 @@ function PreviewSections({ only }) {
           </Row>
 
           <SeeMoreButton to="/achievements" label={t("preview.achievements.seeAll")} />
+        </Container>
+      </Container>
+      )}
+
+      {/* ---- Blog Preview ---- */}
+      {show("blog") && (
+      <Container fluid className="preview-section preview-section--gray">
+        <Container>
+          <h1 className="project-heading" style={{ paddingTop: "60px" }}>
+            {t("preview.blog.title")}{" "}
+            <strong className="purple">{t("preview.blog.highlight")}</strong>
+          </h1>
+          <p className="preview-subtitle">{t("preview.blog.subtitle")}</p>
+
+          <Row style={{ justifyContent: "center" }}>
+            {blogPosts.slice(0, 3).map((post) => (
+              <Col md={4} className="project-card" key={post.slug}>
+                <Link to={`/blog/${post.slug}`} className="home-article-card">
+                  <div className="home-article-img">
+                    <img src={post.cover} alt={post.title} loading="lazy" />
+                  </div>
+                  <div className="home-article-body">
+                    <div className="home-article-meta">
+                      {new Date(post.date).toLocaleDateString(i18n.language === "fr" ? "fr-FR" : "en-US", { year: "numeric", month: "short", day: "numeric" })}
+                      {" · "}{post.readingTime}
+                    </div>
+                    <h3 className="home-article-title">{post.title}</h3>
+                    <p className="home-article-excerpt">{post.excerpt}</p>
+                    <span className="home-article-more">Read →</span>
+                  </div>
+                </Link>
+              </Col>
+            ))}
+          </Row>
+
+          <SeeMoreButton to="/blog" label={t("preview.blog.seeAll")} />
         </Container>
       </Container>
       )}
