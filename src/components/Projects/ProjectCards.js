@@ -1,7 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
 import { useTranslation } from "react-i18next";
 import { trackClick, trackConversion } from "../../services/analyticsService";
@@ -12,11 +11,6 @@ function ProjectCards(props) {
   const handleGithubClick = () => {
     trackClick(`GitHub-${props.title}`, "project");
     trackConversion("project_github_click", props.title);
-  };
-
-  const handleDemoClick = () => {
-    trackClick(`Demo-${props.title}`, "project");
-    trackConversion("project_demo_click", props.title);
   };
 
   return (
@@ -40,22 +34,17 @@ function ProjectCards(props) {
           {props.description}
         </Card.Text>
 
-        <div className="project-card-actions">
-          <Button variant="primary" href={props.ghLink} target="_blank" rel="noreferrer" onClick={handleGithubClick}>
+        <div className="project-card-actions project-card-actions--single">
+          <Button
+            variant="primary"
+            href={props.ghLink}
+            target="_blank"
+            rel="noreferrer"
+            onClick={handleGithubClick}
+            className="w-100"
+          >
             <BsGithub /> &nbsp;{props.isBlog ? "Blog" : t('projects.github')}
           </Button>
-
-          {!props.isBlog && props.demoLink && (
-            <Button
-              variant="primary"
-              href={props.demoLink}
-              target="_blank"
-              rel="noreferrer"
-              onClick={handleDemoClick}
-            >
-              <CgWebsite /> &nbsp;{t('projects.demo')}
-            </Button>
-          )}
         </div>
       </Card.Body>
     </Card>

@@ -1,30 +1,37 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Particle from "../Particle";
 import AchievementCard from "./AchievementCard";
 import { achievementsData } from "../../data/achievementsData";
 import { useTranslation } from "react-i18next";
-import "./Achievements.css";
 
 function Achievements() {
-  const { t } = useTranslation();
+  const { i18n } = useTranslation();
+  const isFr = i18n.language === "fr";
 
   return (
-    <div>
-      <Container fluid className="achievement-section">
-        <Particle />
-        <Container>
-          <h1 className="project-heading">
-            {t('achievements.title')} <strong className="purple">{t('achievements.title.highlight')}</strong>
-          </h1>
-          <p style={{ color: "white", textAlign: "center", marginBottom: "50px" }}>
-            {t('achievements.subtitle')}
-          </p>
+    <>
+      <div style={{ paddingTop: 140, paddingBottom: 48, background: "var(--bg)" }}>
+        <Container fluid className="editorial-container" style={{ paddingLeft: 0, paddingRight: 0 }}>
+          <div className="section-head" style={{ marginBottom: 56 }}>
+            <span className="section-eyebrow">{isFr ? "Reconnaissance" : "Recognition"}</span>
+            <h1 className="section-title" style={{ fontSize: "var(--fs-display)", maxWidth: "22ch" }}>
+              {isFr ? "Reconnaissance." : "Recognition."}
+            </h1>
+            <p className="section-lede">
+              {isFr
+                ? "Selections, prix et residences obtenus avec mes projets. Du plus recent au plus ancien."
+                : "Selections, awards and residencies earned with my projects. Most recent first."}
+            </p>
+          </div>
+        </Container>
+      </div>
 
-          <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+      <div style={{ background: "var(--bg)", paddingBottom: 120 }}>
+        <Container fluid className="editorial-container" style={{ paddingLeft: 0, paddingRight: 0 }}>
+          <Row>
             {achievementsData.map((achievement) => (
-              <Col md={4} className="achievement-card-wrapper" key={achievement.id}>
+              <Col lg={4} md={6} sm={12} className="project-card" key={achievement.id}>
                 <Link to={`/achievement/${achievement.id}`} style={{ textDecoration: "none" }}>
                   <AchievementCard
                     id={achievement.id}
@@ -40,8 +47,8 @@ function Achievements() {
             ))}
           </Row>
         </Container>
-      </Container>
-    </div>
+      </div>
+    </>
   );
 }
 

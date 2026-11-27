@@ -1,120 +1,124 @@
-/* Achievement Card Specific Styles */
+/* Achievement card - editorial Quiet Authority (ivory + indigo) */
 .achievement-card-view {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  transition: all 0.3s ease-out;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  background: #14141B;
+  background: var(--bg) !important;
+  border: 1px solid var(--surface-border) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  box-shadow: none !important;
+  transition: border-color var(--t-med), transform var(--t-med) !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  color: var(--text) !important;
 }
 
 .achievement-card-view:hover {
-  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.25);
-  transform: translateY(-8px);
+  border-color: var(--surface-border-strong) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: var(--shadow-2) !important;
 }
 
 .achievement-card-view .card-img-top {
-  height: 250px;
+  aspect-ratio: 16 / 10;
+  height: auto;
+  width: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease-out;
-}
-
-.achievement-card-view:hover .card-img-top {
-  transform: scale(1.08);
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--surface-border);
 }
 
 .achievement-card-view .card-body {
-  flex-grow: 1;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 25px;
-  background: #14141B;
+  padding: var(--space-5) !important;
+  background: var(--bg) !important;
+  gap: var(--space-3);
 }
 
 .achievement-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 15px;
+  gap: var(--space-3);
+  margin-bottom: 0;
 }
 
 .achievement-card-view .card-title {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #F4F4F5;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
   margin: 0;
-  line-height: 1.3;
-  flex-grow: 1;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  flex: 1;
+  min-width: 0;
 }
 
 .status-badge {
-  font-size: 0.7rem;
-  padding: 6px 12px;
-  white-space: nowrap;
-  font-weight: 700;
+  background: var(--accent) !important;
+  color: var(--paper-50) !important;
+  font-family: var(--font-mono) !important;
+  font-size: var(--fs-mono) !important;
+  font-weight: 500 !important;
+  padding: 4px 10px !important;
+  border-radius: 4px !important;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border-radius: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .achievement-organization {
-  font-size: 0.9rem;
-  color: #A1A1AA;
-  margin-bottom: 15px;
-  font-weight: 500;
-  line-height: 1.4;
+  font-size: var(--fs-body-sm);
+  color: var(--text-secondary);
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 .achievement-meta {
-  flex-grow: 1;
-  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
 }
 
 .achievement-date,
 .achievement-location {
-  font-size: 0.85rem;
-  color: #A1A1AA;
-  margin: 8px 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  color: var(--text-muted);
+  margin: 0;
+  letter-spacing: 0.02em;
 }
 
 .achievement-date i,
 .achievement-location i {
-  color: #2563EB;
-  width: 16px;
-  text-align: center;
+  display: none;
 }
 
 .achievement-footer {
-  text-align: center;
-  padding-top: 15px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
   margin-top: auto;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--surface-border);
 }
 
 .achievement-footer small {
-  color: #9CA3AF;
-  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   font-weight: 500;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
-  .achievement-card-view .card-title {
-    font-size: 1.1rem;
-  }
-
-  .achievement-card-view .card-img-top {
-    height: 200px;
-  }
-
   .achievement-card-view .card-body {
-    padding: 20px;
+    padding: var(--space-4) !important;
+  }
+  .achievement-card-view .card-title {
+    font-size: 1.0625rem;
   }
 }

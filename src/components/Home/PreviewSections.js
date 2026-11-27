@@ -1,219 +1,273 @@
 import React from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ProjectCard from "../Projects/ProjectCards";
 import AchievementCard from "../Achievements/AchievementCard";
 import { achievementsData } from "../../data/achievementsData";
+import { certificationsData } from "../../data/certificationsData";
 import { blogPosts } from "../../data/blogData";
 import { Document, Page, pdfjs } from "react-pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 import { trackConversion } from "../../services/analyticsService";
 import pdfEN from "../../Assets/CV Shadrak EN.pdf";
 import pdfFR from "../../Assets/CV Shadrak FR.pdf";
-import cottonpay from "../../Assets/Projects/cottonpay.png";
 import nawiri from "../../Assets/Projects/nawiri.png";
+import cottonpay from "../../Assets/Projects/cottonpay.png";
 import neurobridge from "../../Assets/Projects/neurobridge.png";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
-const SeeMoreButton = ({ to, label }) => (
-  <Row style={{ justifyContent: "center", marginTop: "40px", marginBottom: "10px" }}>
-    <Col style={{ textAlign: "center" }}>
-      <Link to={to}>
-        <Button
-          variant="outline-primary"
-          size="lg"
-          className="preview-see-more-btn"
-        >
-          {label}
-        </Button>
-      </Link>
-    </Col>
-  </Row>
-);
-
 function PreviewSections({ only }) {
   const { t, i18n } = useTranslation();
-  const pdf = i18n.language === "fr" ? pdfFR : pdfEN;
+  const isFr = i18n.language === "fr";
+  const pdf = isFr ? pdfFR : pdfEN;
   const show = (name) => !only || only === name;
 
   const featuredProjects = [
     {
-      imgPath: cottonpay,
-      title: "CottonPay",
-      tags: ["Digital Identity", "React", "Web3"],
-      description: t("projects.cottonpay.description"),
-      ghLink: "https://github.com/Bsh54/CottonPay2",
-      demoLink: "https://cottonpay.shadrakbessanh.me",
-    },
-    {
       imgPath: nawiri,
       title: "NAWIRI",
-      tags: ["Next.js", "Gemini", "Leaflet"],
+      tags: ["Next.js", "Gemini", "RAG"],
       description: t("projects.nawiri.description"),
       ghLink: "https://github.com/Bsh54/NAWIRI",
-      demoLink: "https://nawiri-zeta.vercel.app",
+      badge: "USAII 2026",
+    },
+    {
+      imgPath: cottonpay,
+      title: "CottonPay",
+      tags: ["eSignet", "BCovrin", "Web3"],
+      description: t("projects.cottonpay.description"),
+      ghLink: "https://github.com/Bsh54/CottonPay2",
+      badge: "ID4Africa 2026",
     },
     {
       imgPath: neurobridge,
       title: "NeuroBridge",
-      tags: ["Next.js", "React 19", "Web Speech"],
+      tags: ["Next.js", "Web Speech", "A11y"],
       description: t("projects.neurobridge.description"),
       ghLink: "https://github.com/Bsh54/NeuroBridge",
-      demoLink: "https://neuro-bridge-alpha.vercel.app",
     },
   ];
 
+  const fmtDate = (d) =>
+    new Date(d).toLocaleDateString(isFr ? "fr-FR" : "en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+
   return (
     <>
-      {/* ---- Projects Preview ---- */}
+      {/* ---- PROJECTS PREVIEW ---- */}
       {show("projects") && (
-      <Container fluid className="preview-section preview-section--gray">
-        <Container>
-          <h1 className="project-heading" style={{ paddingTop: "60px" }}>
-            {t("preview.projects.title")}{" "}
-            <strong className="purple">{t("preview.projects.highlight")}</strong>
-          </h1>
-          <p className="preview-subtitle">{t("preview.projects.subtitle")}</p>
+        <section className="preview-section preview-section--white">
+          <Container fluid className="editorial-container" style={{ paddingLeft: 0, paddingRight: 0 }}>
+            <div className="section-head">
+              <span className="section-eyebrow">{isFr ? "02 / Projets" : "02 / Work"}</span>
+              <h2 className="section-title">
+                {isFr
+                  ? "Une selection de ce que j'ai livre."
+                  : "A selection of what I have shipped."}
+              </h2>
+            </div>
 
-          <Row style={{ justifyContent: "center" }}>
-            {featuredProjects.map((project, idx) => (
-              <Col md={4} className="project-card" key={idx}>
-                <ProjectCard
-                  imgPath={project.imgPath}
-                  isBlog={false}
-                  title={project.title}
-                  badge={project.badge}
-                  tags={project.tags}
-                  description={project.description}
-                  ghLink={project.ghLink}
-                  demoLink={project.demoLink}
-                />
-              </Col>
-            ))}
-          </Row>
-
-          <SeeMoreButton to="/project" label={t("preview.projects.seeAll")} />
-        </Container>
-      </Container>
-      )}
-
-      {/* ---- Achievements Preview ---- */}
-      {show("achievements") && (
-      <Container fluid className="preview-section preview-section--white">
-        <Container>
-          <h1 className="project-heading" style={{ paddingTop: "60px" }}>
-            {t("preview.achievements.title")}{" "}
-            <strong className="purple">{t("preview.achievements.highlight")}</strong>
-          </h1>
-          <p className="preview-subtitle">{t("preview.achievements.subtitle")}</p>
-
-          <Row style={{ justifyContent: "center" }}>
-            {achievementsData.slice(0, 2).map((achievement) => (
-              <Col md={4} className="achievement-card-wrapper" key={achievement.id}>
-                <Link to={`/achievement/${achievement.id}`} style={{ textDecoration: "none" }}>
-                  <AchievementCard
-                    id={achievement.id}
-                    title={achievement.title}
-                    date={achievement.date}
-                    location={achievement.location}
-                    status={achievement.status}
-                    cardImage={achievement.cardImage}
-                    organization={achievement.organization}
+            <Row>
+              {featuredProjects.map((project) => (
+                <Col lg={4} md={6} className="project-card" key={project.title}>
+                  <ProjectCard
+                    imgPath={project.imgPath}
+                    isBlog={false}
+                    sourceOnly={true}
+                    title={project.title}
+                    badge={project.badge}
+                    tags={project.tags}
+                    description={project.description}
+                    ghLink={project.ghLink}
                   />
-                </Link>
-              </Col>
-            ))}
-          </Row>
+                </Col>
+              ))}
+            </Row>
 
-          <SeeMoreButton to="/achievements" label={t("preview.achievements.seeAll")} />
-        </Container>
-      </Container>
-      )}
-
-      {/* ---- Blog Preview ---- */}
-      {show("blog") && (
-      <Container fluid className="preview-section preview-section--gray">
-        <Container>
-          <h1 className="project-heading" style={{ paddingTop: "60px" }}>
-            {t("preview.blog.title")}{" "}
-            <strong className="purple">{t("preview.blog.highlight")}</strong>
-          </h1>
-          <p className="preview-subtitle">{t("preview.blog.subtitle")}</p>
-
-          <Row style={{ justifyContent: "center" }}>
-            {blogPosts.slice(0, 3).map((post) => (
-              <Col md={4} className="project-card" key={post.slug}>
-                <Link to={`/blog/${post.slug}`} className="home-article-card">
-                  <div className="home-article-img">
-                    <img src={post.cover} alt={post.title} loading="lazy" />
-                  </div>
-                  <div className="home-article-body">
-                    <div className="home-article-meta">
-                      {new Date(post.date).toLocaleDateString(i18n.language === "fr" ? "fr-FR" : "en-US", { year: "numeric", month: "short", day: "numeric" })}
-                      {" · "}{post.readingTime}
-                    </div>
-                    <h3 className="home-article-title">{post.title}</h3>
-                    <p className="home-article-excerpt">{post.excerpt}</p>
-                    <span className="home-article-more">Read →</span>
-                  </div>
-                </Link>
-              </Col>
-            ))}
-          </Row>
-
-          <SeeMoreButton to="/blog" label={t("preview.blog.seeAll")} />
-        </Container>
-      </Container>
-      )}
-
-      {/* ---- Resume Preview ---- */}
-      {show("resume") && (
-      <Container fluid className="preview-section preview-section--gray">
-        <Container>
-          <h1 className="project-heading" style={{ paddingTop: "60px" }}>
-            {t("preview.resume.title")}{" "}
-            <strong className="purple">{t("preview.resume.highlight")}</strong>
-          </h1>
-          <p className="preview-subtitle">{t("preview.resume.subtitle")}</p>
-
-          <Row style={{ justifyContent: "center", marginBottom: "30px" }}>
-            <Col xs="auto">
-              <div className="resume-preview-wrapper">
-                <Document file={pdf} className="d-flex justify-content-center">
-                  <Page pageNumber={1} scale={0.45} />
-                </Document>
-              </div>
-            </Col>
-          </Row>
-
-          <Row style={{ justifyContent: "center", marginBottom: "60px" }}>
-            <Col style={{ textAlign: "center" }}>
-              <Button
-                variant="primary"
-                href={pdf}
-                target="_blank"
-                className="resume-preview-btn"
-                onClick={() =>
-                  trackConversion(
-                    "cv_download_homepage",
-                    i18n.language === "fr" ? "CV_FR" : "CV_EN"
-                  )
-                }
-              >
-                <AiOutlineDownload /> &nbsp;{t("resume.download")}
-              </Button>
-              <Link to="/resume">
-                <Button variant="outline-primary" className="resume-preview-btn">
-                  {t("preview.resume.viewOnline")}
-                </Button>
+            <div style={{ marginTop: 8, display: "flex", justifyContent: "center" }}>
+              <Link to="/project" className="btn-editorial btn-editorial--ghost btn-editorial--seeall">
+                {isFr ? "Voir tous les projets" : "See all work"}
+                <span style={{ marginLeft: 8 }}>→</span>
               </Link>
-            </Col>
-          </Row>
-        </Container>
-      </Container>
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* ---- ACHIEVEMENTS PREVIEW ---- */}
+      {show("achievements") && (
+        <section className="preview-section preview-section--gray">
+          <Container fluid className="editorial-container" style={{ paddingLeft: 0, paddingRight: 0 }}>
+            <div className="section-head">
+              <span className="section-eyebrow">{isFr ? "03 / Reconnaissance" : "03 / Recognition"}</span>
+              <h2 className="section-title">
+                {isFr
+                  ? "Reconnaissance internationale en 2026."
+                  : "International recognition in 2026."}
+              </h2>
+            </div>
+
+            <Row>
+              {achievementsData.slice(0, 3).map((achievement) => (
+                <Col lg={4} md={6} className="project-card" key={achievement.id}>
+                  <Link to={`/achievement/${achievement.id}`} style={{ textDecoration: "none" }}>
+                    <AchievementCard
+                      id={achievement.id}
+                      title={achievement.title}
+                      date={achievement.date}
+                      location={achievement.location}
+                      status={achievement.status}
+                      cardImage={achievement.cardImage}
+                      organization={achievement.organization}
+                    />
+                  </Link>
+                </Col>
+              ))}
+            </Row>
+
+            <div style={{ marginTop: 8, display: "flex", justifyContent: "center" }}>
+              <Link to="/achievements" className="btn-editorial btn-editorial--ghost btn-editorial--seeall">
+                {isFr ? "Voir toutes les distinctions" : "See all recognition"}
+                <span style={{ marginLeft: 8 }}>→</span>
+              </Link>
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* ---- CERTIFICATIONS PREVIEW ---- */}
+      {show("certifications") && (
+        <section className="preview-section preview-section--white">
+          <Container fluid className="editorial-container" style={{ paddingLeft: 0, paddingRight: 0 }}>
+            <div className="section-head">
+              <span className="section-eyebrow">{isFr ? "04 / Certifications" : "04 / Certifications"}</span>
+              <h2 className="section-title">
+                {isFr
+                  ? "Formations et stage certifies."
+                  : "Training and internship credentials."}
+              </h2>
+            </div>
+
+            <div className="certifications-list">
+              {certificationsData.map((group) => (
+                <div className="certifications-group" key={group.issuer}>
+                  <div className="certifications-group-head">
+                    <div className="certifications-group-issuer">{group.issuer}</div>
+                    <p className="certifications-group-context">
+                      {group.context[isFr ? "fr" : "en"]}
+                    </p>
+                  </div>
+                  <ul className="certifications-group-items">
+                    {group.items.map((it) => (
+                      <li key={it.file} className="certifications-item">
+                        <a href={it.file} target="_blank" rel="noopener noreferrer">
+                          <span className="certifications-item-name">
+                            {it.name[isFr ? "fr" : "en"]}
+                          </span>
+                          <span className="certifications-item-arrow">PDF &rarr;</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* ---- BLOG PREVIEW ---- */}
+      {show("blog") && (
+        <section className="preview-section preview-section--gray">
+          <Container fluid className="editorial-container" style={{ paddingLeft: 0, paddingRight: 0 }}>
+            <div className="section-head">
+              <span className="section-eyebrow">{isFr ? "05 / Publications" : "05 / Writing"}</span>
+              <h2 className="section-title">
+                {isFr
+                  ? "Notes ecrites en construisant."
+                  : "Notes written while building."}
+              </h2>
+            </div>
+
+            <Row>
+              {blogPosts.slice(0, 3).map((post) => (
+                <Col lg={4} md={6} className="project-card" key={post.slug}>
+                  <Link to={`/blog/${post.slug}`} className="home-article-card">
+                    <div className="home-article-img">
+                      <img src={post.cover} alt={post.title} loading="lazy" />
+                    </div>
+                    <div className="home-article-body">
+                      <div className="home-article-meta">
+                        {fmtDate(post.date)} / {post.readingTime}
+                      </div>
+                      <h3 className="home-article-title">{post.title}</h3>
+                      <p className="home-article-excerpt">{post.excerpt}</p>
+                      <span className="home-article-more">{isFr ? "Lire" : "Read"} →</span>
+                    </div>
+                  </Link>
+                </Col>
+              ))}
+            </Row>
+
+            <div style={{ marginTop: 8, display: "flex", justifyContent: "center" }}>
+              <Link to="/blog" className="btn-editorial btn-editorial--ghost btn-editorial--seeall">
+                {isFr ? "Lire le blog" : "Read the blog"}
+                <span style={{ marginLeft: 8 }}>→</span>
+              </Link>
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* ---- RESUME PREVIEW ---- */}
+      {show("resume") && (
+        <section className="preview-section preview-section--white">
+          <Container fluid className="editorial-container" style={{ paddingLeft: 0, paddingRight: 0 }}>
+            <div className="section-head">
+              <span className="section-eyebrow">{isFr ? "06 / Curriculum vitae" : "06 / Curriculum vitae"}</span>
+              <h2 className="section-title">
+                {isFr
+                  ? "Le CV complet, en PDF."
+                  : "The full CV, as a PDF."}
+              </h2>
+            </div>
+
+            <Row>
+              <Col md={6} style={{ display: "flex", justifyContent: "center", marginBottom: 32 }}>
+                <div className="resume-preview-wrapper">
+                  <Document file={pdf} className="d-flex justify-content-center">
+                    <Page pageNumber={1} scale={0.6} renderTextLayer={false} renderAnnotationLayer={false} />
+                  </Document>
+                </div>
+              </Col>
+              <Col md={6} style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: 16 }}>
+                <a
+                  href={pdf}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-editorial btn-editorial--primary"
+                  style={{ maxWidth: 240 }}
+                  onClick={() =>
+                    trackConversion("cv_download_homepage", isFr ? "CV_FR" : "CV_EN")
+                  }
+                >
+                  <AiOutlineDownload style={{ fontSize: 18 }} />
+                  {isFr ? "Telecharger le CV" : "Download CV"}
+                </a>
+                <Link to="/resume" className="btn-editorial btn-editorial--ghost" style={{ maxWidth: 240 }}>
+                  {isFr ? "Voir en ligne" : "View online"}
+                  <span style={{ marginLeft: 6 }}>→</span>
+                </Link>
+              </Col>
+            </Row>
+          </Container>
+        </section>
       )}
     </>
   );

@@ -49,16 +49,12 @@ function AchievementCard(props) {
         </Card.Text>
 
         <div className="achievement-meta">
-          <p className="achievement-date">
-            <i className="fas fa-calendar"></i> {props.date}
-          </p>
-          <p className="achievement-location">
-            <i className="fas fa-map-marker-alt"></i> {props.location}
-          </p>
+          <p className="achievement-date">{props.date}</p>
+          <p className="achievement-location">{props.location}</p>
         </div>
 
         <div className="achievement-footer">
-          <small className="text-muted">{t('achievements.clickToLearnMore')}</small>
+          <small>{t('achievements.clickToLearnMore', { defaultValue: i18n.language === 'fr' ? 'Lire la fiche complete' : 'Read the full case' })} →</small>
         </div>
       </Card.Body>
     </Card>

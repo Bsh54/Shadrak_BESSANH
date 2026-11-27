@@ -30,3 +30,61 @@ Server/config.js
 
 # Claude Code
 .claude/
+
+# Playwright screenshot artefacts
+.playwright-mcp/
+
+# Session-only scratch files and backups
+*.backup
+*.backup-*
+/Nouveau document texte*.txt
+/PROJETS_LIENS.md
+
+# Screenshots and hero mockups generated during iteration (repo root only)
+/A1.png
+/achievement-detail-after.png
+/achievement-detail-before.png
+/achievements-after.png
+/achievements-before.png
+/bio-pro.jpeg
+/black-signal-hero.jpeg
+/certifications-section.png
+/cottonpay-detail-fixed.png
+/cottonpay-detail.png
+/cottonpay-final.png
+/home-full-after.png
+/human-voice-hero.jpeg
+/indigo-hero.jpeg
+/local-hero-new.png
+/local-hero-v2.png
+/local-hero-v3.png
+/local-hero-v4.png
+/local-hero-v5.png
+/meti-added.jpeg
+/meti-ai4all.jpeg
+/meti-card-final.jpeg
+/meti-card-live.jpeg
+/meti-recognition.jpeg
+/mono-hero.jpeg
+/mono-hero2.jpeg
+/navy-hero.jpeg
+/prod-hero-shadrakbessanh.png
+/projects-fix.jpeg
+/projects-github.jpeg
+/quiet-authority-fullpage.png
+/quiet-authority-geist-hero.jpeg
+/quiet-authority-hero-top.png
+/quiet-authority-hero.png
+/quiet-authority-top.jpeg
+/recog-final.jpeg
+/recog-order.jpeg
+/ref-polygons-hero.jpeg
+/ref-polygons-s2.jpeg
+/ref-polygons-s3.jpeg
+/ref-polygons-s4.jpeg
+/review-meti.png
+/v3-polygons-grade-hero.jpeg
+/v3-polygons-proof.jpeg
+/writing-after.png
+/writing-close.png
+/writing-section.png

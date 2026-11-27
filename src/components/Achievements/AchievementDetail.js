@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
-import { useParams, useNavigate } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
+import { useParams, Link } from "react-router-dom";
 import { achievementsData } from "../../data/achievementsData";
 import { useTranslation } from "react-i18next";
 import ScrollToTop from "../ScrollToTop";
@@ -9,37 +9,42 @@ import "./AchievementDetail.css";
 
 function AchievementDetail() {
   const { id } = useParams();
-  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [visibleCount, setVisibleCount] = useState(6);
+  const isFr = i18n.language === "fr";
+  const [lightbox, setLightbox] = useState(null);
+  const [showAll, setShowAll] = useState(false);
 
   const achievement = achievementsData.find((a) => a.id === id);
 
   if (!achievement) {
     return (
-      <Container style={{ paddingTop: "100px", textAlign: "center" }}>
-        <h2>Achievement not found</h2>
-        <Button onClick={() => navigate("/achievements")} variant="primary">
-          Back to Achievements
-        </Button>
+      <Container style={{ paddingTop: 160, textAlign: "center" }}>
+        <h2 className="section-title">{isFr ? "Introuvable." : "Not found."}</h2>
+        <Link to="/achievements" className="btn-editorial btn-editorial--ghost" style={{ marginTop: 24 }}>
+          {isFr ? "Retour aux reconnaissances" : "Back to recognition"}
+        </Link>
       </Container>
     );
   }
 
   const getLocalizedText = (field) => {
-    if (typeof field === 'object' && field !== null) {
-      return field[i18n.language] || field['en'];
+    if (typeof field === "object" && field !== null) {
+      return field[i18n.language] || field["en"];
     }
     return field;
   };
+
+  const description = getLocalizedText(achievement.description) || "";
+  const paragraphs = description.split("\n\n").filter(Boolean);
+  const gallery = achievement.galleryImages || [];
+  const visibleGallery = showAll ? gallery : gallery.slice(0, 6);
 
   return (
     <>
       <ScrollToTop />
       <AchievementSEO
         title={`${getLocalizedText(achievement.title)} - BESSANH Shadrak`}
-        description={getLocalizedText(achievement.description).split("\n\n")[0]}
+        description={paragraphs[0] || ""}
         image={achievement.coverImage}
         url={`https://shadrakbessanh.me/achievement/${achievement.id}`}
         eventName={achievement.organization}
@@ -48,212 +53,156 @@ function AchievementDetail() {
         organization={achievement.organization}
       />
 
-      {/* Hero Section with Cover Image */}
-      <div
-        className="achievement-hero"
-        style={{
-          backgroundImage: `url(${achievement.coverImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          height: "500px",
-          position: "relative",
-          marginTop: "60px",
-          backgroundAttachment: "scroll"
-        }}
-      >
-        <div className="achievement-hero-overlay"></div>
-        <Container fluid className="achievement-hero-content">
-          <Row className="h-100 align-items-end">
-            <Col md={8}>
-              <h1 className="achievement-hero-title">{getLocalizedText(achievement.title)}</h1>
-              <p className="achievement-hero-subtitle">
-                {achievement.organization} • {achievement.date}
-              </p>
-            </Col>
-            <Col md={4} className="text-end">
-              <span className={`achievement-status-badge status-${achievement.status.toLowerCase()}`}>
-                {achievement.status}
-              </span>
-            </Col>
-          </Row>
+      <div style={{ paddingTop: 120, paddingBottom: 48, background: "var(--bg)" }}>
+        <Container fluid className="editorial-container" style={{ paddingLeft: 0, paddingRight: 0 }}>
+          <div style={{ marginBottom: 32 }}>
+            <Link
+              to="/achievements"
+              className="achievement-back-link"
+            >
+              ← {isFr ? "Retour aux reconnaissances" : "Back to recognition"}
+            </Link>
+          </div>
+
+          <div className="section-head" style={{ marginBottom: 48 }}>
+            <span className="section-eyebrow">
+              {achievement.organization}
+            </span>
+            <h1 className="section-title achievement-detail-title">
+              {getLocalizedText(achievement.title)}
+            </h1>
+            <div className="achievement-meta-row">
+              <span>{achievement.date}</span>
+              <span className="achievement-meta-dot">·</span>
+              <span>{achievement.location}</span>
+              {achievement.status && (
+                <>
+                  <span className="achievement-meta-dot">·</span>
+                  <span className="achievement-status-pill">{achievement.status}</span>
+                </>
+              )}
+            </div>
+          </div>
+
+          {achievement.coverImage && (
+            <div className="achievement-cover">
+              <img src={achievement.coverImage} alt={getLocalizedText(achievement.title)} loading="eager" decoding="async" />
+            </div>
+          )}
         </Container>
       </div>
 
-      {/* Main Content */}
-      <Container className="achievement-detail-container">
-        {/* Description Section */}
-        <Row className="achievement-description-section">
-          <Col md={12}>
-            <div className="achievement-description">
-              <h2>{t('achievements.about')}</h2>
-              <div className="description-text">
-                {getLocalizedText(achievement.description).split("\n\n").map((paragraph, idx) => (
-                  <p key={idx}>{paragraph}</p>
+      <div style={{ background: "var(--bg)", paddingBottom: 96 }}>
+        <Container fluid className="editorial-container" style={{ paddingLeft: 0, paddingRight: 0 }}>
+          <Row>
+            <Col lg={8}>
+              <div className="achievement-prose">
+                {paragraphs.map((p, idx) => (
+                  <p key={idx}>{p}</p>
+                ))}
+              </div>
+            </Col>
+            <Col lg={4}>
+              <aside className="achievement-sidebar">
+                <div className="achievement-side-block">
+                  <span className="achievement-side-label">{isFr ? "Organisation" : "Organization"}</span>
+                  <span className="achievement-side-value">{achievement.organization}</span>
+                </div>
+                {achievement.team && (
+                  <div className="achievement-side-block">
+                    <span className="achievement-side-label">{isFr ? "Equipe" : "Team"}</span>
+                    <span className="achievement-side-value">{achievement.team}</span>
+                  </div>
+                )}
+                {achievement.keyContacts && achievement.keyContacts.length > 0 && (
+                  <div className="achievement-side-block">
+                    <span className="achievement-side-label">{isFr ? "Membres du jury" : "Jury members"}</span>
+                    <ul className="achievement-side-list">
+                      {achievement.keyContacts.map((c, idx) => (
+                        <li key={idx}>{c}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </aside>
+            </Col>
+          </Row>
+
+          {achievement.technologies && achievement.technologies.length > 0 && (
+            <div className="achievement-block">
+              <span className="section-eyebrow">{isFr ? "Stack" : "Stack"}</span>
+              <div className="achievement-tags">
+                {achievement.technologies.map((tech, idx) => (
+                  <span key={idx} className="achievement-tag">{tech}</span>
                 ))}
               </div>
             </div>
+          )}
 
-
-            {/* Technologies */}
-            {achievement.technologies && (
-              <div className="achievement-technologies">
-                <h3>{t('achievements.technologies')}</h3>
-                <div className="tech-tags">
-                  {achievement.technologies.map((tech, idx) => (
-                    <span key={idx} className="tech-tag">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Team */}
-            {achievement.team && (
-              <div className="achievement-team">
-                <h3>{t('achievements.team')}</h3>
-                <p>{achievement.team}</p>
-              </div>
-            )}
-
-            {/* Sources & Proof */}
-            {achievement.sourceLinks && achievement.sourceLinks.length > 0 && (
-              <div className="achievement-sources">
-                <h3>{t('achievements.sources')}</h3>
-                <ul className="source-links">
-                  {achievement.sourceLinks.map((s, idx) => (
-                    <li key={idx}>
-                      <a href={s.url} target="_blank" rel="noopener noreferrer">
-                        {s.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-          </Col>
-        </Row>
-
-        {/* Event Details Section - Full Width */}
-        <Row className="achievement-event-details-section">
-          <Col md={12}>
-            <div className="event-details-card">
-              <h2>{t('achievements.eventDetails')}</h2>
-              <Row>
-                <Col md={4} className="detail-column">
-                  <div className="detail-item">
-                    <strong>{t('achievements.date')}:</strong>
-                    <p>{achievement.date}</p>
-                  </div>
-                </Col>
-                <Col md={4} className="detail-column">
-                  <div className="detail-item">
-                    <strong>{t('achievements.location')}:</strong>
-                    <p>{achievement.location}</p>
-                  </div>
-                </Col>
-                <Col md={4} className="detail-column">
-                  <div className="detail-item">
-                    <strong>{t('achievements.organization')}:</strong>
-                    <p>{achievement.organization}</p>
-                  </div>
-                </Col>
-              </Row>
+          {achievement.sourceLinks && achievement.sourceLinks.length > 0 && (
+            <div className="achievement-block">
+              <span className="section-eyebrow">{isFr ? "Sources" : "Sources"}</span>
+              <ul className="achievement-sources-list">
+                {achievement.sourceLinks.map((s, idx) => (
+                  <li key={idx}>
+                    <a href={s.url} target="_blank" rel="noopener noreferrer">
+                      {s.label}
+                      <span style={{ marginLeft: 6 }}>↗</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </Col>
-        </Row>
+          )}
 
-        {/* Gallery Section */}
-        <Row className="achievement-gallery-section">
-          <Col md={12}>
-            <h2>{t('achievements.gallery')}</h2>
-            <div className="gallery-grid">
-              {achievement.galleryImages.slice(0, visibleCount).map((image, idx) => (
-                <div key={idx} className="gallery-item">
-                  <div
-                    className="gallery-image"
-                    onClick={() => setSelectedImage(image)}
-                    style={{ cursor: "pointer" }}
+          {gallery.length > 0 && (
+            <div className="achievement-block">
+              <span className="section-eyebrow">{isFr ? "Images" : "Gallery"}</span>
+              <div className="achievement-gallery">
+                {visibleGallery.map((image, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    className="achievement-gallery-item"
+                    onClick={() => setLightbox(image)}
+                    aria-label={`Open image ${idx + 1}`}
                   >
-                    <img
-                      src={image}
-                      alt={`Gallery ${idx + 1}`}
-                      loading="lazy"
-                      decoding="async"
-                      style={{
-                        width: "100%",
-                        height: "250px",
-                        objectFit: "cover"
-                      }}
-                    />
-                    <div className="gallery-overlay">
-                      <span>{t('achievements.viewFullSize')}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            {visibleCount < achievement.galleryImages.length && (
-              <div style={{ textAlign: "center", marginTop: "20px" }}>
-                <Button
-                  variant="outline-primary"
-                  onClick={() => setVisibleCount(achievement.galleryImages.length)}
-                >
-                  {`Voir toutes les photos (${achievement.galleryImages.length})`}
-                </Button>
+                    <img src={image} alt={`${getLocalizedText(achievement.title)} - ${idx + 1}`} loading="lazy" decoding="async" />
+                  </button>
+                ))}
               </div>
-            )}
-          </Col>
-        </Row>
+              {!showAll && gallery.length > 6 && (
+                <div style={{ marginTop: 24, display: "flex", justifyContent: "center" }}>
+                  <button
+                    type="button"
+                    className="btn-editorial btn-editorial--ghost btn-editorial--seeall"
+                    onClick={() => setShowAll(true)}
+                  >
+                    {isFr ? `Voir les ${gallery.length} images` : `See all ${gallery.length} images`}
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+        </Container>
+      </div>
 
-
-        {/* Back Button */}
-        <Row className="achievement-back-section">
-          <Col md={12} className="text-center">
-            <Button
-              onClick={() => navigate("/achievements")}
-              variant="primary"
-              size="lg"
-            >
-              {t('achievements.backToAchievements')}
-            </Button>
-          </Col>
-        </Row>
-      </Container>
-
-      {/* Lightbox Modal for Gallery */}
-      {selectedImage && (
+      {lightbox && (
         <div
-          className="lightbox"
-          onClick={() => setSelectedImage(null)}
+          className="achievement-lightbox"
+          onClick={() => setLightbox(null)}
           role="dialog"
           aria-modal="true"
         >
-          <div
-            className="lightbox-content"
-            onClick={(e) => e.stopPropagation()}
+          <img src={lightbox} alt="Full size" />
+          <button
+            type="button"
+            className="achievement-lightbox-close"
+            onClick={() => setLightbox(null)}
+            aria-label="Close"
           >
-            <img
-              src={selectedImage}
-              alt="Full size"
-              loading="lazy"
-              decoding="async"
-              style={{
-                maxWidth: "100%",
-                maxHeight: "90vh",
-                objectFit: "contain"
-              }}
-            />
-            <button
-              className="lightbox-close"
-              onClick={() => setSelectedImage(null)}
-              aria-label="Close lightbox"
-              type="button"
-            >
-              ✕
-            </button>
-          </div>
+            ×
+          </button>
         </div>
       )}
     </>

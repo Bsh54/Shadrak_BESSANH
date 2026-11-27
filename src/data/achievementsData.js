@@ -2,107 +2,173 @@ const BASE = "/images/achievements";
 
 export const achievementsData = [
   {
+    id: "meti-timbuktoo-ai-ventures-residency",
+    title: {
+      en: "Pan-African AI Ventures Residency 2026 (METI x timbuktoo)",
+      fr: "Pan-African AI Ventures Residency 2026 (METI x timbuktoo)"
+    },
+    shortTitle: "Ife - METI UniPods AI",
+    date: "November 9-20, 2026",
+    location: "Addis Ababa, Ethiopia",
+    status: "Cohort 1",
+    organization: "UNDP timbuktoo · Japan METI · Ethiopian AI Institute",
+    coverImage: `${BASE}/meti-timbuktoo-shadrak.jpg`,
+    cardImage: `${BASE}/meti-timbuktoo-shadrak-card.jpg`,
+    description: {
+      en: `The Pan-African AI Ventures Residency, also known as the METI UniPods AI Innovation Programme, is an initiative run by UNDP timbuktoo with the support of Japan's Ministry of Economy, Trade and Industry. Its first cohort, which ran from September to November 2026, brought together African innovators building real AI and AI-enabled solutions at the prototype, MVP or early-venture stage.
+
+Ife, the AI language-learning platform I lead with my co-founder Beatrice Segniagbeto, was selected for this first cohort. Built in Benin with West Africa in mind, Ife starts with Fon and a few neighbouring languages, with speech, pedagogy and offline-friendly design at its centre.
+
+The programme combined four strands running in parallel: MIT's Universal AI course for the technical foundations, a fourteen-week Wadhwani Foundation entrepreneurship track for customer discovery and go-to-market, structured technical mentorship, and investment readiness through Abaca and the Ethiopian AI Institute. It closed with a two-week in-person residency at the AI UniPod of the Ethiopian Artificial Intelligence Institute in Addis Ababa, where the cohort met representatives from the Embassy of Japan in Ethiopia and from UNDP TICAD, visited the ALX Startup Center and the Adwa Victory Museum, and prepared conversations with investors and partners.
+
+570 applications came in from across the continent. About 250 teams were selected into the programme, and 50 innovators from 12 African countries were invited to the residency in Addis Ababa. Being part of this first cohort is both a chance to strengthen Ife technically and an opening onto a pan-African innovation network, with a possible path to the global stage through TICAD 10.`,
+      fr: `La Pan-African AI Ventures Residency, aussi appelee METI UniPods AI Innovation Programme, est une initiative de UNDP timbuktoo soutenue par le Ministere japonais de l'Economie, du Commerce et de l'Industrie. Sa premiere cohorte, qui s'est deroulee de septembre a novembre 2026, a reuni des innovateurs africains qui construisent des solutions IA reelles, au stade prototype, MVP ou jeune startup.
+
+Ife, la plateforme IA d'apprentissage des langues que je porte avec ma co-fondatrice Beatrice Segniagbeto, a ete selectionnee dans cette premiere cohorte. Construite au Benin et pensee pour l'Afrique de l'Ouest, Ife demarre avec le fon et quelques langues voisines, avec la voix, la pedagogie et le fonctionnement hors ligne au centre.
+
+Le programme combine quatre volets en parallele : le cours Universal AI du MIT pour la base technique, un parcours entrepreneuriat de quatorze semaines par la Wadhwani Foundation pour la decouverte client et la mise sur le marche, un mentorat technique structure, et une preparation investment-readiness avec Abaca et l'Ethiopian AI Institute. Il se conclut par une residence de deux semaines au AI UniPod de l'Ethiopian Artificial Intelligence Institute a Addis-Abeba, ou la cohorte a rencontre des representants de l'Ambassade du Japon en Ethiopie et de UNDP TICAD, visite le ALX Startup Center et le Musee de la Victoire d'Adwa, et prepare les conversations avec investisseurs et partenaires.
+
+570 candidatures sont arrivees de tout le continent. Environ 250 equipes ont ete retenues dans le programme, et 50 innovateurs de 12 pays africains ont ete invites a la residence d'Addis-Abeba. Faire partie de cette premiere cohorte est a la fois une chance de renforcer Ife techniquement et une ouverture vers un reseau d'innovation panafricain, avec une voie possible vers la scene mondiale via TICAD 10.`
+    },
+
+    galleryImages: [
+      `${BASE}/meti-timbuktoo-shadrak.jpg`,
+      `${BASE}/meti-timbuktoo-official-01.jpg`,
+      `${BASE}/meti-timbuktoo-official-02.jpg`,
+      `${BASE}/meti-timbuktoo-official-03.jpg`,
+      `${BASE}/meti-timbuktoo-official-04.jpg`,
+      `${BASE}/meti-timbuktoo-official-05.jpg`,
+      `${BASE}/meti-timbuktoo-official-06.jpg`,
+      `${BASE}/meti-timbuktoo-official-07.jpg`,
+      `${BASE}/meti-timbuktoo-official-08.jpg`,
+      `${BASE}/meti-timbuktoo-official-09.jpg`,
+      `${BASE}/meti-timbuktoo-official-10.jpg`,
+      `${BASE}/meti-timbuktoo-official-11.jpg`,
+      `${BASE}/meti-timbuktoo-official-12.jpg`,
+      `${BASE}/meti-timbuktoo-official-13.jpg`,
+      `${BASE}/meti-timbuktoo-official-14.jpg`,
+      `${BASE}/meti-timbuktoo-official-15.jpg`,
+      `${BASE}/meti-timbuktoo-official-16.jpg`,
+      `${BASE}/meti-timbuktoo-official-17.jpg`,
+    ],
+
+    socialLinks: {
+      linkedin: "https://www.linkedin.com/in/bessanh-shadrak-744049287/",
+      github: "https://github.com/Bsh54"
+    },
+
+    sourceLinks: [
+      { label: "timbuktoo on X: Cohort 1 welcomes Japan Embassy and UNDP TICAD", url: "https://x.com/timbuktooafrica/status/2120871079224684915" },
+      { label: "UNDP Ethiopia: launch of the Pan-African AI Ventures Residency", url: "https://x.com/UNDPEthiopia/status/2119814141976121609" },
+      { label: "UNDP Ethiopia: AI UniPod launch at Ethiopian AI Institute", url: "https://www.undp.org/ethiopia/press-releases/ethiopia-launches-ai-unipod" },
+      { label: "timbuktoo (official site)", url: "https://timbuktoo.undp.org/" }
+    ],
+
+    team: "BESSANH Shadrak and SEGNIAGBETO Beatrice",
+
+    technologies: ["NLP", "Speech AI", "Low-resource languages", "Education", "Offline-first"],
+
+    metrics: {
+      status: "Cohort 1 member",
+      applications: "570",
+      selectedToProgramme: "~250",
+      residencyInnovators: "50",
+      countries: "12",
+      residencyDays: "12",
+      venue: "AI UniPod, EAII, Addis Ababa"
+    }
+  },
+
+  {
+    id: "nawiri-usaii-global-ai-hackathon",
+    title: {
+      en: "USAII Global AI Hackathon 2026 - Social Impact Award",
+      fr: "USAII Global AI Hackathon 2026 - Prix de l'Impact Social"
+    },
+    shortTitle: "NAWIRI - USAII Global AI",
+    date: "June 2026",
+    location: "Virtual · Global",
+    status: "Social Impact Award",
+    organization: "USAII, United States Artificial Intelligence Institute",
+    coverImage: `${BASE}/usaii-winners.png`,
+    cardImage: `${BASE}/usaii-winners.png`,
+    description: {
+      en: `The USAII Global AI Hackathon 2026, organised by the United States Artificial Intelligence Institute, is one of the largest global student AI competitions. More than 6,000 participants pre-registered from over 90 countries. After a worldwide qualifier, 808 teams and 2,284 students advanced, and 622 AI-powered projects were evaluated by an international panel of researchers, industry experts and AI leaders across the High School, Undergraduate and Graduate tracks.
+
+Fifteen projects were crowned winners. NAWIRI, the project I built with Frankel Gnonlonfin, received the Social Impact Award in the Undergraduate track.
+
+NAWIRI is a conversational assistant that helps families in Benin, Senegal and Ghana access the public aid they are legally entitled to. The aid programmes do exist; the information just sits scattered, often written in a language the family does not read, and spread across offices that rarely coordinate. In NAWIRI, a user describes their situation in plain words, in Fon, Wolof, Twi, French or English, and the assistant asks one question at a time to identify the programmes they qualify for, the documents required, and the office to contact. It covers 25 public programmes, from health insurance and cash transfers to microcredit and free maternal care.
+
+Every response ends by reminding the user to verify the final answer with the official body. The assistant orientates; it does not decide. Winning the Social Impact Award among 808 qualified teams from more than 90 countries made the point that this kind of work has a place at the frontier of AI.`,
+      fr: `Le USAII Global AI Hackathon 2026, organise par le United States Artificial Intelligence Institute, est l'une des plus grandes competitions mondiales d'IA pour etudiants. Plus de 6 000 participants se sont pre-inscrits depuis plus de 90 pays. Apres un qualifier mondial, 808 equipes et 2 284 etudiants se sont qualifies, et 622 projets d'IA ont ete evalues par un jury international de chercheurs, experts de l'industrie et leaders de l'IA, dans les categories Lycee, Licence et Master.
+
+Quinze projets ont ete sacres gagnants. NAWIRI, le projet que j'ai construit avec Frankel Gnonlonfin, a recu le Prix de l'Impact Social dans la categorie Licence.
+
+NAWIRI est un assistant conversationnel qui aide les familles du Benin, du Senegal et du Ghana a acceder aux aides publiques auxquelles elles ont droit. Les programmes existent ; l'information est dispersee, souvent redigee dans une langue que la famille ne lit pas, et repartie entre des bureaux qui se coordonnent peu. Dans NAWIRI, l'utilisateur decrit sa situation en langage naturel, en fon, wolof, twi, francais ou anglais, et l'assistant pose une question a la fois pour identifier les programmes eligibles, les documents necessaires et le bureau a contacter. Il couvre 25 programmes publics, de l'assurance sante aux transferts monetaires, en passant par le microcredit et les soins maternels gratuits.
+
+Chaque reponse se termine en rappelant a l'utilisateur de verifier la reponse finale aupres de l'organisme officiel. L'assistant oriente ; il ne decide pas. Remporter le Prix de l'Impact Social parmi 808 equipes qualifiees de plus de 90 pays a confirme que ce type de travail a sa place a la frontiere de l'IA.`
+    },
+
+    galleryImages: [
+      `${BASE}/usaii-winners.png`,
+      `${BASE}/usaii-ceremony.jpg`,
+      `${BASE}/usaii-hackathon-logo.png`,
+      `${BASE}/nawiri-usaii.png`,
+    ],
+
+    socialLinks: {
+      linkedin: "https://www.linkedin.com/in/bessanh-shadrak-744049287/",
+      github: "https://github.com/Bsh54/NAWIRI"
+    },
+
+    sourceLinks: [
+      { label: "USAII: Official Winners Announcement", url: "https://www.usaii.org/ai-insights/usaii-crowns-global-ai-hackathon-2026-winners-celebrating-the-nextgen-ai-innovators" },
+      { label: "Closing Ceremony and Global Awards (YouTube)", url: "https://www.youtube.com/watch?v=K79bWiNyoyc" },
+      { label: "USAII Global AI Hackathon 2026 (official page)", url: "https://aihackathon.usaii.org/" }
+    ],
+
+    team: "Shadrak BESSANH and Frankel Gnonlonfin",
+
+    technologies: ["Next.js", "Google Gemini", "RAG", "Leaflet", "Multilingual AI", "Social Impact"],
+
+    metrics: {
+      award: "Social Impact Award",
+      participants: "6,000+",
+      countries: "90+",
+      qualifiedTeams: "808",
+      projectsEvaluated: "622",
+      winners: "15"
+    }
+  },
+
+  {
     id: "cottonpay-id4africa",
     title: {
-      en: "African Digital Identity Hackathon 2026 - 2nd Place Winner",
-      fr: "Hackathon Identité Numérique Africaine 2026 - 2ème Place"
+      en: "African Digital Identity Hackathon 2026 - Second Place",
+      fr: "African Digital Identity Hackathon 2026 - Deuxieme place"
     },
     shortTitle: "CottonPay - ID4Africa",
     date: "May 11-16, 2026",
-    location: "Abidjan, Côte d'Ivoire",
+    location: "Abidjan, Cote d'Ivoire",
     status: "2nd Place",
-    organization: "Upanzi Network, MicroSave Consulting, ID4Africa",
+    organization: "Upanzi Network · MicroSave Consulting · ID4Africa",
     coverImage: `${BASE}/ID4AFRICA2026__552.jpg`,
     cardImage: `${BASE}/ID4AFRICA2026__555.jpg`,
     description: {
-      en: `AFRICA DIGITAL ID HACKATHON 2026 - 2ND PLACE WINNER
+      en: `The Africa Digital ID Hackathon 2026 is a continental competition run by Carnegie Mellon University Africa's Upanzi Network and MicroSave Consulting. It invites African builders to identify and develop concrete use cases for digital identity in healthcare, education, agriculture and public service delivery. The final was held at the Parc des Expositions d'Abidjan from the 11th to the 16th of May 2026, during ID4Africa, with an international jury that included officials from the national ID programmes of Uganda, India, Ethiopia and Cote d'Ivoire.
 
-The Africa Digital ID Hackathon 2026, hosted by Carnegie Mellon University Africa's Upanzi Network and MicroSave Consulting (MSC), is a continental competition driving inclusive innovation in digital identity across Africa. The hackathon invites Africa's next thought leaders to identify and develop high-impact use cases for digital ID technology in various sectors including healthcare, education, agriculture, and public service delivery.
+CottonPay, the project I built with my team from IFRI (University of Abomey-Calavi), finished second out of the finalists. The platform was then developed further during a three-month software developer internship at Intuitive Data Solutions (IDS) in Hyderabad, from July to September 2026, using IDS's e-IDStack for digital signatures and blockchain anchoring, and with a complete go-to-market strategy built alongside the engineering work.
 
-OUR SOLUTION: CottonPay
+Benin is the largest cotton producer in West Africa, with over 647,000 tonnes harvested in the 2025-2026 campaign, and more than 200,000 producers depend on the sector for their livelihood. The paper-based delivery receipt system is fragile: slips get lost, numbers are rewritten, and farmers end up without any formal proof of their income when they later try to open a bank account or request credit. Most are locked out of the formal financial system and left to rely on informal lenders.
 
-Our team developed CottonPay, a groundbreaking solution that transforms cotton delivery into verifiable digital credentials, enabling 200,000+ Beninese farmers to build certified economic histories and access formal credit.
+CottonPay turns each cotton delivery into a verifiable credential signed on the BCovrin ledger, authenticated through eSignet and MOSIP, and stored in the producer's own mobile wallet. A cooperative agent authenticates with the national ID, registers the delivery weight and amount, and the system generates a credential that the farmer receives by scanning a QR code. The record is portable, infalsifiable, and belongs to the farmer, not to the cooperative or the ministry. The same model extends to cashew, shea or maize, and to other West African countries that share the same agricultural pattern.`,
+      fr: `Le Africa Digital ID Hackathon 2026 est une competition continentale organisee par l'Upanzi Network de Carnegie Mellon University Africa et MicroSave Consulting. Il invite les constructeurs africains a identifier et developper des cas d'usage concrets pour l'identite numerique dans la sante, l'education, l'agriculture et les services publics. La finale s'est tenue au Parc des Expositions d'Abidjan du 11 au 16 mai 2026, pendant ID4Africa, devant un jury international compose notamment de responsables des programmes d'identite nationale de l'Ouganda, de l'Inde, de l'Ethiopie et de la Cote d'Ivoire.
 
-THE CHALLENGE:
-Over 200,000 cotton producers in Benin lack formal proof of their deliveries and income. The paper-based system is vulnerable to fraud, loss, and errors, making it impossible for farmers to access formal banking credit. Despite Benin being the #1 cotton producer in West Africa (647,000 tonnes in 2025-2026), farmers remain excluded from the formal financial system and trapped in cycles of informal lending with predatory interest rates.
+CottonPay, le projet que j'ai construit avec mon equipe de l'IFRI (Universite d'Abomey-Calavi), a termine deuxieme parmi les finalistes. La plateforme a ensuite ete developpee en profondeur pendant un stage de developpeur logiciel de trois mois chez Intuitive Data Solutions (IDS) a Hyderabad, de juillet a septembre 2026, avec le e-IDStack d'IDS pour les signatures numeriques et l'ancrage blockchain, et une Go-To-Market Strategy complete construite en parallele du travail d'ingenierie.
 
-THE SOLUTION:
-CottonPay combines three critical components:
-1. National Authentication (eSignet/MOSIP) - Secure identity verification using Benin's national ID system
-2. Verifiable Credentials (BCovrin) - Blockchain-anchored, cryptographically secure proof of delivery
-3. Mobile Wallet (e-IDapp) - Sovereign data storage controlled entirely by the farmer
+Le Benin est le premier producteur de coton en Afrique de l'Ouest, avec plus de 647 000 tonnes recoltees sur la campagne 2025-2026, et plus de 200 000 producteurs dependent du secteur pour vivre. Le systeme de recus de livraison, encore sur papier, est fragile : les recus se perdent, les chiffres se reecrivent, et les producteurs se retrouvent sans preuve formelle de leurs revenus quand ils cherchent plus tard a ouvrir un compte bancaire ou a demander un credit. La plupart restent exclus du systeme financier formel et dependent de preteurs informels.
 
-The Process:
-→ Cooperative representative authenticates with eSignet
-→ Registers cotton delivery (weight, quality, amount)
-→ System automatically generates verifiable credential
-→ Farmer scans QR code with smartphone
-→ Proof stored permanently in their wallet - infalsifiable, portable, sovereign
-
-KEY ACHIEVEMENTS:
-✓ Infalsible proof of each delivery - eliminates fraud and disputes
-✓ Certified economic history - opens doors to formal credit access
-✓ Complete supply chain traceability - transparency for all stakeholders
-✓ Data sovereignty - farmers own and control their proofs
-✓ Replicable model - applicable to other agricultural sectors (cashew, shea, maize)
-✓ Extensible framework - can be deployed across West Africa
-
-RECOGNITION:
-Our solution was recognized by an international jury of experts from Uganda, India, Ethiopia, and Côte d'Ivoire as the 2nd best solution among hundreds of competing teams. This recognition validates our approach to combining digital identity, blockchain technology, and financial inclusion.
-
-Potential Impact:
-- Hundreds of thousands of farmers with access to formal credit
-- Reduction of fraud and supply chain disputes
-- Transparent, traceable agricultural value chains
-- Financial autonomy and economic empowerment for rural communities
-- Model for agricultural digital transformation across Africa
-
-PRESENTATION:
-Presented on May 14, 2026 (14:30-18:30) at Parc des Expositions d'Abidjan before an international jury of leading digital identity experts. Our 20-minute presentation included live demo, technical architecture walkthrough, and impact projections.`,
-      fr: `HACKATHON IDENTITÉ NUMÉRIQUE AFRICAINE 2026 - 2ÈME PLACE
-
-Le Hackathon Identité Numérique Africaine 2026, organisé par le Réseau Upanzi de Carnegie Mellon University Africa et MicroSave Consulting (MSC), est une compétition continentale favorisant l'innovation inclusive en matière d'identité numérique en Afrique. Le hackathon invite les futurs leaders africains à identifier et développer des cas d'usage à fort impact pour la technologie d'identité numérique dans divers secteurs incluant la santé, l'éducation, l'agriculture et la prestation de services publics.
-
-NOTRE SOLUTION : CottonPay
-
-Notre équipe a développé CottonPay, une solution révolutionnaire qui transforme la livraison de coton en justificatifs numériques vérifiables, permettant à plus de 200 000 agriculteurs béninois de construire des historiques économiques certifiés et d'accéder au crédit formel.
-
-LE DÉFI :
-Plus de 200 000 producteurs de coton au Bénin manquent de preuve formelle de leurs livraisons et revenus. Le système basé sur le papier est vulnérable à la fraude, à la perte et aux erreurs, rendant impossible pour les agriculteurs d'accéder au crédit bancaire formel. Bien que le Bénin soit le #1 producteur de coton en Afrique de l'Ouest (647 000 tonnes en 2025-2026), les agriculteurs restent exclus du système financier formel et piégés dans des cycles de prêts informels avec des taux d'intérêt prédateurs.
-
-LA SOLUTION :
-CottonPay combine trois composants critiques :
-1. Authentification Nationale (eSignet/MOSIP) - Vérification d'identité sécurisée utilisant le système d'ID national du Bénin
-2. Justificatifs Vérifiables (BCovrin) - Preuve de livraison ancrée à la blockchain et cryptographiquement sécurisée
-3. Portefeuille Mobile (e-IDapp) - Stockage de données souverain contrôlé entièrement par l'agriculteur
-
-Le Processus :
-→ Le représentant de la coopérative s'authentifie avec eSignet
-→ Enregistre la livraison de coton (poids, qualité, montant)
-→ Le système génère automatiquement un justificatif vérifiable
-→ L'agriculteur scanne le code QR avec son smartphone
-→ La preuve est stockée de manière permanente dans son portefeuille - infalsifiable, portable, souveraine
-
-RÉALISATIONS CLÉS :
-✓ Preuve infalsifiable de chaque livraison - élimine la fraude et les litiges
-✓ Historique économique certifié - ouvre les portes à l'accès au crédit formel
-✓ Traçabilité complète de la chaîne d'approvisionnement - transparence pour tous les acteurs
-✓ Souveraineté des données - les agriculteurs possèdent et contrôlent leurs preuves
-✓ Modèle réplicable - applicable à d'autres secteurs agricoles (noix de cajou, karité, maïs)
-✓ Cadre extensible - peut être déployé dans toute l'Afrique de l'Ouest
-
-RECONNAISSANCE :
-Notre solution a été reconnue par un jury international d'experts de l'Ouganda, de l'Inde, de l'Éthiopie et de la Côte d'Ivoire comme la 2ème meilleure solution parmi des centaines d'équipes concurrentes. Cette reconnaissance valide notre approche combinant l'identité numérique, la technologie blockchain et l'inclusion financière.
-
-Impact Potentiel :
-- Des centaines de milliers d'agriculteurs avec accès au crédit formel
-- Réduction de la fraude et des litiges de chaîne d'approvisionnement
-- Chaînes de valeur agricoles transparentes et traçables
-- Autonomie financière et autonomisation économique des communautés rurales
-- Modèle de transformation numérique agricole à travers l'Afrique
-
-PRÉSENTATION :
-Présentée le 14 mai 2026 (14h30-18h30) au Parc des Expositions d'Abidjan devant un jury international d'experts en identité numérique. Notre présentation de 20 minutes incluait une démonstration en direct, une présentation de l'architecture technique et des projections d'impact.`
+CottonPay transforme chaque livraison de coton en justificatif verifiable signe sur le registre BCovrin, authentifie via eSignet et MOSIP, et conserve dans le portefeuille mobile du producteur. Un agent de la cooperative s'authentifie avec l'identite nationale, enregistre le poids et le montant de la livraison, et le systeme emet un justificatif que le producteur recoit en scannant un QR code. Le registre est portable, infalsifiable, et appartient au producteur, pas a la cooperative ni au ministere. Le meme modele s'etend a la noix de cajou, au karite ou au mais, et a d'autres pays d'Afrique de l'Ouest qui connaissent la meme realite agricole.`
     },
 
     galleryImages: [
@@ -139,20 +205,24 @@ Présentée le 14 mai 2026 (14h30-18h30) au Parc des Expositions d'Abidjan devan
     ],
 
     socialLinks: {
-      linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com",
-      medium: "https://medium.com",
-      github: "https://github.com"
+      linkedin: "https://www.linkedin.com/in/bessanh-shadrak-744049287/",
+      github: "https://github.com/Bsh54/CottonPay2"
     },
 
-    team: "EVOLUTICS Team - Institut de Formation et de Recherche en Informatique (IFRI), Université d'Abomey-Calavi, Bénin",
+    sourceLinks: [
+      { label: "ID4Africa 2026 (official programme)", url: "https://id4africa.com/" },
+      { label: "Upanzi Network, Carnegie Mellon University Africa", url: "https://www.africa.engineering.cmu.edu/research/centers-institutes/upanzi-network/" },
+      { label: "MicroSave Consulting", url: "https://www.microsave.net/" }
+    ],
+
+    team: "Shadrak BESSANH and team, IFRI, University of Abomey-Calavi",
 
     keyContacts: [
-      "Aristide ADJINACOU - Directeur Général ANIP (Bénin)",
-      "Stephane Kounandi Coulibaly - Ministry of Digital Transition, Côte d'Ivoire",
-      "Rosemary Kisembo - Executive Director, NIRA (Uganda)",
-      "Priya Patil - Director Technology, UIDAI/Aadhaar (India)",
-      "Eyob Alemu - Director of Technology, National ID Program (Ethiopia)"
+      "Aristide ADJINACOU (Directeur General, ANIP Benin)",
+      "Stephane Kounandi Coulibaly (Ministere de la Transition Numerique, Cote d'Ivoire)",
+      "Rosemary Kisembo (Executive Director, NIRA, Uganda)",
+      "Priya Patil (Director Technology, UIDAI Aadhaar, India)",
+      "Eyob Alemu (Director of Technology, National ID Program, Ethiopia)"
     ],
 
     technologies: ["eSignet", "MOSIP", "Verifiable Credentials", "BCovrin", "Mobile Wallet", "Digital Identity"],
@@ -163,88 +233,6 @@ Présentée le 14 mai 2026 (14h30-18h30) au Parc des Expositions d'Abidjan devan
       teamsCompeted: "Hundreds",
       finalists: "8",
       presentationDuration: "20 minutes"
-    }
-  },
-
-  {
-    id: "nawiri-usaii-global-ai-hackathon",
-    title: {
-      en: "USAII® Global AI Hackathon 2026 - Social Impact Award",
-      fr: "USAII® Global AI Hackathon 2026 - Prix de l'Impact Social"
-    },
-    shortTitle: "NAWIRI - USAII Global AI",
-    date: "June 2026",
-    location: "Virtual · Global",
-    status: "Social Impact Award",
-    organization: "USAII® — United States Artificial Intelligence Institute",
-    coverImage: `${BASE}/usaii-winners.png`,
-    cardImage: `${BASE}/usaii-winners.png`,
-    description: {
-      en: `USAII® GLOBAL AI HACKATHON 2026 - SOCIAL IMPACT AWARD
-
-The USAII® Global AI Hackathon 2026, organized by the United States Artificial Intelligence Institute, is one of the largest global student AI competitions. It attracted more than 6,000 pre-registered participants from over 90 countries. After a rigorous global qualifier, 808 teams (2,284 students) advanced and 622 AI-powered projects were evaluated by an international panel of AI leaders, researchers, and industry experts across the High School, Undergraduate, and Graduate tracks.
-
-Out of all these teams, only 15 were crowned winners. Our project NAWIRI won the Social Impact Award in the Undergraduate track.
-
-OUR SOLUTION: NAWIRI
-
-NAWIRI is a conversational AI assistant that helps West African families access the public aid they are legally entitled to. Across Benin, Senegal and Ghana, families miss assistance every day — not because it doesn't exist, but because the system is too hard to navigate.
-
-The user describes their situation in plain words — in 5 languages including Fɔngbe, Wolof and Twi — and NAWIRI asks one question at a time to identify the programs they qualify for, the exact documents to bring, and the official contact to reach. It covers 25 public programs across health insurance, cash transfers, microcredit, free maternal care and more.
-
-WHY IT MATTERS:
-NAWIRI turns a bureaucratic, intimidating process into a simple, human conversation, in the user's own language. It personalizes orientation without ever automating decisions — every answer ends with a reminder to verify with the official body.
-
-RECOGNITION:
-Winning the Social Impact Award among 808 qualified teams from 90+ countries validated NAWIRI's mission: using AI to make public services accessible to the people who need them most. All 15 winning teams received cash prizes and 100% scholarships toward USAII's globally recognized AI certification programs.`,
-      fr: `USAII® GLOBAL AI HACKATHON 2026 - PRIX DE L'IMPACT SOCIAL
-
-Le USAII® Global AI Hackathon 2026, organisé par le United States Artificial Intelligence Institute, est l'une des plus grandes compétitions mondiales d'IA pour étudiants. Il a attiré plus de 6 000 participants pré-inscrits de plus de 90 pays. Après un qualifier mondial rigoureux, 808 équipes (2 284 étudiants) se sont qualifiées et 622 projets d'IA ont été évalués par un jury international de leaders, chercheurs et experts de l'industrie de l'IA, à travers les catégories Lycée, Licence et Master.
-
-Parmi toutes ces équipes, seules 15 ont été sacrées gagnantes. Notre projet NAWIRI a remporté le Prix de l'Impact Social dans la catégorie Licence.
-
-NOTRE SOLUTION : NAWIRI
-
-NAWIRI est un assistant IA conversationnel qui aide les familles d'Afrique de l'Ouest à accéder aux aides publiques auxquelles elles ont droit. Au Bénin, au Sénégal et au Ghana, des familles passent à côté de ces aides chaque jour — non pas parce qu'elles n'existent pas, mais parce que le système est trop difficile à naviguer.
-
-L'utilisateur décrit sa situation en langage naturel — dans 5 langues dont le Fɔngbe, le Wolof et le Twi — et NAWIRI pose une question à la fois pour identifier les programmes éligibles, les documents exacts à fournir et le contact officiel à joindre. Il couvre 25 programmes publics : assurance santé, transferts monétaires, microcrédit, soins maternels gratuits et plus encore.
-
-POURQUOI C'EST IMPORTANT :
-NAWIRI transforme un processus bureaucratique et intimidant en une conversation simple et humaine, dans la langue de l'utilisateur. Il personnalise l'orientation sans jamais automatiser les décisions — chaque réponse rappelle de vérifier auprès de l'organisme officiel.
-
-RECONNAISSANCE :
-Remporter le Prix de l'Impact Social parmi 808 équipes qualifiées de plus de 90 pays a validé la mission de NAWIRI : utiliser l'IA pour rendre les services publics accessibles à ceux qui en ont le plus besoin. Les 15 équipes gagnantes ont reçu des prix en cash et des bourses à 100% vers les certifications IA reconnues mondialement de l'USAII.`
-    },
-
-    galleryImages: [
-      `${BASE}/usaii-winners.png`,
-      `${BASE}/usaii-ceremony.jpg`,
-      `${BASE}/usaii-hackathon-logo.png`,
-      `${BASE}/nawiri-usaii.png`,
-    ],
-
-    socialLinks: {
-      linkedin: "https://www.linkedin.com/in/bessanh-shadrak-744049287/",
-      github: "https://github.com/Bsh54/NAWIRI"
-    },
-
-    sourceLinks: [
-      { label: "USAII® — Official Winners Announcement", url: "https://www.usaii.org/ai-insights/usaii-crowns-global-ai-hackathon-2026-winners-celebrating-the-nextgen-ai-innovators" },
-      { label: "Closing Ceremony & Global Awards (YouTube)", url: "https://www.youtube.com/watch?v=K79bWiNyoyc" },
-      { label: "USAII® Global AI Hackathon 2026 — Official Page", url: "https://aihackathon.usaii.org/" }
-    ],
-
-    team: "Shadrak BESSANH & Frankel Gnonlonfin",
-
-    technologies: ["Next.js", "Google Gemini", "RAG", "Leaflet", "Multilingual AI", "Social Impact"],
-
-    metrics: {
-      award: "Social Impact Award",
-      participants: "6,000+",
-      countries: "90+",
-      qualifiedTeams: "808",
-      projectsEvaluated: "622",
-      winners: "15"
     }
   }
 ];

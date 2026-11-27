@@ -3,13 +3,6 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import { Link, useLocation } from "react-router-dom";
-import {
-  AiOutlineHome,
-  AiOutlineFundProjectionScreen,
-  AiOutlineTrophy,
-} from "react-icons/ai";
-import { CgFileDocument } from "react-icons/cg";
-import { FaRegNewspaper } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 
@@ -34,7 +27,11 @@ function NavBar() {
       expand="md"
       className={navColour ? "sticky" : "navbar"}
     >
-      <Container>
+      <Container fluid>
+        <Navbar.Brand as={Link} to="/" className="navbar-brand">
+          Shadrak Bessanh<span style={{ color: "var(--accent)", marginLeft: 0 }}>.</span>
+        </Navbar.Brand>
+
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
           onClick={() => {
@@ -45,11 +42,18 @@ function NavBar() {
           <span></span>
           <span></span>
         </Navbar.Toggle>
+
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mx-auto" defaultActiveKey="#home">
+          <Nav className="ms-auto" defaultActiveKey="#home">
             <Nav.Item>
-              <Nav.Link as={Link} to="/" active={isActive("/")} aria-current={isActive("/") ? "page" : undefined} onClick={() => updateExpanded(false)}>
-                <AiOutlineHome style={{ marginBottom: "2px" }} /> {t('nav.home')}
+              <Nav.Link
+                as={Link}
+                to="/"
+                active={isActive("/")}
+                aria-current={isActive("/") ? "page" : undefined}
+                onClick={() => updateExpanded(false)}
+              >
+                {t("nav.home")}
               </Nav.Link>
             </Nav.Item>
 
@@ -61,10 +65,7 @@ function NavBar() {
                 aria-current={isActive("/project") ? "page" : undefined}
                 onClick={() => updateExpanded(false)}
               >
-                <AiOutlineFundProjectionScreen
-                  style={{ marginBottom: "2px" }}
-                />{" "}
-                {t('nav.projects')}
+                {t("nav.projects")}
               </Nav.Link>
             </Nav.Item>
 
@@ -76,7 +77,7 @@ function NavBar() {
                 aria-current={isActive("/achievements") ? "page" : undefined}
                 onClick={() => updateExpanded(false)}
               >
-                <AiOutlineTrophy style={{ marginBottom: "2px" }} /> {t('nav.achievements')}
+                {t("nav.achievements")}
               </Nav.Link>
             </Nav.Item>
 
@@ -88,7 +89,7 @@ function NavBar() {
                 aria-current={isActive("/blog") ? "page" : undefined}
                 onClick={() => updateExpanded(false)}
               >
-                <FaRegNewspaper style={{ marginBottom: "2px" }} /> {t('nav.blog')}
+                {t("nav.blog")}
               </Nav.Link>
             </Nav.Item>
 
@@ -100,11 +101,11 @@ function NavBar() {
                 aria-current={isActive("/resume") ? "page" : undefined}
                 onClick={() => updateExpanded(false)}
               >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> {t('nav.resume')}
+                {t("nav.resume")}
               </Nav.Link>
             </Nav.Item>
 
-            <Nav.Item style={{ marginLeft: "15px" }}>
+            <Nav.Item style={{ marginLeft: 12, display: "flex", alignItems: "center" }}>
               <LanguageSwitcher />
             </Nav.Item>
           </Nav>
