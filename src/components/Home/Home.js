@@ -8,7 +8,7 @@ import { SEOHead } from "../SEO/SEOHead";
 import FAQSchema from "../SEO/FAQSchema";
 
 function Home() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const isFr = i18n.language === "fr";
 
   const scrollToContact = (e) => {
