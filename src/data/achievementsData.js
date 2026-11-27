@@ -10,19 +10,19 @@ export const achievementsData = [
     shortTitle: "Gen AI Masterclass - Kigali",
     date: "November 23-24, 2026",
     location: "Kigali, Rwanda",
-    status: "By invitation",
+    status: "Facilitator",
     organization: "UNDP · UNIPOD University of Rwanda, CST · YouthConnekt Africa",
-    coverImage: `${BASE}/genai-kigali-02.jpg`,
-    cardImage: `${BASE}/genai-kigali-01.jpg`,
+    coverImage: `${BASE}/genai-kigali-01.jpg`,
+    cardImage: `${BASE}/genai-kigali-04.jpg`,
     description: {
       en: `The YouthConnekt Africa Summit 2026 was the eighth edition of the continental summit co-hosted by the Government of Rwanda and YouthConnekt Africa, with UNDP and the African Union as core partners. The main summit ran from the 25th to the 27th of November 2026 at the Kigali Convention Centre, under the theme "Shaping the Generational Mission", with more than five thousand delegates in person and twenty-five thousand online participants across the continent.
 
-As part of the pre-summit programme, UNDP hosted a two-day Generative AI Masterclass at UNIPOD, inside the University of Rwanda's College of Science and Technology, on the 23rd and 24th of November 2026. The workshop was by invitation only, and brought together innovators from the UNIPODs network, which includes the AI UniPod at the Ethiopian Artificial Intelligence Institute in Addis Ababa. I was invited as a member of Cohort 1 of the Pan-African AI Ventures Residency (METI x timbuktoo).
+As part of the pre-summit programme, UNDP hosted a two-day Generative AI Masterclass at UNIPOD, inside the University of Rwanda's College of Science and Technology, on the 23rd and 24th of November 2026. The workshop was by invitation only, and I was invited personally to join as a facilitator, working alongside the participants on practical use of generative AI.
 
 The two days were built around the use of generative AI for employment and economic opportunity in Africa, with hands-on sessions on tooling, agent design and deployment, and discussions with UNDP partners on how generative AI changes the labour market the continent is heading into. The programme fed directly into the UNDP-hosted "Future of Jobs" session on day one of the main summit, and into the broader conversation on dignified employment that ran throughout the week in Kigali.`,
       fr: `Le YouthConnekt Africa Summit 2026 etait la huitieme edition du sommet continental co-organise par le Gouvernement du Rwanda et YouthConnekt Africa, avec UNDP et l'Union Africaine comme partenaires principaux. Le sommet principal s'est tenu du 25 au 27 novembre 2026 au Kigali Convention Centre, sous le theme \"Shaping the Generational Mission\", avec plus de cinq mille delegues en presentiel et vingt-cinq mille participants en ligne a travers le continent.
 
-Dans le cadre du pre-summit, UNDP a organise une Masterclass en IA generative de deux jours au UNIPOD, a l'interieur du College of Science and Technology de l'Universite du Rwanda, les 23 et 24 novembre 2026. L'atelier etait sur invitation uniquement et reunissait des innovateurs du reseau UNIPODs, qui inclut l'AI UniPod de l'Ethiopian Artificial Intelligence Institute d'Addis-Abeba. J'y ai ete invite au titre de ma participation a la Cohort 1 du Pan-African AI Ventures Residency (METI x timbuktoo).
+Dans le cadre du pre-summit, UNDP a organise une Masterclass en IA generative de deux jours au UNIPOD, a l'interieur du College of Science and Technology de l'Universite du Rwanda, les 23 et 24 novembre 2026. L'atelier etait sur invitation uniquement, et j'ai ete invite personnellement pour y intervenir en tant que facilitateur, aux cotes des participants sur l'usage pratique de l'IA generative.
 
 Les deux journees etaient construites autour de l'IA generative appliquee a l'emploi et aux opportunites economiques en Afrique, avec des sessions pratiques sur l'outillage, la conception d'agents et le deploiement, et des discussions avec les partenaires UNDP sur la facon dont l'IA generative transforme le marche du travail vers lequel le continent se dirige. Le programme alimentait directement la session \"Future of Jobs\" organisee par UNDP au premier jour du sommet principal, ainsi que la conversation plus large sur l'emploi digne qui a traverse toute la semaine a Kigali.`
     },
@@ -32,6 +32,17 @@ Les deux journees etaient construites autour de l'IA generative appliquee a l'em
       `${BASE}/genai-kigali-02.jpg`,
       `${BASE}/genai-kigali-03.jpg`,
       `${BASE}/genai-kigali-04.jpg`,
+      `${BASE}/genai-kigali-05.jpg`,
+      `${BASE}/genai-kigali-06.jpg`,
+      `${BASE}/genai-kigali-07.jpg`,
+      `${BASE}/genai-kigali-08.jpg`,
+      `${BASE}/genai-kigali-09.jpg`,
+      `${BASE}/genai-kigali-10.jpg`,
+      `${BASE}/genai-kigali-11.jpg`,
+      `${BASE}/genai-kigali-12.jpg`,
+      `${BASE}/genai-kigali-13.jpg`,
+      `${BASE}/genai-kigali-14.jpg`,
+      `${BASE}/genai-kigali-15.jpg`,
     ],
 
     socialLinks: {
@@ -106,6 +117,10 @@ Le programme combine quatre volets en parallele : le cours Universal AI du MIT p
       `${BASE}/meti-timbuktoo-official-15.jpg`,
       `${BASE}/meti-timbuktoo-official-16.jpg`,
       `${BASE}/meti-timbuktoo-official-17.jpg`,
+      `${BASE}/meti-timbuktoo-official-18.jpg`,
+      `${BASE}/meti-timbuktoo-official-19.jpg`,
+      `${BASE}/meti-timbuktoo-official-20.jpg`,
+      `${BASE}/meti-timbuktoo-official-21.jpg`,
     ],
 
     socialLinks: {
