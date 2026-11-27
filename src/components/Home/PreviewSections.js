@@ -114,8 +114,8 @@ function PreviewSections({ only }) {
             </div>
 
             <Row>
-              {achievementsData.slice(0, 3).map((achievement) => (
-                <Col lg={4} md={6} className="project-card" key={achievement.id}>
+              {achievementsData.slice(0, 4).map((achievement) => (
+                <Col lg={3} md={6} className="project-card" key={achievement.id}>
                   <Link to={`/achievement/${achievement.id}`} style={{ textDecoration: "none" }}>
                     <AchievementCard
                       id={achievement.id}

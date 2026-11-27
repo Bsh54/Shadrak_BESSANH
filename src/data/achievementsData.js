@@ -2,6 +2,62 @@ const BASE = "/images/achievements";
 
 export const achievementsData = [
   {
+    id: "generative-ai-masterclass-kigali",
+    title: {
+      en: "Generative AI Masterclass, YouthConnekt Africa Summit 2026 (UNDP x UNIPOD)",
+      fr: "Masterclass en IA generative, YouthConnekt Africa Summit 2026 (UNDP x UNIPOD)"
+    },
+    shortTitle: "Gen AI Masterclass - Kigali",
+    date: "November 23-24, 2026",
+    location: "Kigali, Rwanda",
+    status: "By invitation",
+    organization: "UNDP · UNIPOD University of Rwanda, CST · YouthConnekt Africa",
+    coverImage: `${BASE}/genai-kigali-02.jpg`,
+    cardImage: `${BASE}/genai-kigali-01.jpg`,
+    description: {
+      en: `The YouthConnekt Africa Summit 2026 was the eighth edition of the continental summit co-hosted by the Government of Rwanda and YouthConnekt Africa, with UNDP and the African Union as core partners. The main summit ran from the 25th to the 27th of November 2026 at the Kigali Convention Centre, under the theme "Shaping the Generational Mission", with more than five thousand delegates in person and twenty-five thousand online participants across the continent.
+
+As part of the pre-summit programme, UNDP hosted a two-day Generative AI Masterclass at UNIPOD, inside the University of Rwanda's College of Science and Technology, on the 23rd and 24th of November 2026. The workshop was by invitation only, and brought together innovators from the UNIPODs network, which includes the AI UniPod at the Ethiopian Artificial Intelligence Institute in Addis Ababa. I was invited as a member of Cohort 1 of the Pan-African AI Ventures Residency (METI x timbuktoo).
+
+The two days were built around the use of generative AI for employment and economic opportunity in Africa, with hands-on sessions on tooling, agent design and deployment, and discussions with UNDP partners on how generative AI changes the labour market the continent is heading into. The programme fed directly into the UNDP-hosted "Future of Jobs" session on day one of the main summit, and into the broader conversation on dignified employment that ran throughout the week in Kigali.`,
+      fr: `Le YouthConnekt Africa Summit 2026 etait la huitieme edition du sommet continental co-organise par le Gouvernement du Rwanda et YouthConnekt Africa, avec UNDP et l'Union Africaine comme partenaires principaux. Le sommet principal s'est tenu du 25 au 27 novembre 2026 au Kigali Convention Centre, sous le theme \"Shaping the Generational Mission\", avec plus de cinq mille delegues en presentiel et vingt-cinq mille participants en ligne a travers le continent.
+
+Dans le cadre du pre-summit, UNDP a organise une Masterclass en IA generative de deux jours au UNIPOD, a l'interieur du College of Science and Technology de l'Universite du Rwanda, les 23 et 24 novembre 2026. L'atelier etait sur invitation uniquement et reunissait des innovateurs du reseau UNIPODs, qui inclut l'AI UniPod de l'Ethiopian Artificial Intelligence Institute d'Addis-Abeba. J'y ai ete invite au titre de ma participation a la Cohort 1 du Pan-African AI Ventures Residency (METI x timbuktoo).
+
+Les deux journees etaient construites autour de l'IA generative appliquee a l'emploi et aux opportunites economiques en Afrique, avec des sessions pratiques sur l'outillage, la conception d'agents et le deploiement, et des discussions avec les partenaires UNDP sur la facon dont l'IA generative transforme le marche du travail vers lequel le continent se dirige. Le programme alimentait directement la session \"Future of Jobs\" organisee par UNDP au premier jour du sommet principal, ainsi que la conversation plus large sur l'emploi digne qui a traverse toute la semaine a Kigali.`
+    },
+
+    galleryImages: [
+      `${BASE}/genai-kigali-01.jpg`,
+      `${BASE}/genai-kigali-02.jpg`,
+      `${BASE}/genai-kigali-03.jpg`,
+      `${BASE}/genai-kigali-04.jpg`,
+    ],
+
+    socialLinks: {
+      linkedin: "https://www.linkedin.com/in/bessanh-shadrak-744049287/"
+    },
+
+    sourceLinks: [
+      { label: "YouthConnekt Africa Summit 2026 (official site)", url: "https://summit.youthconnektafrica.org/" },
+      { label: "YouthConnekt Africa Summit 2026, Pre-Summit programme (PDF)", url: "https://summit.youthconnektafrica.org/wp-content/uploads/2026/11/YCA-Summit-2026-Programme-.docx.pdf" },
+      { label: "Kagame opens eighth YouthConnekt Africa Summit (The New Times)", url: "https://www.newtimes.co.rw/article/40727/news/rwanda/photos-kagame-opens-eighth-youthconnekt-africa-summit" }
+    ],
+
+    team: "Invited participant, via Cohort 1 of the METI x timbuktoo Pan-African AI Ventures Residency",
+
+    technologies: ["Generative AI", "LLM agents", "Workforce futures", "UNDP UNIPODs network"],
+
+    metrics: {
+      format: "Workshop, by invitation only",
+      venue: "UNIPOD, University of Rwanda, CST",
+      partner: "UNDP",
+      dates: "23-24 November 2026",
+      summitDelegates: "5,000+ in person, 25,000 virtual"
+    }
+  },
+
+  {
     id: "meti-timbuktoo-ai-ventures-residency",
     title: {
       en: "Pan-African AI Ventures Residency 2026 (METI x timbuktoo)",
