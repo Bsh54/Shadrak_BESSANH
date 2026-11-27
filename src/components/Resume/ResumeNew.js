@@ -1,68 +1,84 @@
-import React, { useState, useEffect } from "react";
-import { Container, Row } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Particle from "../Particle";
-import pdfEN from "../../Assets/CV Shadrak EN.pdf";
-import pdfFR from "../../Assets/CV Shadrak FR.pdf";
+import React from "react";
+import { Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { AiOutlineDownload } from "react-icons/ai";
-import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import { useTranslation } from "react-i18next";
 import { trackConversion } from "../../services/analyticsService";
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+import pdfEN from "../../Assets/CV Shadrak EN.pdf";
+import pdfFR from "../../Assets/CV Shadrak FR.pdf";
 
 function ResumeNew() {
-  const [width, setWidth] = useState(1200);
-  const { t, i18n } = useTranslation();
-
-  // Sélectionner le bon PDF selon la langue
-  const pdf = i18n.language === 'fr' ? pdfFR : pdfEN;
-
-  useEffect(() => {
-    setWidth(window.innerWidth);
-  }, []);
+  const { i18n } = useTranslation();
+  const isFr = i18n.language === "fr";
+  const pdf = isFr ? pdfFR : pdfEN;
+  const preview = isFr ? "/images/cv-preview-FR.png" : "/images/cv-preview-EN.png";
 
   const handleDownload = () => {
-    trackConversion("cv_download", i18n.language === 'fr' ? "CV_FR" : "CV_EN");
+    trackConversion("cv_download", isFr ? "CV_FR" : "CV_EN");
   };
 
   return (
-    <div>
-      <Container fluid className="resume-section">
-        <Particle />
-        <Row style={{ justifyContent: "center", position: "relative" }}>
-          <Button
-            variant="primary"
-            href={pdf}
-            target="_blank"
-            style={{ maxWidth: "250px" }}
-            onClick={handleDownload}
-          >
-            <AiOutlineDownload />
-            &nbsp;{t('resume.download')}
-          </Button>
-        </Row>
+    <>
+      <div style={{ paddingTop: 140, paddingBottom: 48, background: "var(--bg)" }}>
+        <Container fluid className="editorial-container" style={{ paddingLeft: 0, paddingRight: 0 }}>
+          <div style={{ marginBottom: 32 }}>
+            <Link to="/" className="achievement-back-link">
+              {isFr ? "← Retour a l'accueil" : "← Back to home"}
+            </Link>
+          </div>
 
-        <Row className="resume">
-          <Document file={pdf} className="d-flex justify-content-center">
-            <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
-          </Document>
-        </Row>
+          <div className="section-head" style={{ marginBottom: 40 }}>
+            <span className="section-eyebrow">
+              {isFr ? "Curriculum vitae" : "Curriculum vitae"}
+            </span>
+            <h1 className="section-title achievement-detail-title">
+              {isFr
+                ? "Le curriculum vitae complet."
+                : "The complete curriculum vitae."}
+            </h1>
+            <p className="section-lede">
+              {isFr
+                ? "Une page, mise a jour avec l'experience IDS, les distinctions 2026 et les credentials. Telechargement direct ci-dessous."
+                : "One page, up to date with the IDS experience, the 2026 recognition and the credentials. Direct download below."}
+            </p>
+          </div>
 
-        <Row style={{ justifyContent: "center", position: "relative" }}>
-          <Button
-            variant="primary"
-            href={pdf}
-            target="_blank"
-            style={{ maxWidth: "250px" }}
-            onClick={handleDownload}
-          >
-            <AiOutlineDownload />
-            &nbsp;{t('resume.download')}
-          </Button>
-        </Row>
-      </Container>
-    </div>
+          <div className="resume-full-actions-bar">
+            <a
+              href={pdf}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-editorial btn-editorial--primary"
+              onClick={handleDownload}
+            >
+              <AiOutlineDownload style={{ fontSize: 18 }} />
+              {isFr ? "Telecharger le PDF" : "Download PDF"}
+            </a>
+            <a
+              href={pdf}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-editorial btn-editorial--ghost"
+            >
+              {isFr ? "Ouvrir dans le navigateur" : "Open in browser"}
+              <span style={{ marginLeft: 6 }}>&rarr;</span>
+            </a>
+            <span className="resume-full-meta-inline">
+              PDF A4, 1 {isFr ? "page" : "page"}
+            </span>
+          </div>
+
+          <div className="resume-full-wrap">
+            <img
+              src={preview}
+              alt={isFr ? "Curriculum vitae de Shadrak Bessanh" : "Curriculum vitae of Shadrak Bessanh"}
+              className="resume-full-img"
+              loading="eager"
+            />
+          </div>
+        </Container>
+      </div>
+    </>
   );
 }
 

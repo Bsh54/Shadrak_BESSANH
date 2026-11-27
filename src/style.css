@@ -1069,6 +1069,88 @@ p {
 }
 
 /* ============================================
+   RESUME PREVIEW (home section 06)
+   Lede + CTAs first, then the CV preview big and centered.
+   ============================================ */
+.resume-preview-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+}
+
+.resume-preview-lede {
+  font-family: var(--font-body);
+  font-size: var(--fs-body-lg);
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 60ch;
+}
+
+.resume-preview-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.resume-preview-big {
+  display: block;
+  width: 100%;
+  margin-top: var(--space-4);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg);
+  border: 1px solid var(--surface-border);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 10px 30px rgba(0, 0, 0, 0.06);
+  transition: border-color var(--t-fast);
+}
+
+.resume-preview-big:hover {
+  border-color: var(--surface-border-strong);
+}
+
+.resume-preview-big-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ============================================
+   /resume (full CV page)
+   ============================================ */
+.resume-full-wrap {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg);
+  border: 1px solid var(--surface-border);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.resume-full-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.resume-full-actions-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.resume-full-meta-inline {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+/* ============================================
    CERTIFICATIONS LIST (home preview)
    ============================================ */
 .certifications-list {

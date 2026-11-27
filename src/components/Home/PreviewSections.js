@@ -7,7 +7,6 @@ import AchievementCard from "../Achievements/AchievementCard";
 import { achievementsData } from "../../data/achievementsData";
 import { certificationsData } from "../../data/certificationsData";
 import { blogPosts } from "../../data/blogData";
-import { Document, Page, pdfjs } from "react-pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 import { trackConversion } from "../../services/analyticsService";
 import pdfEN from "../../Assets/CV Shadrak EN.pdf";
@@ -15,9 +14,6 @@ import pdfFR from "../../Assets/CV Shadrak FR.pdf";
 import nawiri from "../../Assets/Projects/nawiri.png";
 import cottonpay from "../../Assets/Projects/cottonpay.png";
 import neurobridge from "../../Assets/Projects/neurobridge.png";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 function PreviewSections({ only }) {
   const { t, i18n } = useTranslation();
@@ -233,26 +229,23 @@ function PreviewSections({ only }) {
               <span className="section-eyebrow">{isFr ? "06 / Curriculum vitae" : "06 / Curriculum vitae"}</span>
               <h2 className="section-title">
                 {isFr
-                  ? "Le CV complet, en PDF."
-                  : "The full CV, as a PDF."}
+                  ? "Un curriculum vitae d'une page, tenu a jour."
+                  : "A one-page curriculum vitae, kept current."}
               </h2>
             </div>
 
-            <Row>
-              <Col md={6} style={{ display: "flex", justifyContent: "center", marginBottom: 32 }}>
-                <div className="resume-preview-wrapper">
-                  <Document file={pdf} className="d-flex justify-content-center">
-                    <Page pageNumber={1} scale={0.6} renderTextLayer={false} renderAnnotationLayer={false} />
-                  </Document>
-                </div>
-              </Col>
-              <Col md={6} style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: 16 }}>
+            <div className="resume-preview-stack">
+              <p className="resume-preview-lede">
+                {isFr
+                  ? "Une page, mise a jour, prete a envoyer. Formation, experience, distinctions et credentials en un coup d'oeil."
+                  : "One page, up to date, ready to send. Education, experience, recognition and credentials at a glance."}
+              </p>
+              <div className="resume-preview-ctas">
                 <a
                   href={pdf}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-editorial btn-editorial--primary"
-                  style={{ maxWidth: 240 }}
                   onClick={() =>
                     trackConversion("cv_download_homepage", isFr ? "CV_FR" : "CV_EN")
                   }
@@ -260,12 +253,26 @@ function PreviewSections({ only }) {
                   <AiOutlineDownload style={{ fontSize: 18 }} />
                   {isFr ? "Telecharger le CV" : "Download CV"}
                 </a>
-                <Link to="/resume" className="btn-editorial btn-editorial--ghost" style={{ maxWidth: 240 }}>
+                <Link to="/resume" className="btn-editorial btn-editorial--ghost">
                   {isFr ? "Voir en ligne" : "View online"}
                   <span style={{ marginLeft: 6 }}>→</span>
                 </Link>
-              </Col>
-            </Row>
+              </div>
+              <a
+                href={pdf}
+                target="_blank"
+                rel="noreferrer"
+                className="resume-preview-big"
+                aria-label={isFr ? "Ouvrir le CV en PDF" : "Open the CV as PDF"}
+              >
+                <img
+                  src={isFr ? "/images/cv-preview-FR.png" : "/images/cv-preview-EN.png"}
+                  alt={isFr ? "Apercu du CV" : "CV preview"}
+                  className="resume-preview-big-img"
+                  loading="lazy"
+                />
+              </a>
+            </div>
           </Container>
         </section>
       )}
