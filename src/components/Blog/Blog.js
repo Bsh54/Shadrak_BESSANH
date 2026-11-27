@@ -20,7 +20,7 @@ function Blog() {
         description="Articles by BESSANH Shadrak on building AI for real-world impact: NAWIRI (USAII Social Impact Award), CottonPay (ID4Africa), African language technology, digital identity and more."
         keywords="BESSANH Shadrak blog, AI for Africa, NAWIRI, CottonPay, digital identity, African languages AI, Fon language, AI social impact, developer Benin"
         url="https://shadrakbessanh.me/blog"
-        image="https://shadrakbessanh.me/og-image.jpg"
+        image="https://shadrakbessanh.me/og/og-home.png"
         pageType="Blog"
       />
       <div className="blog-section">

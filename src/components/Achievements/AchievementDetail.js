@@ -45,7 +45,7 @@ function AchievementDetail() {
       <AchievementSEO
         title={`${getLocalizedText(achievement.title)} - BESSANH Shadrak`}
         description={paragraphs[0] || ""}
-        image={achievement.coverImage}
+        image={`https://shadrakbessanh.me${achievement.ogImage || achievement.coverImage}`}
         url={`https://shadrakbessanh.me/achievement/${achievement.id}`}
         eventName={achievement.organization}
         eventDate={achievement.date}

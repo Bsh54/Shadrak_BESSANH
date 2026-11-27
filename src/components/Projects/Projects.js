@@ -63,7 +63,7 @@ function Projects() {
         title="Work / Shadrak Bessanh"
         description="NAWIRI, CottonPay, NeuroBridge, Fon-Dataset, and twelve more."
         url="https://shadrakbessanh.me/project"
-        image="https://shadrakbessanh.me/og-image.jpg"
+        image="https://shadrakbessanh.me/og/og-project.png"
         pageType="CollectionPage"
       />
 

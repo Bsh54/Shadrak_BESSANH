@@ -23,7 +23,7 @@ function Home() {
         title="Shadrak Bessanh"
         description="AI engineer based in Cotonou. Shipping products on digital identity, African languages, and public services. USAII Social Impact 2026, 2nd place ID4Africa 2026."
         keywords="Shadrak Bessanh, AI engineer, Benin, NAWIRI, CottonPay, Fon"
-        image="https://shadrakbessanh.me/og-image.jpg"
+        image="https://shadrakbessanh.me/og/og-home.png"
         url="https://shadrakbessanh.me/"
         pageType="AboutPage"
       />

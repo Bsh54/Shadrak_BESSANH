@@ -3,6 +3,7 @@ const BASE = "/images/achievements";
 export const achievementsData = [
   {
     id: "generative-ai-masterclass-kigali",
+    ogImage: "/og/og-achievement-kigali.png",
     title: {
       en: "Generative AI Masterclass, YouthConnekt Africa Summit 2026 (UNDP x UNIPOD)",
       fr: "Masterclass en IA generative, YouthConnekt Africa Summit 2026 (UNDP x UNIPOD)"
@@ -70,6 +71,7 @@ Les deux journees etaient construites autour de l'IA generative appliquee a l'em
 
   {
     id: "meti-timbuktoo-ai-ventures-residency",
+    ogImage: "/og/og-achievement-meti.png",
     title: {
       en: "Pan-African AI Ventures Residency 2026 (METI x timbuktoo)",
       fr: "Pan-African AI Ventures Residency 2026 (METI x timbuktoo)"
@@ -152,6 +154,7 @@ Le programme combine quatre volets en parallele : le cours Universal AI du MIT p
 
   {
     id: "nawiri-usaii-global-ai-hackathon",
+    ogImage: "/og/og-achievement-nawiri.png",
     title: {
       en: "USAII Global AI Hackathon 2026 - Social Impact Award",
       fr: "USAII Global AI Hackathon 2026 - Prix de l'Impact Social"
@@ -214,6 +217,7 @@ Chaque reponse se termine en rappelant a l'utilisateur de verifier la reponse fi
 
   {
     id: "cottonpay-id4africa",
+    ogImage: "/og/og-achievement-cottonpay.png",
     title: {
       en: "African Digital Identity Hackathon 2026 - Second Place",
       fr: "African Digital Identity Hackathon 2026 - Deuxieme place"
