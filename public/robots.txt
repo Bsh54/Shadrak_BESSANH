@@ -1,18 +1,31 @@
-# robots.txt — https://shadrakbessanh.me
+# robots.txt for shadrakbessanh.me
+# Portfolio of BESSANH Shadrak, AI Engineer and Full-Stack Developer from Benin
+# Updated: 2026-11-27
 
+# All crawlers welcome everywhere except admin and raw private PDFs are
+# served through the UI anyway, so no restriction is required beyond admin.
 User-agent: *
 Allow: /
 Disallow: /admin
-Disallow: /private
+Disallow: /admin/
 
-# Search engines
+# Explicit allow lists for the main crawlers (defensive).
 User-agent: Googlebot
+Allow: /
+Disallow: /admin
+
+User-agent: Googlebot-Image
 Allow: /
 
 User-agent: Bingbot
 Allow: /
+Disallow: /admin
 
-# ---- AI / Answer engines (allowed to read and cite this site) ----
+User-agent: DuckDuckBot
+Allow: /
+
+# AI crawlers that index for answer engines. Allow so the portfolio can be
+# cited by ChatGPT Search, Perplexity, Google AI Overviews, Claude, etc.
 User-agent: GPTBot
 Allow: /
 
@@ -22,19 +35,13 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: Perplexity-User
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
 Allow: /
 
 User-agent: Google-Extended
@@ -43,21 +50,12 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
-User-agent: Applebot-Extended
-Allow: /
-
 User-agent: CCBot
 Allow: /
 
-User-agent: cohere-ai
-Allow: /
-
-User-agent: Amazonbot
-Allow: /
-
-# Sitemaps
+# Sitemaps (master index + per-section)
+Sitemap: https://shadrakbessanh.me/sitemap-index.xml
 Sitemap: https://shadrakbessanh.me/sitemap.xml
-Sitemap: https://shadrakbessanh.me/sitemap-projects.xml
 Sitemap: https://shadrakbessanh.me/sitemap-achievements.xml
-
-# LLM-friendly summary: https://shadrakbessanh.me/llms.txt
+Sitemap: https://shadrakbessanh.me/sitemap-projects.xml
+Sitemap: https://shadrakbessanh.me/sitemap-blog.xml

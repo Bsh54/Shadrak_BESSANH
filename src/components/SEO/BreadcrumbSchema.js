@@ -2,51 +2,34 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { useLocation } from "react-router-dom";
 
+const BASE_URL = "https://shadrakbessanh.me";
+
 export const BreadcrumbSchema = () => {
   const location = useLocation();
 
   const getBreadcrumbs = () => {
     const path = location.pathname;
-    const breadcrumbs = [
-      {
-        position: 1,
-        name: "Home",
-        item: "https://shadrakbessanh.me/"
-      }
+    const crumbs = [
+      { position: 1, name: "Home", item: `${BASE_URL}/` }
     ];
 
     if (path === "/project") {
-      breadcrumbs.push({
-        position: 2,
-        name: "Projects",
-        item: "https://shadrakbessanh.me/project"
-      });
+      crumbs.push({ position: 2, name: "Projects", item: `${BASE_URL}/project` });
     } else if (path === "/achievements") {
-      breadcrumbs.push({
-        position: 2,
-        name: "Achievements",
-        item: "https://shadrakbessanh.me/achievements"
-      });
+      crumbs.push({ position: 2, name: "Achievements", item: `${BASE_URL}/achievements` });
     } else if (path.startsWith("/achievement/")) {
-      breadcrumbs.push({
-        position: 2,
-        name: "Achievements",
-        item: "https://shadrakbessanh.me/achievements"
-      });
-      breadcrumbs.push({
-        position: 3,
-        name: "Achievement Detail",
-        item: `https://shadrakbessanh.me${path}`
-      });
+      crumbs.push({ position: 2, name: "Achievements", item: `${BASE_URL}/achievements` });
+      crumbs.push({ position: 3, name: "Achievement Detail", item: `${BASE_URL}${path}` });
     } else if (path === "/resume") {
-      breadcrumbs.push({
-        position: 2,
-        name: "Resume",
-        item: "https://shadrakbessanh.me/resume"
-      });
+      crumbs.push({ position: 2, name: "Resume", item: `${BASE_URL}/resume` });
+    } else if (path === "/blog") {
+      crumbs.push({ position: 2, name: "Blog", item: `${BASE_URL}/blog` });
+    } else if (path.startsWith("/blog/")) {
+      crumbs.push({ position: 2, name: "Blog", item: `${BASE_URL}/blog` });
+      crumbs.push({ position: 3, name: "Blog Post", item: `${BASE_URL}${path}` });
     }
 
-    return breadcrumbs;
+    return crumbs;
   };
 
   const breadcrumbSchema = {

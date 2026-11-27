@@ -2,16 +2,16 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 export const SEOHead = ({
-  title = "BESSANH Shadrak - Full-Stack & AI Developer | USAII & ID4Africa Hackathon Winner 2026",
-  description = "BESSANH Shadrak - Full-Stack & AI Developer from Benin. Winner of the USAII Global AI Hackathon 2026 (Social Impact Award) and 2nd place at ID4Africa 2026. Building AI for real-world impact: digital identity, healthcare, fintech, Web3 & African languages.",
-  keywords = "BESSANH Shadrak, Shadrak BESSANH, software developer Benin, AI developer Africa, AI engineer, machine learning engineer, full-stack developer, React, Next.js, Python, TypeScript, digital identity, CottonPay, ID4Africa 2026, USAII Global AI Hackathon 2026, Social Impact Award, NAWIRI, NeuroBridge, hackathon winner, AI for good, healthcare AI, fintech Africa, Web3, blockchain, RAG, LLM, NLP, Fon language, African languages AI, IFRI UAC",
+  title = "BESSANH Shadrak - AI Engineer and Full-Stack Developer | METI x timbuktoo Cohort 1, USAII Social Impact Award, ID4Africa 2nd Place 2026",
+  description = "BESSANH Shadrak, AI engineer and full-stack developer from Cotonou, Benin. Cohort 1 of the Pan-African AI Ventures Residency (METI x timbuktoo, UNDP), Social Impact Award at the USAII Global AI Hackathon 2026 for NAWIRI, 2nd place at the African Digital Identity Hackathon 2026 for CottonPay, Facilitator at the UNDP Generative AI Masterclass (YouthConnekt Africa Summit, Kigali). Three-month internship at Intuitive Data Solutions (Hyderabad). Credentials from MIT Open Learning (15 Universal AI modules) and Wadhwani Foundation.",
+  keywords = "BESSANH Shadrak, Shadrak BESSANH, AI engineer Benin, full-stack developer Africa, METI x timbuktoo, Pan-African AI Ventures Residency, UNDP timbuktoo, Ethiopian AI Institute, UNIPOD, YouthConnekt Africa Summit Kigali, Generative AI Masterclass, USAII Global AI Hackathon, Social Impact Award, NAWIRI, CottonPay, ID4Africa, Intuitive Data Solutions, IDS Hyderabad, e-IDStack, MIT Open Learning, Universal AI, Wadhwani Foundation, Ife, NeuroBridge, Fon-Dataset, EVOLUTICS, VoxiAI, Oreus, Zenith AI, CV-AI, MINERVA, Neuro-Synthetix, AegisFlow, PayVault, Sesion, Horus, Gatekeep, Phytovance, Web3, Solana, Monad, Flare, iExec, Nimiq, RAG, LLM, NLP, Fon, Fongbe, African languages, eSignet, MOSIP, BCovrin, verifiable credentials, IFRI UAC, Cotonou Benin",
   image = "https://shadrakbessanh.me/og-image.jpg",
   url = "https://shadrakbessanh.me",
   type = "website",
   author = "BESSANH Shadrak",
   twitterHandle = "@shadrakbessanh",
   pageType = "WebPage",
-  dateModified = "2026-07-30",
+  dateModified = "2026-11-27",
 }) => {
   const personRef = { "@id": "https://shadrakbessanh.me/#person" };
   const websiteRef = { "@id": "https://shadrakbessanh.me/#website" };
@@ -43,32 +43,38 @@ export const SEOHead = ({
     "url": "https://shadrakbessanh.me",
     "image": image,
     "description": description,
-    "jobTitle": "Full-Stack & AI Developer",
+    "jobTitle": "AI Engineer and Full-Stack Developer",
     "nationality": { "@type": "Country", "name": "Benin" },
     "award": [
-      "Social Impact Award - USAII Global AI Hackathon 2026 (project NAWIRI)",
-      "2nd Place - African Digital Identity Hackathon 2026 (ID4Africa, project CottonPay)",
+      "Social Impact Award, USAII Global AI Hackathon 2026 (project NAWIRI)",
+      "Second Place, Africa Digital ID Hackathon 2026 (ID4Africa, project CottonPay)",
+      "Cohort 1, Pan-African AI Ventures Residency 2026 (METI x timbuktoo, UNDP)",
+      "Facilitator, Generative AI Masterclass UNDP x UNIPOD, YouthConnekt Africa Summit 2026 (Kigali)",
     ],
     "alumniOf": {
       "@type": "EducationalOrganization",
       "name": "Institut de Formation et de Recherche en Informatique (IFRI)",
       "parentOrganization": {
         "@type": "CollegeOrUniversity",
-        "name": "Université d'Abomey-Calavi",
+        "name": "Universite d'Abomey-Calavi",
       },
+    },
+    "memberOf": {
+      "@type": "Organization",
+      "name": "Pan-African AI Ventures Residency, Cohort 1 (METI x timbuktoo, UNDP)",
     },
     "sameAs": [
       "https://www.linkedin.com/in/bessanh-shadrak-744049287/",
       "https://github.com/Bsh54",
-      "https://twitter.com/shadrakbessanh",
-      "https://medium.com/@shadrakbessanh",
     ],
     "knowsAbout": [
-      "JavaScript", "TypeScript", "Python", "React", "Next.js",
-      "Node.js", "MERN Stack", "Machine Learning", "Deep Learning",
-      "Generative AI", "Large Language Models", "RAG", "NLP", "Computer Vision",
-      "Digital Identity", "Fintech", "Web3", "Blockchain", "Healthcare AI",
-      "AI for Social Impact", "African Language Technology", "FastAPI", "Firebase",
+      "Artificial Intelligence", "Generative AI", "Large Language Models", "LLM Agents",
+      "Retrieval-Augmented Generation", "Natural Language Processing", "Computer Vision",
+      "Python", "JavaScript", "TypeScript", "React", "Next.js", "Node.js", "FastAPI",
+      "Google Gemini", "Whisper", "YOLOv8", "DeepSeek", "PyTorch", "Transformers",
+      "Digital Identity", "eSignet", "MOSIP", "BCovrin", "Verifiable Credentials", "e-IDStack",
+      "Web3", "Solana", "Monad", "Flare", "iExec", "Nimiq",
+      "Fon language", "African languages AI", "AI for Social Impact",
     ],
   };
 
@@ -107,7 +113,7 @@ export const SEOHead = ({
       <meta name="twitter:site" content={twitterHandle} />
 
       {/* PWA / Mobile */}
-      <meta name="theme-color" content="#2563EB" />
+      <meta name="theme-color" content="#4F46E5" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-title" content="BESSANH Shadrak" />
 

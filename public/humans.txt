@@ -1,0 +1,47 @@
+/* TEAM */
+
+  Name: BESSANH Shadrak
+  Role: AI Engineer and Full-Stack Developer
+  Location: Cotonou, Benin
+  Site: https://shadrakbessanh.me
+  LinkedIn: https://www.linkedin.com/in/bessanh-shadrak-744049287/
+  GitHub: https://github.com/Bsh54
+
+
+/* RECOGNITION (2026) */
+
+  Pan-African AI Ventures Residency, Cohort 1 (METI x timbuktoo, UNDP), Addis Ababa, November 9-20, 2026
+  Social Impact Award, USAII Global AI Hackathon 2026, for NAWIRI
+  Second Place, Africa Digital ID Hackathon 2026 (ID4Africa), Abidjan, for CottonPay
+  Facilitator, Generative AI Masterclass (UNDP x UNIPOD), YouthConnekt Africa Summit 2026, Kigali, November 23-24, 2026
+
+
+/* SELECTED PROJECTS */
+
+  NAWIRI - Multilingual aid assistant, Fon/Wolof/Twi/French/English
+  CottonPay - Digital identity and payment for 200,000+ Beninese cotton producers
+  Ife - AI platform for under-represented African languages
+  NeuroBridge - Communication aid for non-verbal autistic users
+  Fon-Dataset-Generator - Parallel French-Fon corpus for LLM training
+  EVOLUTICS, VoxiAI, Oreus, Zenith AI, CV-AI, MINERVA, Neuro-Synthetix
+  Web3 hackathon projects: AegisFlow (Flare), PayVault (iExec), Sesion (Nimiq), Horus (Solana), Gatekeep (Monad), Phytovance
+
+
+/* CREDENTIALS */
+
+  MIT Open Learning, Universal AI programme (15 modules), 2026
+  Wadhwani Foundation, Entrepreneurship Fundamentals, 2026
+  Intuitive Data Solutions (IDS) Hyderabad, Software Developer Internship, July to September 2026
+
+
+/* THANKS */
+
+  To the mentors, co-founders and teammates: Beatrice Segniagbeto (Ife), Frankel Gnonlonfin (NAWIRI), the IFRI team (CottonPay), UNDP timbuktoo and METI UniPods, YouthConnekt Africa, Upanzi Network / CMU Africa, MicroSave Consulting, Intuitive Data Solutions, MIT Open Learning, Wadhwani Foundation.
+
+
+/* SITE */
+
+  Stack: React, Create React App, Firebase, i18next (EN/FR), react-pdf
+  Design system: Quiet Authority (ivory + indigo), Inter and JetBrains Mono
+  Hosted: Vercel
+  Repository: https://github.com/Bsh54/Shadrak_BESSANH
