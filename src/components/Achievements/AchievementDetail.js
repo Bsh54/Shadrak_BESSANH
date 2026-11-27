@@ -9,7 +9,7 @@ import "./AchievementDetail.css";
 
 function AchievementDetail() {
   const { id } = useParams();
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const isFr = i18n.language === "fr";
   const [lightbox, setLightbox] = useState(null);
   const [showAll, setShowAll] = useState(false);
