@@ -46,13 +46,6 @@ function PreviewSections({ only }) {
     },
   ];
 
-  const fmtDate = (d) =>
-    new Date(d).toLocaleDateString(isFr ? "fr-FR" : "en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
-
   return (
     <>
       {/* ---- PROJECTS PREVIEW ---- */}
