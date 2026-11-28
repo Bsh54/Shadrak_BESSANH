@@ -23,8 +23,6 @@ const Projects = lazy(() => import("./components/Projects/Projects"));
 const Achievements = lazy(() => import("./components/Achievements/Achievements"));
 const AchievementDetail = lazy(() => import("./components/Achievements/AchievementDetail"));
 const Resume = lazy(() => import("./components/Resume/ResumeNew"));
-const Blog = lazy(() => import("./components/Blog/Blog"));
-const BlogPost = lazy(() => import("./components/Blog/BlogPost"));
 const AdminDashboard = lazy(() => import("./components/Admin/AdminDashboard"));
 
 function PageLoader() {
@@ -88,8 +86,6 @@ function AppContent() {
             <Route path="/achievements" element={<Achievements />} />
             <Route path="/achievement/:id" element={<AchievementDetail />} />
             <Route path="/resume" element={<Resume />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route
               path="/admin"
               element={

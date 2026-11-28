@@ -83,10 +83,9 @@ function NavBar() {
 
             <Nav.Item>
               <Nav.Link
-                as={Link}
-                to="/blog"
-                active={isActive("/blog")}
-                aria-current={isActive("/blog") ? "page" : undefined}
+                href="https://blog.shadrakbessanh.me"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => updateExpanded(false)}
               >
                 {t("nav.blog")}

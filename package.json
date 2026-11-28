@@ -54,16 +54,10 @@
       "/project",
       "/achievements",
       "/resume",
-      "/blog",
       "/achievement/generative-ai-masterclass-kigali",
       "/achievement/meti-timbuktoo-ai-ventures-residency",
       "/achievement/nawiri-usaii-global-ai-hackathon",
-      "/achievement/cottonpay-id4africa",
-      "/blog/building-nawiri-usaii-social-impact-award",
-      "/blog/cottonpay-digital-identity-id4africa",
-      "/blog/building-ai-for-real-world-impact-in-africa",
-      "/blog/preserving-the-fon-language-with-ai",
-      "/blog/who-is-bessanh-shadrak"
+      "/achievement/cottonpay-id4africa"
     ]
   },
   "eslintConfig": {

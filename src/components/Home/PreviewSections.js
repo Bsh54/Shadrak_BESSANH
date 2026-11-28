@@ -6,7 +6,6 @@ import ProjectCard from "../Projects/ProjectCards";
 import AchievementCard from "../Achievements/AchievementCard";
 import { achievementsData } from "../../data/achievementsData";
 import { certificationsData } from "../../data/certificationsData";
-import { blogPosts } from "../../data/blogData";
 import { AiOutlineDownload } from "react-icons/ai";
 import { trackConversion } from "../../services/analyticsService";
 import pdfEN from "../../Assets/CV Shadrak EN.pdf";
@@ -178,7 +177,7 @@ function PreviewSections({ only }) {
         </section>
       )}
 
-      {/* ---- BLOG PREVIEW ---- */}
+      {/* ---- BLOG CTA ---- */}
       {show("blog") && (
         <section className="preview-section preview-section--gray">
           <Container fluid className="editorial-container" style={{ paddingLeft: 0, paddingRight: 0 }}>
@@ -189,33 +188,23 @@ function PreviewSections({ only }) {
                   ? "Notes ecrites en construisant."
                   : "Notes written while building."}
               </h2>
+              <p className="section-lede" style={{ maxWidth: "62ch" }}>
+                {isFr
+                  ? "Un blog quotidien curé des articles AI d'arXiv, résumés en français, plus mes propres notes sur les projets et les leçons de terrain."
+                  : "A daily blog curating AI papers from arXiv, summarized in French, alongside my own notes on projects and lessons from the field."}
+              </p>
             </div>
 
-            <Row>
-              {blogPosts.slice(0, 3).map((post) => (
-                <Col lg={4} md={6} className="project-card" key={post.slug}>
-                  <Link to={`/blog/${post.slug}`} className="home-article-card">
-                    <div className="home-article-img">
-                      <img src={post.cover} alt={post.title} loading="lazy" />
-                    </div>
-                    <div className="home-article-body">
-                      <div className="home-article-meta">
-                        {fmtDate(post.date)} / {post.readingTime}
-                      </div>
-                      <h3 className="home-article-title">{post.title}</h3>
-                      <p className="home-article-excerpt">{post.excerpt}</p>
-                      <span className="home-article-more">{isFr ? "Lire" : "Read"} →</span>
-                    </div>
-                  </Link>
-                </Col>
-              ))}
-            </Row>
-
-            <div style={{ marginTop: 8, display: "flex", justifyContent: "center" }}>
-              <Link to="/blog" className="btn-editorial btn-editorial--ghost btn-editorial--seeall">
-                {isFr ? "Lire le blog" : "Read the blog"}
+            <div style={{ marginTop: 32, display: "flex", justifyContent: "center" }}>
+              <a
+                href="https://blog.shadrakbessanh.me"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-editorial btn-editorial--seeall"
+              >
+                {isFr ? "Visiter le blog" : "Visit the blog"}
                 <span style={{ marginLeft: 8 }}>→</span>
-              </Link>
+              </a>
             </div>
           </Container>
         </section>
